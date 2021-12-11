@@ -5,6 +5,7 @@ namespace STAIExtensions.Core.Tests;
 
 public class AIQueryAPITests
 {
+    
     [Theory]
     [InlineData(null)]
     [InlineData("")]
@@ -13,4 +14,6 @@ public class AIQueryAPITests
     {
         Assert.Throws<ArgumentNullException>(() => new Core.AIQueryAPI(appId));
     }
+    
+    
 }

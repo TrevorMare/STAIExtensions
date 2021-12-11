@@ -2,7 +2,7 @@
 {
     public interface IAIQueryAPI
     {
-    
+        Task<Abstractions.WebApi.WebApiResponse> ExecuteQueryAsync(string query);
     }    
     
 }
