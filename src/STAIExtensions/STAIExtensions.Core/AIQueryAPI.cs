@@ -37,6 +37,9 @@ namespace STAIExtensions.Core
         {
             try
             {
+                if (string.IsNullOrEmpty(query) || query.Trim() == "")
+                    throw new ArgumentNullException(nameof(query));
+                
                 using (var httpClient = new HttpClient())
                 {
                     httpClient.DefaultRequestHeaders.Add("Content-Type", "application/json; charset=utf-8,");
