@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Net.Http.Json;
+using System.Runtime.CompilerServices;
 using STAIExtensions.Abstractions.WebApi;
+[assembly:InternalsVisibleTo("STAIExtensions.Core.Tests")]
 
 namespace STAIExtensions.Core
 {
-    public class AIQueryAPI : Abstractions.Interfaces.IAIQueryAPI
+    internal class AIQueryApi : Abstractions.Interfaces.IAIQueryApi
     {
 
         #region Members
@@ -18,7 +20,7 @@ namespace STAIExtensions.Core
         
         #region ctor
 
-        public AIQueryAPI(string appId)
+        public AIQueryApi(string appId)
         {
             if (string.IsNullOrEmpty(appId) || appId.Trim() == "")
                 throw new ArgumentNullException(nameof(appId));
