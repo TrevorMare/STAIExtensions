@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions", "STAIExtensions\STAIExtensions.csproj", "{BE39E5A4-BC6E-4517-9E7A-EF91260AE6EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions.Core", "STAIExtensions.Core\STAIExtensions.Core.csproj", "{0CFC2C0D-7A28-4BCE-80A1-55FB7E445B7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions.Abstractions", "STAIExtensions.Abstractions\STAIExtensions.Abstractions.csproj", "{F5E30548-B6BF-42B2-B46D-C4D0CE120161}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{BE39E5A4-BC6E-4517-9E7A-EF91260AE6EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE39E5A4-BC6E-4517-9E7A-EF91260AE6EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE39E5A4-BC6E-4517-9E7A-EF91260AE6EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CFC2C0D-7A28-4BCE-80A1-55FB7E445B7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CFC2C0D-7A28-4BCE-80A1-55FB7E445B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CFC2C0D-7A28-4BCE-80A1-55FB7E445B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CFC2C0D-7A28-4BCE-80A1-55FB7E445B7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5E30548-B6BF-42B2-B46D-C4D0CE120161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5E30548-B6BF-42B2-B46D-C4D0CE120161}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5E30548-B6BF-42B2-B46D-C4D0CE120161}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5E30548-B6BF-42B2-B46D-C4D0CE120161}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
