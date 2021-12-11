@@ -2,36 +2,40 @@
 
 namespace STAIExtensions.Abstractions.Common;
 
+[Flags]
 public enum AzureApiDataContractSource
 {
     [Display(Name = "availabilityResults")]
-    Availability = 0,
+    Availability = 0x0,
     
     [Display(Name = "browserTimings")]
-    BrowserTiming = 1,
+    BrowserTiming = 0x1,
     
     [Display(Name = "customEvents")]
-    CustomEvent = 2,
+    CustomEvent = 0x2,
     
     [Display(Name = "customMetrics")]
-    CustomMetric = 3,
+    CustomMetric = 0x4,
     
     [Display(Name = "dependencies")]
-    Dependency = 4,
+    Dependency = 0x8,
     
     [Display(Name = "exceptions")]
-    Exception = 5,
+    Exception = 0x16,
     
     [Display(Name = "pageViews")]
-    PageViews = 6,
+    PageViews = 0x32,
     
     [Display(Name = "performanceCounters")]
-    PerformanceCounter = 7,
+    PerformanceCounter = 0x64,
     
     [Display(Name = "requests")]
-    Request = 8,
+    Request = 0x128,
     
     [Display(Name = "traces")]
-    Trace = 9,
+    Trace = 0x256,
+    
+    [Display(Name = "all")]
+    All = 0x512,
 
 }
