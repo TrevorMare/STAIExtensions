@@ -33,7 +33,7 @@ public class TableRowDeserializerTests
     public void GetPropertyInfoByColumnName_WhenColumnNamePresent_ShouldReturnProperty(string columnName)
     {
         var sut = new Core.Serialization.TableRowDeserializer();
-        var properties = typeof(Fixtures.TestSerializationClass).GetProperties();
+        var properties = typeof(Fixtures.TestSerializationClass).GetProperties().ToList();
 
         var actual = sut.GetPropertyInfoByColumnName(properties, columnName);
         Assert.NotNull(actual);
@@ -46,7 +46,7 @@ public class TableRowDeserializerTests
     public void GetPropertyInfoByColumnName_WhenColumnAttributePresent_ShouldReturnProperty(string columnName)
     {
         var sut = new Core.Serialization.TableRowDeserializer();
-        var properties = typeof(Fixtures.TestSerializationClass).GetProperties();
+        var properties = typeof(Fixtures.TestSerializationClass).GetProperties().ToList();
 
         var actual = sut.GetPropertyInfoByColumnName(properties, columnName);
         Assert.NotNull(actual);
@@ -56,7 +56,7 @@ public class TableRowDeserializerTests
     public void GetPropertyInfoByColumnName_WhenColumnNamePresentAndCannotWrite_ShouldReturnNull()
     {
         var sut = new Core.Serialization.TableRowDeserializer();
-        var properties = typeof(Fixtures.TestSerializationClass).GetProperties();
+        var properties = typeof(Fixtures.TestSerializationClass).GetProperties().ToList();
 
         var actual = sut.GetPropertyInfoByColumnName(properties, "GetOnlyColumnName");
         Assert.Null(actual);

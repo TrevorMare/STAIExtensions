@@ -18,19 +18,19 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
             return null;
 
         var tableRows = DeserializeTableRowsFromJson(table.Rows);
-        if (tableRows == null || tableRows?.Count() == 0)
+        if (tableRows == null || tableRows.Any() == false)
             return null;
 
-        return ExtractRowsFromTableRows<T>(tableRows, tableColumnMapping);
+        return ExtractRowsFromTableRows<T>(tableRows, tableColumnMapping.ToList());
     }
 
-    internal IEnumerable<IEnumerable<object>>? DeserializeTableRowsFromJson(string rawJsonRows)
+    internal List<IEnumerable<object>>? DeserializeTableRowsFromJson(string rawJsonRows)
     {
         var result = System.Text.Json.JsonSerializer.Deserialize<IEnumerable<IEnumerable<object>>>(rawJsonRows);
-        return result;
+        return result?.ToList();
     }
 
-    internal IEnumerable<T> ExtractRowsFromTableRows<T>(IEnumerable<IEnumerable<object>> rows, IEnumerable<TableColumnPropertyMap> columnIndices)
+    internal IEnumerable<T> ExtractRowsFromTableRows<T>(IEnumerable<IEnumerable<object>> rows, List<TableColumnPropertyMap> columnIndices)
     {
         var result = new List<T>();
 
@@ -59,14 +59,14 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
 
     internal IEnumerable<TableColumnPropertyMap>? BuildColumnPropertyMapping<T>(Abstractions.ApiClient.Models.ApiClientQueryResultTable table)
     {
-        if (table?.Columns?.Count() == 0)
+        if (table.Columns?.Count() == 0)
             return null;
         
-        var columnIndices = table?.Columns?.Select((item, index) => new { Index = index, Column = item }).ToList();
+        var columnIndices = table.Columns?.Select((item, index) => new { Index = index, Column = item }).ToList();
         if (columnIndices == null || columnIndices.Any() == false)
             return null;
         
-        var typeProperties = typeof(T).GetProperties(BindingFlags.Instance);
+        var typeProperties = typeof(T).GetProperties(BindingFlags.Instance).ToList();
         var result = new List<TableColumnPropertyMap>();
         columnIndices.ForEach(item =>
         {
@@ -80,7 +80,7 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
         return result;
     }
 
-    internal PropertyInfo? GetPropertyInfoByColumnName(IEnumerable<PropertyInfo>? properties, string columnName)
+    internal PropertyInfo? GetPropertyInfoByColumnName(List<PropertyInfo>? properties, string columnName)
     {
         if (properties == null)
             return null;
