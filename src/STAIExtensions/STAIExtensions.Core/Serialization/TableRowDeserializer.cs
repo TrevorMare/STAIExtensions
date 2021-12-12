@@ -1,10 +1,12 @@
-﻿using System.Reflection;
+﻿using System.ComponentModel;
+using System.Reflection;
 
 namespace STAIExtensions.Core.Serialization;
 
 public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserializer
 {
 
+    #region Public Methods
     public IEnumerable<T>? DeserializeTableRows<T>(Abstractions.ApiClient.Models.ApiClientQueryResultTable table)
     {
         if (table == null)
@@ -45,13 +47,38 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
     internal T ExtractRowFromTableRow<T>(List<object> row, List<TableColumnPropertyMap> columnIndices)
     {
         T instance = Activator.CreateInstance<T>();
+        
         foreach (var columnIndexObject in columnIndices)
         {
+            // TODO: Implement robust logic to deserialize the row data
+            
             if (row.Count() - 1 > columnIndexObject.Index && columnIndexObject.Property != null)
             {
                 var rowValue = row[columnIndexObject.Index];
 
-                columnIndexObject.Property.SetValue(instance, rowValue);
+                if (rowValue != null)
+                {
+                    var propertyType = columnIndexObject.Property.PropertyType;
+                
+                    try
+                    {
+                        var converter = TypeDescriptor.GetConverter(propertyType);
+                        if (converter != null)
+                        {
+                            // Cast ConvertFromString(string text) : object to (T)
+                            columnIndexObject.Property.SetValue(instance, converter.ConvertFromString(rowValue?.ToString()));
+                        }
+                        else
+                        {
+                            columnIndexObject.Property.SetValue(instance, rowValue);  
+                        }
+                    }
+                    catch (NotSupportedException)
+                    {
+                        columnIndexObject.Property.SetValue(instance, rowValue);
+                    }
+                    
+                }
             }
         }
         return instance;
@@ -66,7 +93,7 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
         if (columnIndices == null || columnIndices.Any() == false)
             return null;
         
-        var typeProperties = typeof(T).GetProperties(BindingFlags.Instance).ToList();
+        var typeProperties = typeof(T).GetProperties().ToList();
         var result = new List<TableColumnPropertyMap>();
         columnIndices.ForEach(item =>
         {
@@ -104,5 +131,8 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
         
         return result;
     }
+  
+    #endregion
+   
 
 }
