@@ -24,4 +24,10 @@
       <ProjectReference Include="..\STAIExtensions.Core\STAIExtensions.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="Fixtures\datacontract_full_response.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

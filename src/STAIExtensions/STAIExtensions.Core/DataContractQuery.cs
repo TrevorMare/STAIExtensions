@@ -6,31 +6,19 @@ public class DataContractQuery : Abstractions.Interfaces.IDataContractQuery
 {
 
     #region Members
-    private readonly Abstractions.Interfaces.IAIQueryApi _aiQueryApi;
+    private readonly Abstractions.ApiClient.IAIQueryApiClient _aiQueryApiClient;
     #endregion
 
     #region ctor
-    public DataContractQuery(Abstractions.Interfaces.IAIQueryApi aiQueryApi)
+    public DataContractQuery(Abstractions.ApiClient.IAIQueryApiClient aiQueryApiClient)
     {
-        this._aiQueryApi = aiQueryApi ?? throw new ArgumentNullException(nameof(aiQueryApi));
+        this._aiQueryApiClient = aiQueryApiClient ?? throw new ArgumentNullException(nameof(aiQueryApiClient));
     }
     #endregion
 
     #region Methods
 
-    public async Task<IEnumerable<Abstractions.DataContracts.Availability>?> GetAvailabilityAsync()
-    {
-        var tableResultSet = Abstractions.Common.AzureApiDataContractSource.Availability.DisplayName();
-        var query = $"{tableResultSet} | where timestamp > ago(1m) | as {tableResultSet}";
-
-        var response = await this._aiQueryApi.ExecuteQueryAsync(query);
-        if (response.Success)
-        {
-            
-        }
-
-        return null;
-    }
+    
     
 
     #endregion
