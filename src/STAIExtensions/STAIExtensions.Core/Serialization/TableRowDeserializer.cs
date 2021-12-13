@@ -1,29 +1,62 @@
 ﻿using System.ComponentModel;
 using System.Reflection;
+using System.Text.Json;
+using Microsoft.Extensions.Logging;
 
 namespace STAIExtensions.Core.Serialization;
 
 public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserializer
 {
 
+    #region Members
+
+    private readonly ILogger<TableRowDeserializer> _logger;
+
+    #endregion
+
+    #region ctor
+
+    public TableRowDeserializer(ILogger<TableRowDeserializer> logger = default)
+    {
+        this._logger = logger;
+    }
+    #endregion
+
     #region Public Methods
     public IEnumerable<T>? DeserializeTableRows<T>(Abstractions.ApiClient.Models.ApiClientQueryResultTable table)
     {
-        if (table == null)
-            throw new ArgumentNullException(nameof(table));
+        try
+        {
+            if (table == null)
+                throw new ArgumentNullException(nameof(table));
 
-        if (string.IsNullOrEmpty(table.Rows))
-            return null;
+            if (string.IsNullOrEmpty(table.Rows))
+            {
+                this._logger?.LogTrace($"No rows found in table {table.TableName}");
+                return null;
+            }
 
-        var tableColumnMapping = BuildColumnPropertyMapping<T>(table);
-        if (tableColumnMapping == null)
-            return null;
+            var tableColumnMapping = BuildColumnPropertyMapping<T>(table);
+            if (tableColumnMapping == null)
+            {
+                this._logger?.LogTrace($"No table mapping built for table {table.TableName}");
+                return null;
+            }
 
-        var tableRows = DeserializeTableRowsFromJson(table.Rows);
-        if (tableRows == null || tableRows.Any() == false)
-            return null;
+            var tableRows = DeserializeTableRowsFromJson(table.Rows);
+            if (tableRows == null || tableRows.Any() == false)
+            {
+                this._logger?.LogWarning($"Could not deserialize rows for table {table.TableName}");
+                return null;
+            }
 
-        return ExtractRowsFromTableRows<T>(tableRows, tableColumnMapping.ToList());
+            return ExtractRowsFromTableRows<T>(tableRows, tableColumnMapping.ToList());
+        }
+        catch (Exception ex)
+        {
+            this._logger?.LogError($"An Error Occured: {ex}");
+            throw;
+        }
     }
 
     internal List<IEnumerable<object>>? DeserializeTableRowsFromJson(string rawJsonRows)
@@ -36,59 +69,111 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
     {
         var result = new List<T>();
 
-        foreach (var row in rows)
+        var iRow = 0;
+
+        try
         {
-            result.Add(ExtractRowFromTableRow<T>(row.ToList(), columnIndices.ToList()));
+            foreach (var row in rows)
+            {
+                this._logger?.LogTrace($"Extracting information from row index {iRow}");
+                result.Add(ExtractRowFromTableRow<T>(row.ToList(), columnIndices.ToList()));
+                iRow++;
+            }
         }
-        
+        catch (Exception ex)
+        {
+            this._logger?.LogError($"Error on row {iRow}. {ex}");
+            throw;
+        }
         return result;
     }
 
-    internal T ExtractRowFromTableRow<T>(List<object> row, List<TableColumnPropertyMap> columnIndices)
+    internal T ExtractRowFromTableRow<T>(List<object> rowValues, List<TableColumnPropertyMap> columnIndices)
     {
         T instance = Activator.CreateInstance<T>();
         
-        foreach (var columnIndexObject in columnIndices)
+        foreach (var columnData in columnIndices)
         {
-            // TODO: Implement robust logic to deserialize the row data
-            
-            if (row.Count() - 1 > columnIndexObject.Index && columnIndexObject.Property != null)
+            // Check if the row values are in bound of the column data index and that there is a mapping property             
+            if (rowValues.Count() - 1 > columnData.Index && columnData.Property != null)
             {
-                var rowValue = row[columnIndexObject.Index];
-
-                if (rowValue != null)
+                if (rowValues[columnData.Index] == null)
                 {
-                    var propertyType = columnIndexObject.Property.PropertyType;
+                    continue;
+                }
                 
-                    try
+                // Get the row value object, this is a json token value
+                var jsonElement = (JsonElement)rowValues[columnData.Index];
+                if (!string.IsNullOrEmpty(jsonElement.GetRawText()))
+                {
+                    // Check if there is a custom deserializer attached
+                    if (columnData.FieldDeserializer == null)
                     {
-                        var converter = TypeDescriptor.GetConverter(propertyType);
-                        if (converter != null)
+                        // Try the internal deserializer
+                        if (columnData.Column.TypeName.ToLower() == "string")
                         {
-                            // Cast ConvertFromString(string text) : object to (T)
-                            columnIndexObject.Property.SetValue(instance, converter.ConvertFromString(rowValue?.ToString()));
+                            columnData.Property.SetValue(instance, jsonElement.GetString());
+                        }
+                        else if (columnData.Column.TypeName.ToLower() == "int")
+                        {
+                            columnData.Property.SetValue(instance, jsonElement.GetInt32());
+                        }
+                        else if (columnData.Column.TypeName.ToLower() == "real")
+                        {
+                            columnData.Property.SetValue(instance, jsonElement.GetDouble());
+                        }
+                        else if (columnData.Column.TypeName.ToLower() == "datetime")
+                        {
+                            columnData.Property.SetValue(instance, jsonElement.GetDateTime());
                         }
                         else
                         {
-                            columnIndexObject.Property.SetValue(instance, rowValue);  
+                            this._logger?.LogTrace($"Unknown column type {columnData.Column.TypeName} for column {columnData.Column.ColumnName}. Trying default converter property set.");
+                            columnData.Property.SetValue(instance, ConvertFromJsonObject(columnData.Property.PropertyType, jsonElement));
                         }
                     }
-                    catch (NotSupportedException)
+                    else
                     {
-                        columnIndexObject.Property.SetValue(instance, rowValue);
+                        this._logger?.LogTrace($"Extracting value from custom deserializer instance.");
+                        var propertyValue = columnData.FieldDeserializer.DeserializeValue(jsonElement);
+                        columnData.Property.SetValue(instance, propertyValue);
                     }
-                    
                 }
             }
         }
         return instance;
     }
 
+    internal object ConvertFromJsonObject(Type targetType, JsonElement value)
+    {
+        object result = null;
+        try
+        {
+            var converter = TypeDescriptor.GetConverter(targetType);
+            result = converter.ConvertFromString(value.ToString());
+        }
+        catch (NotSupportedException ex)
+        {
+            this._logger?.LogError($"Unable to convert value. {ex}");
+        }
+        return result;
+    }
+    
+
     internal IEnumerable<TableColumnPropertyMap>? BuildColumnPropertyMapping<T>(Abstractions.ApiClient.Models.ApiClientQueryResultTable table)
     {
-        if (table.Columns?.Count() == 0)
+        if (table == null)
+        {
+            this._logger?.LogWarning($"Table is null, could not build column mapping.");
             return null;
-        
+        }
+
+        if (table.Columns?.Count() == 0)
+        {
+            this._logger?.LogWarning($"No columns defined for table {table.TableName}. Could not build column mapping.");
+            return null;
+        }
+
         var columnIndices = table.Columns?.Select((item, index) => new { Index = index, Column = item }).ToList();
         if (columnIndices == null || columnIndices.Any() == false)
             return null;
@@ -99,10 +184,23 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
         {
             var columnMappingName = item.Column.ColumnName;
             var propertyInfo = GetPropertyInfoByColumnName(typeProperties, columnMappingName);
+            var propertyDeserializer = GetPropertyFieldDeserializer(propertyInfo);
 
-            var mapping = new TableColumnPropertyMap(item.Index, item.Column, propertyInfo);
+            if (propertyInfo == null)
+                this._logger?.LogWarning($"Column mapping - Could not find a related setter property.");        
+            else
+            {
+                if (propertyDeserializer == null)
+                    this._logger?.LogTrace($"Column mapping - Found related property.");
+                else
+                    this._logger?.LogTrace($"Column mapping - Found related property and custom deserializer.");
+            }
+
+            var mapping = new TableColumnPropertyMap(item.Index, item.Column, propertyInfo, propertyDeserializer);
             result.Add(mapping);
         });
+        
+        this._logger?.LogTrace($"Build mapping for {result.Count()} columns.");
         
         return result;
     }
@@ -130,6 +228,17 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
             return null;
         
         return result;
+    }
+
+    internal Abstractions.Serialization.IFieldDeserializer? GetPropertyFieldDeserializer(PropertyInfo? propertyInfo)
+    {
+        if (propertyInfo == null)
+            return null;
+        
+        var customAttribute = propertyInfo.GetCustomAttribute<Abstractions.Attributes.DataContractFieldAttribute>();
+        if (customAttribute != null)
+            return customAttribute.FieldDeserializer;
+        return null;
     }
   
     #endregion

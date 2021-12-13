@@ -5,7 +5,7 @@ namespace STAIExtensions.Abstractions.DataContracts
 {
     public interface IHasCustomDimension
     {
-        [DataContractField("customDimensions")]
+        [DataContractField("customDimensions", typeof(Serialization.CustomDimensionSeriliazation))]
         CustomDimension? CustomDimensions { get; set; }
     }
 }

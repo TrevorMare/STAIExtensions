@@ -7,7 +7,6 @@ namespace STAIExtensions.Abstractions.DataContracts.Models
     {
 
         #region Properties
-        [DataContractField("customMeasurements")]
         public CustomMeasurement? CustomMeasurements { get; set; }
         
         [DataContractField("itemCount")]

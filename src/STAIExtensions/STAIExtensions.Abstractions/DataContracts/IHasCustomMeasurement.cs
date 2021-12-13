@@ -5,7 +5,7 @@ namespace STAIExtensions.Abstractions.DataContracts
 {
     public interface IHasCustomMeasurement
     {
-        [DataContractField("customMeasurements")]
+        [DataContractField("customMeasurements", typeof(Serialization.CustomMeasurementSeriliazation))]
         CustomMeasurement? CustomMeasurements { get; set; }
     }
 }

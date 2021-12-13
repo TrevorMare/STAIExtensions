@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using STAIExtensions.Abstractions.ApiClient.Models;
+using STAIExtensions.Core.Tests.AIDataGenerator;
 using Xunit;
 
 namespace STAIExtensions.Core.Tests.Serialization;
@@ -96,6 +97,78 @@ public class TableRowDeserializerTests
         
         var actual = sut.BuildColumnPropertyMapping<Fixtures.TestSerializationClass>(parameters);
         Assert.NotNull(actual);
+    }
+    
+    [Fact]
+    public void BuildColumnPropertyMapping_WhenReadOnlyProperty_ShouldNotMapProperty()
+    {
+        var sut = new Core.Serialization.TableRowDeserializer();
+
+        var parameters = new ApiClientQueryResultTable()
+        {
+            Columns = new List<ApiClientQueryResultColumn>()
+            {
+                new ApiClientQueryResultColumn() { ColumnName = "TestColumnName" },
+                new ApiClientQueryResultColumn() { ColumnName = "AttrColumn" },
+                new ApiClientQueryResultColumn() { ColumnName = "GetOnlyColumnName" }
+            }
+        };
+        
+        var actual = sut.BuildColumnPropertyMapping<Fixtures.TestSerializationClass>(parameters);
+        
+        
+        Assert.Null(actual.FirstOrDefault(x => x.Column.ColumnName == "GetOnlyColumnName").Property);
+    }
+    
+    [Fact]
+    public void BuildColumnPropertyMapping_WhenCanWriteProperty_ShouldMapProperty()
+    {
+        var sut = new Core.Serialization.TableRowDeserializer();
+
+        var parameters = new ApiClientQueryResultTable()
+        {
+            Columns = new List<ApiClientQueryResultColumn>()
+            {
+                new ApiClientQueryResultColumn() { ColumnName = "TestColumnName" },
+                new ApiClientQueryResultColumn() { ColumnName = "AttrColumn" },
+                new ApiClientQueryResultColumn() { ColumnName = "GetOnlyColumnName" }
+            }
+        };
+        
+        var actual = sut.BuildColumnPropertyMapping<Fixtures.TestSerializationClass>(parameters);
+        
+        
+        Assert.NotNull(actual.FirstOrDefault(x => x.Column.ColumnName == "AttrColumn").Property);
+        Assert.NotNull(actual.FirstOrDefault(x => x.Column.ColumnName == "TestColumnName").Property);
+    }
+    
+    [Fact]
+    public void BuildColumnPropertyMapping_WhenSerializationAttributeSpecified_ShouldHaveSerializerInstance()
+    {
+        var sut = new Core.Serialization.TableRowDeserializer();
+
+        var parameters = new ApiClientQueryResultTable()
+        {
+            Columns = new List<ApiClientQueryResultColumn>()
+            {
+                new ApiClientQueryResultColumn() { ColumnName = "TestColumnName" },
+                new ApiClientQueryResultColumn() { ColumnName = "AttrColumn" },
+                new ApiClientQueryResultColumn() { ColumnName = "GetOnlyColumnName" }
+            }
+        };
+        
+        var actual = sut.BuildColumnPropertyMapping<Fixtures.TestSerializationClass>(parameters);
+        
+        
+        Assert.NotNull(actual.FirstOrDefault(x => x.Column.ColumnName == "AttrColumn").FieldDeserializer);
+    }
+
+    [Fact(Skip = "Only for generation")]
+    public void GenerateData()
+    {
+        var dataGenerator = new ApplicationInsightsDataGenerator();
+        dataGenerator.GenerateTelemetry();
+
     }
     
     

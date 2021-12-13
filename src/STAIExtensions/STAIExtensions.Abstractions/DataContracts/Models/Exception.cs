@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using STAIExtensions.Abstractions.Attributes;
+using STAIExtensions.Abstractions.DataContracts.Serialization;
 
 namespace STAIExtensions.Abstractions.DataContracts.Models
 {
@@ -14,7 +15,7 @@ namespace STAIExtensions.Abstractions.DataContracts.Models
         [DataContractField("customMeasurements")]
         public CustomMeasurement? CustomMeasurements { get; set; }
         
-        [DataContractField("details")]
+        [DataContractField("details", typeof(ExceptionParsedStackSerialization))]
         public List<ExceptionParsedStack>? Details { get; set; }
 
         [DataContractField("handleAt")]
