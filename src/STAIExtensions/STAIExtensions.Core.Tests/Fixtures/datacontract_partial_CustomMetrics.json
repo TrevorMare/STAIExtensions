@@ -1,0 +1,225 @@
+﻿{
+  "tables": [
+    {
+      "name": "customMetrics",
+      "columns": [
+        {
+          "name": "timestamp",
+          "type": "datetime"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "real"
+        },
+        {
+          "name": "valueCount",
+          "type": "int"
+        },
+        {
+          "name": "valueSum",
+          "type": "real"
+        },
+        {
+          "name": "valueMin",
+          "type": "real"
+        },
+        {
+          "name": "valueMax",
+          "type": "real"
+        },
+        {
+          "name": "valueStdDev",
+          "type": "real"
+        },
+        {
+          "name": "customDimensions",
+          "type": "dynamic"
+        },
+        {
+          "name": "operation_Name",
+          "type": "string"
+        },
+        {
+          "name": "operation_Id",
+          "type": "string"
+        },
+        {
+          "name": "operation_ParentId",
+          "type": "string"
+        },
+        {
+          "name": "operation_SyntheticSource",
+          "type": "string"
+        },
+        {
+          "name": "session_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_AuthenticatedId",
+          "type": "string"
+        },
+        {
+          "name": "user_AccountId",
+          "type": "string"
+        },
+        {
+          "name": "application_Version",
+          "type": "string"
+        },
+        {
+          "name": "client_Type",
+          "type": "string"
+        },
+        {
+          "name": "client_Model",
+          "type": "string"
+        },
+        {
+          "name": "client_OS",
+          "type": "string"
+        },
+        {
+          "name": "client_IP",
+          "type": "string"
+        },
+        {
+          "name": "client_City",
+          "type": "string"
+        },
+        {
+          "name": "client_StateOrProvince",
+          "type": "string"
+        },
+        {
+          "name": "client_CountryOrRegion",
+          "type": "string"
+        },
+        {
+          "name": "client_Browser",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleName",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleInstance",
+          "type": "string"
+        },
+        {
+          "name": "appId",
+          "type": "string"
+        },
+        {
+          "name": "appName",
+          "type": "string"
+        },
+        {
+          "name": "iKey",
+          "type": "string"
+        },
+        {
+          "name": "sdkVersion",
+          "type": "string"
+        },
+        {
+          "name": "itemId",
+          "type": "string"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "_ResourceId",
+          "type": "string"
+        }
+      ],
+      "rows": [
+        [
+          "2021-12-13T12:24:11.566Z",
+          "\\PerformanceCounter(Localhost)\\SampleCPUPerformance",
+          null,
+          1,
+          200,
+          200,
+          200,
+          null,
+          "{\"Property 2\":\"Value 2\",\"CounterInstanceName\":\"Localhost\",\"Property 1\":\"Value 1\"}",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "b012c7f3-5c0f-11ec-94f5-281878841ac1",
+          "customMetric",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ],
+        [
+          "2021-12-13T12:24:11.959Z",
+          "Metric 1",
+          null,
+          2,
+          3,
+          0,
+          4,
+          null,
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "b012c7f5-5c0f-11ec-94f5-281878841ac1",
+          "customMetric",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ]
+      ]
+    }
+  ]
+}
