@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using STAIExtensions.Abstractions.WebApi;
+using STAIExtensions.Abstractions.ApiClient.Models;
 using STAIExtensions.Core.ApiClient;
 using Xunit;
 

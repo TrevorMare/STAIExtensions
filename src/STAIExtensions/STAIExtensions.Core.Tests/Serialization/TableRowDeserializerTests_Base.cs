@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using STAIExtensions.Abstractions.ApiClient.Models;
-using STAIExtensions.Abstractions.WebApi;
 using STAIExtensions.Core.ApiClient;
 using STAIExtensions.Core.Serialization;
 using Xunit;

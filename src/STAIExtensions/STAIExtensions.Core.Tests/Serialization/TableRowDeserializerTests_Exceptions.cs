@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Security.Principal;
 using System.Text.Json;
-using STAIExtensions.Abstractions.WebApi;
 using STAIExtensions.Core.ApiClient;
 using STAIExtensions.Core.Serialization;
 using Xunit;

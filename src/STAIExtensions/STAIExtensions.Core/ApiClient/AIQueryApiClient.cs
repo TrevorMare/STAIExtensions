@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Json;
 using System.Runtime.CompilerServices;
 using Microsoft.Extensions.Logging;
-using STAIExtensions.Abstractions.WebApi;
+using STAIExtensions.Abstractions.ApiClient.Models;
 
 [assembly:InternalsVisibleTo("STAIExtensions.Core.Tests")]
 
@@ -33,12 +33,12 @@ namespace STAIExtensions.Core.ApiClient
         #endregion
 
         #region Methods
-        public Abstractions.WebApi.WebApiResponse ExecuteQuery(string query)
+        public WebApiResponse ExecuteQuery(string query)
         {
             return ExecuteQueryAsync(query).GetAwaiter().GetResult();
         }
        
-        public async Task<Abstractions.WebApi.WebApiResponse> ExecuteQueryAsync(string query)
+        public async Task<WebApiResponse> ExecuteQueryAsync(string query)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace STAIExtensions.Core.ApiClient
             }
         }
 
-        public Abstractions.ApiClient.Models.ApiClientQueryResult ParseResponse(Abstractions.WebApi.WebApiResponse webApiResponse)
+        public Abstractions.ApiClient.Models.ApiClientQueryResult ParseResponse(WebApiResponse webApiResponse)
         {
             try
             {
