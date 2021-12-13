@@ -39,3 +39,29 @@ public enum AzureApiDataContractSource
     All = 0x512,
 
 }
+
+public enum AgoPeriod
+{
+    [Display(Name = "tick")]
+    Nanoseconds = 0,
+    
+    [Display(Name = "microsecond")]
+    Microseconds = 1,
+    
+    [Display(Name = "ms")]
+    Milliseconds = 2,
+    
+    [Display(Name = "s")]
+    Seconds = 3,
+    
+    [Display(Name = "m")]
+    Minutes = 4,
+    
+    [Display(Name = "h")]
+    Hours = 5,
+    
+    [Display(Name = "d")]
+    Days = 6,
+    
+    Time = 99
+}
