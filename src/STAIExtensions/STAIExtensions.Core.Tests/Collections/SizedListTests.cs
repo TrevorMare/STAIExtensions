@@ -146,5 +146,30 @@ public class SizedListTests
         sut.MaxSize = 2;
         Assert.True(2 == sut.Count);
     }
+
+    [Fact]
+    public void Add_WhenAddingNewerItems_ShouldRemoveOldestEntries()
+    {
+        var items = new List<int>() {1, 2, 3, 4};
+        var sut = new Core.Collections.SizedList<int>(items, 4);
+
+        sut.Add(5);
+        sut.Add(6);
+        
+        Assert.False(sut.Exists(x => x == 1));
+        Assert.False(sut.Exists(x => x == 2));
+    }
+    
+    [Fact]
+    public void Add_WhenTrimming_ShouldRemoveOldestEntries()
+    {
+        var items = new List<int>() {1, 2, 3, 4, 5, 6};
+        var sut = new Core.Collections.SizedList<int>(items, 6);
+
+        sut.MaxSize = 4;
+        
+        Assert.False(sut.Exists(x => x == 1));
+        Assert.False(sut.Exists(x => x == 2));
+    }
     
 }

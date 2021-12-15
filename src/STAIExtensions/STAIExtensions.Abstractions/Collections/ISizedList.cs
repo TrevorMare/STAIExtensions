@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 
 namespace STAIExtensions.Abstractions.Collections;
 
-public interface ISizedList<T> : IList<T>, INotifyCollectionChanged 
+public interface ISizedList<T> : IList<T>, INotifyCollectionChanged, IDisposable 
 {
     void AddRange(IEnumerable<T> items);
 

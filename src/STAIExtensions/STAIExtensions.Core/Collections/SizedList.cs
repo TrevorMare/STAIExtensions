@@ -241,5 +241,19 @@ public class SizedList<T> : Abstractions.Collections.ISizedList<T>
         return _fullDataSource.ToList().Exists(match);
     }
     #endregion
- 
+
+    #region Dispose
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+        }
+    }
+
+    public void Dispose()
+    {
+        Dispose(true);
+    }
+    #endregion
+    
 }
