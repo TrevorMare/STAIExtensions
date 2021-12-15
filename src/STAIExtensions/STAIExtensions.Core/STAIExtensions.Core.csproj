@@ -11,4 +11,8 @@
       <ProjectReference Include="..\STAIExtensions.Abstractions\STAIExtensions.Abstractions.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
+    </ItemGroup>
+
 </Project>
