@@ -13,7 +13,8 @@ public abstract class TableRowDeserializerTests_Base<T>
 
     protected ApiClientQueryResultTable? GetApiResponse()
     {
-        var apiClient = new AIQueryApiClient("123");
+        var apiClient = new AIQueryApiClient();
+        apiClient.ConfigureApi("123", "abc");
         var fixtureData = System.IO.File.ReadAllText(FixtureFilePath);
         var apiParseResponse = apiClient.ParseResponse(new WebApiResponse(fixtureData, true));
         var table = apiParseResponse.Tables.FirstOrDefault(x => x.TableName == TableName);

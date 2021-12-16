@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Json;
 using System.Runtime.CompilerServices;
+using System.Security.Principal;
 using Microsoft.Extensions.Logging;
 using STAIExtensions.Abstractions.ApiClient.Models;
 
@@ -7,39 +8,62 @@ using STAIExtensions.Abstractions.ApiClient.Models;
 
 namespace STAIExtensions.Core.ApiClient
 {
-    internal class AIQueryApiClient : Abstractions.ApiClient.IAIQueryApiClient
+    public class AIQueryApiClient : Abstractions.ApiClient.IAIQueryApiClient
     {
 
         #region Members
-        private const string _queryApiBaseUrl = "https://api.applicationinsights.io/v1/apps/{app-id}/query";
-        private readonly string _queryApiUrl;
+        private const string QueryApiBaseUrl = "https://api.applicationinsights.io/v1/apps/{app-id}/query";
+        private string? _queryApiUrl;
         private readonly ILogger<AIQueryApiClient>? _logger;
         #endregion
 
         #region Properties
-        public string AppId { get; }
+
+        public bool Configured { get; private set; } = false;
+
+        public string AppId { get; private set; } = "";
+
+        public string AppKey { get; private set; } = "";
         #endregion
         
         #region ctor
-
-        public AIQueryApiClient(string appId, ILogger<AIQueryApiClient>? logger = default)
+        public AIQueryApiClient(ILogger<AIQueryApiClient>? logger = default)
         {
-            if (string.IsNullOrEmpty(appId) || appId.Trim() == "")
-                throw new ArgumentNullException(nameof(appId));
-            this.AppId = appId;
-            this._queryApiUrl = _queryApiBaseUrl.Replace("{app-id}", this.AppId);
             this._logger = logger;
         }
         #endregion
 
         #region Methods
-        public WebApiResponse ExecuteQuery(string query)
+
+        public virtual void ConfigureApi(string appId, string appKey)
         {
+            if (string.IsNullOrEmpty(appId) || appId.Trim() == "")
+                throw new ArgumentNullException(nameof(appId));
+            
+            if (string.IsNullOrEmpty(appKey) || appKey.Trim() == "")
+                throw new ArgumentNullException(nameof(appKey));
+            
+            this.AppId = appId;
+            this.AppKey = appKey;
+            
+            this._queryApiUrl = QueryApiBaseUrl.Replace("{app-id}", this.AppId);
+            
+            Configured = true;
+        }
+        
+        public virtual  WebApiResponse ExecuteQuery(string query)
+        {
+            if (Configured == false)
+                throw new InvalidOperationException("Please call ConfigureApi before attempting to execute queries");
+            
             return ExecuteQueryAsync(query).GetAwaiter().GetResult();
         }
        
-        public async Task<WebApiResponse> ExecuteQueryAsync(string query)
+        public virtual  async Task<WebApiResponse> ExecuteQueryAsync(string query)
         {
+            if (Configured == false)
+                throw new InvalidOperationException("Please call ConfigureApi before attempting to execute queries");
+
             try
             {
                 if (string.IsNullOrEmpty(query) || query.Trim() == "")
@@ -51,6 +75,7 @@ namespace STAIExtensions.Core.ApiClient
                     this._logger?.LogTrace($"Loading data from Api");
                     
                     httpClient.DefaultRequestHeaders.Add("Content-Type", "application/json; charset=utf-8,");
+                    httpClient.DefaultRequestHeaders.Add("x-api-key", this.AppKey);
 
                     var response = await httpClient.PostAsJsonAsync(this._queryApiUrl, new QueryBody(query));
                     var responseData = await response.Content.ReadAsStringAsync();
@@ -71,7 +96,7 @@ namespace STAIExtensions.Core.ApiClient
             }
         }
 
-        public Abstractions.ApiClient.Models.ApiClientQueryResult ParseResponse(WebApiResponse webApiResponse)
+        public virtual ApiClientQueryResult ParseResponse(WebApiResponse webApiResponse)
         {
             try
             {
@@ -92,7 +117,7 @@ namespace STAIExtensions.Core.ApiClient
             }
             catch (Exception ex)
             {
-                this._logger?.LogError($"{ex}");
+                this._logger?.LogError(ex, $"Error parsing response");
                 throw;
             }
         }

@@ -3,7 +3,7 @@ using STAIExtensions.Abstractions.Common;
 
 namespace STAIExtensions.Core.Queries.Models;
 
-public class DataContractQuery : Abstractions.Queries.IDataContractQuery
+public class DataContractQuery : Abstractions.Queries.IDataContractQuery 
 {
 
     #region Properties
@@ -21,6 +21,8 @@ public class DataContractQuery : Abstractions.Queries.IDataContractQuery
     public TimeSpan? AgoTimeSpan { get; set; }
 
     public bool? OrderByTimestampAsc { get; set; }
+
+    public bool Enabled { get; set; } = true;
     #endregion
 
     #region ctor
@@ -96,14 +98,6 @@ public class DataContractQuery : Abstractions.Queries.IDataContractQuery
     #endregion
 
     #region Methods
-    private static string GetTableNameFromAzureSource(Abstractions.Common.AzureApiDataContractSource value)
-    {
-        if (value == AzureApiDataContractSource.All)
-            throw new InvalidEnumArgumentException("Query builder data source option All is not valid");
-        
-        return value.DisplayName();
-    }
-    
     public override string ToString()
     {
         var queryBuilderItems = new List<string>();
@@ -151,11 +145,22 @@ public class DataContractQuery : Abstractions.Queries.IDataContractQuery
         return string.Join(" | ", queryBuilderItems) + ";";
     }
 
-    public string BuildKustoQuery()
+    public virtual string BuildKustoQuery()
     {
         return ToString();
     }
+    #endregion
 
+    #region Helper Methods
+
+    private static string GetTableNameFromAzureSource(Abstractions.Common.AzureApiDataContractSource value)
+    {
+        if (value == AzureApiDataContractSource.All)
+            throw new InvalidEnumArgumentException("Query builder data source option All is not valid");
+        
+        return value.DisplayName();
+    }
+   
     internal string GetAgoString(int interval, Abstractions.Common.AgoPeriod agoPeriod)
     {
         return $"{interval}{agoPeriod.DisplayName()}";

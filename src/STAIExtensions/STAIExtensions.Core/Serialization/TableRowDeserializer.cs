@@ -10,15 +10,15 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
 
     #region Members
 
-    private readonly ILogger<TableRowDeserializer> _logger;
+    protected readonly ILogger<TableRowDeserializer>? Logger;
 
     #endregion
 
     #region ctor
 
-    public TableRowDeserializer(ILogger<TableRowDeserializer> logger = default)
+    public TableRowDeserializer(ILogger<TableRowDeserializer>? logger = default)
     {
-        this._logger = logger;
+        this.Logger = logger;
     }
     #endregion
 
@@ -32,21 +32,21 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
 
             if (string.IsNullOrEmpty(table.Rows))
             {
-                this._logger?.LogTrace($"No rows found in table {table.TableName}");
+                this.Logger?.LogTrace($"No rows found in table {table.TableName}");
                 return null;
             }
 
             var tableColumnMapping = BuildColumnPropertyMapping<T>(table);
             if (tableColumnMapping == null)
             {
-                this._logger?.LogTrace($"No table mapping built for table {table.TableName}");
+                this.Logger?.LogTrace($"No table mapping built for table {table.TableName}");
                 return null;
             }
 
             var tableRows = DeserializeTableRowsFromJson(table.Rows);
             if (tableRows == null || tableRows.Any() == false)
             {
-                this._logger?.LogWarning($"Could not deserialize rows for table {table.TableName}");
+                this.Logger?.LogWarning($"Could not deserialize rows for table {table.TableName}");
                 return null;
             }
 
@@ -54,10 +54,14 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
         }
         catch (Exception ex)
         {
-            this._logger?.LogError($"An Error Occured: {ex}");
+            this.Logger?.LogError(ex, "An error occured deserializing rows");
             throw;
         }
     }
+ 
+    #endregion
+
+    #region Internal Methods
 
     internal List<IEnumerable<object>>? DeserializeTableRowsFromJson(string rawJsonRows)
     {
@@ -75,14 +79,14 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
         {
             foreach (var row in rows)
             {
-                this._logger?.LogTrace($"Extracting information from row index {iRow}");
+                this.Logger?.LogTrace($"Extracting information from row index {iRow}");
                 result.Add(ExtractRowFromTableRow<T>(row.ToList(), columnIndices.ToList()));
                 iRow++;
             }
         }
         catch (Exception ex)
         {
-            this._logger?.LogError($"Error on row {iRow}. {ex}");
+            this.Logger?.LogError(ex, $"Error on row {iRow}");
             throw;
         }
         return result;
@@ -128,13 +132,13 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
                         }
                         else
                         {
-                            this._logger?.LogTrace($"Unknown column type {columnData.Column.TypeName} for column {columnData.Column.ColumnName}. Trying default converter property set.");
+                            this.Logger?.LogTrace($"Unknown column type {columnData.Column.TypeName} for column {columnData.Column.ColumnName}. Trying default converter property set.");
                             columnData.Property.SetValue(instance, ConvertFromJsonObject(columnData.Property.PropertyType, jsonElement));
                         }
                     }
                     else
                     {
-                        this._logger?.LogTrace($"Extracting value from custom deserializer instance.");
+                        this.Logger?.LogTrace($"Extracting value from custom deserializer instance.");
                         var propertyValue = columnData.FieldDeserializer.DeserializeValue(jsonElement);
                         columnData.Property.SetValue(instance, propertyValue);
                     }
@@ -144,7 +148,7 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
         return instance;
     }
 
-    internal object ConvertFromJsonObject(Type targetType, JsonElement value)
+    internal object? ConvertFromJsonObject(Type targetType, JsonElement value)
     {
         object result = null;
         try
@@ -154,23 +158,22 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
         }
         catch (NotSupportedException ex)
         {
-            this._logger?.LogError($"Unable to convert value. {ex}");
+            this.Logger?.LogError(ex, $"Unable to convert value");
         }
         return result;
     }
     
-
     internal IEnumerable<TableColumnPropertyMap>? BuildColumnPropertyMapping<T>(Abstractions.ApiClient.Models.ApiClientQueryResultTable table)
     {
         if (table == null)
         {
-            this._logger?.LogWarning($"Table is null, could not build column mapping.");
+            this.Logger?.LogWarning($"Table is null, could not build column mapping.");
             return null;
         }
 
         if (table.Columns?.Count() == 0)
         {
-            this._logger?.LogWarning($"No columns defined for table {table.TableName}. Could not build column mapping.");
+            this.Logger?.LogWarning($"No columns defined for table {table.TableName}. Could not build column mapping.");
             return null;
         }
 
@@ -187,20 +190,20 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
             var propertyDeserializer = GetPropertyFieldDeserializer(propertyInfo);
 
             if (propertyInfo == null)
-                this._logger?.LogWarning($"Column mapping - Could not find a related setter property.");        
+                this.Logger?.LogWarning($"Column mapping - Could not find a related setter property.");        
             else
             {
                 if (propertyDeserializer == null)
-                    this._logger?.LogTrace($"Column mapping - Found related property.");
+                    this.Logger?.LogTrace($"Column mapping - Found related property.");
                 else
-                    this._logger?.LogTrace($"Column mapping - Found related property and custom deserializer.");
+                    this.Logger?.LogTrace($"Column mapping - Found related property and custom deserializer.");
             }
 
             var mapping = new TableColumnPropertyMap(item.Index, item.Column, propertyInfo, propertyDeserializer);
             result.Add(mapping);
         });
         
-        this._logger?.LogTrace($"Build mapping for {result.Count()} columns.");
+        this.Logger?.LogTrace($"Build mapping for {result.Count()} columns.");
         
         return result;
     }
@@ -240,8 +243,7 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
             return customAttribute.FieldDeserializer;
         return null;
     }
-  
+
     #endregion
-   
 
 }

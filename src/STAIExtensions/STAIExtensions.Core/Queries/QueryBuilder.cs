@@ -5,7 +5,7 @@ namespace STAIExtensions.Core.Queries;
 
 public class QueryBuilder : Abstractions.Queries.IQueryBuilder
 {
-
+    
     #region Methods
     public IEnumerable<Abstractions.Queries.IDataContractQuery> BuildDataContractQueries(Abstractions.Common.AzureApiDataContractSource sources, int interval, AgoPeriod agoPeriod, int? topRows, bool? orderByTimestampAsc)
     {
