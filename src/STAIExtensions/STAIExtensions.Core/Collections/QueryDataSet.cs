@@ -13,20 +13,9 @@ namespace STAIExtensions.Core.Collections;
 public abstract class QueryDataSet : Abstractions.Collections.IQueryDataSet
 {
 
-    /*
-     * Create a new Query Data Set - Done
-     * Set the App Id and App Key - Done
-     * Add the queries to execute, either custom or predefined - Done
-     * Setup the timer interval 
-     * Start the dataset auto refresh
-     *
-     * On refresh, load the data from kusto query - Done
-     * Deserialize the data into rows - Done
-     * Raise events
-     * 
-     */
-
+    #region Events
     public event EventHandler OnDatasetUpdated;
+    #endregion
 
     #region Properties
 
@@ -45,6 +34,10 @@ public abstract class QueryDataSet : Abstractions.Collections.IQueryDataSet
     protected List<IDataContractQuery> Queries => new List<IDataContractQuery>(_queries);
 
     protected List<IDataContractQuery> EnabledQueries => Queries.Where(x => x.Enabled == true).ToList();
+
+    protected CancellationToken? CancellationToken;
+
+    protected Timer AutoRefreshTimer;
     #endregion
 
     #region Private Members
@@ -56,6 +49,10 @@ public abstract class QueryDataSet : Abstractions.Collections.IQueryDataSet
     private readonly Lazy<IQueryBuilder> _queryBuilderLazy;
     
     private readonly SynchronizedCollection<Abstractions.Queries.IDataContractQuery> _queries = new SynchronizedCollection<IDataContractQuery>();
+
+    private bool _isAutoRefreshEnabled = false;
+
+    private TimeSpan? _autoRefreshInterval;
     #endregion
 
     #region Properties
@@ -94,10 +91,26 @@ public abstract class QueryDataSet : Abstractions.Collections.IQueryDataSet
             new Lazy<IQueryBuilder>(serviceProvider.GetRequiredService<IQueryBuilder>);
         
         this.Logger = logger;
+        
+        this.AutoRefreshTimer = new Timer(OnTimerCallback);
     }
     #endregion
 
     #region Public Methods
+    public void StartAutoRefresh(TimeSpan refreshInterval, CancellationToken? cancellationToken = default)
+    {
+        this._autoRefreshInterval = refreshInterval;
+        this.CancellationToken = cancellationToken;
+        this._isAutoRefreshEnabled = true;
+
+        this.AutoRefreshTimer.Change(refreshInterval, Timeout.InfiniteTimeSpan);
+    }
+
+    public void StopAutoRefresh()
+    {
+        this._isAutoRefreshEnabled = false;
+        this.AutoRefreshTimer.Change(Timeout.InfiniteTimeSpan, Timeout.InfiniteTimeSpan);
+    }
 
     public virtual void SetupApiConfig(string appId, string appKey)
     {
@@ -145,6 +158,16 @@ public abstract class QueryDataSet : Abstractions.Collections.IQueryDataSet
         this._queries.Clear();
     }
 
+    private async void OnTimerCallback(object? state)
+    {
+        CancellationToken?.ThrowIfCancellationRequested();
+        
+        await this.RefreshDataSetAsync();
+
+        if (this._isAutoRefreshEnabled)
+            this.AutoRefreshTimer.Change(_autoRefreshInterval.Value, Timeout.InfiniteTimeSpan);
+    }
+    
     public virtual void RefreshDataSet()
     {
         try
@@ -223,6 +246,5 @@ public abstract class QueryDataSet : Abstractions.Collections.IQueryDataSet
         return kustoQueryBuilder.ToString();
     }
     #endregion
-
 
 }
