@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using STAIExtensions.Abstractions.Attributes;
 
 namespace STAIExtensions.Abstractions.Common;
 

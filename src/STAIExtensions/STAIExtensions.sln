@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions.Abstractions
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions.Core.Tests", "STAIExtensions.Core.Tests\STAIExtensions.Core.Tests.csproj", "{F43EB927-CB41-4FAC-8D14-38AE0F48B711}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions.Service", "STAIExtensions.Service\STAIExtensions.Service.csproj", "{106101A7-763E-48B0-81BE-65B4B6D5EA65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{F43EB927-CB41-4FAC-8D14-38AE0F48B711}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F43EB927-CB41-4FAC-8D14-38AE0F48B711}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F43EB927-CB41-4FAC-8D14-38AE0F48B711}.Release|Any CPU.Build.0 = Release|Any CPU
+		{106101A7-763E-48B0-81BE-65B4B6D5EA65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{106101A7-763E-48B0-81BE-65B4B6D5EA65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{106101A7-763E-48B0-81BE-65B4B6D5EA65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{106101A7-763E-48B0-81BE-65B4B6D5EA65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

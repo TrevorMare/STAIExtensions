@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using STAIExtensions.Abstractions.ApiClient.Models;
 using STAIExtensions.Core.Tests.AIDataGenerator;
+using STAIExtensions.Core.Tests.Fixtures;
 using Xunit;
 
 namespace STAIExtensions.Core.Tests.Serialization;
@@ -14,7 +15,7 @@ public class TableRowDeserializerTests
     {
         var sut = new Core.Serialization.TableRowDeserializer();
         
-        Assert.Throws<ArgumentNullException>(() => sut.DeserializeTableRows<object>(null));
+        Assert.Throws<ArgumentNullException>(() => sut.DeserializeTableRows<KustoDataContract>(null));
     }
     
     [Fact]
@@ -22,7 +23,7 @@ public class TableRowDeserializerTests
     {
         var sut = new Core.Serialization.TableRowDeserializer();
         
-        var actual = sut.DeserializeTableRows<object>(new ApiClientQueryResultTable());
+        var actual = sut.DeserializeTableRows<KustoDataContract>(new ApiClientQueryResultTable());
         
         Assert.Null(actual);
     }

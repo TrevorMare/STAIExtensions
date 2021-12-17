@@ -1,12 +1,19 @@
 ﻿using System.ComponentModel;
+using STAIExtensions.Abstractions.ApiClient.Models;
 using STAIExtensions.Abstractions.Common;
+using STAIExtensions.Abstractions.Serialization;
 
 namespace STAIExtensions.Core.Queries.Models;
 
 public class DataContractQuery : Abstractions.Queries.IDataContractQuery
 {
-
     #region Properties
+    public Func<ITableRowDeserializer, ApiClientQueryResultTable,
+        IEnumerable<Abstractions.DataContracts.IKustoQueryContract>>? DataRowDeserializer { get; set; }
+
+    public object? Tag { get; set; }
+
+    public string DeserializedTableName { get; set; }
 
     public string? TableName { get; set; } = "";
 
@@ -21,36 +28,42 @@ public class DataContractQuery : Abstractions.Queries.IDataContractQuery
     public TimeSpan? AgoTimeSpan { get; set; }
 
     public bool? OrderByTimestampAsc { get; set; }
+
+    public bool Enabled { get; set; } = true;
+
     #endregion
 
     #region ctor
+
     public DataContractQuery()
     {
-        
     }
 
-    public DataContractQuery(string tableName, string alias, int? agoInterval = default, Abstractions.Common.AgoPeriod? agoPeriod = default, int? topRows = default, bool? orderByTimestampAsc = default) 
+    public DataContractQuery(string tableName, string alias, int? agoInterval = default,
+        Abstractions.Common.AgoPeriod? agoPeriod = default, int? topRows = default, bool? orderByTimestampAsc = default)
         : this(tableName, alias, agoInterval, agoPeriod, null, topRows, orderByTimestampAsc)
     {
-        
     }
 
-    public DataContractQuery(Abstractions.Common.AzureApiDataContractSource dataContractSource, int? agoInterval = default, Abstractions.Common.AgoPeriod? agoPeriod = default, int? topRows = default, bool? orderByTimestampAsc = default)
-        : this(GetTableNameFromAzureSource(dataContractSource), null, agoInterval, agoPeriod, null, topRows, orderByTimestampAsc)
+    public DataContractQuery(Abstractions.Common.AzureApiDataContractSource dataContractSource,
+        int? agoInterval = default, Abstractions.Common.AgoPeriod? agoPeriod = default, int? topRows = default,
+        bool? orderByTimestampAsc = default)
+        : this(GetTableNameFromAzureSource(dataContractSource), null, agoInterval, agoPeriod, null, topRows,
+            orderByTimestampAsc)
     {
-        
     }
-    
-    public DataContractQuery(string tableName, string alias, TimeSpan agoTimespan, int? topRows = default, bool? orderByTimestampAsc = default)
+
+    public DataContractQuery(string tableName, string alias, TimeSpan agoTimespan, int? topRows = default,
+        bool? orderByTimestampAsc = default)
         : this(tableName, alias, null, null, agoTimespan, topRows, orderByTimestampAsc)
     {
-        
     }
 
-    public DataContractQuery(Abstractions.Common.AzureApiDataContractSource dataContractSource, TimeSpan agoTimespan, int? topRows = default, bool? orderByTimestampAsc = default)
-        : this(GetTableNameFromAzureSource(dataContractSource), null, null, null, agoTimespan, topRows, orderByTimestampAsc)
+    public DataContractQuery(Abstractions.Common.AzureApiDataContractSource dataContractSource, TimeSpan agoTimespan,
+        int? topRows = default, bool? orderByTimestampAsc = default)
+        : this(GetTableNameFromAzureSource(dataContractSource), null, null, null, agoTimespan, topRows,
+            orderByTimestampAsc)
     {
-        
     }
 
     private DataContractQuery(string tableName, string? alias = default, int? agoInterval = default,
@@ -63,6 +76,8 @@ public class DataContractQuery : Abstractions.Queries.IDataContractQuery
         this.TableName = tableName;
 
         this.Alias = string.IsNullOrEmpty(alias) ? this.TableName : alias;
+        this.DeserializedTableName = this.Alias ?? "table";
+
         this.AgoInterval = agoInterval;
         this.AgoPeriod = agoPeriod;
         this.AgoTimeSpan = agoTimespan;
@@ -93,24 +108,18 @@ public class DataContractQuery : Abstractions.Queries.IDataContractQuery
             }
         }
     }
+
     #endregion
 
     #region Methods
-    private static string GetTableNameFromAzureSource(Abstractions.Common.AzureApiDataContractSource value)
-    {
-        if (value == AzureApiDataContractSource.All)
-            throw new InvalidEnumArgumentException("Query builder data source option All is not valid");
-        
-        return value.DisplayName();
-    }
-    
+
     public override string ToString()
     {
         var queryBuilderItems = new List<string>();
 
         if (string.IsNullOrEmpty(this.TableName))
             throw new Exception("Table name is required");
-        
+
         queryBuilderItems.Add(this.TableName);
 
         if (AgoPeriod.HasValue)
@@ -126,7 +135,8 @@ public class DataContractQuery : Abstractions.Queries.IDataContractQuery
             {
                 if (AgoInterval.HasValue)
                 {
-                    queryBuilderItems.Add($"where timestamp >= ago({GetAgoString(this.AgoInterval.Value, this.AgoPeriod.Value)})");
+                    queryBuilderItems.Add(
+                        $"where timestamp >= ago({GetAgoString(this.AgoInterval.Value, this.AgoPeriod.Value)})");
                 }
             }
         }
@@ -138,11 +148,12 @@ public class DataContractQuery : Abstractions.Queries.IDataContractQuery
             else
                 queryBuilderItems.Add("sort by timestamp desc nulls last");
         }
-        
+
         if (TopRows.HasValue)
         {
             queryBuilderItems.Add($"take {TopRows.Value}");
         }
+
         if (!string.IsNullOrEmpty(Alias))
         {
             queryBuilderItems.Add($"as {Alias}");
@@ -151,20 +162,32 @@ public class DataContractQuery : Abstractions.Queries.IDataContractQuery
         return string.Join(" | ", queryBuilderItems) + ";";
     }
 
-    public string BuildKustoQuery()
+    public virtual string BuildKustoQuery()
     {
         return ToString();
+    }
+
+    #endregion
+
+    #region Helper Methods
+
+    private static string GetTableNameFromAzureSource(Abstractions.Common.AzureApiDataContractSource value)
+    {
+        if (value == AzureApiDataContractSource.All)
+            throw new InvalidEnumArgumentException("Query builder data source option All is not valid");
+
+        return value.DisplayName();
     }
 
     internal string GetAgoString(int interval, Abstractions.Common.AgoPeriod agoPeriod)
     {
         return $"{interval}{agoPeriod.DisplayName()}";
     }
-    
+
     internal string GetTimeString(TimeSpan inputTime)
     {
         return inputTime.ToString(@"dd\.hh\:mm\:ss");
     }
+
     #endregion
-    
 }
