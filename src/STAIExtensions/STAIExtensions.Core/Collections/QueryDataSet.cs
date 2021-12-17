@@ -74,7 +74,7 @@ public abstract class QueryDataSet : Abstractions.Collections.IQueryDataSet
         // Initialise the client API
         this._apiClientLazy = new Lazy<IAIQueryApiClient>(() =>
         {
-            if (Configured == true)
+            if (Configured == false)
                 throw new Exception("Configure the Api service first before attempting to load");
             
             var instance = serviceProvider.GetRequiredService<IAIQueryApiClient>();
@@ -222,7 +222,7 @@ public abstract class QueryDataSet : Abstractions.Collections.IQueryDataSet
 
             foreach (var query in queries)
             {
-                var table = parsedData?.Tables?.FirstOrDefault(x => x.TableName.ToLower() == query.Alias.ToLower());
+                var table = parsedData?.Tables?.FirstOrDefault(x => x.TableName.ToLower() == query.DeserializedTableName.ToLower());
 
                 if (table != null)
                 {

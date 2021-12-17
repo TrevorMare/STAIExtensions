@@ -1,12 +1,13 @@
 ﻿using System.Linq;
 using STAIExtensions.Abstractions.ApiClient.Models;
+using STAIExtensions.Abstractions.DataContracts;
 using STAIExtensions.Core.ApiClient;
 using STAIExtensions.Core.Serialization;
 using Xunit;
 
 namespace STAIExtensions.Core.Tests.Serialization;
 
-public abstract class TableRowDeserializerTests_Base<T>
+public abstract class TableRowDeserializerTests_Base<T> where T : IKustoQueryContract
 {
     protected abstract string FixtureFilePath { get; }
     protected abstract string TableName { get; }

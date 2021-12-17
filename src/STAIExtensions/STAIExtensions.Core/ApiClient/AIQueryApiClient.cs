@@ -73,8 +73,6 @@ namespace STAIExtensions.Core.ApiClient
                 {
                     
                     this._logger?.LogTrace($"Loading data from Api");
-                    
-                    httpClient.DefaultRequestHeaders.Add("Content-Type", "application/json; charset=utf-8,");
                     httpClient.DefaultRequestHeaders.Add("x-api-key", this.AppKey);
 
                     var response = await httpClient.PostAsJsonAsync(this._queryApiUrl, new QueryBody(query));

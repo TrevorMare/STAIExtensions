@@ -3,7 +3,7 @@ using STAIExtensions.Abstractions.Attributes;
 
 namespace STAIExtensions.Abstractions.DataContracts
 {
-    public interface IDataContract : IHasCustomDimension
+    public interface IDataContract : IHasCustomDimension, IKustoQueryContract
     {
 
         #region Interface Properties

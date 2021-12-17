@@ -28,6 +28,30 @@ public class QueryBuilderTests
     }
     
     [Fact]
+    public void BuildDataContractQueries_WhenBuiltWithInterval_ShouldHaveRowDeserializers()
+    {
+        var sut = new QueryBuilder();
+        var actual = sut.BuildDataContractQueries(AzureApiDataContractSource.All, 1, AgoPeriod.Days, null, null);
+
+        foreach (var azureApiDataContractSource in actual)
+        {
+            Assert.NotNull(azureApiDataContractSource.DataRowDeserializer);
+        }
+    }
+    
+    [Fact]
+    public void BuildDataContractQueries_WhenBuiltWithTimespan_ShouldHaveRowDeserializers()
+    {
+        var sut = new QueryBuilder();
+        var actual = sut.BuildDataContractQueries(AzureApiDataContractSource.All, TimeSpan.FromDays(1), null, null);
+
+        foreach (var azureApiDataContractSource in actual)
+        {
+            Assert.NotNull(azureApiDataContractSource.DataRowDeserializer);
+        }
+    }
+
+    [Fact]
     public void GetDataContractSources_WhenSpecifiedPassed_ShouldReturnOnlyPassedValues()
     {
         var sut = new QueryBuilder();

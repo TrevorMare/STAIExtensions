@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Text.Json;
 using Microsoft.Extensions.Logging;
+using STAIExtensions.Abstractions.DataContracts;
 
 namespace STAIExtensions.Core.Serialization;
 
@@ -23,7 +24,7 @@ public class TableRowDeserializer : Abstractions.Serialization.ITableRowDeserial
     #endregion
 
     #region Public Methods
-    public IEnumerable<T>? DeserializeTableRows<T>(Abstractions.ApiClient.Models.ApiClientQueryResultTable table)
+    public IEnumerable<T>? DeserializeTableRows<T>(Abstractions.ApiClient.Models.ApiClientQueryResultTable table) where T : IKustoQueryContract
     {
         try
         {
