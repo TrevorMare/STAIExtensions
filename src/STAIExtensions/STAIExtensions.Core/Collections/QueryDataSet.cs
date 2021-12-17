@@ -97,7 +97,7 @@ public abstract class QueryDataSet : Abstractions.Collections.IQueryDataSet
     #endregion
 
     #region Public Methods
-    public void StartAutoRefresh(TimeSpan refreshInterval, CancellationToken? cancellationToken = default)
+    public virtual void StartAutoRefresh(TimeSpan refreshInterval, CancellationToken? cancellationToken = default)
     {
         this._autoRefreshInterval = refreshInterval;
         this.CancellationToken = cancellationToken;
@@ -106,7 +106,7 @@ public abstract class QueryDataSet : Abstractions.Collections.IQueryDataSet
         this.AutoRefreshTimer.Change(refreshInterval, Timeout.InfiniteTimeSpan);
     }
 
-    public void StopAutoRefresh()
+    public virtual void StopAutoRefresh()
     {
         this._isAutoRefreshEnabled = false;
         this.AutoRefreshTimer.Change(Timeout.InfiniteTimeSpan, Timeout.InfiniteTimeSpan);

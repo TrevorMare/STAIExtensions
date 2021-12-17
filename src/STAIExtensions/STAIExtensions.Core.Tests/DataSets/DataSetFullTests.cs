@@ -15,8 +15,8 @@ public class DataSetFullTests
         return serviceCollection.BuildServiceProvider();
     }
     
-    [Fact]
-    public void RunTest()
+    [Fact(Skip = "Only local tests")]
+    public void RefreshDataSet_WhenCalled_ShouldPopulateData()
     {
 
         var sut = new Core.DataSets.DataSetFull(ServiceProvider);

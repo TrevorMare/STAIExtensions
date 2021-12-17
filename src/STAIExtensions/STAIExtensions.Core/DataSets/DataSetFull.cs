@@ -37,11 +37,25 @@ public class DataSetFull : Core.Collections.QueryDataSet
     #region ctor
     public DataSetFull(IServiceProvider serviceProvider, ILogger<DataSetFull>? logger = default) : base(serviceProvider, logger)
     {
-        this.AddDataQueries(QueryBuilder.BuildDataContractQueries(AzureApiDataContractSource.All, 5, AgoPeriod.Days, null, null));
+        this.InitialiseQueries();
     }
     #endregion
 
     #region Methods
+
+    private void InitialiseQueries()
+    {
+        this.AddDataQueries(QueryBuilder.BuildDataContractQueries(AzureApiDataContractSource.All, 5, AgoPeriod.Minutes, null, false));
+    }
+
+    public override void StartAutoRefresh(TimeSpan refreshInterval, CancellationToken? cancellationToken = default)
+    {
+        this.ClearDataQueries();
+        this.AddDataQueries(QueryBuilder.BuildDataContractQueries(AzureApiDataContractSource.All, refreshInterval, null, false));
+        
+        base.StartAutoRefresh(refreshInterval, cancellationToken);
+    }
+    
     protected override void DeserializeRows(ApiClientQueryResultTable table, IDataContractQuery query)
     {
         if (query.DataRowDeserializer == null)
@@ -54,52 +68,52 @@ public class DataSetFull : Core.Collections.QueryDataSet
         if (string.Equals(query.DeserializedTableName, AzureApiDataContractSource.Availability.DisplayName(), StringComparison.CurrentCultureIgnoreCase))
         {
             var addItems = deserializedRows as IEnumerable<Availability> ?? new List<Availability>();
-            this.Availability.AddRange(addItems);
+            this.Availability.AddRange(addItems.Reverse());
         }
         else if (string.Equals(query.DeserializedTableName, AzureApiDataContractSource.BrowserTiming.DisplayName(), StringComparison.CurrentCultureIgnoreCase))
         {
             var addItems = deserializedRows as IEnumerable<BrowserTiming> ?? new List<BrowserTiming>();
-            this.BrowserTimings.AddRange(addItems);
+            this.BrowserTimings.AddRange(addItems.Reverse());
         }
         else if (string.Equals(query.DeserializedTableName, AzureApiDataContractSource.Dependency.DisplayName(), StringComparison.CurrentCultureIgnoreCase))
         {
             var addItems = deserializedRows as IEnumerable<Dependency> ?? new List<Dependency>();
-            this.Dependencies.AddRange(addItems);
+            this.Dependencies.AddRange(addItems.Reverse());
         }
         else if (string.Equals(query.DeserializedTableName, AzureApiDataContractSource.Exception.DisplayName(), StringComparison.CurrentCultureIgnoreCase))
         {
             var addItems = deserializedRows as IEnumerable<Exception> ?? new List<Exception>();
-            this.Exceptions.AddRange(addItems);
+            this.Exceptions.AddRange(addItems.Reverse());
         }
         else if (string.Equals(query.DeserializedTableName, AzureApiDataContractSource.Request.DisplayName(), StringComparison.CurrentCultureIgnoreCase))
         {
             var addItems = deserializedRows as IEnumerable<Request> ?? new List<Request>();
-            this.Requests.AddRange(addItems);
+            this.Requests.AddRange(addItems.Reverse());
         }
         else if (string.Equals(query.DeserializedTableName, AzureApiDataContractSource.Trace.DisplayName(), StringComparison.CurrentCultureIgnoreCase))
         {
             var addItems = deserializedRows as IEnumerable<Trace> ?? new List<Trace>();
-            this.Traces.AddRange(addItems);
+            this.Traces.AddRange(addItems.Reverse());
         }
         else if (string.Equals(query.DeserializedTableName, AzureApiDataContractSource.CustomEvent.DisplayName(), StringComparison.CurrentCultureIgnoreCase))
         {
             var addItems = deserializedRows as IEnumerable<CustomEvent> ?? new List<CustomEvent>();
-            this.CustomEvents.AddRange(addItems);
+            this.CustomEvents.AddRange(addItems.Reverse());
         }
         else if (string.Equals(query.DeserializedTableName, AzureApiDataContractSource.CustomMetric.DisplayName(), StringComparison.CurrentCultureIgnoreCase))
         {
             var addItems = deserializedRows as IEnumerable<CustomMetrics> ?? new List<CustomMetrics>();
-            this.CustomMetrics.AddRange(addItems);
+            this.CustomMetrics.AddRange(addItems.Reverse());
         }
         else if (string.Equals(query.DeserializedTableName, AzureApiDataContractSource.PageViews.DisplayName(), StringComparison.CurrentCultureIgnoreCase))
         {
             var addItems = deserializedRows as IEnumerable<PageView> ?? new List<PageView>();
-            this.PageViews.AddRange(addItems);
+            this.PageViews.AddRange(addItems.Reverse());
         }
         else if (string.Equals(query.DeserializedTableName, AzureApiDataContractSource.PerformanceCounter.DisplayName(), StringComparison.CurrentCultureIgnoreCase))
         {
             var addItems = deserializedRows as IEnumerable<PerformanceCounter> ?? new List<PerformanceCounter>();
-            this.PerformanceCounters.AddRange(addItems);
+            this.PerformanceCounters.AddRange(addItems.Reverse());
         }
     }
     #endregion
