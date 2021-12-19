@@ -1,0 +1,243 @@
+﻿{
+  "tables": [
+    {
+      "name": "availabilityResults",
+      "columns": [
+        {
+          "name": "timestamp",
+          "type": "datetime"
+        },
+        {
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "location",
+          "type": "string"
+        },
+        {
+          "name": "success",
+          "type": "string"
+        },
+        {
+          "name": "message",
+          "type": "string"
+        },
+        {
+          "name": "size",
+          "type": "real"
+        },
+        {
+          "name": "duration",
+          "type": "real"
+        },
+        {
+          "name": "performanceBucket",
+          "type": "string"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "customDimensions",
+          "type": "dynamic"
+        },
+        {
+          "name": "customMeasurements",
+          "type": "dynamic"
+        },
+        {
+          "name": "operation_Name",
+          "type": "string"
+        },
+        {
+          "name": "operation_Id",
+          "type": "string"
+        },
+        {
+          "name": "operation_ParentId",
+          "type": "string"
+        },
+        {
+          "name": "operation_SyntheticSource",
+          "type": "string"
+        },
+        {
+          "name": "session_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_AuthenticatedId",
+          "type": "string"
+        },
+        {
+          "name": "user_AccountId",
+          "type": "string"
+        },
+        {
+          "name": "application_Version",
+          "type": "string"
+        },
+        {
+          "name": "client_Type",
+          "type": "string"
+        },
+        {
+          "name": "client_Model",
+          "type": "string"
+        },
+        {
+          "name": "client_OS",
+          "type": "string"
+        },
+        {
+          "name": "client_IP",
+          "type": "string"
+        },
+        {
+          "name": "client_City",
+          "type": "string"
+        },
+        {
+          "name": "client_StateOrProvince",
+          "type": "string"
+        },
+        {
+          "name": "client_CountryOrRegion",
+          "type": "string"
+        },
+        {
+          "name": "client_Browser",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleName",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleInstance",
+          "type": "string"
+        },
+        {
+          "name": "appId",
+          "type": "string"
+        },
+        {
+          "name": "appName",
+          "type": "string"
+        },
+        {
+          "name": "iKey",
+          "type": "string"
+        },
+        {
+          "name": "sdkVersion",
+          "type": "string"
+        },
+        {
+          "name": "itemId",
+          "type": "string"
+        },
+        {
+          "name": "itemCount",
+          "type": "int"
+        },
+        {
+          "name": "_ResourceId",
+          "type": "string"
+        }
+      ],
+      "rows": [
+        [
+          "2021-12-13T12:28:02.773Z",
+          "afc5f95c-7940-46b4-8ed9-b41b04738f38",
+          "n/a",
+          "localhost",
+          "1",
+          "Available telemetry",
+          null,
+          5000,
+          "",
+          "availabilityResult",
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          "{\"Metric 2\":100,\"Metric 1\":100}",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "31334adf-5c10-11ec-94f5-501ac5ba5a6d",
+          1,
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ],
+        [
+          "2021-12-13T12:28:05.61Z",
+          "1f3be5db-9aad-4c7e-8529-247a762e7ed0",
+          "n/a",
+          "localhost",
+          "1",
+          "Available telemetry",
+          null,
+          5000,
+          "",
+          "availabilityResult",
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          "{\"Metric 2\":100,\"Metric 1\":100}",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "31334ae0-5c10-11ec-94f5-501ac5ba5a6d",
+          1,
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ]
+      ]
+    }
+  ]
+}

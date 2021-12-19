@@ -1,0 +1,2152 @@
+﻿{
+  "tables": [
+    {
+      "name": "availabilityResults",
+      "columns": [
+        {
+          "name": "timestamp",
+          "type": "datetime"
+        },
+        {
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "location",
+          "type": "string"
+        },
+        {
+          "name": "success",
+          "type": "string"
+        },
+        {
+          "name": "message",
+          "type": "string"
+        },
+        {
+          "name": "size",
+          "type": "real"
+        },
+        {
+          "name": "duration",
+          "type": "real"
+        },
+        {
+          "name": "performanceBucket",
+          "type": "string"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "customDimensions",
+          "type": "dynamic"
+        },
+        {
+          "name": "customMeasurements",
+          "type": "dynamic"
+        },
+        {
+          "name": "operation_Name",
+          "type": "string"
+        },
+        {
+          "name": "operation_Id",
+          "type": "string"
+        },
+        {
+          "name": "operation_ParentId",
+          "type": "string"
+        },
+        {
+          "name": "operation_SyntheticSource",
+          "type": "string"
+        },
+        {
+          "name": "session_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_AuthenticatedId",
+          "type": "string"
+        },
+        {
+          "name": "user_AccountId",
+          "type": "string"
+        },
+        {
+          "name": "application_Version",
+          "type": "string"
+        },
+        {
+          "name": "client_Type",
+          "type": "string"
+        },
+        {
+          "name": "client_Model",
+          "type": "string"
+        },
+        {
+          "name": "client_OS",
+          "type": "string"
+        },
+        {
+          "name": "client_IP",
+          "type": "string"
+        },
+        {
+          "name": "client_City",
+          "type": "string"
+        },
+        {
+          "name": "client_StateOrProvince",
+          "type": "string"
+        },
+        {
+          "name": "client_CountryOrRegion",
+          "type": "string"
+        },
+        {
+          "name": "client_Browser",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleName",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleInstance",
+          "type": "string"
+        },
+        {
+          "name": "appId",
+          "type": "string"
+        },
+        {
+          "name": "appName",
+          "type": "string"
+        },
+        {
+          "name": "iKey",
+          "type": "string"
+        },
+        {
+          "name": "sdkVersion",
+          "type": "string"
+        },
+        {
+          "name": "itemId",
+          "type": "string"
+        },
+        {
+          "name": "itemCount",
+          "type": "int"
+        },
+        {
+          "name": "_ResourceId",
+          "type": "string"
+        }
+      ],
+      "rows": [
+        [
+          "2021-12-13T12:28:02.773Z",
+          "afc5f95c-7940-46b4-8ed9-b41b04738f38",
+          "n/a",
+          "localhost",
+          "1",
+          "Available telemetry",
+          null,
+          5000,
+          "",
+          "availabilityResult",
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          "{\"Metric 2\":100,\"Metric 1\":100}",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "31334adf-5c10-11ec-94f5-501ac5ba5a6d",
+          1,
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ],
+        [
+          "2021-12-13T12:28:05.61Z",
+          "1f3be5db-9aad-4c7e-8529-247a762e7ed0",
+          "n/a",
+          "localhost",
+          "1",
+          "Available telemetry",
+          null,
+          5000,
+          "",
+          "availabilityResult",
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          "{\"Metric 2\":100,\"Metric 1\":100}",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "31334ae0-5c10-11ec-94f5-501ac5ba5a6d",
+          1,
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ]
+      ]
+    },
+    {
+      "name": "browserTimings",
+      "columns": [
+        {
+          "name": "timestamp",
+          "type": "datetime"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "url",
+          "type": "string"
+        },
+        {
+          "name": "networkDuration",
+          "type": "real"
+        },
+        {
+          "name": "sendDuration",
+          "type": "real"
+        },
+        {
+          "name": "receiveDuration",
+          "type": "real"
+        },
+        {
+          "name": "processingDuration",
+          "type": "real"
+        },
+        {
+          "name": "totalDuration",
+          "type": "real"
+        },
+        {
+          "name": "performanceBucket",
+          "type": "string"
+        },
+        {
+          "name": "customDimensions",
+          "type": "dynamic"
+        },
+        {
+          "name": "customMeasurements",
+          "type": "dynamic"
+        },
+        {
+          "name": "operation_Name",
+          "type": "string"
+        },
+        {
+          "name": "operation_Id",
+          "type": "string"
+        },
+        {
+          "name": "operation_ParentId",
+          "type": "string"
+        },
+        {
+          "name": "operation_SyntheticSource",
+          "type": "string"
+        },
+        {
+          "name": "session_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_AuthenticatedId",
+          "type": "string"
+        },
+        {
+          "name": "user_AccountId",
+          "type": "string"
+        },
+        {
+          "name": "application_Version",
+          "type": "string"
+        },
+        {
+          "name": "client_Type",
+          "type": "string"
+        },
+        {
+          "name": "client_Model",
+          "type": "string"
+        },
+        {
+          "name": "client_OS",
+          "type": "string"
+        },
+        {
+          "name": "client_IP",
+          "type": "string"
+        },
+        {
+          "name": "client_City",
+          "type": "string"
+        },
+        {
+          "name": "client_StateOrProvince",
+          "type": "string"
+        },
+        {
+          "name": "client_CountryOrRegion",
+          "type": "string"
+        },
+        {
+          "name": "client_Browser",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleName",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleInstance",
+          "type": "string"
+        },
+        {
+          "name": "appId",
+          "type": "string"
+        },
+        {
+          "name": "appName",
+          "type": "string"
+        },
+        {
+          "name": "iKey",
+          "type": "string"
+        },
+        {
+          "name": "sdkVersion",
+          "type": "string"
+        },
+        {
+          "name": "itemId",
+          "type": "string"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "itemCount",
+          "type": "int"
+        },
+        {
+          "name": "_ResourceId",
+          "type": "string"
+        }
+      ],
+      "rows": []
+    },
+    {
+      "name": "customEvents",
+      "columns": [
+        {
+          "name": "timestamp",
+          "type": "datetime"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "customDimensions",
+          "type": "dynamic"
+        },
+        {
+          "name": "customMeasurements",
+          "type": "dynamic"
+        },
+        {
+          "name": "operation_Name",
+          "type": "string"
+        },
+        {
+          "name": "operation_Id",
+          "type": "string"
+        },
+        {
+          "name": "operation_ParentId",
+          "type": "string"
+        },
+        {
+          "name": "operation_SyntheticSource",
+          "type": "string"
+        },
+        {
+          "name": "session_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_AuthenticatedId",
+          "type": "string"
+        },
+        {
+          "name": "user_AccountId",
+          "type": "string"
+        },
+        {
+          "name": "application_Version",
+          "type": "string"
+        },
+        {
+          "name": "client_Type",
+          "type": "string"
+        },
+        {
+          "name": "client_Model",
+          "type": "string"
+        },
+        {
+          "name": "client_OS",
+          "type": "string"
+        },
+        {
+          "name": "client_IP",
+          "type": "string"
+        },
+        {
+          "name": "client_City",
+          "type": "string"
+        },
+        {
+          "name": "client_StateOrProvince",
+          "type": "string"
+        },
+        {
+          "name": "client_CountryOrRegion",
+          "type": "string"
+        },
+        {
+          "name": "client_Browser",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleName",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleInstance",
+          "type": "string"
+        },
+        {
+          "name": "appId",
+          "type": "string"
+        },
+        {
+          "name": "appName",
+          "type": "string"
+        },
+        {
+          "name": "iKey",
+          "type": "string"
+        },
+        {
+          "name": "sdkVersion",
+          "type": "string"
+        },
+        {
+          "name": "itemId",
+          "type": "string"
+        },
+        {
+          "name": "itemCount",
+          "type": "int"
+        },
+        {
+          "name": "_ResourceId",
+          "type": "string"
+        }
+      ],
+      "rows": [
+        [
+          "2021-12-13T12:28:08.804Z",
+          "My Custom Event",
+          "customEvent",
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          "{\"Metric 2\":100,\"Metric 1\":100}",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "2f40bd1e-5c10-11ec-94f5-501ac57664e8",
+          1,
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ],
+        [
+          "2021-12-13T12:24:13.337Z",
+          "My Custom Event",
+          "customEvent",
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          "{\"Metric 1\":100,\"Metric 2\":100}",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "a95951b0-5c0f-11ec-94f5-00155da5c82b",
+          1,
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ]
+      ]
+    },
+    {
+      "name": "customMetrics",
+      "columns": [
+        {
+          "name": "timestamp",
+          "type": "datetime"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "real"
+        },
+        {
+          "name": "valueCount",
+          "type": "int"
+        },
+        {
+          "name": "valueSum",
+          "type": "real"
+        },
+        {
+          "name": "valueMin",
+          "type": "real"
+        },
+        {
+          "name": "valueMax",
+          "type": "real"
+        },
+        {
+          "name": "valueStdDev",
+          "type": "real"
+        },
+        {
+          "name": "customDimensions",
+          "type": "dynamic"
+        },
+        {
+          "name": "operation_Name",
+          "type": "string"
+        },
+        {
+          "name": "operation_Id",
+          "type": "string"
+        },
+        {
+          "name": "operation_ParentId",
+          "type": "string"
+        },
+        {
+          "name": "operation_SyntheticSource",
+          "type": "string"
+        },
+        {
+          "name": "session_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_AuthenticatedId",
+          "type": "string"
+        },
+        {
+          "name": "user_AccountId",
+          "type": "string"
+        },
+        {
+          "name": "application_Version",
+          "type": "string"
+        },
+        {
+          "name": "client_Type",
+          "type": "string"
+        },
+        {
+          "name": "client_Model",
+          "type": "string"
+        },
+        {
+          "name": "client_OS",
+          "type": "string"
+        },
+        {
+          "name": "client_IP",
+          "type": "string"
+        },
+        {
+          "name": "client_City",
+          "type": "string"
+        },
+        {
+          "name": "client_StateOrProvince",
+          "type": "string"
+        },
+        {
+          "name": "client_CountryOrRegion",
+          "type": "string"
+        },
+        {
+          "name": "client_Browser",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleName",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleInstance",
+          "type": "string"
+        },
+        {
+          "name": "appId",
+          "type": "string"
+        },
+        {
+          "name": "appName",
+          "type": "string"
+        },
+        {
+          "name": "iKey",
+          "type": "string"
+        },
+        {
+          "name": "sdkVersion",
+          "type": "string"
+        },
+        {
+          "name": "itemId",
+          "type": "string"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "_ResourceId",
+          "type": "string"
+        }
+      ],
+      "rows": [
+        [
+          "2021-12-13T12:24:11.566Z",
+          "\\PerformanceCounter(Localhost)\\SampleCPUPerformance",
+          null,
+          1,
+          200,
+          200,
+          200,
+          null,
+          "{\"Property 2\":\"Value 2\",\"CounterInstanceName\":\"Localhost\",\"Property 1\":\"Value 1\"}",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "b012c7f3-5c0f-11ec-94f5-281878841ac1",
+          "customMetric",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ],
+        [
+          "2021-12-13T12:24:11.959Z",
+          "Metric 1",
+          null,
+          2,
+          3,
+          0,
+          4,
+          null,
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "b012c7f5-5c0f-11ec-94f5-281878841ac1",
+          "customMetric",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ]
+      ]
+    },
+    {
+      "name": "dependencies",
+      "columns": [
+        {
+          "name": "timestamp",
+          "type": "datetime"
+        },
+        {
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "name": "target",
+          "type": "string"
+        },
+        {
+          "name": "type",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "data",
+          "type": "string"
+        },
+        {
+          "name": "success",
+          "type": "string"
+        },
+        {
+          "name": "resultCode",
+          "type": "string"
+        },
+        {
+          "name": "duration",
+          "type": "real"
+        },
+        {
+          "name": "performanceBucket",
+          "type": "string"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "customDimensions",
+          "type": "dynamic"
+        },
+        {
+          "name": "customMeasurements",
+          "type": "dynamic"
+        },
+        {
+          "name": "operation_Name",
+          "type": "string"
+        },
+        {
+          "name": "operation_Id",
+          "type": "string"
+        },
+        {
+          "name": "operation_ParentId",
+          "type": "string"
+        },
+        {
+          "name": "operation_SyntheticSource",
+          "type": "string"
+        },
+        {
+          "name": "session_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_AuthenticatedId",
+          "type": "string"
+        },
+        {
+          "name": "user_AccountId",
+          "type": "string"
+        },
+        {
+          "name": "application_Version",
+          "type": "string"
+        },
+        {
+          "name": "client_Type",
+          "type": "string"
+        },
+        {
+          "name": "client_Model",
+          "type": "string"
+        },
+        {
+          "name": "client_OS",
+          "type": "string"
+        },
+        {
+          "name": "client_IP",
+          "type": "string"
+        },
+        {
+          "name": "client_City",
+          "type": "string"
+        },
+        {
+          "name": "client_StateOrProvince",
+          "type": "string"
+        },
+        {
+          "name": "client_CountryOrRegion",
+          "type": "string"
+        },
+        {
+          "name": "client_Browser",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleName",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleInstance",
+          "type": "string"
+        },
+        {
+          "name": "appId",
+          "type": "string"
+        },
+        {
+          "name": "appName",
+          "type": "string"
+        },
+        {
+          "name": "iKey",
+          "type": "string"
+        },
+        {
+          "name": "sdkVersion",
+          "type": "string"
+        },
+        {
+          "name": "itemId",
+          "type": "string"
+        },
+        {
+          "name": "itemCount",
+          "type": "int"
+        },
+        {
+          "name": "_ResourceId",
+          "type": "string"
+        }
+      ],
+      "rows": [
+        [
+          "2021-12-13T12:24:12.988Z",
+          "3fd42ebd21ecd229",
+          "Generate Sample Data",
+          "Function",
+          "GenerateDependencyData",
+          "This is my data",
+          "True",
+          "Success",
+          0.6664,
+          "<250ms",
+          "dependency",
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          "{\"Metric 1\":100,\"Metric 2\":100}",
+          "GenerateDependencyData",
+          "46e244b0c57ff5ca444591f34a2da575",
+          "46e244b0c57ff5ca444591f34a2da575",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "a73ac603-5c0f-11ec-94f5-501ac5768d58",
+          1,
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ],
+        [
+          "2021-12-13T12:28:02.763Z",
+          "e32b0872bef7c367",
+          "Generate Sample Data",
+          "Function",
+          "GenerateDependencyData",
+          "This is my data",
+          "True",
+          "Success",
+          0.7328,
+          "<250ms",
+          "dependency",
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          "{\"Metric 1\":100,\"Metric 2\":100}",
+          "GenerateDependencyData",
+          "8f8a04a3baa227336c5d79246123cb0c",
+          "8f8a04a3baa227336c5d79246123cb0c",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "2f3521eb-5c10-11ec-94f5-2818783228c5",
+          1,
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ]
+      ]
+    },
+    {
+      "name": "exceptions",
+      "columns": [
+        {
+          "name": "timestamp",
+          "type": "datetime"
+        },
+        {
+          "name": "problemId",
+          "type": "string"
+        },
+        {
+          "name": "handledAt",
+          "type": "string"
+        },
+        {
+          "name": "type",
+          "type": "string"
+        },
+        {
+          "name": "message",
+          "type": "string"
+        },
+        {
+          "name": "assembly",
+          "type": "string"
+        },
+        {
+          "name": "method",
+          "type": "string"
+        },
+        {
+          "name": "outerType",
+          "type": "string"
+        },
+        {
+          "name": "outerMessage",
+          "type": "string"
+        },
+        {
+          "name": "outerAssembly",
+          "type": "string"
+        },
+        {
+          "name": "outerMethod",
+          "type": "string"
+        },
+        {
+          "name": "innermostType",
+          "type": "string"
+        },
+        {
+          "name": "innermostMessage",
+          "type": "string"
+        },
+        {
+          "name": "innermostAssembly",
+          "type": "string"
+        },
+        {
+          "name": "innermostMethod",
+          "type": "string"
+        },
+        {
+          "name": "severityLevel",
+          "type": "int"
+        },
+        {
+          "name": "details",
+          "type": "dynamic"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "customDimensions",
+          "type": "dynamic"
+        },
+        {
+          "name": "customMeasurements",
+          "type": "dynamic"
+        },
+        {
+          "name": "operation_Name",
+          "type": "string"
+        },
+        {
+          "name": "operation_Id",
+          "type": "string"
+        },
+        {
+          "name": "operation_ParentId",
+          "type": "string"
+        },
+        {
+          "name": "operation_SyntheticSource",
+          "type": "string"
+        },
+        {
+          "name": "session_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_AuthenticatedId",
+          "type": "string"
+        },
+        {
+          "name": "user_AccountId",
+          "type": "string"
+        },
+        {
+          "name": "application_Version",
+          "type": "string"
+        },
+        {
+          "name": "client_Type",
+          "type": "string"
+        },
+        {
+          "name": "client_Model",
+          "type": "string"
+        },
+        {
+          "name": "client_OS",
+          "type": "string"
+        },
+        {
+          "name": "client_IP",
+          "type": "string"
+        },
+        {
+          "name": "client_City",
+          "type": "string"
+        },
+        {
+          "name": "client_StateOrProvince",
+          "type": "string"
+        },
+        {
+          "name": "client_CountryOrRegion",
+          "type": "string"
+        },
+        {
+          "name": "client_Browser",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleName",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleInstance",
+          "type": "string"
+        },
+        {
+          "name": "appId",
+          "type": "string"
+        },
+        {
+          "name": "appName",
+          "type": "string"
+        },
+        {
+          "name": "iKey",
+          "type": "string"
+        },
+        {
+          "name": "sdkVersion",
+          "type": "string"
+        },
+        {
+          "name": "itemId",
+          "type": "string"
+        },
+        {
+          "name": "itemCount",
+          "type": "int"
+        },
+        {
+          "name": "_ResourceId",
+          "type": "string"
+        }
+      ],
+      "rows": [
+        [
+          "2021-12-13T12:28:01.948Z",
+          "System.IndexOutOfRangeException at STAIExtensions.Core.Tests.AIDataGenerator.ApplicationInsightsDataGenerator.GenerateExceptionData",
+          "",
+          "System.IndexOutOfRangeException",
+          "",
+          "STAIExtensions.Core.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "STAIExtensions.Core.Tests.AIDataGenerator.ApplicationInsightsDataGenerator.GenerateExceptionData",
+          "System.Exception",
+          "This is the outer exception",
+          "",
+          "",
+          "System.IndexOutOfRangeException",
+          "Index was outside the bounds of the array.",
+          "STAIExtensions.Core.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "STAIExtensions.Core.Tests.AIDataGenerator.ApplicationInsightsDataGenerator.GenerateExceptionData",
+          null,
+          "[{\"outerId\":\"0\",\"message\":\"This is the outer exception\",\"type\":\"System.Exception\",\"id\":\"52098527\"},{\"outerId\":\"52098527\",\"message\":\"Index was outside the bounds of the array.\",\"type\":\"System.IndexOutOfRangeException\",\"id\":\"27394769\",\"parsedStack\":[{\"assembly\":\"STAIExtensions.Core.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null\",\"method\":\"STAIExtensions.Core.Tests.AIDataGenerator.ApplicationInsightsDataGenerator.GenerateExceptionData\",\"level\":0,\"line\":139,\"fileName\":\"G:\\\\STAIExtensions\\\\src\\\\STAIExtensions\\\\STAIExtensions.Core.Tests\\\\AIDataGenerator\\\\ApplicationInsightsDataGenerator.cs\"}]}]",
+          "exception",
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          "{\"Metric1\":100,\"Metric2\":200}",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "25942c41-5c10-11ec-94f5-501ac575ffaa",
+          1,
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ],
+        [
+          "2021-12-13T12:28:04.512Z",
+          "System.IndexOutOfRangeException at STAIExtensions.Core.Tests.AIDataGenerator.ApplicationInsightsDataGenerator.GenerateExceptionData",
+          "",
+          "System.IndexOutOfRangeException",
+          "",
+          "STAIExtensions.Core.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "STAIExtensions.Core.Tests.AIDataGenerator.ApplicationInsightsDataGenerator.GenerateExceptionData",
+          "System.Exception",
+          "This is the outer exception",
+          "",
+          "",
+          "System.IndexOutOfRangeException",
+          "Index was outside the bounds of the array.",
+          "STAIExtensions.Core.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "STAIExtensions.Core.Tests.AIDataGenerator.ApplicationInsightsDataGenerator.GenerateExceptionData",
+          null,
+          "[{\"outerId\":\"0\",\"message\":\"This is the outer exception\",\"type\":\"System.Exception\",\"id\":\"39392417\"},{\"outerId\":\"39392417\",\"message\":\"Index was outside the bounds of the array.\",\"type\":\"System.IndexOutOfRangeException\",\"id\":\"45286344\",\"parsedStack\":[{\"assembly\":\"STAIExtensions.Core.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null\",\"method\":\"STAIExtensions.Core.Tests.AIDataGenerator.ApplicationInsightsDataGenerator.GenerateExceptionData\",\"level\":0,\"line\":139,\"fileName\":\"G:\\\\STAIExtensions\\\\src\\\\STAIExtensions\\\\STAIExtensions.Core.Tests\\\\AIDataGenerator\\\\ApplicationInsightsDataGenerator.cs\"}]}]",
+          "exception",
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          "{\"Metric1\":100,\"Metric2\":200}",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "319c4f26-5c10-11ec-94f5-501ac5ba8d12",
+          1,
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ]
+      ]
+    },
+    {
+      "name": "pageViews",
+      "columns": [
+        {
+          "name": "timestamp",
+          "type": "datetime"
+        },
+        {
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "url",
+          "type": "string"
+        },
+        {
+          "name": "duration",
+          "type": "real"
+        },
+        {
+          "name": "performanceBucket",
+          "type": "string"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "customDimensions",
+          "type": "dynamic"
+        },
+        {
+          "name": "customMeasurements",
+          "type": "dynamic"
+        },
+        {
+          "name": "operation_Name",
+          "type": "string"
+        },
+        {
+          "name": "operation_Id",
+          "type": "string"
+        },
+        {
+          "name": "operation_ParentId",
+          "type": "string"
+        },
+        {
+          "name": "operation_SyntheticSource",
+          "type": "string"
+        },
+        {
+          "name": "session_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_AuthenticatedId",
+          "type": "string"
+        },
+        {
+          "name": "user_AccountId",
+          "type": "string"
+        },
+        {
+          "name": "application_Version",
+          "type": "string"
+        },
+        {
+          "name": "client_Type",
+          "type": "string"
+        },
+        {
+          "name": "client_Model",
+          "type": "string"
+        },
+        {
+          "name": "client_OS",
+          "type": "string"
+        },
+        {
+          "name": "client_IP",
+          "type": "string"
+        },
+        {
+          "name": "client_City",
+          "type": "string"
+        },
+        {
+          "name": "client_StateOrProvince",
+          "type": "string"
+        },
+        {
+          "name": "client_CountryOrRegion",
+          "type": "string"
+        },
+        {
+          "name": "client_Browser",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleName",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleInstance",
+          "type": "string"
+        },
+        {
+          "name": "appId",
+          "type": "string"
+        },
+        {
+          "name": "appName",
+          "type": "string"
+        },
+        {
+          "name": "iKey",
+          "type": "string"
+        },
+        {
+          "name": "sdkVersion",
+          "type": "string"
+        },
+        {
+          "name": "itemId",
+          "type": "string"
+        },
+        {
+          "name": "itemCount",
+          "type": "int"
+        },
+        {
+          "name": "_ResourceId",
+          "type": "string"
+        }
+      ],
+      "rows": [
+        [
+          "2021-12-13T12:24:12.322Z",
+          "",
+          "page name",
+          "https://generaterequestdata/post",
+          2000,
+          "1sec-3sec",
+          "pageView",
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          "{\"Metric 1\":100,\"Metric 2\":100}",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "a31f2468-5c0f-11ec-94f5-281878847859",
+          1,
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ],
+        [
+          "2021-12-13T12:27:44.232Z",
+          "",
+          "page name",
+          "https://generaterequestdata/post",
+          2000,
+          "1sec-3sec",
+          "pageView",
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          "{\"Metric 1\":100,\"Metric 2\":100}",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "274828f0-5c10-11ec-94f5-00155d8c4521",
+          1,
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ]
+      ]
+    },
+    {
+      "name": "performanceCounters",
+      "columns": [
+        {
+          "name": "timestamp",
+          "type": "datetime"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "category",
+          "type": "string"
+        },
+        {
+          "name": "counter",
+          "type": "string"
+        },
+        {
+          "name": "instance",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "real"
+        },
+        {
+          "name": "customDimensions",
+          "type": "dynamic"
+        },
+        {
+          "name": "operation_Name",
+          "type": "string"
+        },
+        {
+          "name": "operation_Id",
+          "type": "string"
+        },
+        {
+          "name": "operation_ParentId",
+          "type": "string"
+        },
+        {
+          "name": "operation_SyntheticSource",
+          "type": "string"
+        },
+        {
+          "name": "session_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_AuthenticatedId",
+          "type": "string"
+        },
+        {
+          "name": "user_AccountId",
+          "type": "string"
+        },
+        {
+          "name": "application_Version",
+          "type": "string"
+        },
+        {
+          "name": "client_Type",
+          "type": "string"
+        },
+        {
+          "name": "client_Model",
+          "type": "string"
+        },
+        {
+          "name": "client_OS",
+          "type": "string"
+        },
+        {
+          "name": "client_IP",
+          "type": "string"
+        },
+        {
+          "name": "client_City",
+          "type": "string"
+        },
+        {
+          "name": "client_StateOrProvince",
+          "type": "string"
+        },
+        {
+          "name": "client_CountryOrRegion",
+          "type": "string"
+        },
+        {
+          "name": "client_Browser",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleName",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleInstance",
+          "type": "string"
+        },
+        {
+          "name": "appId",
+          "type": "string"
+        },
+        {
+          "name": "appName",
+          "type": "string"
+        },
+        {
+          "name": "iKey",
+          "type": "string"
+        },
+        {
+          "name": "sdkVersion",
+          "type": "string"
+        },
+        {
+          "name": "itemId",
+          "type": "string"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "_ResourceId",
+          "type": "string"
+        }
+      ],
+      "rows": []
+    },
+    {
+      "name": "requests",
+      "columns": [
+        {
+          "name": "timestamp",
+          "type": "datetime"
+        },
+        {
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "name": "source",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "url",
+          "type": "string"
+        },
+        {
+          "name": "success",
+          "type": "string"
+        },
+        {
+          "name": "resultCode",
+          "type": "string"
+        },
+        {
+          "name": "duration",
+          "type": "real"
+        },
+        {
+          "name": "performanceBucket",
+          "type": "string"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "customDimensions",
+          "type": "dynamic"
+        },
+        {
+          "name": "customMeasurements",
+          "type": "dynamic"
+        },
+        {
+          "name": "operation_Name",
+          "type": "string"
+        },
+        {
+          "name": "operation_Id",
+          "type": "string"
+        },
+        {
+          "name": "operation_ParentId",
+          "type": "string"
+        },
+        {
+          "name": "operation_SyntheticSource",
+          "type": "string"
+        },
+        {
+          "name": "session_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_AuthenticatedId",
+          "type": "string"
+        },
+        {
+          "name": "user_AccountId",
+          "type": "string"
+        },
+        {
+          "name": "application_Version",
+          "type": "string"
+        },
+        {
+          "name": "client_Type",
+          "type": "string"
+        },
+        {
+          "name": "client_Model",
+          "type": "string"
+        },
+        {
+          "name": "client_OS",
+          "type": "string"
+        },
+        {
+          "name": "client_IP",
+          "type": "string"
+        },
+        {
+          "name": "client_City",
+          "type": "string"
+        },
+        {
+          "name": "client_StateOrProvince",
+          "type": "string"
+        },
+        {
+          "name": "client_CountryOrRegion",
+          "type": "string"
+        },
+        {
+          "name": "client_Browser",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleName",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleInstance",
+          "type": "string"
+        },
+        {
+          "name": "appId",
+          "type": "string"
+        },
+        {
+          "name": "appName",
+          "type": "string"
+        },
+        {
+          "name": "iKey",
+          "type": "string"
+        },
+        {
+          "name": "sdkVersion",
+          "type": "string"
+        },
+        {
+          "name": "itemId",
+          "type": "string"
+        },
+        {
+          "name": "itemCount",
+          "type": "int"
+        },
+        {
+          "name": "_ResourceId",
+          "type": "string"
+        }
+      ],
+      "rows": [
+        [
+          "2021-12-13T12:24:11.2Z",
+          "17850d017429fe07",
+          "GenerateRequestData/post",
+          "GenerateRequestData",
+          "https://generaterequestdata/post",
+          "True",
+          "204",
+          2.2114,
+          "<250ms",
+          "request",
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          "{\"Metric 1\":100,\"Metric 2\":100}",
+          "GenerateRequestData",
+          "604714ae51f49e0bcf2fa8322075e877",
+          "604714ae51f49e0bcf2fa8322075e877",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "a2baea49-5c0f-11ec-94f5-28187813cec9",
+          1,
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ],
+        [
+          "2021-12-13T12:27:44.209Z",
+          "a898f68a722b1cb3",
+          "GenerateRequestData/post",
+          "GenerateRequestData",
+          "https://generaterequestdata/post",
+          "True",
+          "204",
+          2.2453,
+          "<250ms",
+          "request",
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          "{\"Metric 1\":100,\"Metric 2\":100}",
+          "GenerateRequestData",
+          "1f161b9a9651bb4f48e7b47aa653d1e0",
+          "1f161b9a9651bb4f48e7b47aa653d1e0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "2a1b2ab5-5c10-11ec-94f5-2818788481da",
+          1,
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ]
+      ]
+    },
+    {
+      "name": "traces",
+      "columns": [
+        {
+          "name": "timestamp",
+          "type": "datetime"
+        },
+        {
+          "name": "message",
+          "type": "string"
+        },
+        {
+          "name": "severityLevel",
+          "type": "int"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "customDimensions",
+          "type": "dynamic"
+        },
+        {
+          "name": "customMeasurements",
+          "type": "dynamic"
+        },
+        {
+          "name": "operation_Name",
+          "type": "string"
+        },
+        {
+          "name": "operation_Id",
+          "type": "string"
+        },
+        {
+          "name": "operation_ParentId",
+          "type": "string"
+        },
+        {
+          "name": "operation_SyntheticSource",
+          "type": "string"
+        },
+        {
+          "name": "session_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_AuthenticatedId",
+          "type": "string"
+        },
+        {
+          "name": "user_AccountId",
+          "type": "string"
+        },
+        {
+          "name": "application_Version",
+          "type": "string"
+        },
+        {
+          "name": "client_Type",
+          "type": "string"
+        },
+        {
+          "name": "client_Model",
+          "type": "string"
+        },
+        {
+          "name": "client_OS",
+          "type": "string"
+        },
+        {
+          "name": "client_IP",
+          "type": "string"
+        },
+        {
+          "name": "client_City",
+          "type": "string"
+        },
+        {
+          "name": "client_StateOrProvince",
+          "type": "string"
+        },
+        {
+          "name": "client_CountryOrRegion",
+          "type": "string"
+        },
+        {
+          "name": "client_Browser",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleName",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleInstance",
+          "type": "string"
+        },
+        {
+          "name": "appId",
+          "type": "string"
+        },
+        {
+          "name": "appName",
+          "type": "string"
+        },
+        {
+          "name": "iKey",
+          "type": "string"
+        },
+        {
+          "name": "sdkVersion",
+          "type": "string"
+        },
+        {
+          "name": "itemId",
+          "type": "string"
+        },
+        {
+          "name": "itemCount",
+          "type": "int"
+        },
+        {
+          "name": "_ResourceId",
+          "type": "string"
+        }
+      ],
+      "rows": [
+        [
+          "2021-12-13T12:24:10.587Z",
+          "This is a custom trace message",
+          1,
+          "trace",
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          null,
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "a0a31ef7-5c0f-11ec-94f5-501ac5763c81",
+          1,
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ],
+        [
+          "2021-12-13T12:28:04.473Z",
+          "This is a custom trace message",
+          1,
+          "trace",
+          "{\"Property 2\":\"Value 2\",\"Property 1\":\"Value 1\"}",
+          null,
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "PC",
+          "",
+          "",
+          "0.0.0.0",
+          "Pretoria",
+          "Gauteng",
+          "South Africa",
+          "",
+          "localhost-Generate",
+          "localhost",
+          "07069fbf-ec4a-4acf-8c34-297f6494aa94",
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai",
+          "bc2e4a06-9252-4448-828c-f43c309d26da",
+          "dotnetc:2.19.0-227",
+          "2b22c5ca-5c10-11ec-94f5-2818787a4d57",
+          1,
+          "/subscriptions/f21f680e-e959-4527-bf59-4a034481cbf9/resourcegroups/trevortrackertelegramfunctionsrg/providers/microsoft.insights/components/aiazureai"
+        ]
+      ]
+    }
+  ]
+}
