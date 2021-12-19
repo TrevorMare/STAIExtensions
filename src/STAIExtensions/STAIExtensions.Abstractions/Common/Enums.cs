@@ -3,7 +3,7 @@
 namespace STAIExtensions.Abstractions.Common;
 
 [Flags]
-public enum AzureApiDataContractSource
+public enum DataContractSource
 {
     [Display(Name = "availabilityResults")]
     Availability = 0x0,
@@ -62,6 +62,10 @@ public enum AgoPeriod
     
     [Display(Name = "d")]
     Days = 6,
+    
+    None = 97,
+    
+    Custom = 98,
     
     Time = 99
 }

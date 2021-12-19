@@ -1,5 +1,10 @@
 ﻿using System.Runtime.CompilerServices;
 using Microsoft.Extensions.Logging;
+using STAIExtensions.Abstractions.DataContracts;
+using STAIExtensions.Abstractions.Queries;
+using STAIExtensions.Data.AzureDataExplorer.Queries;
+using STAIExtensions.Data.AzureDataExplorer.Serialization;
+
 [assembly:InternalsVisibleTo("STAIExtensions.Data.AzureDataExplorer.Tests")]
 
 
@@ -14,7 +19,9 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
 
     private readonly TelemetryLoaderOptions _loaderOptions;
 
-    private readonly AzureDataExplorerClient _azureDataExplorerClient; 
+    private readonly AzureDataExplorerClient _azureDataExplorerClient;
+
+    private readonly TableRowDeserializer _tableRowDeserializer;
     #endregion
 
     #region ctor
@@ -40,39 +47,43 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
             throw new ArgumentNullException(nameof(_loaderOptions));        
      
         this._azureDataExplorerClient = new AzureDataExplorerClient(this._loaderOptions);
+        this._tableRowDeserializer = new TableRowDeserializer();
     }
     #endregion
 
     #region Methods
-    public void LoadTelemetry()
+    public async Task<IEnumerable<T>> ExecuteQueryAsync<T>(IDataContractQuery<T> query) where T : IDataContract
     {
-        try
-        {
+        if (query == null)
+            throw new ArgumentNullException(nameof(query));
 
-        }
-        catch (Exception e)
+        if (query.Enabled == false)
+            return new List<T>();
+
+        var queryData = query.BuildQueryData()?.ToString() ?? "";
+        if (string.IsNullOrEmpty(queryData))
         {
-            Console.WriteLine(e);
-            throw;
+            
         }
+        
+        
+        // Call the telemetry client to load the query
+        var clientResponse = await _azureDataExplorerClient.ExecuteQueryAndGetResponseAsync(queryData);
+        
+        if (clientResponse?.Tables == null)
+            return new List<T>();
+
+        if (clientResponse.Tables.Count() != 1)
+            throw new Exception("Unexpected number of tables in deserialization");
+        
+        // Get the row data
+        IEnumerable<T> result = this._tableRowDeserializer.DeserializeTableRows<T>(clientResponse.Tables.FirstOrDefault());
+         
+
+        // Return the row data for the query
+
+        return result;
     }
-    
-    public async Task LoadTelemetryAsync(IEnumerable<Abstractions.Queries.IDataContractQuery> queries)
-    {
-        try
-        {
-
-            var clientReponse = await _azureDataExplorerClient.ExecuteQueryAndGetResponseAsync("");
-
-
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-    }
-
     #endregion
     
     
