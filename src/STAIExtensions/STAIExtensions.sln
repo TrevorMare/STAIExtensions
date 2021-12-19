@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions.Core.Tests",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions.Service", "STAIExtensions.Service\STAIExtensions.Service.csproj", "{106101A7-763E-48B0-81BE-65B4B6D5EA65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions.Data.AzureDataExplorer", "STAIExtensions.Data.AzureDataExplorer\STAIExtensions.Data.AzureDataExplorer.csproj", "{C0742921-6EEC-4CBD-A966-9E7BB5C1A8F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions.Data.AzureDataExplorer.Tests", "STAIExtensions.Data.AzureDataExplorer.Tests\STAIExtensions.Data.AzureDataExplorer.Tests.csproj", "{9F2F46F4-19E4-49C9-B8EC-943FEE010754}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +40,13 @@ Global
 		{106101A7-763E-48B0-81BE-65B4B6D5EA65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{106101A7-763E-48B0-81BE-65B4B6D5EA65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{106101A7-763E-48B0-81BE-65B4B6D5EA65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0742921-6EEC-4CBD-A966-9E7BB5C1A8F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0742921-6EEC-4CBD-A966-9E7BB5C1A8F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0742921-6EEC-4CBD-A966-9E7BB5C1A8F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0742921-6EEC-4CBD-A966-9E7BB5C1A8F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F2F46F4-19E4-49C9-B8EC-943FEE010754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F2F46F4-19E4-49C9-B8EC-943FEE010754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F2F46F4-19E4-49C9-B8EC-943FEE010754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F2F46F4-19E4-49C9-B8EC-943FEE010754}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
