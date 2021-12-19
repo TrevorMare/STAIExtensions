@@ -15,16 +15,8 @@ public class Class1
         TelemetryLoader telemetryLoader = new STAIExtensions.Data.AzureDataExplorer.TelemetryLoader(new TelemetryLoaderOptions("abc", "cde"));
 
         var specifiedQuery = new AzureDataExplorerQuery<Abstractions.DataContracts.Models.IAvailability>();
-
-        var tableName = AzureDataExplorerQueryFactory.GetDataContractSourceTableName(DataContractSource.Availability);
-        var query = AzureDataExplorerQueryFactory.BuildCustomQuery<IAvailability>(
-            tableName, tableName);
-
-        
-
+        var query = AzureDataExplorerQueryFactory.BuildRequestQuery();
         var result = telemetryLoader.ExecuteQueryAsync(specifiedQuery).Result;
-
-
 
     }
     

@@ -27,46 +27,4 @@
       <ProjectReference Include="..\STAIExtensions.Core\STAIExtensions.Core.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <None Update="Fixtures\datacontract_full_response.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Fixtures\datacontract_full_response2.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Fixtures\datacontract_partial_AvailabilityResults.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Fixtures\datacontract_partial_BrowserTimings.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Fixtures\datacontract_partial_CustomEvents.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Fixtures\datacontract_partial_CustomMetrics.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Fixtures\datacontract_partial_Dependencies.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Fixtures\datacontract_partial_Exceptions.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Fixtures\datacontract_partial_PageViews.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Fixtures\datacontract_partial_PerformanceCounters.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Fixtures\datacontract_partial_Requests.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Fixtures\datacontract_partial_Traces.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Fixtures\exception_data.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-    </ItemGroup>
-
 </Project>

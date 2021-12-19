@@ -30,7 +30,7 @@ public class AzureDataExplorerQueryParameter
     public AzureDataExplorerQueryParameter(
         string tableName, string alias, bool? orderByTimestampDesc = default, int? topRows = default)
     {
-        if (string.IsNullOrEmpty(tableName))
+        if (string.IsNullOrEmpty(tableName) || tableName.Trim() == "")
             throw new ArgumentNullException(nameof(tableName));
 
         this.TableName = tableName;
@@ -57,10 +57,10 @@ public class AzureDataExplorerQueryParameter
 
     public void SetupQueryForCustom(DateTimeOffset agoDateTime)
     {
-        if (AgoDateTime == null)
+        if (agoDateTime == null)
             throw new ArgumentNullException(nameof(AgoDateTime));
 
-        this.AgoDateTime = AgoDateTime;
+        this.AgoDateTime = agoDateTime;
         this.AgoPeriod = Abstractions.Common.AgoPeriod.Custom;
     }
 
