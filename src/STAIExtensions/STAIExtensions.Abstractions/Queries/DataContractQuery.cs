@@ -2,15 +2,18 @@
 
 namespace STAIExtensions.Abstractions.Queries;
 
-public abstract class DataContractQuery<T> : IDataContractQuery<T> where T : IDataContract
+public class DataContractQuery<T> : IDataContractQuery<T> where T : IDataContract
 {
 
     public object? QueryParameterData { get; set; }
         
     public Type ContractType => typeof(T);
-       
-    public bool Enabled { get; set; }
 
-    public abstract object BuildQueryData();
-    
+    public bool Enabled { get; set; } = true;
+
+    public virtual object BuildQueryData()
+    {
+        return null;
+    }
+
 }
