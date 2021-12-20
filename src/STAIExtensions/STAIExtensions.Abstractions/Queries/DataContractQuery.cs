@@ -2,7 +2,7 @@
 
 namespace STAIExtensions.Abstractions.Queries;
 
-public class DataContractQuery<T> : IDataContractQuery<T> where T : IDataContract
+public abstract class DataContractQuery<T> : IDataContractQuery where T : IDataContract
 {
 
     public object? QueryParameterData { get; set; }
@@ -11,9 +11,6 @@ public class DataContractQuery<T> : IDataContractQuery<T> where T : IDataContrac
 
     public bool Enabled { get; set; } = true;
 
-    public virtual object BuildQueryData()
-    {
-        return null;
-    }
+    public abstract object BuildQueryData();
 
 }

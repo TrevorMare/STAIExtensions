@@ -57,7 +57,7 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
     #endregion
 
     #region Methods
-    public async Task<IEnumerable<T>> ExecuteQueryAsync<T>(IDataContractQuery<T> query) where T : IDataContract
+    public async Task<IEnumerable<T>> ExecuteQueryAsync<T>(DataContractQuery<T> query) where T : IDataContract
     {
         if (query == null)
             throw new ArgumentNullException(nameof(query));

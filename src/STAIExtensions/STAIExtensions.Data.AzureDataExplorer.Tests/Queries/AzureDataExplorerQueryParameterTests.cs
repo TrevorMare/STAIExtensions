@@ -138,10 +138,10 @@ public class AzureDataExplorerQueryParameterTests
     }
     
     [Theory]
-    [InlineData("table1", null, null, "table1 | where timestamp >= ago(1d) | as table1")]
-    [InlineData("table1", 1, null, "table1 | where timestamp >= ago(1d) | take 1 | as table1")]
-    [InlineData("table1", null, false, "table1 | where timestamp >= ago(1d) | sort by timestamp asc nulls first | as table1")]
-    [InlineData("table1", 1, true, "table1 | where timestamp >= ago(1d) | sort by timestamp desc nulls last | take 1 | as table1")]
+    [InlineData("table1", null, null, "table1 | where timestamp > ago(1d) | as table1")]
+    [InlineData("table1", 1, null, "table1 | where timestamp > ago(1d) | take 1 | as table1")]
+    [InlineData("table1", null, false, "table1 | where timestamp > ago(1d) | sort by timestamp asc nulls first | as table1")]
+    [InlineData("table1", 1, true, "table1 | where timestamp > ago(1d) | sort by timestamp desc nulls last | take 1 | as table1")]
     public void BuildKustoQuery_WhenIntervalParametersPassed_ShouldGenerateQuery(string tableName, int? topRows, bool? orderByTimestampDesc, string expected)
     {
         var sut = new AzureDataExplorerQueryParameter(tableName, null, orderByTimestampDesc, topRows);

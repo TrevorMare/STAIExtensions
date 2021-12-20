@@ -48,8 +48,6 @@ public interface IHasDefaultFields : IDataContract, IHasCustomDimension
 
     string? SessionId { get; set; }
 
-    DateTime TimeStamp { get; set; }
-
     string? UserAccountId { get; set; }
     
     string? UserAuthenticatedId { get; set; }

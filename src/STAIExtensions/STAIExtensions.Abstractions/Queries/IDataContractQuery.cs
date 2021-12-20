@@ -2,7 +2,7 @@
 
 namespace STAIExtensions.Abstractions.Queries;
 
-public interface IDataContractQuery<T> where T : IDataContract
+public interface IDataContractQuery
 {
     Type ContractType { get; }
         

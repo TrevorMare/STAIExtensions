@@ -1,7 +1,7 @@
 ﻿namespace STAIExtensions.Core.DataSets.Options;
 
 
-public record class LoadOptions(bool Enabled = true, int? BufferSize = 2000);
+public record class LoadOptions(bool Enabled = true, int? BufferSize = 2000, int? TelemetryLoadMaxRows = 500);
 
 public class DataContractDataSetOptions
 {

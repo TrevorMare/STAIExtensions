@@ -93,15 +93,15 @@ public class AzureDataExplorerQueryParameter
         {
             if (this.AgoPeriod == AgoPeriod.Custom)
             {
-                outputLines.Add($"where timestamp >= datetime({GetDateString(AgoDateTime.Value)})");
+                outputLines.Add($"where timestamp > datetime({GetDateString(AgoDateTime.Value)})");
             }
             else if (this.AgoPeriod == AgoPeriod.Time)
             {
-                outputLines.Add($"where timestamp >= ago(time({GetTimeString(AgoTimeSpan.Value)}))");
+                outputLines.Add($"where timestamp > ago(time({GetTimeString(AgoTimeSpan.Value)}))");
             }
             else
             {
-                outputLines.Add($"where timestamp >= ago({GetAgoString(this.AgoInterval.Value, this.AgoPeriod)})");
+                outputLines.Add($"where timestamp > ago({GetAgoString(this.AgoInterval.Value, this.AgoPeriod)})");
             }
         }
 
