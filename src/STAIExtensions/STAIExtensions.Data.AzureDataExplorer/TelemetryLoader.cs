@@ -24,6 +24,11 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
     private readonly TableRowDeserializer _tableRowDeserializer;
     #endregion
 
+    #region Properties
+    public IDataContractQueryFactory? DataContractQueryFactory { get; set; } =
+        new Queries.AzureDataExplorerQueryFactory();
+    #endregion
+
     #region ctor
     public TelemetryLoader(Func<TelemetryLoaderOptions> loaderOptionsBuilder)
         : this()
@@ -52,7 +57,7 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
     #endregion
 
     #region Methods
-    public async Task<IEnumerable<T>> ExecuteQueryAsync<T>(IDataContractQuery<T> query) where T : IDataContract
+    public async Task<IEnumerable<T>> ExecuteQueryAsync<T>(DataContractQuery<T> query) where T : IDataContract
     {
         if (query == null)
             throw new ArgumentNullException(nameof(query));

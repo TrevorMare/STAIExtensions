@@ -1,9 +1,9 @@
 ﻿using System;
 using STAIExtensions.Abstractions.DataContracts;
 
-namespace STAIExtensions.Data.AzureDataExplorer.Tests.Fixtures;
+namespace STAIExtensions.Core.Tests.Fixtures;
 
-public record CustomDataContract : IDataContract
+public class FixtureMyModel : IDataContract
 {
     public DateTime TimeStamp { get; set; }
 }
