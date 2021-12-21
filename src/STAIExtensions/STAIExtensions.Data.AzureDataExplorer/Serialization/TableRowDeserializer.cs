@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel;
 using System.Reflection;
+using System.Reflection.Metadata;
 using System.Text.Json;
 using Microsoft.Extensions.Logging;
 using STAIExtensions.Abstractions.DataContracts;
 using STAIExtensions.Data.AzureDataExplorer.Attributes;
+using STAIExtensions.Data.AzureDataExplorer.DataContractMetaData;
 
 namespace STAIExtensions.Data.AzureDataExplorer.Serialization;
 
@@ -25,7 +27,7 @@ internal class TableRowDeserializer
     #endregion
 
     #region Public Methods
-    public IEnumerable<T>? DeserializeTableRows<T>(Models.ApiClientQueryResultTable table) where T : Abstractions.DataContracts.IDataContract
+    public IEnumerable<T>? DeserializeTableRows<T>(Models.ApiClientQueryResultTable table) where T : Abstractions.DataContracts.Models.DataContract
     {
         try
         {
@@ -182,17 +184,19 @@ internal class TableRowDeserializer
         var columnIndices = table.Columns?.Select((item, index) => new { Index = index, Column = item }).ToList();
         if (columnIndices == null || columnIndices.Any() == false)
             return null;
+
+        var dataContractTypeMetaData = GetDataContractMetaData<T>();
         
         var typeProperties = typeof(T).GetProperties().ToList();
         var result = new List<TableColumnPropertyMap>();
         columnIndices.ForEach(item =>
         {
             var columnMappingName = item.Column.ColumnName;
-            var propertyInfo = GetPropertyInfoByColumnName(typeProperties, columnMappingName);
-            var propertyDeserializer = GetPropertyFieldDeserializer(propertyInfo);
+            var propertyInfo = GetPropertyInfoByColumnName(typeProperties, columnMappingName, dataContractTypeMetaData);
+            var propertyDeserializer = GetPropertyFieldDeserializer(propertyInfo, item.Column.ColumnName, dataContractTypeMetaData);
 
             if (propertyInfo == null)
-                this.Logger?.LogWarning($"Column mapping - Could not find a related setter property.");        
+                this.Logger?.LogWarning("Column mapping - Could not find a related setter property for mapping name {MappingName}", columnMappingName);        
             else
             {
                 if (propertyDeserializer == null)
@@ -210,7 +214,7 @@ internal class TableRowDeserializer
         return result;
     }
 
-    internal PropertyInfo? GetPropertyInfoByColumnName(List<PropertyInfo>? properties, string columnName)
+    internal PropertyInfo? GetPropertyInfoByColumnName(List<PropertyInfo>? properties, string columnName, IDataContractMetaData? dataContractMetaData = default)
     {
         if (properties == null)
             return null;
@@ -222,6 +226,18 @@ internal class TableRowDeserializer
         var result = properties.FirstOrDefault(x => x.Name.ToLower().Trim() == columnName.ToLower().Trim());
         if (result == null)
         {
+            // Find by internal mapping
+
+            if (dataContractMetaData != null)
+            {
+                var customAttribute = dataContractMetaData[columnName];
+                if (customAttribute != null)
+                    result = properties.FirstOrDefault(x => x.Name.ToLower().Trim() == customAttribute.DeserializeFieldName.ToLower().Trim());
+            }
+
+            if (result != null)
+                return result;
+            
             // Find by the custom attributes
             result = (from p in properties
                 let attr = p.GetCustomAttribute<DataContractFieldAttribute>()
@@ -235,17 +251,42 @@ internal class TableRowDeserializer
         return result;
     }
 
-    internal IFieldDeserializer? GetPropertyFieldDeserializer(PropertyInfo? propertyInfo)
+    internal IFieldDeserializer? GetPropertyFieldDeserializer(PropertyInfo? propertyInfo, string columnName, IDataContractMetaData? dataContractMetaData = default)
     {
-        if (propertyInfo == null)
+        if (propertyInfo == null && dataContractMetaData == null)
             return null;
+
+        DataContractFieldAttribute? customAttribute = null;
         
-        var customAttribute = propertyInfo.GetCustomAttribute<DataContractFieldAttribute>();
-        if (customAttribute != null)
-            return customAttribute.FieldDeserializer;
-        return null;
+        if (propertyInfo != null)
+        {
+            customAttribute = propertyInfo.GetCustomAttribute<DataContractFieldAttribute>();
+            if (customAttribute?.FieldDeserializer != null)
+                return customAttribute.FieldDeserializer;
+        }
+
+        if (dataContractMetaData == null) return null;
+        
+        customAttribute = dataContractMetaData[columnName];
+        return customAttribute?.FieldDeserializer;
     }
 
+    internal IDataContractMetaData<T>? GetDataContractMetaData<T>()
+    {
+        var type = typeof(IDataContractMetaData<T>);
+        
+        var types = AppDomain.CurrentDomain.GetAssemblies()
+            .SelectMany(s => s.GetTypes())
+            .Where(p => type.IsAssignableFrom(p));
+        
+        var dataContractMetaData = types.FirstOrDefault();
+        
+        if (dataContractMetaData != null)
+            return (IDataContractMetaData<T>)Activator.CreateInstance(dataContractMetaData);
+
+        return null;
+    }
+    
     #endregion
 
 }

@@ -6,7 +6,7 @@ using Xunit;
 
 namespace STAIExtensions.Data.AzureDataExplorer.Tests.Serialization;
 
-public abstract class TableRowDeserializerTests_Base<T> where T : IDataContract
+public abstract class TableRowDeserializerTests_Base<T> where T : Abstractions.DataContracts.Models.DataContract
 {
     protected abstract string FixtureFilePath { get; }
     protected abstract string TableName { get; }

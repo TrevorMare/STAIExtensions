@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-using STAIExtensions.Data.AzureDataExplorer.DataContracts;
+using STAIExtensions.Abstractions.DataContracts.Models;
 
 namespace STAIExtensions.Data.AzureDataExplorer.Serialization;
 

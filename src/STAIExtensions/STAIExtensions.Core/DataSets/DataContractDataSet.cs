@@ -20,25 +20,25 @@ public class DataContractDataSet : DataSet
 
     #region Properties
 
-    public SizedList<IAvailability> Availability { get; private set; } = new SizedList<IAvailability>();
-    
-    public SizedList<IBrowserTiming> BrowserTiming { get; private set; } = new SizedList<IBrowserTiming>();
-    
-    public SizedList<ICustomEvent> CustomEvents { get; private set; } = new SizedList<ICustomEvent>();
+    public SizedList<Availability> Availability { get; private set; } = new();
 
-    public SizedList<ICustomMetrics> CustomMetrics { get; private set; } = new SizedList<ICustomMetrics>();
+    public SizedList<BrowserTiming> BrowserTiming { get; private set; } = new();
     
-    public SizedList<IDependency> Dependencies { get; private set; } = new SizedList<IDependency>();
+    public SizedList<CustomEvent> CustomEvents { get; private set; } = new();
+
+    public SizedList<CustomMetric> CustomMetrics { get; private set; } = new();
     
-    public SizedList<IException> Exceptions { get; private set; } = new SizedList<IException>();
+    public SizedList<Dependency> Dependencies { get; private set; } = new();
     
-    public SizedList<IPageView> PageViews { get; private set; } = new SizedList<IPageView>();
+    public SizedList<AIException> Exceptions { get; private set; } = new();
     
-    public SizedList<IPerformanceCounter> PerformanceCounters { get; private set; } = new SizedList<IPerformanceCounter>();
+    public SizedList<PageView> PageViews { get; private set; } = new();
     
-    public SizedList<IRequest> Requests { get; private set; } = new SizedList<IRequest>();
+    public SizedList<PerformanceCounter> PerformanceCounters { get; private set; } = new();
     
-    public SizedList<ITrace> Traces { get; private set; } = new SizedList<ITrace>();
+    public SizedList<Request> Requests { get; private set; } = new();
+    
+    public SizedList<Trace> Traces { get; private set; } = new();
     #endregion
     
     #region ctor
@@ -106,7 +106,8 @@ public class DataContractDataSet : DataSet
     
     private async Task ExecuteAvailabilityQuery()
     {
-        var loadOptions = ExtractQueryInformation<IAvailability>(_options.Availiblity, Availability);
+        
+        var loadOptions = ExtractQueryInformation<Availability>(_options.Availiblity, Availability);
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -122,7 +123,7 @@ public class DataContractDataSet : DataSet
     
     private async Task ExecuteBrowserTimingQuery()
     {
-        var loadOptions = ExtractQueryInformation<IBrowserTiming>(_options.BrowserTiming, BrowserTiming);
+        var loadOptions = ExtractQueryInformation<BrowserTiming>(_options.BrowserTiming, BrowserTiming);
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -138,7 +139,7 @@ public class DataContractDataSet : DataSet
     
     private async Task ExecuteCustomEventsQuery()
     {
-        var loadOptions = ExtractQueryInformation<ICustomEvent>(_options.CustomEvents, CustomEvents);
+        var loadOptions = ExtractQueryInformation<CustomEvent>(_options.CustomEvents, CustomEvents);
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -154,7 +155,7 @@ public class DataContractDataSet : DataSet
     
     private async Task ExecuteCustomMetricsQuery()
     {
-        var loadOptions = ExtractQueryInformation<ICustomMetrics>(_options.CustomMetrics, CustomMetrics);
+        var loadOptions = ExtractQueryInformation<CustomMetric>(_options.CustomMetrics, CustomMetrics);
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -170,7 +171,7 @@ public class DataContractDataSet : DataSet
     
     private async Task ExecuteDependenciesQuery()
     {
-        var loadOptions = ExtractQueryInformation<IDependency>(_options.Dependencies, Dependencies);
+        var loadOptions = ExtractQueryInformation<Dependency>(_options.Dependencies, Dependencies);
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -186,7 +187,7 @@ public class DataContractDataSet : DataSet
     
     private async Task ExecuteExceptionsQuery()
     {
-        var loadOptions = ExtractQueryInformation<IException>(_options.Exceptions, Exceptions);
+        var loadOptions = ExtractQueryInformation<AIException>(_options.Exceptions, Exceptions);
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -202,7 +203,7 @@ public class DataContractDataSet : DataSet
     
     private async Task ExecutePageViewsQuery()
     {
-        var loadOptions = ExtractQueryInformation<IPageView>(_options.PageViews, PageViews);
+        var loadOptions = ExtractQueryInformation<PageView>(_options.PageViews, PageViews);
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -218,7 +219,7 @@ public class DataContractDataSet : DataSet
 
     private async Task ExecutePerformanceCountersQuery()
     {
-        var loadOptions = ExtractQueryInformation<IPerformanceCounter>(_options.PerformanceCounters, PerformanceCounters);
+        var loadOptions = ExtractQueryInformation<PerformanceCounter>(_options.PerformanceCounters, PerformanceCounters);
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -234,7 +235,7 @@ public class DataContractDataSet : DataSet
 
     private async Task ExecuteRequestsQuery()
     {
-        var loadOptions = ExtractQueryInformation<IRequest>(_options.Requests, Requests);
+        var loadOptions = ExtractQueryInformation<Request>(_options.Requests, Requests);
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -250,7 +251,7 @@ public class DataContractDataSet : DataSet
     
     private async Task ExecuteTracesQuery()
     {
-        var loadOptions = ExtractQueryInformation<ITrace>(_options.Traces, Traces);
+        var loadOptions = ExtractQueryInformation<Trace>(_options.Traces, Traces);
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -264,7 +265,7 @@ public class DataContractDataSet : DataSet
         } 
     }
     
-    private (bool ExecuteQuery, bool FullPeriod, DateTime? FromPeriod, int? MaximumRows) ExtractQueryInformation<T>(LoadOptions options, SizedList<T> list) where T : IDataContract
+    private (bool ExecuteQuery, bool FullPeriod, DateTime? FromPeriod, int? MaximumRows) ExtractQueryInformation<T>(LoadOptions options, SizedList<T> list) where T : DataContract
     {
         var executeQuery = false;
         var fullPeriod = true;
@@ -278,7 +279,7 @@ public class DataContractDataSet : DataSet
             if (list.Any())
             {
                 fullPeriod = false;
-                fromPeriod = list.Max(x => x.TimeStamp);
+                fromPeriod = DateTime.Now;
             }
         }
 
@@ -287,54 +288,54 @@ public class DataContractDataSet : DataSet
 
     protected override Task ProcessQueryRecords<T>(DataContractQuery<T> query, IEnumerable<T> records)
     {
-        if (query.ContractType == typeof(IAvailability))
+        if (query.ContractType == typeof(Availability))
         {
-            if (records is IEnumerable<IAvailability> items) 
+            if (records is IEnumerable<Availability> items) 
                 Availability.AddRange(items.OrderBy(x => x.TimeStamp));
         }
-        else if (query.ContractType == typeof(IBrowserTiming))
+        else if (query.ContractType == typeof(BrowserTiming))
         {
-            if (records is IEnumerable<IBrowserTiming> items) 
+            if (records is IEnumerable<BrowserTiming> items) 
                 BrowserTiming.AddRange(items.OrderBy(x => x.TimeStamp));
         }
-        else if (query.ContractType == typeof(ICustomEvent))
+        else if (query.ContractType == typeof(CustomEvent))
         {
-            if (records is IEnumerable<ICustomEvent> items) 
+            if (records is IEnumerable<CustomEvent> items) 
                 CustomEvents.AddRange(items.OrderBy(x => x.TimeStamp));
         }
-        else if (query.ContractType == typeof(ICustomMetrics))
+        else if (query.ContractType == typeof(CustomMetric))
         {
-            if (records is IEnumerable<ICustomMetrics> items) 
+            if (records is IEnumerable<CustomMetric> items) 
                 CustomMetrics.AddRange(items.OrderBy(x => x.TimeStamp));
         }
-        else if (query.ContractType == typeof(IDependency))
+        else if (query.ContractType == typeof(Dependency))
         {
-            if (records is IEnumerable<IDependency> items) 
+            if (records is IEnumerable<Dependency> items) 
                 Dependencies.AddRange(items.OrderBy(x => x.TimeStamp));
         }
-        else if (query.ContractType == typeof(IException))
+        else if (query.ContractType == typeof(AIException))
         {
-            if (records is IEnumerable<IException> items) 
+            if (records is IEnumerable<AIException> items) 
                 Exceptions.AddRange(items.OrderBy(x => x.TimeStamp));
         }
-        else if (query.ContractType == typeof(IPageView))
+        else if (query.ContractType == typeof(PageView))
         {
-            if (records is IEnumerable<IPageView> items) 
+            if (records is IEnumerable<PageView> items) 
                 PageViews.AddRange(items.OrderBy(x => x.TimeStamp));
         }
-        else if (query.ContractType == typeof(IPerformanceCounter))
+        else if (query.ContractType == typeof(PerformanceCounter))
         {
-            if (records is IEnumerable<IPerformanceCounter> items) 
+            if (records is IEnumerable<PerformanceCounter> items) 
                 PerformanceCounters.AddRange(items.OrderBy(x => x.TimeStamp));
         }
-        else if (query.ContractType == typeof(IRequest))
+        else if (query.ContractType == typeof(Request))
         {
-            if (records is IEnumerable<IRequest> items) 
+            if (records is IEnumerable<Request> items) 
                 Requests.AddRange(items.OrderBy(x => x.TimeStamp));
         }
-        else if (query.ContractType == typeof(ITrace))
+        else if (query.ContractType == typeof(Trace))
         {
-            if (records is IEnumerable<ITrace> items) 
+            if (records is IEnumerable<Trace> items) 
                 Traces.AddRange(items.OrderBy(x => x.TimeStamp));
         }
         return Task.CompletedTask;

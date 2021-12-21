@@ -1,6 +1,8 @@
-﻿namespace STAIExtensions.Data.AzureDataExplorer.Queries;
+﻿using STAIExtensions.Abstractions.Queries;
 
-public class AzureDataExplorerQuery<T> : Abstractions.Queries.DataContractQuery<T> where T : Abstractions.DataContracts.IDataContract
+namespace STAIExtensions.Data.AzureDataExplorer.Queries;
+
+public class AzureDataExplorerQuery<T> : DataContractQuery<T> where T : Abstractions.DataContracts.Models.DataContract
 {
         
     public override object BuildQueryData()

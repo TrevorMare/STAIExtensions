@@ -1,4 +1,4 @@
-﻿using STAIExtensions.Data.AzureDataExplorer.DataContracts;
+﻿using STAIExtensions.Abstractions.DataContracts.Models;
 
 namespace STAIExtensions.Data.AzureDataExplorer.Tests.Serialization;
 

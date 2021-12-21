@@ -1,4 +1,5 @@
 ﻿using STAIExtensions.Abstractions.Common;
+using STAIExtensions.Abstractions.Data;
 using STAIExtensions.Abstractions.DataContracts;
 using STAIExtensions.Abstractions.DataContracts.Models;
 
@@ -6,171 +7,172 @@ namespace STAIExtensions.Abstractions.Queries;
 
 public interface IDataContractQueryFactory
 {
-
-    DataContractQuery<IAvailability> BuildAvailabilityQuery(
+    
+    
+    DataContractQuery<Availability> BuildAvailabilityQuery(
         int? topRows = default, bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IAvailability> BuildAvailabilityQueryWithCustomDate(
+    DataContractQuery<Availability> BuildAvailabilityQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IAvailability> BuildAvailabilityQueryWithTimeSpan(
+    DataContractQuery<Availability> BuildAvailabilityQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IAvailability> BuildAvailabilityWithInterval(
+    DataContractQuery<Availability> BuildAvailabilityWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IDependency> BuildDependencyQuery(
+    DataContractQuery<Dependency> BuildDependencyQuery(
         int? topRows = default, bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IDependency> BuildDependencyQueryWithCustomDate(
+    DataContractQuery<Dependency> BuildDependencyQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IDependency> BuildDependencyQueryWithTimeSpan(
+    DataContractQuery<Dependency> BuildDependencyQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IDependency> BuildDependencyWithInterval(
+    DataContractQuery<Dependency> BuildDependencyWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IException> BuildExceptionQuery(
+    DataContractQuery<AIException> BuildExceptionQuery(
         int? topRows = default, bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IException> BuildExceptionQueryWithCustomDate(
+    DataContractQuery<AIException> BuildExceptionQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IException> BuildExceptionQueryWithTimeSpan(
+    DataContractQuery<AIException> BuildExceptionQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IException> BuildExceptionWithInterval(
+    DataContractQuery<AIException> BuildExceptionWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IRequest> BuildRequestQuery(
+    DataContractQuery<Request> BuildRequestQuery(
         int? topRows = default, bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IRequest> BuildRequestQueryWithCustomDate(
+    DataContractQuery<Request> BuildRequestQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IRequest> BuildRequestQueryWithTimeSpan(
+    DataContractQuery<Request> BuildRequestQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IRequest> BuildRequestWithInterval(
+    DataContractQuery<Request> BuildRequestWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<ITrace> BuildTraceQuery(
+    DataContractQuery<Trace> BuildTraceQuery(
         int? topRows = default, bool? orderByTimestampDesc = default);
 
-    DataContractQuery<ITrace> BuildTraceQueryWithCustomDate(
+    DataContractQuery<Trace> BuildTraceQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<ITrace> BuildTraceQueryWithTimeSpan(
+    DataContractQuery<Trace> BuildTraceQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<ITrace> BuildTraceWithInterval(
+    DataContractQuery<Trace> BuildTraceWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IBrowserTiming> BuildBrowserTimingQuery(
+    DataContractQuery<BrowserTiming> BuildBrowserTimingQuery(
         int? topRows = default, bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IBrowserTiming> BuildBrowserTimingQueryWithCustomDate(
+    DataContractQuery<BrowserTiming> BuildBrowserTimingQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IBrowserTiming> BuildBrowserTimingQueryWithTimeSpan(
+    DataContractQuery<BrowserTiming> BuildBrowserTimingQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IBrowserTiming> BuildBrowserTimingWithInterval(
+    DataContractQuery<BrowserTiming> BuildBrowserTimingWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<ICustomEvent> BuildCustomEventQuery(
+    DataContractQuery<CustomEvent> BuildCustomEventQuery(
         int? topRows = default, bool? orderByTimestampDesc = default);
 
-    DataContractQuery<ICustomEvent> BuildCustomEventQueryWithCustomDate(
+    DataContractQuery<CustomEvent> BuildCustomEventQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<ICustomEvent> BuildCustomEventQueryWithTimeSpan(
+    DataContractQuery<CustomEvent> BuildCustomEventQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<ICustomEvent> BuildCustomEventWithInterval(
+    DataContractQuery<CustomEvent> BuildCustomEventWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<ICustomMetrics> BuildCustomMetricQuery(
+    DataContractQuery<CustomMetric> BuildCustomMetricQuery(
         int? topRows = default, bool? orderByTimestampDesc = default);
 
-    DataContractQuery<ICustomMetrics> BuildCustomMetricQueryWithCustomDate(
+    DataContractQuery<CustomMetric> BuildCustomMetricQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<ICustomMetrics> BuildCustomMetricQueryWithTimeSpan(
+    DataContractQuery<CustomMetric> BuildCustomMetricQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<ICustomMetrics> BuildCustomMetricWithInterval(
+    DataContractQuery<CustomMetric> BuildCustomMetricWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IPageView> BuildPageViewQuery(
+    DataContractQuery<PageView> BuildPageViewQuery(
         int? topRows = default, bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IPageView> BuildPageViewQueryWithCustomDate(
+    DataContractQuery<PageView> BuildPageViewQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IPageView> BuildPageViewQueryWithTimeSpan(
+    DataContractQuery<PageView> BuildPageViewQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IPageView> BuildPageViewWithInterval(
+    DataContractQuery<PageView> BuildPageViewWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IPerformanceCounter> BuildPerformanceCounterQuery(
+    DataContractQuery<PerformanceCounter> BuildPerformanceCounterQuery(
         int? topRows = default, bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IPerformanceCounter> BuildPerformanceCounterQueryWithCustomDate(
+    DataContractQuery<PerformanceCounter> BuildPerformanceCounterQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IPerformanceCounter> BuildPerformanceCounterQueryWithTimeSpan(
+    DataContractQuery<PerformanceCounter> BuildPerformanceCounterQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
-    DataContractQuery<IPerformanceCounter> BuildPerformanceCounterWithInterval(
+    DataContractQuery<PerformanceCounter> BuildPerformanceCounterWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default);
 
     DataContractQuery<T> BuildCustomQuery<T>(
         string tableName, string alias, int? topRows = default,
-        bool? orderByTimestampDesc = default) where T : IDataContract;
+        bool? orderByTimestampDesc = default) where T : DataContract;
 
     DataContractQuery<T> BuildCustomQueryWithCustomDate<T>(
         string tableName, string alias, DateTimeOffset dateTimeOffset, int? topRows = default,
-        bool? orderByTimestampDesc = default) where T : IDataContract;
+        bool? orderByTimestampDesc = default) where T : DataContract;
 
     DataContractQuery<T> BuildCustomQueryWithTimeSpan<T>(
         string tableName, string alias, TimeSpan agoTimespan, int? topRows = default,
-        bool? orderByTimestampDesc = default) where T : IDataContract;
+        bool? orderByTimestampDesc = default) where T : DataContract;
 
     DataContractQuery<T> BuildCustomQueryWithInterval<T>(
         string tableName, string alias, int interval, AgoPeriod agoPeriod, int? topRows = default,
-        bool? orderByTimestampDesc = default) where T : IDataContract;
+        bool? orderByTimestampDesc = default) where T : DataContract;
 
 }

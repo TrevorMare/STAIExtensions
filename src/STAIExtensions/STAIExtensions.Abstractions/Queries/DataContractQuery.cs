@@ -1,8 +1,8 @@
-﻿using STAIExtensions.Abstractions.DataContracts;
+﻿using STAIExtensions.Abstractions.DataContracts.Models;
 
 namespace STAIExtensions.Abstractions.Queries;
 
-public abstract class DataContractQuery<T> : IDataContractQuery where T : IDataContract
+public abstract class DataContractQuery<T> : IDataContractQuery where T : DataContract
 {
 
     public object? QueryParameterData { get; set; }

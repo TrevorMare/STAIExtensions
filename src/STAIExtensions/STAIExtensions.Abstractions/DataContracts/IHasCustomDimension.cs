@@ -4,6 +4,6 @@ namespace STAIExtensions.Abstractions.DataContracts
 {
     public interface IHasCustomDimension
     {
-        ICustomDimension? CustomDimensions { get; set; }
+        CustomDimension? CustomDimensions { get; set; }
     }
 }

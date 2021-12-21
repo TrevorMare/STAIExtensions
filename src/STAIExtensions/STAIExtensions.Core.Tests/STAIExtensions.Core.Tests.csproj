@@ -27,4 +27,8 @@
       <ProjectReference Include="..\STAIExtensions.Core\STAIExtensions.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Fixtures" />
+    </ItemGroup>
+
 </Project>
