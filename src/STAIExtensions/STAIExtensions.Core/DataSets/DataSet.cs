@@ -119,6 +119,9 @@ public abstract class DataSet : Abstractions.Data.IDataSet
     {
         if (datasetView == null)
             throw new ArgumentNullException(nameof(datasetView));
+
+        datasetView.OnDisposing += OnDatasetViewDisposing;
+        
         this.Views.Add(datasetView);
     }
 
@@ -126,6 +129,8 @@ public abstract class DataSet : Abstractions.Data.IDataSet
     {
         if (datasetView == null)
             throw new ArgumentNullException(nameof(datasetView));
+        
+        datasetView.OnDisposing -= OnDatasetViewDisposing;
         this.Views.Remove(datasetView);
     }
 
@@ -135,6 +140,12 @@ public abstract class DataSet : Abstractions.Data.IDataSet
     private async void OnTimerTick(object? state)
     {
         await UpdateDataSet();
+    }
+    
+    private void OnDatasetViewDisposing(object sender, EventArgs args)
+    {
+        if (sender != null) 
+            DeRegisterView((IDataSetView) sender);
     }
     #endregion
   

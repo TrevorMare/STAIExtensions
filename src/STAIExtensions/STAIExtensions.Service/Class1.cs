@@ -22,7 +22,7 @@ public class Class1
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
 
-        var telemetryLoader = new STAIExtensions.Data.AzureDataExplorer.TelemetryLoader(new TelemetryLoaderOptions("", ""));
+        var telemetryLoader = new STAIExtensions.Data.AzureDataExplorer.TelemetryLoader(new TelemetryLoaderOptions(null, null));
         var dataset =
             new Core.DataSets.DataContractDataSet(telemetryLoader, new DataContractDataSetOptions(), "MyDataSet");
 
