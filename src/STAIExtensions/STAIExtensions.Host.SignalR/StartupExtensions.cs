@@ -8,25 +8,38 @@ public static class StartupExtensions
 {
 
     public static IServiceCollection UseSTAISignalR(this IServiceCollection services)
-    {
-
-        services.AddSignalR();
-        services.AddResponseCompression(opts =>
+    {   
+        // services.AddResponseCompression(opts =>
+        // {
+        //     opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+        //         new[] { "application/octet-stream" });
+        // });
+        
+        services.AddCors(options =>
         {
-            opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
-                new[] { "application/octet-stream" });
+            options.AddPolicy(name: "SignalRCorsPolicy",
+                builder =>
+                {
+                    builder.AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .SetIsOriginAllowed((host) => true)
+                        .AllowCredentials();
+                });
         });
+        
+        services.AddSignalR();
         
         return services;
     }
 
     public static IApplicationBuilder MapSTAISignalRHubs(this IApplicationBuilder app)
     {
+        app.UseCors("SignalRCorsPolicy");
+        
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapHub<Hubs.ViewHub>("/viewhub");
             
-            //endpoints.MapBlazorHub();
             endpoints.MapFallbackToFile("index.html");
         });
         

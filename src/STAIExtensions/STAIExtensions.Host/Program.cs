@@ -1,4 +1,4 @@
-//using STAIExtensions.Host.SignalR;
+using STAIExtensions.Host.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,9 +8,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-//builder.Services.UseSTAISignalR();
-builder.Services.AddSignalR();
 
+builder.Services.UseSTAISignalR();
 
 var app = builder.Build();
 
@@ -28,7 +27,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapHub<STAIExtensions.Host.Hubs.ChatHub>("/chatHub");
+app.MapSTAISignalRHubs();
 
 app.MapControllers();
 
