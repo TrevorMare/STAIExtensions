@@ -15,37 +15,42 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
 
     #region Members
 
-    private readonly ILogger<TelemetryLoader>? _logger;
+    private ILogger<TelemetryLoader>? _logger;
 
-    private readonly TelemetryLoaderOptions _loaderOptions;
+    private TelemetryLoaderOptions _loaderOptions;
 
-    private readonly AzureDataExplorerClient _azureDataExplorerClient;
+    private AzureDataExplorerClient _azureDataExplorerClient;
 
-    private readonly TableRowDeserializer _tableRowDeserializer;
+    private TableRowDeserializer _tableRowDeserializer;
     #endregion
 
     #region Properties
-    public IDataContractQueryFactory? DataContractQueryFactory { get; set; } =
-        new Queries.AzureDataExplorerQueryFactory();
+    public IDataContractQueryFactory? DataContractQueryFactory { get; set; } = null;
     #endregion
 
     #region ctor
     public TelemetryLoader(Func<TelemetryLoaderOptions> loaderOptionsBuilder)
-        : this()
     {
         if (loaderOptionsBuilder == null)
             throw new ArgumentNullException(nameof(loaderOptionsBuilder));
         
         this._loaderOptions = loaderOptionsBuilder.Invoke();
+        Initialise();
     }
     
     public TelemetryLoader(TelemetryLoaderOptions loaderOptions)
-        : this()
     {
+        _loaderOptions = loaderOptions;
+        Initialise();
     }
 
-    private TelemetryLoader()
+    #endregion
+
+    #region Initialise
+    private void Initialise()
     {
+        this.DataContractQueryFactory = new Queries.AzureDataExplorerQueryFactory();
+        
         this._logger = Abstractions.DependencyExtensions.CreateLogger<TelemetryLoader>();
         
         if (this._loaderOptions == null)
@@ -55,9 +60,10 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
         this._tableRowDeserializer = new TableRowDeserializer();
     }
     #endregion
-
+    
     #region Methods
-    public async Task<IEnumerable<T>> ExecuteQueryAsync<T>(DataContractQuery<T> query) where T : IDataContract
+   
+    public async Task<IEnumerable<T>> ExecuteQueryAsync<T>(DataContractQuery<T> query) where T : Abstractions.DataContracts.Models.DataContract
     {
         if (query == null)
             throw new ArgumentNullException(nameof(query));
@@ -68,9 +74,9 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
         var queryData = query.BuildQueryData()?.ToString() ?? "";
         if (string.IsNullOrEmpty(queryData))
         {
-            
+            this._logger?.LogWarning("Query did not return any data to retrieve");
+            return new List<T>();
         }
-        
         
         // Call the telemetry client to load the query
         var clientResponse = await _azureDataExplorerClient.ExecuteQueryAndGetResponseAsync(queryData);
@@ -81,15 +87,10 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
         if (clientResponse.Tables.Count() != 1)
             throw new Exception("Unexpected number of tables in deserialization");
         
-        // Get the row data
         IEnumerable<T> result = this._tableRowDeserializer.DeserializeTableRows<T>(clientResponse.Tables.FirstOrDefault());
-         
-
-        // Return the row data for the query
 
         return result;
     }
     #endregion
-    
     
 }

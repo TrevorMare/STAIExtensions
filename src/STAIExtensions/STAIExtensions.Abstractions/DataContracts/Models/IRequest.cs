@@ -1,10 +1,12 @@
 ﻿
 namespace STAIExtensions.Abstractions.DataContracts.Models
 {
-    public interface IRequest : IHasDefaultFields, IHasCustomMeasurement
+    public class Request : DataContractFull, IHasCustomMeasurement
     {
 
         #region Properties
+        public CustomMeasurement? CustomMeasurements { get; set; }
+        
         public double? Duration { get; set; }
 
         public string? Id { get; set; }
@@ -23,6 +25,7 @@ namespace STAIExtensions.Abstractions.DataContracts.Models
         
         public string? Url { get; set; }
         #endregion
+
         
     }
 }

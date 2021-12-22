@@ -4,6 +4,6 @@ namespace STAIExtensions.Abstractions.DataContracts
 {
     public interface IHasCustomMeasurement
     {
-        ICustomMeasurement? CustomMeasurements { get; set; }
+        CustomMeasurement? CustomMeasurements { get; set; }
     }
 }

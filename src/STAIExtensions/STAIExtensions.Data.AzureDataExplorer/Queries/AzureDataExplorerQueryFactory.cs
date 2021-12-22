@@ -1,4 +1,5 @@
 ﻿using STAIExtensions.Abstractions.Common;
+using STAIExtensions.Abstractions.Data;
 using STAIExtensions.Abstractions.DataContracts;
 using STAIExtensions.Abstractions.DataContracts.Models;
 using STAIExtensions.Abstractions.Queries;
@@ -19,37 +20,37 @@ public class AzureDataExplorerQueryFactory : IDataContractQueryFactory
 
     #region Availibility
 
-    public DataContractQuery<IAvailability> BuildAvailabilityQuery(
+    public DataContractQuery<Availability> BuildAvailabilityQuery(
         int? topRows = default, bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Availability.DisplayName();
-        return BuildCustomQuery<IAvailability>(tableName, tableName, topRows, orderByTimestampDesc);
+        return BuildCustomQuery<Availability>(tableName, tableName, topRows, orderByTimestampDesc);
     }
 
-    public DataContractQuery<IAvailability> BuildAvailabilityQueryWithCustomDate(
+    public DataContractQuery<Availability> BuildAvailabilityQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Availability.DisplayName();
-        return BuildCustomQueryWithCustomDate<IAvailability>(tableName, tableName, dateTimeOffset, topRows,
+        return BuildCustomQueryWithCustomDate<Availability>(tableName, tableName, dateTimeOffset, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<IAvailability> BuildAvailabilityQueryWithTimeSpan(
+    public DataContractQuery<Availability> BuildAvailabilityQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Availability.DisplayName();
-        return BuildCustomQueryWithTimeSpan<IAvailability>(tableName, tableName, agoTimespan, topRows,
+        return BuildCustomQueryWithTimeSpan<Availability>(tableName, tableName, agoTimespan, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<IAvailability> BuildAvailabilityWithInterval(
+    public DataContractQuery<Availability> BuildAvailabilityWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Availability.DisplayName();
-        return BuildCustomQueryWithInterval<IAvailability>(tableName, tableName, interval, agoPeriod, topRows,
+        return BuildCustomQueryWithInterval<Availability>(tableName, tableName, interval, agoPeriod, topRows,
             orderByTimestampDesc);
     }
 
@@ -57,37 +58,37 @@ public class AzureDataExplorerQueryFactory : IDataContractQueryFactory
 
     #region Dependency
 
-    public DataContractQuery<IDependency> BuildDependencyQuery(
+    public DataContractQuery<Dependency> BuildDependencyQuery(
         int? topRows = default, bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Dependency.DisplayName();
-        return BuildCustomQuery<IDependency>(tableName, tableName, topRows, orderByTimestampDesc);
+        return BuildCustomQuery<Dependency>(tableName, tableName, topRows, orderByTimestampDesc);
     }
 
-    public DataContractQuery<IDependency> BuildDependencyQueryWithCustomDate(
+    public DataContractQuery<Dependency> BuildDependencyQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Dependency.DisplayName();
-        return BuildCustomQueryWithCustomDate<IDependency>(tableName, tableName, dateTimeOffset, topRows,
+        return BuildCustomQueryWithCustomDate<Dependency>(tableName, tableName, dateTimeOffset, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<IDependency> BuildDependencyQueryWithTimeSpan(
+    public DataContractQuery<Dependency> BuildDependencyQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Dependency.DisplayName();
-        return BuildCustomQueryWithTimeSpan<IDependency>(tableName, tableName, agoTimespan, topRows,
+        return BuildCustomQueryWithTimeSpan<Dependency>(tableName, tableName, agoTimespan, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<IDependency> BuildDependencyWithInterval(
+    public DataContractQuery<Dependency> BuildDependencyWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Dependency.DisplayName();
-        return BuildCustomQueryWithInterval<IDependency>(tableName, tableName, interval, agoPeriod, topRows,
+        return BuildCustomQueryWithInterval<Dependency>(tableName, tableName, interval, agoPeriod, topRows,
             orderByTimestampDesc);
     }
 
@@ -95,37 +96,37 @@ public class AzureDataExplorerQueryFactory : IDataContractQueryFactory
 
     #region Exception
 
-    public DataContractQuery<IException> BuildExceptionQuery(
+    public DataContractQuery<AIException> BuildExceptionQuery(
         int? topRows = default, bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Exception.DisplayName();
-        return BuildCustomQuery<IException>(tableName, tableName, topRows, orderByTimestampDesc);
+        return BuildCustomQuery<AIException>(tableName, tableName, topRows, orderByTimestampDesc);
     }
 
-    public DataContractQuery<IException> BuildExceptionQueryWithCustomDate(
+    public DataContractQuery<AIException> BuildExceptionQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Exception.DisplayName();
-        return BuildCustomQueryWithCustomDate<IException>(tableName, tableName, dateTimeOffset, topRows,
+        return BuildCustomQueryWithCustomDate<AIException>(tableName, tableName, dateTimeOffset, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<IException> BuildExceptionQueryWithTimeSpan(
+    public DataContractQuery<AIException> BuildExceptionQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Exception.DisplayName();
-        return BuildCustomQueryWithTimeSpan<IException>(tableName, tableName, agoTimespan, topRows,
+        return BuildCustomQueryWithTimeSpan<AIException>(tableName, tableName, agoTimespan, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<IException> BuildExceptionWithInterval(
+    public DataContractQuery<AIException> BuildExceptionWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Exception.DisplayName();
-        return BuildCustomQueryWithInterval<IException>(tableName, tableName, interval, agoPeriod, topRows,
+        return BuildCustomQueryWithInterval<AIException>(tableName, tableName, interval, agoPeriod, topRows,
             orderByTimestampDesc);
     }
 
@@ -133,36 +134,36 @@ public class AzureDataExplorerQueryFactory : IDataContractQueryFactory
 
     #region Request
 
-    public DataContractQuery<IRequest> BuildRequestQuery(
+    public DataContractQuery<Request> BuildRequestQuery(
         int? topRows = default, bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Request.DisplayName();
-        return BuildCustomQuery<IRequest>(tableName, tableName, topRows, orderByTimestampDesc);
+        return BuildCustomQuery<Request>(tableName, tableName, topRows, orderByTimestampDesc);
     }
 
-    public DataContractQuery<IRequest> BuildRequestQueryWithCustomDate(
+    public DataContractQuery<Request> BuildRequestQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Request.DisplayName();
-        return BuildCustomQueryWithCustomDate<IRequest>(tableName, tableName, dateTimeOffset, topRows,
+        return BuildCustomQueryWithCustomDate<Request>(tableName, tableName, dateTimeOffset, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<IRequest> BuildRequestQueryWithTimeSpan(
+    public DataContractQuery<Request> BuildRequestQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Request.DisplayName();
-        return BuildCustomQueryWithTimeSpan<IRequest>(tableName, tableName, agoTimespan, topRows, orderByTimestampDesc);
+        return BuildCustomQueryWithTimeSpan<Request>(tableName, tableName, agoTimespan, topRows, orderByTimestampDesc);
     }
 
-    public DataContractQuery<IRequest> BuildRequestWithInterval(
+    public DataContractQuery<Request> BuildRequestWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Request.DisplayName();
-        return BuildCustomQueryWithInterval<IRequest>(tableName, tableName, interval, agoPeriod, topRows,
+        return BuildCustomQueryWithInterval<Request>(tableName, tableName, interval, agoPeriod, topRows,
             orderByTimestampDesc);
     }
 
@@ -170,36 +171,36 @@ public class AzureDataExplorerQueryFactory : IDataContractQueryFactory
 
     #region Trace
 
-    public DataContractQuery<ITrace> BuildTraceQuery(
+    public DataContractQuery<Trace> BuildTraceQuery(
         int? topRows = default, bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Trace.DisplayName();
-        return BuildCustomQuery<ITrace>(tableName, tableName, topRows, orderByTimestampDesc);
+        return BuildCustomQuery<Trace>(tableName, tableName, topRows, orderByTimestampDesc);
     }
 
-    public DataContractQuery<ITrace> BuildTraceQueryWithCustomDate(
+    public DataContractQuery<Trace> BuildTraceQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Trace.DisplayName();
-        return BuildCustomQueryWithCustomDate<ITrace>(tableName, tableName, dateTimeOffset, topRows,
+        return BuildCustomQueryWithCustomDate<Trace>(tableName, tableName, dateTimeOffset, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<ITrace> BuildTraceQueryWithTimeSpan(
+    public DataContractQuery<Trace> BuildTraceQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Trace.DisplayName();
-        return BuildCustomQueryWithTimeSpan<ITrace>(tableName, tableName, agoTimespan, topRows, orderByTimestampDesc);
+        return BuildCustomQueryWithTimeSpan<Trace>(tableName, tableName, agoTimespan, topRows, orderByTimestampDesc);
     }
 
-    public DataContractQuery<ITrace> BuildTraceWithInterval(
+    public DataContractQuery<Trace> BuildTraceWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.Trace.DisplayName();
-        return BuildCustomQueryWithInterval<ITrace>(tableName, tableName, interval, agoPeriod, topRows,
+        return BuildCustomQueryWithInterval<Trace>(tableName, tableName, interval, agoPeriod, topRows,
             orderByTimestampDesc);
     }
 
@@ -207,37 +208,37 @@ public class AzureDataExplorerQueryFactory : IDataContractQueryFactory
 
     #region Browser Timing
 
-    public DataContractQuery<IBrowserTiming> BuildBrowserTimingQuery(
+    public DataContractQuery<BrowserTiming> BuildBrowserTimingQuery(
         int? topRows = default, bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.BrowserTiming.DisplayName();
-        return BuildCustomQuery<IBrowserTiming>(tableName, tableName, topRows, orderByTimestampDesc);
+        return BuildCustomQuery<BrowserTiming>(tableName, tableName, topRows, orderByTimestampDesc);
     }
 
-    public DataContractQuery<IBrowserTiming> BuildBrowserTimingQueryWithCustomDate(
+    public DataContractQuery<BrowserTiming> BuildBrowserTimingQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.BrowserTiming.DisplayName();
-        return BuildCustomQueryWithCustomDate<IBrowserTiming>(tableName, tableName, dateTimeOffset, topRows,
+        return BuildCustomQueryWithCustomDate<BrowserTiming>(tableName, tableName, dateTimeOffset, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<IBrowserTiming> BuildBrowserTimingQueryWithTimeSpan(
+    public DataContractQuery<BrowserTiming> BuildBrowserTimingQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.BrowserTiming.DisplayName();
-        return BuildCustomQueryWithTimeSpan<IBrowserTiming>(tableName, tableName, agoTimespan, topRows,
+        return BuildCustomQueryWithTimeSpan<BrowserTiming>(tableName, tableName, agoTimespan, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<IBrowserTiming> BuildBrowserTimingWithInterval(
+    public DataContractQuery<BrowserTiming> BuildBrowserTimingWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.BrowserTiming.DisplayName();
-        return BuildCustomQueryWithInterval<IBrowserTiming>(tableName, tableName, interval, agoPeriod, topRows,
+        return BuildCustomQueryWithInterval<BrowserTiming>(tableName, tableName, interval, agoPeriod, topRows,
             orderByTimestampDesc);
     }
 
@@ -245,37 +246,37 @@ public class AzureDataExplorerQueryFactory : IDataContractQueryFactory
 
     #region Custom Event
 
-    public DataContractQuery<ICustomEvent> BuildCustomEventQuery(
+    public DataContractQuery<CustomEvent> BuildCustomEventQuery(
         int? topRows = default, bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.CustomEvent.DisplayName();
-        return BuildCustomQuery<ICustomEvent>(tableName, tableName, topRows, orderByTimestampDesc);
+        return BuildCustomQuery<CustomEvent>(tableName, tableName, topRows, orderByTimestampDesc);
     }
 
-    public DataContractQuery<ICustomEvent> BuildCustomEventQueryWithCustomDate(
+    public DataContractQuery<CustomEvent> BuildCustomEventQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.CustomEvent.DisplayName();
-        return BuildCustomQueryWithCustomDate<ICustomEvent>(tableName, tableName, dateTimeOffset, topRows,
+        return BuildCustomQueryWithCustomDate<CustomEvent>(tableName, tableName, dateTimeOffset, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<ICustomEvent> BuildCustomEventQueryWithTimeSpan(
+    public DataContractQuery<CustomEvent> BuildCustomEventQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.CustomEvent.DisplayName();
-        return BuildCustomQueryWithTimeSpan<ICustomEvent>(tableName, tableName, agoTimespan, topRows,
+        return BuildCustomQueryWithTimeSpan<CustomEvent>(tableName, tableName, agoTimespan, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<ICustomEvent> BuildCustomEventWithInterval(
+    public DataContractQuery<CustomEvent> BuildCustomEventWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.CustomEvent.DisplayName();
-        return BuildCustomQueryWithInterval<ICustomEvent>(tableName, tableName, interval, agoPeriod, topRows,
+        return BuildCustomQueryWithInterval<CustomEvent>(tableName, tableName, interval, agoPeriod, topRows,
             orderByTimestampDesc);
     }
 
@@ -283,37 +284,37 @@ public class AzureDataExplorerQueryFactory : IDataContractQueryFactory
 
     #region Custom Metric
 
-    public DataContractQuery<ICustomMetrics> BuildCustomMetricQuery(
+    public DataContractQuery<CustomMetric> BuildCustomMetricQuery(
         int? topRows = default, bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.CustomMetric.DisplayName();
-        return BuildCustomQuery<ICustomMetrics>(tableName, tableName, topRows, orderByTimestampDesc);
+        return BuildCustomQuery<CustomMetric>(tableName, tableName, topRows, orderByTimestampDesc);
     }
 
-    public DataContractQuery<ICustomMetrics> BuildCustomMetricQueryWithCustomDate(
+    public DataContractQuery<CustomMetric> BuildCustomMetricQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.CustomMetric.DisplayName();
-        return BuildCustomQueryWithCustomDate<ICustomMetrics>(tableName, tableName, dateTimeOffset, topRows,
+        return BuildCustomQueryWithCustomDate<CustomMetric>(tableName, tableName, dateTimeOffset, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<ICustomMetrics> BuildCustomMetricQueryWithTimeSpan(
+    public DataContractQuery<CustomMetric> BuildCustomMetricQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.CustomMetric.DisplayName();
-        return BuildCustomQueryWithTimeSpan<ICustomMetrics>(tableName, tableName, agoTimespan, topRows,
+        return BuildCustomQueryWithTimeSpan<CustomMetric>(tableName, tableName, agoTimespan, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<ICustomMetrics> BuildCustomMetricWithInterval(
+    public DataContractQuery<CustomMetric> BuildCustomMetricWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.CustomMetric.DisplayName();
-        return BuildCustomQueryWithInterval<ICustomMetrics>(tableName, tableName, interval, agoPeriod, topRows,
+        return BuildCustomQueryWithInterval<CustomMetric>(tableName, tableName, interval, agoPeriod, topRows,
             orderByTimestampDesc);
     }
 
@@ -321,37 +322,37 @@ public class AzureDataExplorerQueryFactory : IDataContractQueryFactory
 
     #region Page Views
 
-    public DataContractQuery<IPageView> BuildPageViewQuery(
+    public DataContractQuery<PageView> BuildPageViewQuery(
         int? topRows = default, bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.PageViews.DisplayName();
-        return BuildCustomQuery<IPageView>(tableName, tableName, topRows, orderByTimestampDesc);
+        return BuildCustomQuery<PageView>(tableName, tableName, topRows, orderByTimestampDesc);
     }
 
-    public DataContractQuery<IPageView> BuildPageViewQueryWithCustomDate(
+    public DataContractQuery<PageView> BuildPageViewQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.PageViews.DisplayName();
-        return BuildCustomQueryWithCustomDate<IPageView>(tableName, tableName, dateTimeOffset, topRows,
+        return BuildCustomQueryWithCustomDate<PageView>(tableName, tableName, dateTimeOffset, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<IPageView> BuildPageViewQueryWithTimeSpan(
+    public DataContractQuery<PageView> BuildPageViewQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.PageViews.DisplayName();
-        return BuildCustomQueryWithTimeSpan<IPageView>(tableName, tableName, agoTimespan, topRows,
+        return BuildCustomQueryWithTimeSpan<PageView>(tableName, tableName, agoTimespan, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<IPageView> BuildPageViewWithInterval(
+    public DataContractQuery<PageView> BuildPageViewWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.PageViews.DisplayName();
-        return BuildCustomQueryWithInterval<IPageView>(tableName, tableName, interval, agoPeriod, topRows,
+        return BuildCustomQueryWithInterval<PageView>(tableName, tableName, interval, agoPeriod, topRows,
             orderByTimestampDesc);
     }
 
@@ -359,37 +360,39 @@ public class AzureDataExplorerQueryFactory : IDataContractQueryFactory
 
     #region Performance Counter
 
-    public DataContractQuery<IPerformanceCounter> BuildPerformanceCounterQuery(
+    
+    
+    public DataContractQuery<PerformanceCounter> BuildPerformanceCounterQuery(
         int? topRows = default, bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.PerformanceCounter.DisplayName();
-        return BuildCustomQuery<IPerformanceCounter>(tableName, tableName, topRows, orderByTimestampDesc);
+        return BuildCustomQuery<PerformanceCounter>(tableName, tableName, topRows, orderByTimestampDesc);
     }
 
-    public DataContractQuery<IPerformanceCounter> BuildPerformanceCounterQueryWithCustomDate(
+    public DataContractQuery<PerformanceCounter> BuildPerformanceCounterQueryWithCustomDate(
         DateTimeOffset dateTimeOffset, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.PerformanceCounter.DisplayName();
-        return BuildCustomQueryWithCustomDate<IPerformanceCounter>(tableName, tableName, dateTimeOffset, topRows,
+        return BuildCustomQueryWithCustomDate<PerformanceCounter>(tableName, tableName, dateTimeOffset, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<IPerformanceCounter> BuildPerformanceCounterQueryWithTimeSpan(
+    public DataContractQuery<PerformanceCounter> BuildPerformanceCounterQueryWithTimeSpan(
         TimeSpan agoTimespan, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.PerformanceCounter.DisplayName();
-        return BuildCustomQueryWithTimeSpan<IPerformanceCounter>(tableName, tableName, agoTimespan, topRows,
+        return BuildCustomQueryWithTimeSpan<PerformanceCounter>(tableName, tableName, agoTimespan, topRows,
             orderByTimestampDesc);
     }
 
-    public DataContractQuery<IPerformanceCounter> BuildPerformanceCounterWithInterval(
+    public DataContractQuery<PerformanceCounter> BuildPerformanceCounterWithInterval(
         int interval, AgoPeriod agoPeriod, int? topRows = default,
         bool? orderByTimestampDesc = default)
     {
         var tableName = Abstractions.Common.DataContractSource.PerformanceCounter.DisplayName();
-        return BuildCustomQueryWithInterval<IPerformanceCounter>(tableName, tableName, interval, agoPeriod, topRows,
+        return BuildCustomQueryWithInterval<PerformanceCounter>(tableName, tableName, interval, agoPeriod, topRows,
             orderByTimestampDesc);
     }
 
@@ -399,7 +402,7 @@ public class AzureDataExplorerQueryFactory : IDataContractQueryFactory
 
     public DataContractQuery<T> BuildCustomQuery<T>(
         string tableName, string alias, int? topRows = default,
-        bool? orderByTimestampDesc = default) where T : IDataContract
+        bool? orderByTimestampDesc = default) where T : Abstractions.DataContracts.Models.DataContract
     {
         var parameterData = new AzureDataExplorerQueryParameter(tableName, alias, orderByTimestampDesc, topRows);
         var result = new AzureDataExplorerQuery<T>()
@@ -411,7 +414,7 @@ public class AzureDataExplorerQueryFactory : IDataContractQueryFactory
 
     public DataContractQuery<T> BuildCustomQueryWithCustomDate<T>(
         string tableName, string alias, DateTimeOffset dateTimeOffset, int? topRows = default,
-        bool? orderByTimestampDesc = default) where T : IDataContract
+        bool? orderByTimestampDesc = default) where T : Abstractions.DataContracts.Models.DataContract
     {
         var parameterData = new AzureDataExplorerQueryParameter(tableName, alias, orderByTimestampDesc, topRows);
         parameterData.SetupQueryForCustom(dateTimeOffset);
@@ -426,7 +429,7 @@ public class AzureDataExplorerQueryFactory : IDataContractQueryFactory
 
     public DataContractQuery<T> BuildCustomQueryWithTimeSpan<T>(
         string tableName, string alias, TimeSpan agoTimespan, int? topRows = default,
-        bool? orderByTimestampDesc = default) where T : IDataContract
+        bool? orderByTimestampDesc = default) where T : Abstractions.DataContracts.Models.DataContract
     {
         var parameterData = new AzureDataExplorerQueryParameter(tableName, alias, orderByTimestampDesc, topRows);
         parameterData.SetupQueryForTimespan(agoTimespan);
@@ -441,7 +444,7 @@ public class AzureDataExplorerQueryFactory : IDataContractQueryFactory
 
     public DataContractQuery<T> BuildCustomQueryWithInterval<T>(
         string tableName, string alias, int interval, AgoPeriod agoPeriod, int? topRows = default,
-        bool? orderByTimestampDesc = default) where T : IDataContract
+        bool? orderByTimestampDesc = default) where T : Abstractions.DataContracts.Models.DataContract
     {
         var parameterData = new AzureDataExplorerQueryParameter(tableName, alias, orderByTimestampDesc, topRows);
         parameterData.SetupQueryForInterval(interval, agoPeriod);

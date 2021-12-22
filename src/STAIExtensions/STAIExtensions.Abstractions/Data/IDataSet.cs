@@ -6,6 +6,8 @@ namespace STAIExtensions.Abstractions.Data;
 public interface IDataSet 
 {
     
+    List<Views.IDataSetView> Views { get; }
+    
     string DataSetName { get; set; }
 
     event EventHandler? OnDataSetUpdated;
@@ -17,6 +19,9 @@ public interface IDataSet
     void StopAutoRefresh();
     
     Task UpdateDataSet();
+
+    void RegisterView(Views.IDataSetView datasetView);
     
-    
+    void DeRegisterView(Views.IDataSetView datasetView);
+
 }

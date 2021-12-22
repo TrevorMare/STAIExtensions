@@ -2,9 +2,11 @@
 
 namespace STAIExtensions.Abstractions.DataContracts.Models
 {
-    public interface ITrace : IHasDefaultFields, IHasCustomMeasurement
+    public class Trace : DataContractFull, IHasCustomMeasurement
     {
+        
         #region Properties
+        public CustomMeasurement? CustomMeasurements { get; set; }
 
         public int? ItemCount { get; set; }
         
@@ -12,5 +14,6 @@ namespace STAIExtensions.Abstractions.DataContracts.Models
 
         public int? SeverityLevel { get; set; }
         #endregion
+        
     }
 }

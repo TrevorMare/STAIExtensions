@@ -22,63 +22,63 @@ public class DataContractDataSetTests
     {
         var queryFactory = Substitute.For<IDataContractQueryFactory>();
 
-        queryFactory.BuildAvailabilityQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<IAvailability>());
-        queryFactory.BuildBrowserTimingQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<IBrowserTiming>());
-        queryFactory.BuildCustomEventQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<ICustomEvent>());
-        queryFactory.BuildCustomMetricQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<ICustomMetrics>());
-        queryFactory.BuildDependencyQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<IDependency>());
-        queryFactory.BuildExceptionQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<IException>());
-        queryFactory.BuildPageViewQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<IPageView>());
-        queryFactory.BuildPerformanceCounterQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<IPerformanceCounter>());
-        queryFactory.BuildRequestQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<IRequest>());
-        queryFactory.BuildTraceQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<ITrace>());
+        queryFactory.BuildAvailabilityQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<Availability>());
+        queryFactory.BuildBrowserTimingQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<BrowserTiming>());
+        queryFactory.BuildCustomEventQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<CustomEvent>());
+        queryFactory.BuildCustomMetricQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<CustomMetric>());
+        queryFactory.BuildDependencyQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<Dependency>());
+        queryFactory.BuildExceptionQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<AIException>());
+        queryFactory.BuildPageViewQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<PageView>());
+        queryFactory.BuildPerformanceCounterQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<PerformanceCounter>());
+        queryFactory.BuildRequestQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<Request>());
+        queryFactory.BuildTraceQuery(Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<Trace>());
         
         
-        queryFactory.BuildAvailabilityQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<IAvailability>());
-        queryFactory.BuildBrowserTimingQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<IBrowserTiming>());
-        queryFactory.BuildCustomEventQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<ICustomEvent>());
-        queryFactory.BuildCustomMetricQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<ICustomMetrics>());
-        queryFactory.BuildDependencyQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<IDependency>());
-        queryFactory.BuildExceptionQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<IException>());
-        queryFactory.BuildPageViewQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<IPageView>());
-        queryFactory.BuildPerformanceCounterQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<IPerformanceCounter>());
-        queryFactory.BuildRequestQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<IRequest>());
-        queryFactory.BuildTraceQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<ITrace>());
+        queryFactory.BuildAvailabilityQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<Availability>());
+        queryFactory.BuildBrowserTimingQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<BrowserTiming>());
+        queryFactory.BuildCustomEventQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<CustomEvent>());
+        queryFactory.BuildCustomMetricQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<CustomMetric>());
+        queryFactory.BuildDependencyQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<Dependency>());
+        queryFactory.BuildExceptionQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<AIException>());
+        queryFactory.BuildPageViewQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<PageView>());
+        queryFactory.BuildPerformanceCounterQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<PerformanceCounter>());
+        queryFactory.BuildRequestQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<Request>());
+        queryFactory.BuildTraceQueryWithCustomDate(Arg.Any<DateTimeOffset>(),Arg.Any<int>(), Arg.Any<bool>()).Returns(new FixtureDataContractQuery<Trace>());
         return queryFactory;
     }
 
     private void BuildTelemetryLoaderResultSets(ITelemetryLoader telemetryLoader)
     {
 
-        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<IAvailability>>())
-            .Returns(new List<FixtureAvailability>() { new(), new()});
+        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<Availability>>())
+            .Returns(new List<Availability>() { new(), new()});
 
-        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<IBrowserTiming>>())
-            .Returns(new List<FixtureBrowserTiming>() { new(), new()});
+        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<BrowserTiming>>())
+            .Returns(new List<BrowserTiming>() { new(), new()});
 
-        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<ICustomEvent>>())
-            .Returns(new List<FixtureCustomEvent>() { new(), new()});
+        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<CustomEvent>>())
+            .Returns(new List<CustomEvent>() { new(), new()});
 
-        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<ICustomMetrics>>())
-            .Returns(new List<FixtureCustomMetrics>() {new(), new()});
+        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<CustomMetric>>())
+            .Returns(new List<CustomMetric>() {new(), new()});
         
-        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<IDependency>>())
-            .Returns(new List<FixtureDependency>() {new(), new()});
+        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<Dependency>>())
+            .Returns(new List<Dependency>() {new(), new()});
         
-        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<IException>>())
-            .Returns(new List<FixtureException>() {new(), new()});
+        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<AIException>>())
+            .Returns(new List<AIException>() {new(), new()});
 
-        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<IPageView>>())
-            .Returns(new List<FixturePageView>() {new(), new()});
+        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<PageView>>())
+            .Returns(new List<PageView>() {new(), new()});
 
-        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<IPerformanceCounter>>())
-            .Returns(new List<FixturePerformanceCounter>() {new(), new()});
+        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<PerformanceCounter>>())
+            .Returns(new List<PerformanceCounter>() {new(), new()});
 
-        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<IRequest>>())
-            .Returns(new List<FixtureRequest>() {new(), new()});
+        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<Request>>())
+            .Returns(new List<Request>() {new(), new()});
 
-        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<ITrace>>())
-            .Returns(new List<FixtureTrace>() {new(), new()});
+        telemetryLoader.ExecuteQueryAsync(Arg.Any<DataContractQuery<Trace>>())
+            .Returns(new List<Trace>() {new(), new()});
     }
     
     private ITelemetryLoader BuildTelemetryLoader()
@@ -239,5 +239,62 @@ public class DataContractDataSetTests
         await sut.UpdateDataSet();
         
         Assert.Equal(1, eventCounter);
+    }
+    
+    [Fact]
+    public void RegisterView_WhenNullViewPassed_ShouldThrowArgumentNullException()
+    {
+        var telemetryLoader = BuildTelemetryLoader();
+        var sut = new DataContractDataSet(telemetryLoader, new DataContractDataSetOptions(), "MyDataSet");
+
+        Assert.Throws<ArgumentNullException>(() => sut.RegisterView(null));
+    }
+    
+    [Fact]
+    public void DeRegisterView_WhenNullViewPassed_ShouldThrowArgumentNullException()
+    {
+        var telemetryLoader = BuildTelemetryLoader();
+        var sut = new DataContractDataSet(telemetryLoader, new DataContractDataSetOptions(), "MyDataSet");
+
+        Assert.Throws<ArgumentNullException>(() => sut.DeRegisterView(null));
+    }
+    
+    [Fact]
+    public void RegisterView_WhenViewPassed_ShouldAddToViews()
+    {
+        var telemetryLoader = BuildTelemetryLoader();
+        var sut = new DataContractDataSet(telemetryLoader, new DataContractDataSetOptions(), "MyDataSet");
+        var dataSetView = Substitute.For<Abstractions.Views.IDataSetView>();
+        
+        sut.RegisterView(dataSetView);
+        
+        Assert.Equal(dataSetView, sut.Views[0]);
+    }
+    
+    [Fact]
+    public void DeRegisterView_WhenViewPassed_ShouldRemoveFromViews()
+    {
+        var telemetryLoader = BuildTelemetryLoader();
+        var sut = new DataContractDataSet(telemetryLoader, new DataContractDataSetOptions(), "MyDataSet");
+        var dataSetView = Substitute.For<Abstractions.Views.IDataSetView>();
+        
+        sut.RegisterView(dataSetView);
+        sut.DeRegisterView(dataSetView);
+        
+        Assert.False(sut.Views.Any());
+    }
+    
+    [Fact]
+    public async Task UpdateDataSet_WhenCompleted_ViewsShouldBeUpdated()
+    {
+        var telemetryLoader = BuildTelemetryLoader();
+        var sut = new DataContractDataSet(telemetryLoader, new DataContractDataSetOptions(), "MyDataSet");
+        var dataSetView = Substitute.For<Abstractions.Views.IDataSetView>();
+        
+        sut.RegisterView(dataSetView); 
+
+        await sut.UpdateDataSet();
+
+        await dataSetView.Received(1).OnDataSetUpdated(Arg.Any<IDataSet>());
     }
 }

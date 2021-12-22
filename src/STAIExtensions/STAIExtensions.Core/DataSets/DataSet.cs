@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
-using STAIExtensions.Abstractions.DataContracts;
 using STAIExtensions.Abstractions.Queries;
+using STAIExtensions.Abstractions.Views;
 
 namespace STAIExtensions.Core.DataSets;
 
@@ -8,6 +8,9 @@ public abstract class DataSet : Abstractions.Data.IDataSet
 {
 
     #region Properties
+
+    public List<IDataSetView> Views { get; protected set; } = new();
+
     public string DataSetName { get; set; }
 
     public event EventHandler? OnDataSetUpdated;
@@ -57,7 +60,7 @@ public abstract class DataSet : Abstractions.Data.IDataSet
 
     protected abstract Task ExecuteQueries();
 
-    protected virtual async Task ExecuteDataQuery<T>(DataContractQuery<T> query) where T : IDataContract
+    protected virtual async Task ExecuteDataQuery<T>(DataContractQuery<T> query) where T : Abstractions.DataContracts.Models.DataContract
     {
         try
         {
@@ -87,6 +90,14 @@ public abstract class DataSet : Abstractions.Data.IDataSet
             this.Logger?.LogTrace("Starting update of data set {DataSetName}", DataSetName);
             
             await ExecuteQueries();
+
+            var updateViewTasks = new List<Task>();
+            foreach (var view in Views)
+            {
+                updateViewTasks.Add(view.OnDataSetUpdated(this)); 
+            }
+
+            Task.WaitAll(updateViewTasks.ToArray());
             
             this.OnDataSetUpdated?.Invoke(this, EventArgs.Empty);
         }
@@ -96,7 +107,7 @@ public abstract class DataSet : Abstractions.Data.IDataSet
         }
         finally
         {
-            if (this.AutoRefreshEnabled == true && CancellationToken?.IsCancellationRequested == false)
+            if (this.AutoRefreshEnabled == true && (CancellationToken?.IsCancellationRequested ?? false) == false)
             {
                 this.Logger?.LogTrace("Restarting refresh timer for data set {DataSetName}", DataSetName);
                 this._autoRefreshTimer.Change(AutoRefreshInterval.Value, Timeout.InfiniteTimeSpan);
@@ -104,12 +115,37 @@ public abstract class DataSet : Abstractions.Data.IDataSet
         }
     }
 
+    public void RegisterView(IDataSetView datasetView)
+    {
+        if (datasetView == null)
+            throw new ArgumentNullException(nameof(datasetView));
+
+        datasetView.OnDisposing += OnDatasetViewDisposing;
+        
+        this.Views.Add(datasetView);
+    }
+
+    public void DeRegisterView(IDataSetView datasetView)
+    {
+        if (datasetView == null)
+            throw new ArgumentNullException(nameof(datasetView));
+        
+        datasetView.OnDisposing -= OnDatasetViewDisposing;
+        this.Views.Remove(datasetView);
+    }
+
     protected abstract Task ProcessQueryRecords<T>(DataContractQuery<T> query,
-        IEnumerable<T> records) where T : IDataContract; 
+        IEnumerable<T> records) where T : Abstractions.DataContracts.Models.DataContract; 
     
     private async void OnTimerTick(object? state)
     {
         await UpdateDataSet();
+    }
+    
+    private void OnDatasetViewDisposing(object sender, EventArgs args)
+    {
+        if (sender != null) 
+            DeRegisterView((IDataSetView) sender);
     }
     #endregion
   
