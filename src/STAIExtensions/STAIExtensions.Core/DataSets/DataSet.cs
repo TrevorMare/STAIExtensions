@@ -115,7 +115,7 @@ public abstract class DataSet : Abstractions.Data.IDataSet
         }
     }
 
-    public void RegisterView(IDataSetView datasetView)
+    public void AttachView(IDataSetView datasetView)
     {
         if (datasetView == null)
             throw new ArgumentNullException(nameof(datasetView));
@@ -125,7 +125,7 @@ public abstract class DataSet : Abstractions.Data.IDataSet
         this.Views.Add(datasetView);
     }
 
-    public void DeRegisterView(IDataSetView datasetView)
+    public void DetachView(IDataSetView datasetView)
     {
         if (datasetView == null)
             throw new ArgumentNullException(nameof(datasetView));
@@ -145,7 +145,7 @@ public abstract class DataSet : Abstractions.Data.IDataSet
     private void OnDatasetViewDisposing(object sender, EventArgs args)
     {
         if (sender != null) 
-            DeRegisterView((IDataSetView) sender);
+            DetachView((IDataSetView) sender);
     }
     #endregion
   

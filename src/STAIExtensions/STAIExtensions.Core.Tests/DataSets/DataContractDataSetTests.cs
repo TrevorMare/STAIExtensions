@@ -247,7 +247,7 @@ public class DataContractDataSetTests
         var telemetryLoader = BuildTelemetryLoader();
         var sut = new DataContractDataSet(telemetryLoader, new DataContractDataSetOptions(), "MyDataSet");
 
-        Assert.Throws<ArgumentNullException>(() => sut.RegisterView(null));
+        Assert.Throws<ArgumentNullException>(() => sut.AttachView(null));
     }
     
     [Fact]
@@ -256,7 +256,7 @@ public class DataContractDataSetTests
         var telemetryLoader = BuildTelemetryLoader();
         var sut = new DataContractDataSet(telemetryLoader, new DataContractDataSetOptions(), "MyDataSet");
 
-        Assert.Throws<ArgumentNullException>(() => sut.DeRegisterView(null));
+        Assert.Throws<ArgumentNullException>(() => sut.DetachView(null));
     }
     
     [Fact]
@@ -266,7 +266,7 @@ public class DataContractDataSetTests
         var sut = new DataContractDataSet(telemetryLoader, new DataContractDataSetOptions(), "MyDataSet");
         var dataSetView = Substitute.For<Abstractions.Views.IDataSetView>();
         
-        sut.RegisterView(dataSetView);
+        sut.AttachView(dataSetView);
         
         Assert.Equal(dataSetView, sut.Views[0]);
     }
@@ -278,8 +278,8 @@ public class DataContractDataSetTests
         var sut = new DataContractDataSet(telemetryLoader, new DataContractDataSetOptions(), "MyDataSet");
         var dataSetView = Substitute.For<Abstractions.Views.IDataSetView>();
         
-        sut.RegisterView(dataSetView);
-        sut.DeRegisterView(dataSetView);
+        sut.AttachView(dataSetView);
+        sut.DetachView(dataSetView);
         
         Assert.False(sut.Views.Any());
     }
@@ -291,7 +291,7 @@ public class DataContractDataSetTests
         var sut = new DataContractDataSet(telemetryLoader, new DataContractDataSetOptions(), "MyDataSet");
         var dataSetView = Substitute.For<Abstractions.Views.IDataSetView>();
         
-        sut.RegisterView(dataSetView); 
+        sut.AttachView(dataSetView); 
 
         await sut.UpdateDataSet();
 

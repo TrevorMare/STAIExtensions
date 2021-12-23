@@ -20,8 +20,8 @@ public interface IDataSet
     
     Task UpdateDataSet();
 
-    void RegisterView(Views.IDataSetView datasetView);
+    void AttachView(Views.IDataSetView datasetView);
     
-    void DeRegisterView(Views.IDataSetView datasetView);
+    void DetachView(Views.IDataSetView datasetView);
 
 }

@@ -4,6 +4,10 @@ namespace STAIExtensions.Abstractions.Views;
 
 public interface IDataSetView : IDisposable
 {
+    
+    DateTime? ExpiryDate { get; }
+
+    TimeSpan SlidingExpiration { get; set; }
 
     event EventHandler OnDisposing;
     
@@ -11,4 +15,7 @@ public interface IDataSetView : IDisposable
 
     Task OnDataSetUpdated(IDataSet dataset);
 
+    void SetExpiryDate();
+
+    void SetExpiryDate(DateTime value);
 }

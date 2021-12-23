@@ -5,22 +5,53 @@ namespace STAIExtensions.Core.Views;
 
 public abstract class DataSetView : Abstractions.Views.IDataSetView
 {
-
+    
     #region Members
 
     private bool _disposed = false;
+    
+    private TimeSpan _slidingExpiration = TimeSpan.FromMinutes(5);
+    #endregion
+    
+    #region Properties
 
+    public DateTime? ExpiryDate { get; protected set; }
+
+    public TimeSpan SlidingExpiration
+    {
+        get => _slidingExpiration;
+        set
+        {
+            if (value == _slidingExpiration) return;
+            this._slidingExpiration = value;
+            this.SetExpiryDate();
+        }
+    }
     #endregion
 
+    #region Events
     public event EventHandler OnDisposing;
     
     public event EventHandler OnViewUpdated;
-    
+    #endregion
+
+    #region Methods
     public virtual Task OnDataSetUpdated(IDataSet dataset)
     {
         OnViewUpdated?.Invoke(this, EventArgs.Empty);
         return Task.CompletedTask;
     }
+
+    public void SetExpiryDate()
+    {
+        this.ExpiryDate = DateTime.Now.Add(SlidingExpiration);
+    }
+
+    public void SetExpiryDate(DateTime value)
+    {
+        this.ExpiryDate = value;
+    }
+    #endregion
 
     #region Dispose
 
