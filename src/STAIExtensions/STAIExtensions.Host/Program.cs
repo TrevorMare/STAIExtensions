@@ -1,3 +1,4 @@
+using STAIExtensions.Core;
 using STAIExtensions.Host.Api;
 using STAIExtensions.Host.SignalR;
 
@@ -12,6 +13,7 @@ builder.Services.UseSTAIExtensionsApiHost();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.UseSTAIExtensions();
 builder.Services.UseSTAISignalR();
 
 var app = builder.Build();

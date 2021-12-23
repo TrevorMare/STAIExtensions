@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Reflection;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace STAIExtensions.Abstractions;
@@ -28,6 +30,7 @@ public static class DependencyExtensions
     #region Extension Method
     public static IServiceCollection UseSTAIExtensions(this IServiceCollection serviceCollection)
     {
+        serviceCollection.AddMediatR(Assembly.GetExecutingAssembly());
         _serviceCollection ??= serviceCollection;
 
         return serviceCollection;

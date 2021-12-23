@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using STAIExtensions.Abstractions.CQRS.Commands;
+using STAIExtensions.Abstractions.CQRS.Queries;
 
 namespace STAIExtensions.Host.Api.Controllers;
 
@@ -8,10 +11,16 @@ namespace STAIExtensions.Host.Api.Controllers;
 public class ViewController : ControllerBase
 {
 
+    #region Members
+
+    private readonly IMediator _mediator;
+
+    #endregion
+
     #region ctor
-    public ViewController()
+    public ViewController(IMediator mediator)
     {
-        
+        _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
     }
     #endregion
     
@@ -20,30 +29,30 @@ public class ViewController : ControllerBase
     #if !DEBUG
     [Authorize]
     #endif
-    public Abstractions.Views.IDataSetView GetView(string viewId)
+    public async Task<Abstractions.Views.IDataSetView> GetView(string viewId)
     {
-        return null;
+        return await _mediator.Send(new GetDataViewQuery(viewId, ""));
     }
 
     [HttpPost]
     [Route("CreateView")]
-    public JsonResult CreateView(string viewType)
+    public async Task<Abstractions.Views.IDataSetView> CreateView(string viewType)
     {
-        return null;
+        return await _mediator.Send(new CreateViewCommand(viewType, ""));
     }
     
     [HttpPost]
     [Route("AttachViewToDataset")]
-    public JsonResult AttachViewToDataset(string viewType)
+    public async Task<bool> AttachViewToDataset(string viewId, string dataSetId)
     {
-        return null;
+        return await _mediator.Send(new AttachViewToDataSetCommand(viewId, dataSetId, ""));
     }
     
     [HttpPost]
     [Route("DetachViewFromDataset")]
-    public JsonResult DetachViewFromDataset(string viewType)
+    public async Task<bool> DetachViewFromDataset(string viewId, string dataSetId)
     {
-        return null;
+        return await _mediator.Send(new DetachViewFromDataSetCommand(viewId, dataSetId, ""));
     }
 
 
