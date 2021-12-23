@@ -5,7 +5,7 @@ using STAIExtensions.Abstractions.Views;
 
 namespace STAIExtensions.Abstractions.CQRS.Queries;
 
-public class GetDataViewQuery : IRequest<IDataSetView>
+public class GetDataViewQuery : IRequest<IDataSetView?>
 {
 
     public string ViewId { get; init; } = "";
@@ -25,7 +25,7 @@ public class GetDataViewQuery : IRequest<IDataSetView>
     
 }
 
-public class GetDataViewQueryHandler : IRequestHandler<GetDataViewQuery, IDataSetView>
+public class GetDataViewQueryHandler : IRequestHandler<GetDataViewQuery, IDataSetView?>
 {
 
     #region Members
@@ -42,9 +42,9 @@ public class GetDataViewQueryHandler : IRequestHandler<GetDataViewQuery, IDataSe
     #endregion
 
     #region Methods
-    public Task<IDataSetView> Handle(GetDataViewQuery request, CancellationToken cancellationToken)
+    public Task<IDataSetView?> Handle(GetDataViewQuery request, CancellationToken cancellationToken)
     {
-        return Task.FromResult(_viewCollection.GetView(request.UserSessionId, request.ViewId));
+        return Task.FromResult(_viewCollection.GetView(request.ViewId, request.UserSessionId ));
     }
     #endregion
     

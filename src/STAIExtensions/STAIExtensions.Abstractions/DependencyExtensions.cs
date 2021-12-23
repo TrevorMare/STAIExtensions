@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using STAIExtensions.Abstractions.Collections;
 
 namespace STAIExtensions.Abstractions;
 
@@ -25,6 +26,10 @@ public static class DependencyExtensions
     {
         get { return _loggerFactory ??= ServiceProvider?.GetService<ILoggerFactory>(); }
     }
+    
+    public static IViewCollection? ViewCollection => ServiceProvider?.GetService<IViewCollection>();
+
+    public static IDataSetCollection? DataSetCollection => ServiceProvider?.GetService<IDataSetCollection>();
     #endregion
 
     #region Extension Method

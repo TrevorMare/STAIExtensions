@@ -4,7 +4,11 @@ namespace STAIExtensions.Abstractions.Views;
 
 public interface IDataSetView : IDisposable
 {
-    
+
+    string Id { get; }
+
+    string? OwnerId { get; set; }
+
     DateTime? ExpiryDate { get; }
 
     TimeSpan SlidingExpiration { get; set; }

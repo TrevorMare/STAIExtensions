@@ -1,32 +1,89 @@
-﻿using STAIExtensions.Abstractions.Data;
+﻿using STAIExtensions.Abstractions.Common;
+using STAIExtensions.Abstractions.Data;
 using STAIExtensions.Abstractions.Views;
 
 namespace STAIExtensions.Core.Collections;
 
 public class DataSetCollection : Abstractions.Collections.IDataSetCollection
 {
-    public void AttachDataSet(IDataSet dataSet)
+
+    #region Members
+    private List<IDataSet> _dataSetCollection = new();
+    #endregion
+
+    #region Methods
+    public bool AttachDataSet(IDataSet dataSet)
     {
-        throw new NotImplementedException();
+        if (dataSet == null)
+            throw new ArgumentNullException(nameof(dataSet));
+
+        if (_dataSetCollection.Contains(dataSet))
+            return false;
+        
+        _dataSetCollection.Add(dataSet);
+        
+        return true;
     }
 
-    public void DetachDataSet(IDataSet dataSet)
+    public bool DetachDataSet(IDataSet dataSet)
     {
-        throw new NotImplementedException();
+        if (dataSet == null)
+            throw new ArgumentNullException(nameof(dataSet));
+
+        if (!_dataSetCollection.Contains(dataSet))
+            return false;
+        
+        _dataSetCollection.Remove(dataSet);
+        
+        return true;
     }
 
-    public IEnumerable<string> ListDataSets()
+    public IEnumerable<DataSetInformation> ListDataSets()
     {
-        throw new NotImplementedException();
+        return _dataSetCollection.Select(dataSet => new DataSetInformation(dataSet.DataSetName, dataSet.DataSetId, dataSet.DataSetType));
     }
 
-    public bool AttachViewToDataSet(string requestDataSetId, IDataSetView view)
+    public bool AttachViewToDataSet(string dataSetId, IDataSetView view)
     {
-        throw new NotImplementedException();
+        if (view == null)
+            throw new ArgumentNullException(nameof(view));
+        
+        var dataSet = this.FindDataSetById(dataSetId);
+        if (dataSet == null)
+            return false;
+        
+        dataSet.AttachView(view);
+        return true;
     }
 
-    public bool DetachViewFromDataSet(string requestDataSetId, IDataSetView view)
+    public bool DetachViewFromDataSet(string dataSetId, IDataSetView view)
     {
-        throw new NotImplementedException();
+        if (view == null)
+            throw new ArgumentNullException(nameof(view));
+        
+        var dataSet = this.FindDataSetById(dataSetId);
+        if (dataSet == null)
+            return false;
+        
+        dataSet.DetachView(view);
+        return true;
     }
+
+    public IDataSet? FindDataSetById(string dataSetId)
+    {
+        if (string.IsNullOrEmpty(dataSetId))
+            throw new ArgumentNullException(nameof(dataSetId));
+        
+        return this._dataSetCollection.FirstOrDefault(ds => ds.DataSetId?.ToLower() == dataSetId?.ToLower());
+    }
+
+    public IDataSet? FindDataSetByName(string dataSetName)
+    {
+        if (string.IsNullOrEmpty(dataSetName))
+            throw new ArgumentNullException(nameof(dataSetName));
+        
+        return this._dataSetCollection.FirstOrDefault(ds => ds.DataSetName?.ToLower() == dataSetName?.ToLower());
+    }
+    #endregion
+    
 }

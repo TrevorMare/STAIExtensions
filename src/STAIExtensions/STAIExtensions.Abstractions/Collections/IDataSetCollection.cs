@@ -1,4 +1,5 @@
-﻿using STAIExtensions.Abstractions.Data;
+﻿using STAIExtensions.Abstractions.Common;
+using STAIExtensions.Abstractions.Data;
 using STAIExtensions.Abstractions.Views;
 
 namespace STAIExtensions.Abstractions.Collections;
@@ -6,13 +7,17 @@ namespace STAIExtensions.Abstractions.Collections;
 public interface IDataSetCollection
 {
 
-    void AttachDataSet(IDataSet dataSet);
+    bool AttachDataSet(IDataSet dataSet);
     
-    void DetachDataSet(IDataSet dataSet);
+    bool DetachDataSet(IDataSet dataSet);
 
-    IEnumerable<string> ListDataSets();
+    IEnumerable<DataSetInformation> ListDataSets();
 
-    bool AttachViewToDataSet(string requestDataSetId, IDataSetView view);
+    bool AttachViewToDataSet(string dataSetId, IDataSetView view);
     
-    bool DetachViewFromDataSet(string requestDataSetId, IDataSetView view);
+    bool DetachViewFromDataSet(string dataSetId, IDataSetView view);
+
+    IDataSet? FindDataSetById(string dataSetId);
+    
+    IDataSet? FindDataSetByName(string dataSetId);
 }

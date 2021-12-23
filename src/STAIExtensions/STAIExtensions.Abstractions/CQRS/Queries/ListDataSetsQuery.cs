@@ -1,16 +1,17 @@
 ﻿using MediatR;
 using STAIExtensions.Abstractions.Collections;
+using STAIExtensions.Abstractions.Common;
 
 namespace STAIExtensions.Abstractions.CQRS.Queries;
 
-public class ListDataSetsQuery : IRequest<IEnumerable<string>>
+public class ListDataSetsQuery : IRequest<IEnumerable<DataSetInformation>>
 {
     
     
     
 }
 
-public class ListDataSetsQueryHandler : IRequestHandler<ListDataSetsQuery, IEnumerable<string>>
+public class ListDataSetsQueryHandler : IRequestHandler<ListDataSetsQuery, IEnumerable<DataSetInformation>>
 {
 
     #region Members
@@ -29,7 +30,7 @@ public class ListDataSetsQueryHandler : IRequestHandler<ListDataSetsQuery, IEnum
     #endregion
 
     #region Methods
-    public Task<IEnumerable<string>> Handle(ListDataSetsQuery request, CancellationToken cancellationToken)
+    public Task<IEnumerable<DataSetInformation>> Handle(ListDataSetsQuery request, CancellationToken cancellationToken)
     {
         return Task.FromResult(this._dataSetCollection.ListDataSets());
     }

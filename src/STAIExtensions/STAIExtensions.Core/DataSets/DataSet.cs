@@ -13,6 +13,10 @@ public abstract class DataSet : Abstractions.Data.IDataSet
 
     public string DataSetName { get; set; }
 
+    public string DataSetId { get; set; } = Guid.NewGuid().ToString();
+
+    public string DataSetType => this.GetType().Name;
+    
     public event EventHandler? OnDataSetUpdated;
     
     public bool AutoRefreshEnabled { get; protected set; }
@@ -37,6 +41,10 @@ public abstract class DataSet : Abstractions.Data.IDataSet
         this.Logger = Abstractions.DependencyExtensions.CreateLogger<DataSet>();
         this._autoRefreshTimer = new Timer(OnTimerTick);
         this.DataSetName = string.IsNullOrEmpty(dataSetName) ? Guid.NewGuid().ToString() : dataSetName;
+        
+        // Attach this data set to the data set collection
+        Abstractions.DependencyExtensions.DataSetCollection?.AttachDataSet(this);
+
     }
     #endregion
 
@@ -148,5 +156,22 @@ public abstract class DataSet : Abstractions.Data.IDataSet
             DetachView((IDataSetView) sender);
     }
     #endregion
-  
+
+    #region Dispose
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            Abstractions.DependencyExtensions.DataSetCollection?.DetachDataSet(this);
+            _autoRefreshTimer.Dispose();
+        }
+    }
+
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+    #endregion
+   
 }
