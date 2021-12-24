@@ -2,7 +2,7 @@
 using STAIExtensions.Abstractions.Collections;
 using STAIExtensions.Abstractions.Common;
 
-namespace STAIExtensions.Abstractions.CQRS.Queries;
+namespace STAIExtensions.Abstractions.CQRS.DataSets.Queries;
 
 public class ListDataSetsQuery : IRequest<IEnumerable<DataSetInformation>>
 {

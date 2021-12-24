@@ -43,8 +43,7 @@ public abstract class DataSet : Abstractions.Data.IDataSet
         this.DataSetName = string.IsNullOrEmpty(dataSetName) ? Guid.NewGuid().ToString() : dataSetName;
         
         // Attach this data set to the data set collection
-        Abstractions.DependencyExtensions.DataSetCollection?.AttachDataSet(this);
-
+        Abstractions.DependencyExtensions.Mediator?.Send(new Abstractions.CQRS.DataSets.Commands.AttachDataSetCommand(this));
     }
     #endregion
 
@@ -122,38 +121,13 @@ public abstract class DataSet : Abstractions.Data.IDataSet
             }
         }
     }
-
-    public void AttachView(IDataSetView datasetView)
-    {
-        if (datasetView == null)
-            throw new ArgumentNullException(nameof(datasetView));
-
-        datasetView.OnDisposing += OnDatasetViewDisposing;
-        
-        this.Views.Add(datasetView);
-    }
-
-    public void DetachView(IDataSetView datasetView)
-    {
-        if (datasetView == null)
-            throw new ArgumentNullException(nameof(datasetView));
-        
-        datasetView.OnDisposing -= OnDatasetViewDisposing;
-        this.Views.Remove(datasetView);
-    }
-
+   
     protected abstract Task ProcessQueryRecords<T>(DataContractQuery<T> query,
         IEnumerable<T> records) where T : Abstractions.DataContracts.Models.DataContract; 
     
     private async void OnTimerTick(object? state)
     {
         await UpdateDataSet();
-    }
-    
-    private void OnDatasetViewDisposing(object sender, EventArgs args)
-    {
-        if (sender != null) 
-            DetachView((IDataSetView) sender);
     }
     #endregion
 
@@ -162,7 +136,7 @@ public abstract class DataSet : Abstractions.Data.IDataSet
     {
         if (disposing)
         {
-            Abstractions.DependencyExtensions.DataSetCollection?.DetachDataSet(this);
+            Abstractions.DependencyExtensions.Mediator?.Send(new Abstractions.CQRS.DataSets.Commands.DetachDataSetCommand(this));
             _autoRefreshTimer.Dispose();
         }
     }

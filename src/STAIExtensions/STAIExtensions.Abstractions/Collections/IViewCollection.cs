@@ -11,4 +11,5 @@ public interface IViewCollection
 
     IDataSetView CreateView(string viewTypeName, string ownerId);
 
+    IDataSetView? GetViewForUpdate(string id);
 }

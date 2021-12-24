@@ -1,9 +1,8 @@
-﻿using System.Dynamic;
-using MediatR;
+﻿using MediatR;
 using STAIExtensions.Abstractions.Collections;
 using STAIExtensions.Abstractions.Views;
 
-namespace STAIExtensions.Abstractions.CQRS.Queries;
+namespace STAIExtensions.Abstractions.CQRS.DataSetViews.Queries;
 
 public class GetDataViewQuery : IRequest<IDataSetView?>
 {

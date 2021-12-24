@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using STAIExtensions.Abstractions.CQRS.Commands;
-using STAIExtensions.Abstractions.CQRS.Queries;
+using STAIExtensions.Abstractions.CQRS.DataSetViews.Commands;
+using STAIExtensions.Abstractions.CQRS.DataSetViews.Queries;
 
 namespace STAIExtensions.Host.Api.Controllers;
 

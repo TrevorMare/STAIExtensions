@@ -1,4 +1,5 @@
-﻿using STAIExtensions.Abstractions.Views;
+﻿using STAIExtensions.Abstractions.Collections;
+using STAIExtensions.Abstractions.Views;
 
 namespace STAIExtensions.Core.Collections;
 
@@ -60,7 +61,15 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
     
         return instance;
     }
+
+    public IDataSetView? GetViewForUpdate(string id)
+    {
+        if (string.IsNullOrEmpty(id))
+            throw new ArgumentNullException(nameof(id));
+        
+        return _dataSetViewCollection.FirstOrDefault(dsv => string.Equals(dsv.Id, id, StringComparison.CurrentCultureIgnoreCase));
+    }
+
     #endregion
-    
     
 }

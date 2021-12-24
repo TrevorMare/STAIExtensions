@@ -14,6 +14,7 @@ public static class DependencyExtensions
     private static IServiceCollection? _serviceCollection = null;
     private static IServiceProvider? _serviceProvider = null;
     private static ILoggerFactory? _loggerFactory = null;
+    private static IMediator? _mediator = null;
     #endregion
 
     #region Properties
@@ -27,9 +28,10 @@ public static class DependencyExtensions
         get { return _loggerFactory ??= ServiceProvider?.GetService<ILoggerFactory>(); }
     }
     
-    public static IViewCollection? ViewCollection => ServiceProvider?.GetService<IViewCollection>();
-
-    public static IDataSetCollection? DataSetCollection => ServiceProvider?.GetService<IDataSetCollection>();
+    public static IMediator? Mediator
+    {
+        get { return _mediator ??= ServiceProvider?.GetService<IMediator>(); }
+    }
     #endregion
 
     #region Extension Method

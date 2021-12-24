@@ -6,8 +6,6 @@ namespace STAIExtensions.Abstractions.Data;
 public interface IDataSet : IDisposable
 {
     
-    List<Views.IDataSetView> Views { get; }
-    
     string DataSetName { get; set; }
 
     string DataSetId { get; set; }
@@ -23,9 +21,5 @@ public interface IDataSet : IDisposable
     void StopAutoRefresh();
     
     Task UpdateDataSet();
-
-    void AttachView(Views.IDataSetView datasetView);
-    
-    void DetachView(Views.IDataSetView datasetView);
 
 }

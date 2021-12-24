@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using STAIExtensions.Abstractions.Common;
+using STAIExtensions.Abstractions.CQRS.DataSets.Queries;
 
 namespace STAIExtensions.Host.Api.Controllers;
 
@@ -28,7 +29,7 @@ public class DataSetController : ControllerBase
     [Route("ListDataSets")]
     public async Task<IEnumerable<DataSetInformation>> ListDataSets()
     {
-        return await _mediator.Send(new Abstractions.CQRS.Queries.ListDataSetsQuery());
+        return await _mediator.Send(new ListDataSetsQuery());
     }
     #endregion
 
