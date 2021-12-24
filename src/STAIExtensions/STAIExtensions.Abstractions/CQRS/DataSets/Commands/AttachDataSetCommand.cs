@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using STAIExtensions.Abstractions.Collections;
-using STAIExtensions.Abstractions.CQRS.DataSetViews.Commands;
 using STAIExtensions.Abstractions.Data;
 
 namespace STAIExtensions.Abstractions.CQRS.DataSets.Commands;
@@ -29,19 +28,16 @@ public class AttachDataSetCommandHandler : IRequestHandler<AttachDataSetCommand,
     #endregion
 
     #region ctor
-    public AttachDataSetCommandHandler(IDataSetCollection dataSetCollection)
+    public AttachDataSetCommandHandler()
     {
-        _dataSetCollection = dataSetCollection ?? throw new ArgumentNullException(nameof(dataSetCollection));
-
-        var x = DependencyExtensions.ServiceProvider.GetRequiredService<IDataSetCollection>();
+        _dataSetCollection = DependencyExtensions.ServiceProvider?.GetRequiredService<IDataSetCollection>() ??
+                             throw new Exception("Could not retrieve data set collection from DI");
     }
     #endregion
 
     #region Methods
     public Task<bool> Handle(AttachDataSetCommand request, CancellationToken cancellationToken)
     {
-        
-        
         return Task.FromResult(_dataSetCollection.AttachDataSet(request.DataSet));
     }
     #endregion

@@ -35,7 +35,7 @@ public static class DependencyExtensions
     #endregion
 
     #region Extension Method
-    public static IServiceCollection UseSTAIExtensions(this IServiceCollection serviceCollection)
+    public static IServiceCollection UseSTAIExtensionsAbstractions(this IServiceCollection serviceCollection)
     {
         serviceCollection.AddMediatR(Assembly.GetExecutingAssembly());
         _serviceCollection ??= serviceCollection;

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using STAIExtensions.Abstractions.Collections;
 using STAIExtensions.Abstractions.Data;
 
@@ -31,9 +32,10 @@ public class UpdateViewFromDataSetCommandHandler : IRequestHandler<UpdateViewFro
     #endregion
 
     #region ctor
-    public UpdateViewFromDataSetCommandHandler(IViewCollection viewCollection)
+    public UpdateViewFromDataSetCommandHandler()
     {
-        _viewCollection = viewCollection ?? throw new ArgumentNullException(nameof(viewCollection));
+        _viewCollection = DependencyExtensions.ServiceProvider?.GetRequiredService<IViewCollection>() ??
+                          throw new Exception("Could not retrieve data set views collection from DI");
     }
     #endregion
 

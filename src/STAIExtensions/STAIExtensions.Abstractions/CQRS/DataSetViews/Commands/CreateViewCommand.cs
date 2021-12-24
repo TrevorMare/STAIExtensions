@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using STAIExtensions.Abstractions.Collections;
 using STAIExtensions.Abstractions.Views;
 
@@ -33,9 +34,10 @@ public class CreateViewCommandHandler : IRequestHandler<CreateViewCommand, IData
     #endregion
 
     #region ctor
-    public CreateViewCommandHandler(IViewCollection viewCollection)
+    public CreateViewCommandHandler()
     {
-        _viewCollection = viewCollection ?? throw new ArgumentNullException(nameof(viewCollection));
+        _viewCollection = DependencyExtensions.ServiceProvider?.GetRequiredService<IViewCollection>() ??
+                          throw new Exception("Could not retrieve data set views collection from DI");
     }
     #endregion
 

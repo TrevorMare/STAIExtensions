@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using STAIExtensions.Abstractions.Collections;
 
 namespace STAIExtensions.Abstractions.CQRS.DataSetViews.Commands;
@@ -42,10 +43,12 @@ public class DetachViewFromDataSetCommandHandler : IRequestHandler<DetachViewFro
     #endregion
 
     #region ctor
-    public DetachViewFromDataSetCommandHandler(IViewCollection viewCollection, IDataSetCollection dataSetCollection)
+    public DetachViewFromDataSetCommandHandler()
     {
-        _viewCollection = viewCollection ?? throw new ArgumentNullException(nameof(viewCollection));
-        _dataSetCollection = dataSetCollection ?? throw new ArgumentNullException(nameof(dataSetCollection));
+        _viewCollection = DependencyExtensions.ServiceProvider?.GetRequiredService<IViewCollection>() ??
+                          throw new Exception("Could not retrieve data set views collection from DI");
+        _dataSetCollection = DependencyExtensions.ServiceProvider?.GetRequiredService<IDataSetCollection>() ??
+                             throw new Exception("Could not retrieve data set collection from DI");
     }
     #endregion
 

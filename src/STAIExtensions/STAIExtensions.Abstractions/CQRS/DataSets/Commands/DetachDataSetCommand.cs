@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using STAIExtensions.Abstractions.Collections;
 using STAIExtensions.Abstractions.Data;
 
@@ -28,9 +29,10 @@ public class DetachDataSetCommandHandler : IRequestHandler<DetachDataSetCommand,
     #endregion
 
     #region ctor
-    public DetachDataSetCommandHandler(IDataSetCollection dataSetCollection)
+    public DetachDataSetCommandHandler()
     {
-        _dataSetCollection = dataSetCollection ?? throw new ArgumentNullException(nameof(dataSetCollection));
+        _dataSetCollection = DependencyExtensions.ServiceProvider?.GetRequiredService<IDataSetCollection>() ??
+                             throw new Exception("Could not retrieve data set collection from DI");
     }
     #endregion
 

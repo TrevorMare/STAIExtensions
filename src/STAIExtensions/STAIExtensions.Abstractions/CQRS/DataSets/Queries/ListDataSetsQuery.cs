@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using STAIExtensions.Abstractions.Collections;
 using STAIExtensions.Abstractions.Common;
 
@@ -22,11 +23,11 @@ public class ListDataSetsQueryHandler : IRequestHandler<ListDataSetsQuery, IEnum
     
     #region ctor
 
-    public ListDataSetsQueryHandler(IDataSetCollection dataSetCollection)
+    public ListDataSetsQueryHandler()
     {
-        this._dataSetCollection = dataSetCollection ?? throw new ArgumentNullException(nameof(dataSetCollection));
+        _dataSetCollection = DependencyExtensions.ServiceProvider?.GetRequiredService<IDataSetCollection>() ??
+                             throw new Exception("Could not retrieve data set collection from DI");
     }
-
     #endregion
 
     #region Methods
