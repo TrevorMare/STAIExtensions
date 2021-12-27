@@ -1,5 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Reflection;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using STAIExtensions.Abstractions.Collections;
 
 namespace STAIExtensions.Abstractions;
 
@@ -11,6 +14,7 @@ public static class DependencyExtensions
     private static IServiceCollection? _serviceCollection = null;
     private static IServiceProvider? _serviceProvider = null;
     private static ILoggerFactory? _loggerFactory = null;
+    private static IMediator? _mediator = null;
     #endregion
 
     #region Properties
@@ -23,11 +27,17 @@ public static class DependencyExtensions
     {
         get { return _loggerFactory ??= ServiceProvider?.GetService<ILoggerFactory>(); }
     }
+    
+    public static IMediator? Mediator
+    {
+        get { return _mediator ??= ServiceProvider?.GetService<IMediator>(); }
+    }
     #endregion
 
     #region Extension Method
-    public static IServiceCollection UseSTAIExtensions(this IServiceCollection serviceCollection)
+    public static IServiceCollection UseSTAIExtensionsAbstractions(this IServiceCollection serviceCollection)
     {
+        serviceCollection.AddMediatR(Assembly.GetExecutingAssembly());
         _serviceCollection ??= serviceCollection;
 
         return serviceCollection;

@@ -8,6 +8,8 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     
     #region Members
 
+    private string _viewId = Guid.NewGuid().ToString();
+    
     private bool _disposed = false;
     
     private TimeSpan _slidingExpiration = TimeSpan.FromMinutes(5);
@@ -15,6 +17,8 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     
     #region Properties
 
+    public string Id => _viewId;
+    public string? OwnerId { get; set; }
     public DateTime? ExpiryDate { get; protected set; }
 
     public TimeSpan SlidingExpiration
@@ -30,9 +34,9 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     #endregion
 
     #region Events
-    public event EventHandler OnDisposing;
+    public event EventHandler? OnDisposing;
     
-    public event EventHandler OnViewUpdated;
+    public event EventHandler? OnViewUpdated;
     #endregion
 
     #region Methods

@@ -1,9 +1,14 @@
+using STAIExtensions.Core;
 using STAIExtensions.Host.Api;
+using STAIExtensions.Host.Services;
 using STAIExtensions.Host.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddLogging(configure => configure.AddConsole())
+    .Configure<LoggerFilterOptions>(options => options.MinLevel = LogLevel.Information);
 
 builder.Services.AddControllers();
 builder.Services.UseSTAIExtensionsApiHost();
@@ -12,7 +17,9 @@ builder.Services.UseSTAIExtensionsApiHost();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.UseSTAIExtensions();
 builder.Services.UseSTAISignalR();
+builder.Services.AddHostedService<ServiceRunner>();
 
 var app = builder.Build();
 

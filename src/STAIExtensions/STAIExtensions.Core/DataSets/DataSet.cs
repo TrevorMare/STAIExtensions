@@ -13,6 +13,10 @@ public abstract class DataSet : Abstractions.Data.IDataSet
 
     public string DataSetName { get; set; }
 
+    public string DataSetId { get; set; } = Guid.NewGuid().ToString();
+
+    public string DataSetType => this.GetType().Name;
+    
     public event EventHandler? OnDataSetUpdated;
     
     public bool AutoRefreshEnabled { get; protected set; }
@@ -37,6 +41,9 @@ public abstract class DataSet : Abstractions.Data.IDataSet
         this.Logger = Abstractions.DependencyExtensions.CreateLogger<DataSet>();
         this._autoRefreshTimer = new Timer(OnTimerTick);
         this.DataSetName = string.IsNullOrEmpty(dataSetName) ? Guid.NewGuid().ToString() : dataSetName;
+        
+        // Attach this data set to the data set collection
+        Abstractions.DependencyExtensions.Mediator?.Send(new Abstractions.CQRS.DataSets.Commands.AttachDataSetCommand(this));
     }
     #endregion
 
@@ -114,26 +121,7 @@ public abstract class DataSet : Abstractions.Data.IDataSet
             }
         }
     }
-
-    public void AttachView(IDataSetView datasetView)
-    {
-        if (datasetView == null)
-            throw new ArgumentNullException(nameof(datasetView));
-
-        datasetView.OnDisposing += OnDatasetViewDisposing;
-        
-        this.Views.Add(datasetView);
-    }
-
-    public void DetachView(IDataSetView datasetView)
-    {
-        if (datasetView == null)
-            throw new ArgumentNullException(nameof(datasetView));
-        
-        datasetView.OnDisposing -= OnDatasetViewDisposing;
-        this.Views.Remove(datasetView);
-    }
-
+   
     protected abstract Task ProcessQueryRecords<T>(DataContractQuery<T> query,
         IEnumerable<T> records) where T : Abstractions.DataContracts.Models.DataContract; 
     
@@ -141,12 +129,23 @@ public abstract class DataSet : Abstractions.Data.IDataSet
     {
         await UpdateDataSet();
     }
-    
-    private void OnDatasetViewDisposing(object sender, EventArgs args)
+    #endregion
+
+    #region Dispose
+    protected virtual void Dispose(bool disposing)
     {
-        if (sender != null) 
-            DetachView((IDataSetView) sender);
+        if (disposing)
+        {
+            Abstractions.DependencyExtensions.Mediator?.Send(new Abstractions.CQRS.DataSets.Commands.DetachDataSetCommand(this));
+            _autoRefreshTimer.Dispose();
+        }
+    }
+
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
     }
     #endregion
-  
+   
 }
