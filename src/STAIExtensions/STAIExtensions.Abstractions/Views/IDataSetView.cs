@@ -10,6 +10,8 @@ public interface IDataSetView : IDisposable
     string? OwnerId { get; set; }
 
     DateTime? ExpiryDate { get; }
+    
+    DateTime? LastUpdate { get; }
 
     TimeSpan SlidingExpiration { get; set; }
 

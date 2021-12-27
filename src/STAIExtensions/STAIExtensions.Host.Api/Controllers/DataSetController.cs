@@ -2,11 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using STAIExtensions.Abstractions.Common;
 using STAIExtensions.Abstractions.CQRS.DataSets.Queries;
+using STAIExtensions.Host.Api.Security;
 
 namespace STAIExtensions.Host.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[ApiKey()]
 public class DataSetController : ControllerBase
 {
 

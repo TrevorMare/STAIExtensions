@@ -35,6 +35,8 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
     {
         try
         {
+            IDataSetView? result = null;
+            
             if (string.IsNullOrEmpty(id))
                 throw new ArgumentNullException(nameof(id));
 
@@ -43,12 +45,16 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
                 if (string.IsNullOrEmpty(userSessionId))
                     throw new ArgumentNullException(nameof(userSessionId));
 
-                return _dataSetViewCollection.FirstOrDefault(dsv =>
+                result = _dataSetViewCollection.FirstOrDefault(dsv =>
                     string.Equals(dsv.Id, id, StringComparison.CurrentCultureIgnoreCase) && string.Equals(dsv.OwnerId,
                         userSessionId, StringComparison.CurrentCultureIgnoreCase));
+                result?.SetExpiryDate();
+                return result;
             }
         
-            return _dataSetViewCollection.FirstOrDefault(dsv => string.Equals(dsv.Id, id, StringComparison.CurrentCultureIgnoreCase));
+            result = _dataSetViewCollection.FirstOrDefault(dsv => string.Equals(dsv.Id, id, StringComparison.CurrentCultureIgnoreCase));
+            result?.SetExpiryDate();
+            return result;
         }
         catch (Exception e)
         {
@@ -107,6 +113,23 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
             _logger?.LogError(e, "An error occured retrieving view. {Error}", e);
             throw;
         }
+    }
+
+    public IEnumerable<IDataSetView> GetExpiredViews()
+    {
+        return _dataSetViewCollection.Where(vw => vw.ExpiryDate.HasValue && vw.ExpiryDate < DateTime.Now);
+    }
+
+    public void RemoveView(IDataSetView? expiredView)
+    {
+        if (expiredView == null) return;
+        if (this._dataSetViewCollection.Contains(expiredView))
+            this._dataSetViewCollection.Remove(expiredView);
+    }
+
+    public void RemoveView(string viewId)
+    {
+        throw new NotImplementedException();
     }
 
     #endregion

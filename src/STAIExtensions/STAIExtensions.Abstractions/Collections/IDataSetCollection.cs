@@ -7,6 +7,8 @@ namespace STAIExtensions.Abstractions.Collections;
 public interface IDataSetCollection
 {
 
+    
+    
     bool AttachDataSet(IDataSet dataSet);
     
     bool DetachDataSet(IDataSet dataSet);
@@ -20,4 +22,6 @@ public interface IDataSetCollection
     IDataSet? FindDataSetById(string dataSetId);
     
     IDataSet? FindDataSetByName(string dataSetId);
+    
+    void RemoveViewFromDataSets(string expiredViewId);
 }

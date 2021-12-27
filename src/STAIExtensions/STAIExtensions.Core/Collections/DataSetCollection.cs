@@ -38,7 +38,6 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
                 return false;
             }
 
-
             dataSet.OnDataSetUpdated += OnDataSetUpdated;
         
             _dataSetAttachedViews[dataSet.DataSetId] = new List<string>();
@@ -72,8 +71,10 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
 
             dataSet.OnDataSetUpdated -= OnDataSetUpdated;
         
-            _dataSetAttachedViews[dataSet.DataSetId] = new List<string>();
+            _dataSetAttachedViews.Remove(dataSet.DataSetId);
             _dataSetCollection.Remove(dataSet);
+            
+            dataSet.StopAutoRefresh();
         
             _logger?.LogInformation("Data set with Id {Id} detached from collection", dataSet.DataSetId);
             
@@ -205,19 +206,49 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
 
     #region Private Methods
 
+    private async Task RunCleanup()
+    {
+        await Abstractions.DependencyExtensions.Mediator?.Send(
+            new Abstractions.CQRS.DataSetViews.Commands.CleanupViewsCommand())!;
+    }
+
     private async void OnDataSetUpdated(object? sender, EventArgs e)
     {
-        if (sender is not IDataSet dataSet)
-            return;
-        
-        _logger?.LogInformation("Data set with Id {Id} updated", dataSet.DataSetId);
-        
-        foreach (var viewId in _dataSetAttachedViews[dataSet.DataSetId])
+        try
         {
-            _logger?.LogInformation("Updating view {ViewId} with data set Id {DataSetId}", viewId, dataSet.DataSetId);
-            await DependencyExtensions.Mediator?.Send(
-                new Abstractions.CQRS.DataSetViews.Commands.UpdateViewFromDataSetCommand(viewId, dataSet))!;
-        }        
+            if (sender is not IDataSet dataSet)
+                return;
+
+            if (!_dataSetAttachedViews.ContainsKey(dataSet.DataSetId))
+                return;
+
+            if (!(_dataSetAttachedViews[dataSet.DataSetId]?.Count > 0)) return;
+            
+            _logger?.LogInformation("Data set with Id {Id} updated", dataSet.DataSetId);
+        
+            foreach (var viewId in _dataSetAttachedViews[dataSet.DataSetId])
+            {
+                _logger?.LogInformation("Updating view {ViewId} with data set Id {DataSetId}", viewId, dataSet.DataSetId);
+                await DependencyExtensions.Mediator?.Send(
+                    new Abstractions.CQRS.DataSetViews.Commands.UpdateViewFromDataSetCommand(viewId, dataSet))!;
+            }
+        }
+        finally
+        { 
+            await this.RunCleanup(); 
+        }
+    }
+
+    public void RemoveViewFromDataSets(string expiredViewId)
+    {
+        _logger?.LogWarning("Removing view with Id {Id} from all datasets", expiredViewId);
+        lock (_dataSetAttachedViews)
+        {
+            _dataSetAttachedViews.Keys.ToList().ForEach(key =>
+            {
+                _dataSetAttachedViews[key].RemoveAll(x => string.Equals(x, key, StringComparison.OrdinalIgnoreCase));
+            });
+        }
     }
     #endregion
     

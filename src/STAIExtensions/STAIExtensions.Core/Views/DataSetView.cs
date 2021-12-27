@@ -20,6 +20,8 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     public string Id => _viewId;
     public string? OwnerId { get; set; }
     public DateTime? ExpiryDate { get; protected set; }
+    
+    public DateTime? LastUpdate { get; protected set; }
 
     public TimeSpan SlidingExpiration
     {
@@ -43,6 +45,7 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     public virtual Task OnDataSetUpdated(IDataSet dataset)
     {
         OnViewUpdated?.Invoke(this, EventArgs.Empty);
+        LastUpdate = DateTime.Now;
         return Task.CompletedTask;
     }
 
