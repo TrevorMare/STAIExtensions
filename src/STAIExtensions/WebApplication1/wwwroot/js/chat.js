@@ -1,6 +1,16 @@
 ﻿"use strict";
 
-var hub = new STAIExtensionsHub("123", "https://localhost:44309/STAIExtensionsHub");
+
+const dsUpdatedCallback = function(dsId) 
+    {
+        console.log(`Updated dataset with Id ${dsid}`);
+        
+    }
+
+var hub = new STAIExtensionsHub("123", 
+    "https://localhost:44309/STAIExtensionsHub",
+    null, 
+    dsUpdatedCallback);
 
 document.getElementById("createViewButton").addEventListener("click", function (event) {
 

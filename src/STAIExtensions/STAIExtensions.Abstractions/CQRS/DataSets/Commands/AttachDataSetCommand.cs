@@ -7,7 +7,7 @@ namespace STAIExtensions.Abstractions.CQRS.DataSets.Commands;
 
 public class AttachDataSetCommand : IRequest<bool>
 {
-    public IDataSet DataSet { get; init; }
+    public IDataSet DataSet { get; init; } 
 
     public AttachDataSetCommand()
     {

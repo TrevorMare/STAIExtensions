@@ -21,7 +21,7 @@ class STAIExtensionsHubCallbackHandler {
             const callback = this._awaitingCallbacks.get(callbackId);
             
             if (callback.CallbackFunc !== undefined && callback.CallbackFunc !== null) {
-                callback.CallbackFunc(...args);                
+                callback.CallbackFunc(args);                
             }
             
             this.RemoveCallback(callbackId);

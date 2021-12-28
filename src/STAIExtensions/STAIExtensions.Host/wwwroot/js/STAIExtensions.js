@@ -26,19 +26,24 @@ var System;
     System.Guid = Guid;
 })(System || (System = {}));
 var STAIExtensionsHub = (function () {
-    function STAIExtensionsHub(ownerId, connectionEndpoint, accessToken) {
+    function STAIExtensionsHub(ownerId, connectionEndpoint, accessToken, dataSetUpdatedCallback, dataSetViewUpdatedCallback) {
         var _this = this;
         if (connectionEndpoint === void 0) { connectionEndpoint = "https://localhost:44309/STAIExtensionsHub"; }
         if (accessToken === void 0) { accessToken = null; }
+        if (dataSetUpdatedCallback === void 0) { dataSetUpdatedCallback = null; }
+        if (dataSetViewUpdatedCallback === void 0) { dataSetViewUpdatedCallback = null; }
         this._connectionSuccess = false;
         this._callbackHandler = new STAIExtensionsHubCallbackHandler();
         if (ownerId === null || ownerId === '') {
             throw 'The owner Id is required';
         }
+        this._ownerId = ownerId;
         this._connectionEndpoint = connectionEndpoint;
         this._accessToken = accessToken;
+        this._dataSetUpdatedCallback = dataSetUpdatedCallback;
+        this._dataSetViewUpdatedCallback = dataSetViewUpdatedCallback;
         this._connection = new signalR.HubConnectionBuilder()
-            .withUrl(this._connectionEndpoint)
+            .withUrl(this._connectionEndpoint, { accessTokenFactory: function () { return _this._accessToken; } })
             .build();
         this.SetupHandlers();
         this.StartConnection();
@@ -61,25 +66,44 @@ var STAIExtensionsHub = (function () {
     };
     STAIExtensionsHub.prototype.SetupHandlers = function () {
         var instance = this;
+        this._connection.on("OnDataSetUpdated", function (dataSetId) {
+            console.log('OnDataSetUpdated');
+            if (instance._dataSetUpdatedCallback !== null) {
+                instance._dataSetUpdatedCallback(dataSetId);
+            }
+        });
+        this._connection.on("OnDataSetViewUpdated", function (dataSetViewId) {
+            console.log('OnDataSetViewUpdated');
+            if (instance._dataSetViewUpdatedCallback !== null) {
+                instance._dataSetViewUpdatedCallback(dataSetViewId);
+            }
+        });
         this._connection.on("OnDataSetViewCreated", function (iView, callbackId) {
+            console.log('OnDataSetViewCreated');
             instance._callbackHandler.OnCallbackReceived(callbackId, iView);
         });
         this._connection.on("OnGetViewResponse", function (iView, callbackId) {
+            console.log('OnGetViewResponse');
             instance._callbackHandler.OnCallbackReceived(callbackId, iView);
         });
         this._connection.on("OnListDataSetsResponse", function (response, callbackId) {
+            console.log('OnListDataSetsResponse');
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
         this._connection.on("OnGetRegisteredViewsResponse", function (response, callbackId) {
+            console.log('OnGetRegisteredViewsResponse');
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
         this._connection.on("OnRemoveViewResponse", function (response, callbackId) {
+            console.log('OnRemoveViewResponse');
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
         this._connection.on("OnAttachViewToDatasetResponse", function (response, callbackId) {
+            console.log('OnAttachViewToDatasetResponse');
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
         this._connection.on("OnDetachViewFromDatasetResponse", function (response, callbackId) {
+            console.log('OnDetachViewFromDatasetResponse');
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
     };
@@ -90,6 +114,7 @@ var STAIExtensionsHub = (function () {
         if (callback !== undefined && callback !== null) {
             this._callbackHandler.PushAwaitCallback({ CallbackFunc: callback, CallbackId: callbackId, CallbackName: "CreateView" });
         }
+        console.log('CreateView');
         this._connection.invoke("CreateView", viewType, this._ownerId, callbackId)["catch"](function (err) {
             instance._callbackHandler.RemoveCallback(callbackId);
             return console.error(err.toString());
@@ -180,7 +205,7 @@ var STAIExtensionsHubCallbackHandler = (function () {
         if (this._awaitingCallbacks.has(callbackId)) {
             var callback = this._awaitingCallbacks.get(callbackId);
             if (callback.CallbackFunc !== undefined && callback.CallbackFunc !== null) {
-                callback.CallbackFunc.apply(callback, args);
+                callback.CallbackFunc(args);
             }
             this.RemoveCallback(callbackId);
         }
