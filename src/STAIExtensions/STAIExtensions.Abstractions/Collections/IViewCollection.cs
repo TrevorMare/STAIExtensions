@@ -5,6 +5,10 @@ namespace STAIExtensions.Abstractions.Collections;
 public interface IViewCollection
 {
 
+    delegate void OnDataSetViewUpdatedHandler(IDataSetView sender, EventArgs e);
+
+    event OnDataSetViewUpdatedHandler OnDataSetViewUpdated;
+    
     bool ViewsExpire { get; }
     
     IDataSetView? GetView(string id, string ownerId);

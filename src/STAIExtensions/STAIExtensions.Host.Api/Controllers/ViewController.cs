@@ -52,7 +52,7 @@ public class ViewController : ControllerBase
     
     [HttpPost]
     [Route("RemoveView")]
-    public async Task<bool> CreateView([FromBody]RemoveViewRequest request)
+    public async Task<bool> RemoveView([FromBody]RemoveViewRequest request)
     {
         return await _mediator.Send(new RemoveViewCommand(request.ViewId));
     }

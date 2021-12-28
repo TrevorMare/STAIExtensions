@@ -27,6 +27,7 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
 
     #region Properties
 
+    public event IViewCollection.OnDataSetViewUpdatedHandler? OnDataSetViewUpdated;
     public bool ViewsExpire => _options.ViewsExpire;
 
     #endregion
@@ -104,6 +105,8 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
                 instance.SlidingExpiration = _options.DefaultViewExpiryDate.Value;
             }
 
+            instance.OnViewUpdated += OnDataSetViewObjectUpdated;
+            
             lock (_dataSetViewCollection)
             {
                 this._dataSetViewCollection.Add(instance);    
@@ -144,11 +147,13 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
         if (expiredView == null) return;
 
         _logger?.LogInformation("Removing view with Id {ViewId}", expiredView.Id);
+
+        if (!this._dataSetViewCollection.Contains(expiredView)) return;
         
         lock (_dataSetViewCollection)
         {
-            if (this._dataSetViewCollection.Contains(expiredView))
-                this._dataSetViewCollection.Remove(expiredView);
+            expiredView.OnViewUpdated -= OnDataSetViewObjectUpdated;
+            this._dataSetViewCollection.Remove(expiredView);
         }
     }
 
@@ -162,5 +167,16 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
     }
 
     #endregion
-    
+
+    #region Private Methods
+
+    private void OnDataSetViewObjectUpdated(object? sender, EventArgs e)
+    {
+        if (sender is not IDataSetView dataSet)
+            return;
+        
+        OnDataSetViewUpdated?.Invoke(dataSet, EventArgs.Empty);
+    }
+
+    #endregion
 }

@@ -8,12 +8,15 @@ public static class StartupExtensions
 {
 
     public static IServiceCollection UseSTAISignalR(this IServiceCollection services)
-    {   
-        // services.AddResponseCompression(opts =>
-        // {
-        //     opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
-        //         new[] { "application/octet-stream" });
-        // });
+    {
+
+        services.AddHostedService<Services.HubContextNotificationService>();
+        
+        services.AddResponseCompression(opts =>
+        {
+            opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+                new[] { "application/octet-stream" });
+        });
         
         services.AddCors(options =>
         {
@@ -38,7 +41,7 @@ public static class StartupExtensions
         
         app.UseEndpoints(endpoints =>
         {
-            endpoints.MapHub<Hubs.ViewHub>("/viewhub");
+            endpoints.MapHub<Hubs.STAIExtensionsHub>("/STAIExtensionsHub");
             
             endpoints.MapFallbackToFile("index.html");
         });

@@ -7,7 +7,9 @@ namespace STAIExtensions.Abstractions.Collections;
 public interface IDataSetCollection
 {
 
-    
+    delegate void OnDataSetUpdatedHandler(IDataSet sender, EventArgs e);
+
+    event OnDataSetUpdatedHandler OnDataSetUpdated;
     
     bool AttachDataSet(IDataSet dataSet);
     

@@ -29,6 +29,9 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
     #endregion
 
     #region Methods
+
+    public event IDataSetCollection.OnDataSetUpdatedHandler? OnDataSetUpdated;
+
     public bool AttachDataSet(IDataSet dataSet)
     {
         try
@@ -47,7 +50,7 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
                 throw new Exception($"The maximum number ({_options.MaximumDataSets.Value}) of allowed datasets is already attached");
             }
 
-            dataSet.OnDataSetUpdated += OnDataSetUpdated;
+            dataSet.OnDataSetUpdated += OnDataSetObjectUpdated;
 
             lock (_dataSetAttachedViews)
             {
@@ -85,7 +88,7 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
                 return false;
             }
 
-            dataSet.OnDataSetUpdated -= OnDataSetUpdated;
+            dataSet.OnDataSetUpdated -= OnDataSetObjectUpdated;
             dataSet.StopAutoRefresh();
 
             lock (_dataSetAttachedViews)
@@ -246,19 +249,16 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
             new ExpireViewsCommand())!;
     }
 
-    private async void OnDataSetUpdated(object? sender, EventArgs e)
+    private async void OnDataSetObjectUpdated(object? sender, EventArgs e)
     {
         try
         {
             if (sender is not IDataSet dataSet)
                 return;
 
-            if (!_dataSetAttachedViews.ContainsKey(dataSet.DataSetId))
-                return;
-
-            if (!(_dataSetAttachedViews[dataSet.DataSetId]?.Count > 0)) return;
-            
             _logger?.LogInformation("Data set with Id {Id} updated", dataSet.DataSetId);
+            
+            OnDataSetUpdated?.Invoke(dataSet, EventArgs.Empty);
             
             foreach (var viewId in _dataSetAttachedViews[dataSet.DataSetId])
             {
