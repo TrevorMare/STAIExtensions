@@ -17,8 +17,4 @@
       <ProjectReference Include="..\STAIExtensions.Host.SignalR\STAIExtensions.Host.SignalR.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Models" />
-    </ItemGroup>
-
 </Project>

@@ -3,14 +3,14 @@ using Microsoft.Extensions.DependencyInjection;
 using STAIExtensions.Abstractions.Collections;
 using STAIExtensions.Abstractions.Views;
 
-namespace STAIExtensions.Abstractions.CQRS.DataSetViews.Commands;
+namespace STAIExtensions.Abstractions.CQRS.Management.Commands;
 
-public class CleanupViewsCommand : IRequest<int>
+public class ExpireViewsCommand : IRequest<int>
 {
     
 }
 
-public class CleanupViewsCommandHandler : IRequestHandler<CleanupViewsCommand, int>
+public class ExpireViewsCommandHandler : IRequestHandler<ExpireViewsCommand, int>
 {
     #region Members
 
@@ -20,7 +20,7 @@ public class CleanupViewsCommandHandler : IRequestHandler<CleanupViewsCommand, i
     #endregion
 
     #region ctor
-    public CleanupViewsCommandHandler()
+    public ExpireViewsCommandHandler()
     {
         _viewCollection = DependencyExtensions.ServiceProvider?.GetRequiredService<IViewCollection>() ??
                           throw new Exception("Could not retrieve data set views collection from DI");
@@ -31,8 +31,9 @@ public class CleanupViewsCommandHandler : IRequestHandler<CleanupViewsCommand, i
 
     #region Methods
 
-    public Task<int> Handle(CleanupViewsCommand request, CancellationToken cancellationToken)
+    public Task<int> Handle(ExpireViewsCommand request, CancellationToken cancellationToken)
     {
+        
         var expiredViews = _viewCollection.GetExpiredViews();
 
         var dataSetViews = expiredViews as IDataSetView[] ?? expiredViews.ToArray();

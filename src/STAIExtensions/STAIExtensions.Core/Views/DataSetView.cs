@@ -12,7 +12,7 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     
     private bool _disposed = false;
     
-    private TimeSpan _slidingExpiration = TimeSpan.FromMinutes(5);
+    private TimeSpan _slidingExpiration = TimeSpan.FromMinutes(15);
     #endregion
     
     #region Properties

@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using STAIExtensions.Abstractions.Common;
 using STAIExtensions.Abstractions.CQRS.DataSetViews.Commands;
 using STAIExtensions.Abstractions.CQRS.DataSetViews.Queries;
 using STAIExtensions.Host.Api.Models;
@@ -28,10 +29,18 @@ public class ViewController : ControllerBase
     #endregion
 
     #region Methods
-    [HttpGet(Name = "GetView")]
-    public async Task<Abstractions.Views.IDataSetView> GetView(string viewId)
+    [HttpGet]
+    [Route("GetView")]
+    public async Task<Abstractions.Views.IDataSetView?> GetView(string viewId, string ownerId)
     {
-        return await _mediator.Send(new GetDataViewQuery(viewId, ""));
+        return await _mediator.Send(new GetDataViewQuery(viewId, ownerId));
+    }
+    
+    [HttpGet]
+    [Route("GetRegisteredViews")]
+    public async Task<IEnumerable<ViewInformation>> GetRegisteredViews()
+    {
+        return await _mediator.Send(new GetRegisteredViewsQuery());
     }
 
     [HttpPost]
@@ -39,6 +48,13 @@ public class ViewController : ControllerBase
     public async Task<Abstractions.Views.IDataSetView> CreateView([FromBody]CreateViewRequest request)
     {
         return await _mediator.Send(new CreateViewCommand(request.ViewType, request.OwnerId));
+    }
+    
+    [HttpPost]
+    [Route("RemoveView")]
+    public async Task<bool> CreateView([FromBody]RemoveViewRequest request)
+    {
+        return await _mediator.Send(new RemoveViewCommand(request.ViewId));
     }
     
     [HttpPost]

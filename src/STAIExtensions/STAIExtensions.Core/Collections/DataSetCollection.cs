@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 using STAIExtensions.Abstractions;
+using STAIExtensions.Abstractions.Collections;
 using STAIExtensions.Abstractions.Common;
+using STAIExtensions.Abstractions.CQRS.Management.Commands;
 using STAIExtensions.Abstractions.Data;
 using STAIExtensions.Abstractions.Views;
 
@@ -13,12 +15,14 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
     private readonly List<IDataSet> _dataSetCollection = new();
     private readonly Dictionary<string, List<string>> _dataSetAttachedViews = new();
     private readonly ILogger<DataSetCollection>? _logger;
+    private readonly DataSetCollectionOptions _options;
     #endregion
 
     #region ctor
-    public DataSetCollection()
+    public DataSetCollection(DataSetCollectionOptions? options)
     {
         _logger = DependencyExtensions.CreateLogger<DataSetCollection>();
+        _options = options ?? new DataSetCollectionOptions();
         
         _logger?.LogTrace("Instantiating the data set collection");
     }
@@ -38,11 +42,23 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
                 return false;
             }
 
+            if (_options.MaximumDataSets.HasValue && _dataSetCollection.Count >= _options.MaximumDataSets.Value)
+            {
+                throw new Exception($"The maximum number ({_options.MaximumDataSets.Value}) of allowed datasets is already attached");
+            }
+
             dataSet.OnDataSetUpdated += OnDataSetUpdated;
-        
-            _dataSetAttachedViews[dataSet.DataSetId] = new List<string>();
-            _dataSetCollection.Add(dataSet);
-            
+
+            lock (_dataSetAttachedViews)
+            {
+                _dataSetAttachedViews[dataSet.DataSetId] = new List<string>();
+            }
+
+            lock (_dataSetCollection)
+            {
+                _dataSetCollection.Add(dataSet);
+            }
+
             _logger?.LogInformation("Data set with Id {Id} attached to collection", dataSet.DataSetId);
         
             return true;
@@ -70,11 +86,17 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
             }
 
             dataSet.OnDataSetUpdated -= OnDataSetUpdated;
-        
-            _dataSetAttachedViews.Remove(dataSet.DataSetId);
-            _dataSetCollection.Remove(dataSet);
-            
             dataSet.StopAutoRefresh();
+
+            lock (_dataSetAttachedViews)
+            {
+                _dataSetAttachedViews.Remove(dataSet.DataSetId);
+            }
+
+            lock (_dataSetCollection)
+            {
+                _dataSetCollection.Remove(dataSet);
+            }
         
             _logger?.LogInformation("Data set with Id {Id} detached from collection", dataSet.DataSetId);
             
@@ -108,13 +130,22 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
                 return false;
             }
 
-            if (!_dataSetAttachedViews[dataSetId].Contains(view.Id.ToLower()))
+            lock (_dataSetAttachedViews)
             {
-                _dataSetAttachedViews[dataSetId].Add(view.Id.ToLower());
-                _logger?.LogInformation(
-                    "View with Id {ViewId} is now attached to data set {DataSetId}",
-                    view.Id, dataSet.DataSetId);
-                return true;
+                if (!_dataSetAttachedViews[dataSetId].Contains(view.Id.ToLower()))
+                {
+
+                    if (_options.MaximumViewsPerDataSet.HasValue &&
+                        _dataSetAttachedViews[dataSetId].Count >= _options.MaximumViewsPerDataSet.Value)
+                        throw new Exception(
+                            $"The dataset with Id {dataSetId} already has the maximum number ({_options.MaximumViewsPerDataSet.Value} of allowed views attached)");
+                
+                    _dataSetAttachedViews[dataSetId].Add(view.Id.ToLower());
+                    _logger?.LogInformation(
+                        "View with Id {ViewId} is now attached to data set {DataSetId}",
+                        view.Id, dataSet.DataSetId);
+                    return true;
+                }
             }
         
             _logger?.LogInformation(
@@ -146,15 +177,18 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
                     dataSetId, view.Id);
                 return false;
             }
-        
-            if (_dataSetAttachedViews[dataSetId].Contains(view.Id.ToLower()))
+
+            lock (_dataSetAttachedViews)
             {
-                _dataSetAttachedViews[dataSetId].Remove(view.Id.ToLower());
-                _logger?.LogInformation(
-                    "View with Id {ViewId} is now detached from data set {DataSetId}",
-                    view.Id, dataSet.DataSetId);
-                return true;
-            } 
+                if (_dataSetAttachedViews[dataSetId].Contains(view.Id.ToLower()))
+                {
+                    _dataSetAttachedViews[dataSetId].Remove(view.Id.ToLower());
+                    _logger?.LogInformation(
+                        "View with Id {ViewId} is now detached from data set {DataSetId}",
+                        view.Id, dataSet.DataSetId);
+                    return true;
+                }
+            }
 
             _logger?.LogInformation(
                 "View with Id {ViewId} is not attached to data set {DataSetId}",
@@ -209,7 +243,7 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
     private async Task RunCleanup()
     {
         await Abstractions.DependencyExtensions.Mediator?.Send(
-            new Abstractions.CQRS.DataSetViews.Commands.CleanupViewsCommand())!;
+            new ExpireViewsCommand())!;
     }
 
     private async void OnDataSetUpdated(object? sender, EventArgs e)
@@ -225,7 +259,7 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
             if (!(_dataSetAttachedViews[dataSet.DataSetId]?.Count > 0)) return;
             
             _logger?.LogInformation("Data set with Id {Id} updated", dataSet.DataSetId);
-        
+            
             foreach (var viewId in _dataSetAttachedViews[dataSet.DataSetId])
             {
                 _logger?.LogInformation("Updating view {ViewId} with data set Id {DataSetId}", viewId, dataSet.DataSetId);
