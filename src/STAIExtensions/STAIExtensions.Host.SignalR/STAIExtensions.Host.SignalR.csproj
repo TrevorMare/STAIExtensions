@@ -15,4 +15,21 @@
       <ProjectReference Include="..\STAIExtensions.Abstractions\STAIExtensions.Abstractions.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <TypeScriptCompile Include="wwwroot\js\STAIExtensionsHub.ts" />
+      <TypeScriptCompile Include="wwwroot\js\STAIExtensionsHubCallbackHandler.ts" />
+      <TypeScriptCompile Include="wwwroot\js\Utils.ts" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="wwwroot\js\STAIExtensionsHub.js" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="wwwroot\js\STAIExtensions.js" />
+      <Content Include="wwwroot\js\STAIExtensions.js">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
 </Project>

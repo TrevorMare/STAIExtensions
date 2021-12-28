@@ -30,6 +30,7 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
     public event IViewCollection.OnDataSetViewUpdatedHandler? OnDataSetViewUpdated;
     public bool ViewsExpire => _options.ViewsExpire;
 
+    public bool UseStrictViews => _options.UseStrictViews ?? false;
     #endregion
     
     #region Methods
@@ -104,6 +105,7 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
             {
                 instance.SlidingExpiration = _options.DefaultViewExpiryDate.Value;
             }
+            instance.SetExpiryDate();
 
             instance.OnViewUpdated += OnDataSetViewObjectUpdated;
             

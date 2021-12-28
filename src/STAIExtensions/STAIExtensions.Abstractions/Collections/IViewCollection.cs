@@ -11,6 +11,8 @@ public interface IViewCollection
     
     bool ViewsExpire { get; }
     
+    bool UseStrictViews { get; }
+    
     IDataSetView? GetView(string id, string ownerId);
 
     IDataSetView CreateView(string viewTypeName, string ownerId);

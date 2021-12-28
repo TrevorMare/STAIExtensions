@@ -1,0 +1,13 @@
+﻿{
+  "compilerOptions": {
+    "module": "system",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "outFile": "wwwroot/js/STAIExtensions.js",
+    "sourceMap": true,
+    "lib": ["ES2015"]
+  },
+  "include": ["wwwroot/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}

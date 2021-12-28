@@ -1,26 +1,26 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.SignalR;
-using Microsoft.Extensions.DependencyInjection;
-using STAIExtensions.Abstractions.Collections;
 using STAIExtensions.Abstractions.CQRS.DataSets.Queries;
 using STAIExtensions.Abstractions.CQRS.DataSetViews.Commands;
 using STAIExtensions.Abstractions.CQRS.DataSetViews.Queries;
-using STAIExtensions.Abstractions.Data;
-using STAIExtensions.Abstractions.Views;
+using STAIExtensions.Host.SignalR.Identity;
 
 namespace STAIExtensions.Host.SignalR.Hubs;
 
+// TODO: [Authorize]
 internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
 {
 
     #region Members
     private readonly IMediator? _mediator;
+    private readonly ISignalRUserGroups _signalRUserGroups;
     #endregion
 
     #region ctor
-    public STAIExtensionsHub()
+    public STAIExtensionsHub(ISignalRUserGroups signalRUserGroups)
     {
         _mediator = Abstractions.DependencyExtensions.Mediator;
+        _signalRUserGroups = signalRUserGroups ?? throw new ArgumentNullException(nameof(signalRUserGroups));
     }
     #endregion
 
@@ -29,6 +29,12 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
     public async Task CreateView(string viewType, string ownerId, string callBackId)
     {
         var response = await _mediator?.Send(new CreateViewCommand(viewType, ownerId))!;
+
+        string groupName = $"{ownerId}_{response.Id}";
+
+        await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
+        _signalRUserGroups.RegisterUserGroupView(response, groupName);
+
         await Clients.Caller.OnDataSetViewCreated(response, callBackId);
     }
 
@@ -53,6 +59,9 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
     public async Task RemoveView(string viewId, string callBackId)
     {
         var response = await _mediator?.Send(new RemoveViewCommand(viewId))!;
+        
+        _signalRUserGroups.DeRegisterUserGroupView(viewId);
+        
         await Clients.Caller.OnRemoveViewResponse(response, callBackId);
     }
 
@@ -68,4 +77,5 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
         await Clients.Caller.OnDetachViewFromDatasetResponse(response, callBackId);
     }
     #endregion
+    
 }

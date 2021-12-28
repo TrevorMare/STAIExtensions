@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.DependencyInjection;
+using STAIExtensions.Host.SignalR.Identity;
 
 namespace STAIExtensions.Host.SignalR;
 
@@ -9,7 +10,7 @@ public static class StartupExtensions
 
     public static IServiceCollection UseSTAISignalR(this IServiceCollection services)
     {
-
+        services.AddSingleton<ISignalRUserGroups, SignalRUserGroups>();
         services.AddHostedService<Services.HubContextNotificationService>();
         
         services.AddResponseCompression(opts =>
@@ -29,6 +30,7 @@ public static class StartupExtensions
                         .AllowCredentials();
                 });
         });
+        
         
         services.AddSignalR();
         
