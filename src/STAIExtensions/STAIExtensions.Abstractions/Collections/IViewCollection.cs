@@ -24,5 +24,6 @@ public interface IViewCollection
     void RemoveView(IDataSetView expiredView);
     
     void RemoveView(string viewId);
-    
+
+    void SetViewParameters(string requestViewId, string requestOwnerId, Dictionary<string, object>? requestViewParameters);
 }

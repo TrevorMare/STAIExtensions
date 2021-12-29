@@ -70,6 +70,13 @@ public class ViewController : ControllerBase
     {
         return await _mediator.Send(new DetachViewFromDataSetCommand(request.ViewId, request.DataSetId, request.OwnerId));
     }
+    
+    [HttpPost]
+    [Route("SetViewParameters")]
+    public async Task<bool> SetViewParameters(SetViewParametersRequest request)
+    { 
+        return await _mediator.Send(new SetViewParametersCommand(request.ViewId, request.OwnerId, request.ViewParameters));
+    }
     #endregion
     
 }

@@ -1,7 +1,7 @@
 ﻿interface ICallbackMethod {
     CallbackId: string,
     CallbackName: string,
-    CallbackFunc: any
+    CallbackFunc: (callbackId:string, args: any) => any
 }
 
 class STAIExtensionsHubCallbackHandler {
@@ -16,12 +16,12 @@ class STAIExtensionsHubCallbackHandler {
         this._awaitingCallbacks.delete(callbackId);
     }
     
-    public OnCallbackReceived(callbackId: string, args: any[]): void {
+    public OnCallbackReceived(callbackId: string, args: any): void {
         if (this._awaitingCallbacks.has(callbackId)) {
             const callback = this._awaitingCallbacks.get(callbackId);
             
             if (callback.CallbackFunc !== undefined && callback.CallbackFunc !== null) {
-                callback.CallbackFunc(args);                
+                callback.CallbackFunc(callbackId, args);                
             }
             
             this.RemoveCallback(callbackId);

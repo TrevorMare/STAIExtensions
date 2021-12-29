@@ -239,6 +239,32 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
         }
    
     }
+
+    public IEnumerable<IDataSet>? FindDataSetsByViewId(string requestViewId)
+    {
+        
+        try
+        {
+            if (string.IsNullOrEmpty(requestViewId))
+                throw new ArgumentNullException(nameof(requestViewId));
+
+            lock (_dataSetAttachedViews)
+            {
+                var dataSetIdsAttachedToView =
+                    (from q in _dataSetAttachedViews
+                        where q.Value.Any(x => string.Equals(x, requestViewId, StringComparison.OrdinalIgnoreCase))
+                        select q.Key.ToLower()).Distinct().ToList();
+                
+                return this._dataSetCollection.Where(ds => dataSetIdsAttachedToView.Contains(ds.DataSetId.ToLower()));
+            }
+        }
+        catch (Exception e)
+        {
+            _logger?.LogError(e, "Could not locate the data set. {Error}", e);
+            throw;
+        }
+        
+    }
     #endregion
 
     #region Private Methods

@@ -16,6 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <TypeScriptCompile Include="wwwroot\js\Models.ts" />
       <TypeScriptCompile Include="wwwroot\js\STAIExtensionsHub.ts" />
       <TypeScriptCompile Include="wwwroot\js\STAIExtensionsHubCallbackHandler.ts" />
       <TypeScriptCompile Include="wwwroot\js\Utils.ts" />

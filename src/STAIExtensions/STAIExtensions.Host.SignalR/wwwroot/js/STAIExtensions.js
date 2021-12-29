@@ -61,136 +61,182 @@ var STAIExtensionsHub = (function () {
             throw 'Unable to call the Hub Method, Connection was not established';
         }
     };
-    STAIExtensionsHub.prototype.GenerateCallbackId = function () {
+    STAIExtensionsHub.GenerateCallbackId = function () {
         return System.Guid.MakeNew().ToString();
     };
     STAIExtensionsHub.prototype.SetupHandlers = function () {
         var instance = this;
         this._connection.on("OnDataSetUpdated", function (dataSetId) {
-            console.log('OnDataSetUpdated');
             if (instance._dataSetUpdatedCallback !== null) {
                 instance._dataSetUpdatedCallback(dataSetId);
             }
         });
         this._connection.on("OnDataSetViewUpdated", function (dataSetViewId) {
-            console.log('OnDataSetViewUpdated');
             if (instance._dataSetViewUpdatedCallback !== null) {
                 instance._dataSetViewUpdatedCallback(dataSetViewId);
             }
         });
         this._connection.on("OnDataSetViewCreated", function (iView, callbackId) {
-            console.log('OnDataSetViewCreated');
             instance._callbackHandler.OnCallbackReceived(callbackId, iView);
         });
         this._connection.on("OnGetViewResponse", function (iView, callbackId) {
-            console.log('OnGetViewResponse');
             instance._callbackHandler.OnCallbackReceived(callbackId, iView);
         });
         this._connection.on("OnListDataSetsResponse", function (response, callbackId) {
-            console.log('OnListDataSetsResponse');
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
         this._connection.on("OnGetRegisteredViewsResponse", function (response, callbackId) {
-            console.log('OnGetRegisteredViewsResponse');
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
         this._connection.on("OnRemoveViewResponse", function (response, callbackId) {
-            console.log('OnRemoveViewResponse');
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
         this._connection.on("OnAttachViewToDatasetResponse", function (response, callbackId) {
-            console.log('OnAttachViewToDatasetResponse');
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
         this._connection.on("OnDetachViewFromDatasetResponse", function (response, callbackId) {
-            console.log('OnDetachViewFromDatasetResponse');
+            instance._callbackHandler.OnCallbackReceived(callbackId, response);
+        });
+        this._connection.on("OnSetViewParametersResponse", function (response, callbackId) {
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
     };
-    STAIExtensionsHub.prototype.CreateView = function (viewType, callback) {
+    STAIExtensionsHub.prototype.CreateView = function (viewType, success, error) {
+        if (success === void 0) { success = null; }
+        if (error === void 0) { error = null; }
         this.ValidateConnection();
-        var callbackId = this.GenerateCallbackId();
+        var callbackId = STAIExtensionsHub.GenerateCallbackId();
         var instance = this;
-        if (callback !== undefined && callback !== null) {
-            this._callbackHandler.PushAwaitCallback({ CallbackFunc: callback, CallbackId: callbackId, CallbackName: "CreateView" });
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId: callbackId, CallbackName: "CreateView" });
         }
         console.log('CreateView');
         this._connection.invoke("CreateView", viewType, this._ownerId, callbackId)["catch"](function (err) {
             instance._callbackHandler.RemoveCallback(callbackId);
-            return console.error(err.toString());
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
         });
+        return callbackId;
     };
-    STAIExtensionsHub.prototype.GetView = function (viewId, callback) {
+    STAIExtensionsHub.prototype.GetView = function (viewId, success, error) {
+        if (success === void 0) { success = null; }
+        if (error === void 0) { error = null; }
         this.ValidateConnection();
-        var callbackId = this.GenerateCallbackId();
+        var callbackId = STAIExtensionsHub.GenerateCallbackId();
         var instance = this;
-        if (callback !== undefined && callback !== null) {
-            this._callbackHandler.PushAwaitCallback({ CallbackFunc: callback, CallbackId: callbackId, CallbackName: "GetView" });
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId: callbackId, CallbackName: "GetView" });
         }
         this._connection.invoke("GetView", viewId, this._ownerId, callbackId)["catch"](function (err) {
             instance._callbackHandler.RemoveCallback(callbackId);
-            return console.error(err.toString());
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
         });
+        return callbackId;
     };
-    STAIExtensionsHub.prototype.ListDataSets = function (callback) {
+    STAIExtensionsHub.prototype.ListDataSets = function (success, error) {
+        if (success === void 0) { success = null; }
+        if (error === void 0) { error = null; }
         this.ValidateConnection();
-        var callbackId = this.GenerateCallbackId();
+        var callbackId = STAIExtensionsHub.GenerateCallbackId();
         var instance = this;
-        if (callback !== undefined && callback !== null) {
-            this._callbackHandler.PushAwaitCallback({ CallbackFunc: callback, CallbackId: callbackId, CallbackName: "ListDataSets" });
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId: callbackId, CallbackName: "ListDataSets" });
         }
         this._connection.invoke("ListDataSets", callbackId)["catch"](function (err) {
             instance._callbackHandler.RemoveCallback(callbackId);
-            return console.error(err.toString());
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
         });
+        return callbackId;
     };
-    STAIExtensionsHub.prototype.GetRegisteredViews = function (callback) {
+    STAIExtensionsHub.prototype.GetRegisteredViews = function (success, error) {
+        if (success === void 0) { success = null; }
+        if (error === void 0) { error = null; }
         this.ValidateConnection();
-        var callbackId = this.GenerateCallbackId();
+        var callbackId = STAIExtensionsHub.GenerateCallbackId();
         var instance = this;
-        if (callback !== undefined && callback !== null) {
-            this._callbackHandler.PushAwaitCallback({ CallbackFunc: callback, CallbackId: callbackId, CallbackName: "GetRegisteredViews" });
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId: callbackId, CallbackName: "GetRegisteredViews" });
         }
         this._connection.invoke("GetRegisteredViews", callbackId)["catch"](function (err) {
             instance._callbackHandler.RemoveCallback(callbackId);
-            return console.error(err.toString());
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
         });
+        return callbackId;
     };
-    STAIExtensionsHub.prototype.RemoveView = function (viewId, callback) {
+    STAIExtensionsHub.prototype.RemoveView = function (viewId, success, error) {
+        if (success === void 0) { success = null; }
+        if (error === void 0) { error = null; }
         this.ValidateConnection();
-        var callbackId = this.GenerateCallbackId();
+        var callbackId = STAIExtensionsHub.GenerateCallbackId();
         var instance = this;
-        if (callback !== undefined && callback !== null) {
-            this._callbackHandler.PushAwaitCallback({ CallbackFunc: callback, CallbackId: callbackId, CallbackName: "RemoveView" });
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId: callbackId, CallbackName: "RemoveView" });
         }
         this._connection.invoke("RemoveView", viewId, callbackId)["catch"](function (err) {
             instance._callbackHandler.RemoveCallback(callbackId);
-            return console.error(err.toString());
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
         });
+        return callbackId;
     };
-    STAIExtensionsHub.prototype.AttachViewToDataset = function (viewId, datasetId, callback) {
+    STAIExtensionsHub.prototype.AttachViewToDataset = function (viewId, datasetId, success, error) {
+        if (success === void 0) { success = null; }
+        if (error === void 0) { error = null; }
         this.ValidateConnection();
-        var callbackId = this.GenerateCallbackId();
+        var callbackId = STAIExtensionsHub.GenerateCallbackId();
         var instance = this;
-        if (callback !== undefined && callback !== null) {
-            this._callbackHandler.PushAwaitCallback({ CallbackFunc: callback, CallbackId: callbackId, CallbackName: "AttachViewToDataset" });
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId: callbackId, CallbackName: "AttachViewToDataset" });
         }
-        this._connection.invoke("AttachViewToDataset", viewId, datasetId, callbackId)["catch"](function (err) {
+        this._connection.invoke("AttachViewToDataset", viewId, datasetId, this._ownerId, callbackId)["catch"](function (err) {
             instance._callbackHandler.RemoveCallback(callbackId);
-            return console.error(err.toString());
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
         });
+        return callbackId;
     };
-    STAIExtensionsHub.prototype.DetachViewFromDataset = function (viewId, datasetId, callback) {
+    STAIExtensionsHub.prototype.DetachViewFromDataset = function (viewId, datasetId, success, error) {
+        if (success === void 0) { success = null; }
+        if (error === void 0) { error = null; }
         this.ValidateConnection();
-        var callbackId = this.GenerateCallbackId();
+        var callbackId = STAIExtensionsHub.GenerateCallbackId();
         var instance = this;
-        if (callback !== undefined && callback !== null) {
-            this._callbackHandler.PushAwaitCallback({ CallbackFunc: callback, CallbackId: callbackId, CallbackName: "DetachViewFromDataset" });
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId: callbackId, CallbackName: "DetachViewFromDataset" });
         }
-        this._connection.invoke("DetachViewFromDataset", viewId, datasetId, callbackId)["catch"](function (err) {
+        this._connection.invoke("DetachViewFromDataset", viewId, datasetId, this._ownerId, callbackId)["catch"](function (err) {
             instance._callbackHandler.RemoveCallback(callbackId);
-            return console.error(err.toString());
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
         });
+        return callbackId;
+    };
+    STAIExtensionsHub.prototype.SetViewParameters = function (viewId, viewParameters, success, error) {
+        if (success === void 0) { success = null; }
+        if (error === void 0) { error = null; }
+        this.ValidateConnection();
+        var callbackId = STAIExtensionsHub.GenerateCallbackId();
+        var instance = this;
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId: callbackId, CallbackName: "SetViewParameters" });
+        }
+        this._connection.invoke("SetViewParameters", viewId, this._ownerId, viewParameters, callbackId)["catch"](function (err) {
+            instance._callbackHandler.RemoveCallback(callbackId);
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
+        });
+        return callbackId;
     };
     return STAIExtensionsHub;
 }());
@@ -205,7 +251,7 @@ var STAIExtensionsHubCallbackHandler = (function () {
         if (this._awaitingCallbacks.has(callbackId)) {
             var callback = this._awaitingCallbacks.get(callbackId);
             if (callback.CallbackFunc !== undefined && callback.CallbackFunc !== null) {
-                callback.CallbackFunc(args);
+                callback.CallbackFunc(callbackId, args);
             }
             this.RemoveCallback(callbackId);
         }

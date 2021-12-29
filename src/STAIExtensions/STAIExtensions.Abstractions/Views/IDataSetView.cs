@@ -24,4 +24,6 @@ public interface IDataSetView : IDisposable
     void SetExpiryDate();
 
     void SetExpiryDate(DateTime value);
+
+    void SetViewParameters(Dictionary<string, object>? parameters);
 }

@@ -18,7 +18,9 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     #region Properties
 
     public string Id => _viewId;
+    
     public string? OwnerId { get; set; }
+    
     public DateTime? ExpiryDate { get; protected set; }
     
     public DateTime? LastUpdate { get; protected set; }
@@ -33,6 +35,8 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
             this.SetExpiryDate();
         }
     }
+
+    protected Dictionary<string, object>? ViewParameters { get; private set; } = null;
     #endregion
 
     #region Events
@@ -58,7 +62,12 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     {
         this.ExpiryDate = value;
     }
-    #endregion
+
+    public void SetViewParameters(Dictionary<string, object>? parameters)
+    {
+        this.ViewParameters = parameters;
+    }
+   #endregion
 
     #region Dispose
 

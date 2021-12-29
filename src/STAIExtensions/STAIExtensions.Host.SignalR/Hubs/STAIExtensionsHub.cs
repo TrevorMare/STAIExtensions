@@ -76,6 +76,12 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
         var response = await _mediator?.Send(new DetachViewFromDataSetCommand(viewId, dataSetId, ownerId))!;
         await Clients.Caller.OnDetachViewFromDatasetResponse(response, callBackId);
     }
+    
+    public async Task SetViewParameters(string viewId, string ownerId, Dictionary<string, object> viewParameters, string callBackId)
+    {
+        var response = await _mediator?.Send(new SetViewParametersCommand(viewId, ownerId, viewParameters))!;
+        await Clients.Caller.OnSetViewParametersResponse(response, callBackId);
+    }
     #endregion
     
 }

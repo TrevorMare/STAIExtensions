@@ -1,5 +1,5 @@
 ﻿///<reference path="Utils.ts"/>
-
+///<reference path="Models.ts"/>
 class STAIExtensionsHub {
 
     private _connection: any;
@@ -52,7 +52,7 @@ class STAIExtensionsHub {
         }
     }
     
-    private GenerateCallbackId(): string {
+    private static GenerateCallbackId(): string {
         return System.Guid.MakeNew().ToString();    
     }
     
@@ -60,184 +60,200 @@ class STAIExtensionsHub {
         const instance = this;
 
         this._connection.on("OnDataSetUpdated", function (dataSetId: string) {
-            // @ts-ignore
-            console.log('OnDataSetUpdated');
             if (instance._dataSetUpdatedCallback !== null) {
                 instance._dataSetUpdatedCallback(dataSetId);
             }
         });
 
         this._connection.on("OnDataSetViewUpdated", function (dataSetViewId: string) {
-            // @ts-ignore
-            console.log('OnDataSetViewUpdated');
             if (instance._dataSetViewUpdatedCallback !== null) {
                 instance._dataSetViewUpdatedCallback(dataSetViewId);
             }
         });
         
-        this._connection.on("OnDataSetViewCreated", function (iView: any, callbackId: string) {
-            // @ts-ignore
-            console.log('OnDataSetViewCreated');
+        this._connection.on("OnDataSetViewCreated", function (iView: IView, callbackId: string) {
             instance._callbackHandler.OnCallbackReceived(callbackId, iView);
         });
 
-        this._connection.on("OnGetViewResponse", function (iView: any, callbackId: string) {
-            // @ts-ignore
-            console.log('OnGetViewResponse');
+        this._connection.on("OnGetViewResponse", function (iView: IView, callbackId: string) {
             instance._callbackHandler.OnCallbackReceived(callbackId, iView);
         });
 
-        this._connection.on("OnListDataSetsResponse", function (response: any, callbackId: string) {
-            // @ts-ignore
-            console.log('OnListDataSetsResponse');
+        this._connection.on("OnListDataSetsResponse", function (response: IDataSetInformation[], callbackId: string) {
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
 
-        this._connection.on("OnGetRegisteredViewsResponse", function (response: any, callbackId: string) {
-            // @ts-ignore
-            console.log('OnGetRegisteredViewsResponse');
+        this._connection.on("OnGetRegisteredViewsResponse", function (response: IViewInformation[], callbackId: string) {
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
 
-        this._connection.on("OnRemoveViewResponse", function (response: any, callbackId: string) {
-            // @ts-ignore
-            console.log('OnRemoveViewResponse');
+        this._connection.on("OnRemoveViewResponse", function (response: Boolean, callbackId: string) {
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
 
-        this._connection.on("OnAttachViewToDatasetResponse", function (response: any, callbackId: string) {
-            // @ts-ignore
-            console.log('OnAttachViewToDatasetResponse');
+        this._connection.on("OnAttachViewToDatasetResponse", function (response: Boolean, callbackId: string) {
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
 
-        this._connection.on("OnDetachViewFromDatasetResponse", function (response: any, callbackId: string) {
-            // @ts-ignore
-            console.log('OnDetachViewFromDatasetResponse');
+        this._connection.on("OnDetachViewFromDatasetResponse", function (response: Boolean, callbackId: string) {
+            instance._callbackHandler.OnCallbackReceived(callbackId, response);
+        });
+
+        this._connection.on("OnSetViewParametersResponse", function (response: Boolean, callbackId: string) {
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
     }
     
-    public CreateView(viewType: string, callback: (iView: any) => any): void {
+    public CreateView(viewType: string, success: (callbackId: string, iView: IView) => any = null, error: (err: any) => any = null): string {
         this.ValidateConnection();
-        const callbackId = this.GenerateCallbackId();
+        const callbackId = STAIExtensionsHub.GenerateCallbackId();
         const instance = this;
         
-        if (callback !== undefined && callback !== null) {
-            this._callbackHandler.PushAwaitCallback({ CallbackFunc: callback, CallbackId : callbackId, CallbackName: "CreateView"})
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId : callbackId, CallbackName: "CreateView"})
         }
         // @ts-ignore
         console.log('CreateView');
         this._connection.invoke("CreateView", viewType, this._ownerId, callbackId).catch(function (err: any) {
             instance._callbackHandler.RemoveCallback(callbackId);
-            
-            // @ts-ignore
-            return console.error(err.toString());
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
         });
+        
+        return callbackId;
     }
 
-    public GetView(viewId: string, callback: (iView: any) => any): void {
+    public GetView(viewId: string, success: (callbackId: string, iView: IView) => any = null, error: (err: any) => any = null): string {
         this.ValidateConnection();
-        const callbackId = this.GenerateCallbackId();
+        const callbackId = STAIExtensionsHub.GenerateCallbackId();
         const instance = this;
 
-        if (callback !== undefined && callback !== null) {
-            this._callbackHandler.PushAwaitCallback({ CallbackFunc: callback, CallbackId : callbackId, CallbackName: "GetView"})
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId : callbackId, CallbackName: "GetView"})
         }
 
         this._connection.invoke("GetView", viewId, this._ownerId, callbackId).catch(function (err: any) {
             instance._callbackHandler.RemoveCallback(callbackId);
-
-            // @ts-ignore
-            return console.error(err.toString());
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
         });
+
+        return callbackId;
     }
 
-    public ListDataSets(callback: (response: any) => any): void {
+    public ListDataSets(success: (callbackId: string, response: IDataSetInformation[]) => any = null, error: (err: any) => any = null): string {
         this.ValidateConnection();
-        const callbackId = this.GenerateCallbackId();
+        const callbackId = STAIExtensionsHub.GenerateCallbackId();
         const instance = this;
 
-        if (callback !== undefined && callback !== null) {
-            this._callbackHandler.PushAwaitCallback({ CallbackFunc: callback, CallbackId : callbackId, CallbackName: "ListDataSets"})
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId : callbackId, CallbackName: "ListDataSets"})
         }
 
         this._connection.invoke("ListDataSets", callbackId).catch(function (err: any) {
             instance._callbackHandler.RemoveCallback(callbackId);
-
-            // @ts-ignore
-            return console.error(err.toString());
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
         });
+
+        return callbackId;
     }
 
-    public GetRegisteredViews(callback: (response: any) => any): void {
+    public GetRegisteredViews(success: (callbackId: string, response: IViewInformation[]) => any = null, error: (err: any) => any = null): string {
         this.ValidateConnection();
-        const callbackId = this.GenerateCallbackId();
+        const callbackId = STAIExtensionsHub.GenerateCallbackId();
         const instance = this;
 
-        if (callback !== undefined && callback !== null) {
-            this._callbackHandler.PushAwaitCallback({ CallbackFunc: callback, CallbackId : callbackId, CallbackName: "GetRegisteredViews"})
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId : callbackId, CallbackName: "GetRegisteredViews"})
         }
 
         this._connection.invoke("GetRegisteredViews", callbackId).catch(function (err: any) {
             instance._callbackHandler.RemoveCallback(callbackId);
-
-            // @ts-ignore
-            return console.error(err.toString());
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
         });
+
+        return callbackId;
     }
 
-    public RemoveView(viewId: string, callback: (response: any) => any): void {
+    public RemoveView(viewId: string, success: (callbackId: string, response: Boolean) => any = null, error: (err: any) => any = null): string {
         this.ValidateConnection();
-        const callbackId = this.GenerateCallbackId();
+        const callbackId = STAIExtensionsHub.GenerateCallbackId();
         const instance = this;
 
-        if (callback !== undefined && callback !== null) {
-            this._callbackHandler.PushAwaitCallback({ CallbackFunc: callback, CallbackId : callbackId, CallbackName: "RemoveView"})
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId : callbackId, CallbackName: "RemoveView"})
         }
 
         this._connection.invoke("RemoveView", viewId, callbackId).catch(function (err: any) {
             instance._callbackHandler.RemoveCallback(callbackId);
-
-            // @ts-ignore
-            return console.error(err.toString());
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
         });
+
+        return callbackId;
     }
 
-    public AttachViewToDataset(viewId: string, datasetId: string, callback: (response: any) => any): void {
+    public AttachViewToDataset(viewId: string, datasetId: string, success: (callbackId: string, response: Boolean) => any = null, error: (err: any) => any = null): string {
         this.ValidateConnection();
-        const callbackId = this.GenerateCallbackId();
+        const callbackId = STAIExtensionsHub.GenerateCallbackId();
         const instance = this;
 
-        if (callback !== undefined && callback !== null) {
-            this._callbackHandler.PushAwaitCallback({ CallbackFunc: callback, CallbackId : callbackId, CallbackName: "AttachViewToDataset"})
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId : callbackId, CallbackName: "AttachViewToDataset"})
         }
 
-        this._connection.invoke("AttachViewToDataset", viewId, datasetId, callbackId).catch(function (err: any) {
+        this._connection.invoke("AttachViewToDataset", viewId, datasetId, this._ownerId, callbackId).catch(function (err: any) {
             instance._callbackHandler.RemoveCallback(callbackId);
-
-            // @ts-ignore
-            return console.error(err.toString());
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
         });
+        return callbackId;
     }
 
-    public DetachViewFromDataset(viewId: string, datasetId: string, callback: (response: any) => any): void {
+    public DetachViewFromDataset(viewId: string, datasetId: string, success: (callbackId: string, response: Boolean) => any = null, error: (err: any) => any = null): string {
         this.ValidateConnection();
-        const callbackId = this.GenerateCallbackId();
+        const callbackId = STAIExtensionsHub.GenerateCallbackId();
         const instance = this;
 
-        if (callback !== undefined && callback !== null) {
-            this._callbackHandler.PushAwaitCallback({ CallbackFunc: callback, CallbackId : callbackId, CallbackName: "DetachViewFromDataset"})
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId : callbackId, CallbackName: "DetachViewFromDataset"})
         }
 
-        this._connection.invoke("DetachViewFromDataset", viewId, datasetId, callbackId).catch(function (err: any) {
+        this._connection.invoke("DetachViewFromDataset", viewId, datasetId, this._ownerId, callbackId).catch(function (err: any) {
             instance._callbackHandler.RemoveCallback(callbackId);
-
-            // @ts-ignore
-            return console.error(err.toString());
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
         });
+
+        return callbackId;
     }
 
+    public SetViewParameters(viewId: string, viewParameters: any, success: (callbackId: string, response: Boolean) => any = null, error: (err: any) => any = null): string {
+        this.ValidateConnection();
+        const callbackId = STAIExtensionsHub.GenerateCallbackId();
+        const instance = this;
 
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId : callbackId, CallbackName: "SetViewParameters"})
+        }
+
+        this._connection.invoke("SetViewParameters", viewId, this._ownerId, viewParameters, callbackId).catch(function (err: any) {
+            instance._callbackHandler.RemoveCallback(callbackId);
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
+        });
+
+        return callbackId;
+    }
 
 }

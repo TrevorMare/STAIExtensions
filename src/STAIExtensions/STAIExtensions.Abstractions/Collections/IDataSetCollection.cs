@@ -26,4 +26,6 @@ public interface IDataSetCollection
     IDataSet? FindDataSetByName(string dataSetId);
     
     void RemoveViewFromDataSets(string expiredViewId);
+ 
+    IEnumerable<IDataSet>? FindDataSetsByViewId(string requestViewId);
 }

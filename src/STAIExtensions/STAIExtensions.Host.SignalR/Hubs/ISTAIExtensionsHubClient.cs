@@ -75,4 +75,12 @@ public interface ISTAIExtensionsHubClient
     /// <param name="callbackId"></param>
     /// <returns></returns>
     Task OnDetachViewFromDatasetResponse(bool response, string callbackId);
+    
+    /// <summary>
+    /// Callback to set the view parameters
+    /// </summary>
+    /// <param name="response"></param>
+    /// <param name="callbackId"></param>
+    /// <returns></returns>
+    Task OnSetViewParametersResponse(bool response, string callbackId);
 }

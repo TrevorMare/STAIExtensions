@@ -168,6 +168,15 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
         RemoveView(view);
     }
 
+    public void SetViewParameters(string requestViewId, string requestOwnerId,
+        Dictionary<string, object>? requestViewParameters)
+    {
+        var view = this.GetView(requestViewId, requestOwnerId);
+
+        if (view == null) return;
+        
+        view.SetViewParameters(requestViewParameters);
+    }
     #endregion
 
     #region Private Methods

@@ -1,86 +1,84 @@
 ﻿"use strict";
 
+const createViewName = "STAIExtensions.Core.Views.MyErrorsView";
+let hub = STAIExtensionsHub;
+let datasetId = "";
+let datasetViewId = "";
+
+
+const SetupHub = function() {
+    
+    console.log(`Initializing hub`);
+    
+    hub = new STAIExtensionsHub("123",
+        "https://localhost:44309/STAIExtensionsHub",
+        null,
+        dsUpdatedCallback,
+        dsvUpdatedCallback);
+
+    console.log(`Hub Initialised`);
+  
+}
+
+const InitViews = function() {
+    // Retrieve the datasets
+    hub.ListDataSets((_, response) => {
+        if (response !== null && response.length) {
+            datasetId = response[0].dataSetId;
+            console.log(response);
+            CreateView();
+        }
+    }, (err) => {
+        console.log(`An error occured loading the datasets ${err}`);
+    });
+}
+
+const CreateView = function() {
+    console.log(`Creating View`);
+    
+    hub.CreateView(createViewName, (_, iView) => {
+        console.log(`View created with Id ${iView.id}`);
+        console.log(iView);
+        datasetViewId = iView.id;
+        AttachViewToDataSet();
+    }, (err) => {
+        console.log(`An error occured creating the view ${err}`);
+    })
+    
+}
+
+const AttachViewToDataSet = function() {
+    console.log(`Attaching the view ${datasetViewId} to the dataset ${datasetId}`);
+    hub.AttachViewToDataset(datasetViewId, datasetId, (_, success) => {
+        console.log(`The result of attaching ${success}`);
+    }, (err) => {
+        console.log(`An error occured attaching the view ${err}`);
+    });
+}
+
+const LoadDataSetView = function () {
+    console.log(`Loading the view state`);
+    hub.GetView(datasetViewId, (_, view) => {
+        console.log(`Loading the view state success`);
+        console.log(view);
+    }, (err) => {
+        console.log(`Error Loading the view state ${err}`);
+    });
+}
 
 const dsUpdatedCallback = function(dsId) 
     {
         console.log(`Updated dataset with Id ${dsid}`);
-        
     }
-
-var hub = new STAIExtensionsHub("123", 
-    "https://localhost:44309/STAIExtensionsHub",
-    null, 
-    dsUpdatedCallback);
-
-document.getElementById("createViewButton").addEventListener("click", function (event) {
-
-    hub.CreateView("STAIExtensions.Core.Views.MyErrorsView", (iView) => 
-    {
-       
-        if (iView != null) {
-            console.log(iView);
-        }
-        
-        
-    });
     
-    
-    event.preventDefault();
-});
+const dsvUpdatedCallback = function(dsvId) {
+    console.log(`Updated dataset view with Id ${dsvId}`);
+    LoadDataSetView();
+}
 
-//
-// var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:44309/STAIExtensionsHub").build();
-//
-// //Disable the send button until connection is established.
-// document.getElementById("sendButton").disabled = true;
-//
-// connection.on("OnDataSetUpdated", function (dataSetId) {
-//     var li = document.createElement("li");
-//     document.getElementById("messagesList").appendChild(li);
-//     li.textContent = `DataSet with Id ${dataSetId} Updated`;
-// });
-//
-// connection.on("OnDataSetViewUpdated", function (viewId) {
-//     var li = document.createElement("li");
-//     document.getElementById("messagesList").appendChild(li);
-//     li.textContent = `DataSetView with Id ${viewId} Updated`;
-// });
-//
-// connection.on("OnDataSetViewCreated", function (iView) {
-//     var li = document.createElement("li");
-//     document.getElementById("messagesList").appendChild(li);
-//     li.textContent = `DataSetView created ${iView}`;
-// });
-//
-//
-// connection.on("ReceiveMessage", function (user, message) {
-//     var li = document.createElement("li");
-//     document.getElementById("messagesList").appendChild(li);
-//     // We can assign user-supplied strings to an element's textContent because it
-//     // is not interpreted as markup. If you're assigning in any other way, you 
-//     // should be aware of possible script injection concerns.
-//     li.textContent = `${user} says ${message}`;
-// });
-//
-// connection.start().then(function () {
-//     document.getElementById("sendButton").disabled = false;
-// }).catch(function (err) {
-//     return console.error(err.toString());
-// });
-//
-// document.getElementById("sendButton").addEventListener("click", function (event) {
-//     var user = document.getElementById("userInput").value;
-//     var message = document.getElementById("messageInput").value;
-//     connection.invoke("SendMessage", user, message).catch(function (err) {
-//         return console.error(err.toString());
-//     });
-//     event.preventDefault();
-// });
-//
-// document.getElementById("createViewButton").addEventListener("click", function (event) {
-// 
-//     connection.invoke("CreateView", "STAIExtensions.Core.Views.MyErrorsView").catch(function (err) {
-//         return console.error(err.toString());
-//     });
-//     event.preventDefault();
-// });
+SetupHub();
+setTimeout(() => {
+
+    InitViews();
+}, 1000)
+
