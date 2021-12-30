@@ -6,13 +6,21 @@ interface IDataSetInformation {
 
 interface IViewInformation {
     viewName: string, 
-    viewTypeName: string
+    viewTypeName: string,
+    dataSetViewParameterDescriptors?: IDataSetViewParameterDescriptor[]
+}
+
+interface IDataSetViewParameterDescriptor {
+    required: Boolean,
+    name: string,
+    type: string,
+    description?: string
 }
 
 interface IView {
      id: string,
-     ownerId : string,
-     expiryDate : Date,
-     lastUpdate: Date,
+     ownerId: string,
+     expiryDate?: Date,
+     lastUpdate?: Date,
      slidingExpiration: Number
 }

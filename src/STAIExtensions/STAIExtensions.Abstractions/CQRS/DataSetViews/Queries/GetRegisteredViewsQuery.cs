@@ -19,7 +19,16 @@ public class GetRegisteredViewsQueryHandler : IRequestHandler<GetRegisteredViews
         var registeredTypes = AppDomain.CurrentDomain.GetAssemblies()
             .SelectMany(s => s.GetTypes())
             .Where(p => viewType.IsAssignableFrom(p) && p.IsAbstract == false);
-        var result = registeredTypes.Select(x => new ViewInformation(x.Name, x.FullName ?? x.Name));
+
+        var result = new List<ViewInformation>();
+        foreach (var registeredType in registeredTypes)
+        {
+            var instance = (IDataSetView)Activator.CreateInstance(registeredType);
+            
+            result.Add(new ViewInformation(registeredType.Name,
+                registeredType.FullName ?? registeredType.Name,
+                instance?.ViewParameterDescriptors));
+        }
         
         return Task.FromResult<IEnumerable<ViewInformation>>(result);
     }

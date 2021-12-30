@@ -1,3 +1,5 @@
-﻿namespace STAIExtensions.Abstractions.Common;
+﻿using STAIExtensions.Abstractions.Views;
 
-public record class ViewInformation(string ViewName, string ViewTypeName);
+namespace STAIExtensions.Abstractions.Common;
+
+public record class ViewInformation(string ViewName, string ViewTypeName, IEnumerable<DataSetViewParameterDescriptor>? DataSetViewParameterDescriptors);

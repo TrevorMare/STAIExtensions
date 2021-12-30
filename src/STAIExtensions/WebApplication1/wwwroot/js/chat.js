@@ -16,11 +16,20 @@ const SetupHub = function() {
         dsUpdatedCallback,
         dsvUpdatedCallback);
 
+    
+    
     console.log(`Hub Initialised`);
   
 }
 
 const InitViews = function() {
+    hub.GetRegisteredViews((_, views) => {
+        console.log('Registered views:');
+        console.log(views);
+    }, (err) => {
+        console.log(`An error occured listing views ${err}`)
+    });
+    
     // Retrieve the datasets
     hub.ListDataSets((_, response) => {
         if (response !== null && response.length) {
@@ -31,6 +40,8 @@ const InitViews = function() {
     }, (err) => {
         console.log(`An error occured loading the datasets ${err}`);
     });
+    
+    
 }
 
 const CreateView = function() {

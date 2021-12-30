@@ -13,6 +13,8 @@ public interface IDataSetView : IDisposable
     
     DateTime? LastUpdate { get; }
 
+    IEnumerable<DataSetViewParameterDescriptor>? ViewParameterDescriptors { get; }
+
     TimeSpan SlidingExpiration { get; set; }
 
     event EventHandler OnDisposing;

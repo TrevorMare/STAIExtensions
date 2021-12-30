@@ -13,10 +13,13 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     private bool _disposed = false;
     
     private TimeSpan _slidingExpiration = TimeSpan.FromMinutes(15);
+    
     #endregion
     
     #region Properties
 
+    public virtual IEnumerable<DataSetViewParameterDescriptor>? ViewParameterDescriptors { get; } = null;
+    
     public string Id => _viewId;
     
     public string? OwnerId { get; set; }
@@ -37,6 +40,8 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     }
 
     protected Dictionary<string, object>? ViewParameters { get; private set; } = null;
+    
+    
     #endregion
 
     #region Events
@@ -67,7 +72,7 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     {
         this.ViewParameters = parameters;
     }
-   #endregion
+    #endregion
 
     #region Dispose
 

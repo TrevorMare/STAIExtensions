@@ -1,9 +1,16 @@
 ﻿using STAIExtensions.Abstractions.Data;
+using STAIExtensions.Abstractions.Views;
 
 namespace STAIExtensions.Core.Views;
 
 public class MyErrorsView : DataSetView
 {
+    public override IEnumerable<DataSetViewParameterDescriptor>? ViewParameterDescriptors =>
+        new List<DataSetViewParameterDescriptor>()
+        {
+            new DataSetViewParameterDescriptor("CloudRole", "string", false),
+            new DataSetViewParameterDescriptor("CloudInstance", "string", false)
+        };
 
     public int? TotalErrorCount { get; private set; } = null;
 
