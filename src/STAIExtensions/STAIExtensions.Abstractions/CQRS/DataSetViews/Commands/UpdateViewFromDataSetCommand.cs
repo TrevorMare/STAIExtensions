@@ -7,14 +7,9 @@ namespace STAIExtensions.Abstractions.CQRS.DataSetViews.Commands;
 
 public class UpdateViewFromDataSetCommand : IRequest<bool>
 {
-    public string ViewId { get; init; } = "";
+    public string ViewId { get; set; }
 
-    public IDataSet DataSet { get; init; }
-
-    public UpdateViewFromDataSetCommand()
-    {
-        
-    }
+    public IDataSet DataSet { get; set; }
 
     public UpdateViewFromDataSetCommand(string viewId, IDataSet dataSet)
     {

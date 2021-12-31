@@ -8,12 +8,7 @@ namespace STAIExtensions.Abstractions.CQRS.DataSets.Commands;
 
 public class DetachDataSetCommand : IRequest<bool>
 {
-    public IDataSet DataSet { get; init; }
-
-    public DetachDataSetCommand()
-    {
-        
-    }
+    public IDataSet DataSet { get; set; }
 
     public DetachDataSetCommand(IDataSet dataSet)
     {

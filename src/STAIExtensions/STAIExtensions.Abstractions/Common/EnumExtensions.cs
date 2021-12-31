@@ -16,13 +16,10 @@ public static class EnumExtensions
         return displayAttribute.Name;
     }
     
-    public static IEnumerable<Enum> GetFlags(this Enum enumValue)
+    public static IEnumerable<Enum?> GetFlags(this Enum enumValue)
     {
-        foreach (Enum value in Enum.GetValues(enumValue.GetType()))
-        {
-            if (enumValue.HasFlag(value))
-                yield return value;
-        }
+        return Enum.GetValues(enumValue.GetType()).Cast<Enum?>()
+            .Where(value => value != null && enumValue.HasFlag(value));
     }
     
 }
