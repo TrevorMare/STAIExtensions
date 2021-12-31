@@ -5,6 +5,11 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>latestmajor</LangVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>0.0.1</PackageVersion>
+        <Title>STAIExtensions Abstractions</Title>
+        <Authors>Trevor Maré</Authors>
+        <Description>General abstractions for the ST Application Insights Extensions</Description>
     </PropertyGroup>
 
     <ItemGroup>
