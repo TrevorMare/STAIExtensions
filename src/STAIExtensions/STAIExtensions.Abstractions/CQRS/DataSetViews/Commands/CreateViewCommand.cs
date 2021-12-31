@@ -8,9 +8,9 @@ namespace STAIExtensions.Abstractions.CQRS.DataSetViews.Commands;
 public class CreateViewCommand : IRequest<IDataSetView>
 {
 
-    public string ViewType { get; init; } = "";
+    public string ViewType { get; set; } = "";
 
-    public string UserSessionId { get; init; } = "";
+    public string UserSessionId { get; set; } = "";
 
     public CreateViewCommand()
     {

@@ -9,11 +9,11 @@ public class AttachViewToDataSetCommand : IRequest<bool>
     
     #region Properties
 
-    public string ViewId { get; init; } = "";
+    public string ViewId { get; set; } = "";
 
-    public string DataSetId { get; init; } = "";
+    public string DataSetId { get; set; } = "";
 
-    public string UserSessionId { get; init; } = "";
+    public string UserSessionId { get; set; } = "";
 
     #endregion
 

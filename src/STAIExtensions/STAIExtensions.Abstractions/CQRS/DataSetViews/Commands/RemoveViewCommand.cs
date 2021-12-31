@@ -6,7 +6,7 @@ namespace STAIExtensions.Abstractions.CQRS.DataSetViews.Commands;
 
 public class RemoveViewCommand : IRequest<bool>
 {
-    public string ViewId { get; init; } = "";
+    public string ViewId { get; set; } = "";
 
     public RemoveViewCommand()
     {

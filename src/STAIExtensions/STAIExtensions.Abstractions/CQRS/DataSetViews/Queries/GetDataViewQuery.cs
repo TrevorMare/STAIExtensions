@@ -8,9 +8,9 @@ namespace STAIExtensions.Abstractions.CQRS.DataSetViews.Queries;
 public class GetDataViewQuery : IRequest<IDataSetView?>
 {
 
-    public string ViewId { get; init; } = "";
+    public string ViewId { get; set; } = "";
 
-    public string UserSessionId { get; init; } = "";
+    public string UserSessionId { get; set; } = "";
 
     #region ctor
 

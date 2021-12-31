@@ -11,20 +11,15 @@ public class SetViewParametersCommand : IRequest<bool>
 
     #region Properties
 
-    public string ViewId { get; init; }
+    public string ViewId { get; set; }
 
-    public string OwnerId { get; init; }
+    public string OwnerId { get; set; }
 
-    public Dictionary<string, object>? ViewParameters { get; init; }
+    public Dictionary<string, object>? ViewParameters { get; set; }
 
     #endregion
 
     #region ctor
-
-    public SetViewParametersCommand()
-    {
-        
-    }
 
     public SetViewParametersCommand(string viewId, string ownerId, Dictionary<string, object>? viewParameters)
     {
