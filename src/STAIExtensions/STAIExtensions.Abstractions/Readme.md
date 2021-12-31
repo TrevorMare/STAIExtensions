@@ -37,6 +37,8 @@ Defines the interface for the data set view object and parameter descriptors.
 DependencyExtensions - Due to current limitations with the dependency injection used, this class is implemented around an Anti-Pattern
 of persisting the IServiceCollection to retrieve the singleton collections.
 
+This class is automatically instantiated by the STAIExtensions.Core project and does not need to be called manually. 
+
 ## Dependencies
 
 - MediatR
