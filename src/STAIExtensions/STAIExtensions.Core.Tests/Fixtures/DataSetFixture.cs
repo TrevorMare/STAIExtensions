@@ -11,6 +11,13 @@ public class DataSetFixture : Core.DataSets.DataSet
     {
     }
 
+    public Task ExecuteDataQueryProxy<T>(DataContractQuery<T> query) where T : Abstractions.DataContracts.Models.DataContract
+    {
+        return base.ExecuteDataQuery(query);
+    }
+    
+        
+
     protected override Task ExecuteQueries()
     {
         throw new System.NotImplementedException();

@@ -54,6 +54,9 @@ public abstract class DataSet : Abstractions.Data.IDataSet
     #region Methods
     public void StartAutoRefresh(TimeSpan autoRefreshInterval, CancellationToken? cancellationToken = default)
     {
+        if (autoRefreshInterval.Ticks < 0)
+            throw new ArgumentException(nameof(autoRefreshInterval));
+        
         this.AutoRefreshInterval = autoRefreshInterval;
         this.CancellationToken = cancellationToken;
         this.AutoRefreshEnabled = true;
