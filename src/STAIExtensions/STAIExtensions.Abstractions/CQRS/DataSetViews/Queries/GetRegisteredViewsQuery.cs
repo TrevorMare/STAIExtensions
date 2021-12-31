@@ -26,7 +26,7 @@ public class GetRegisteredViewsQueryHandler : IRequestHandler<GetRegisteredViews
             var instance = (IDataSetView)Activator.CreateInstance(registeredType);
             
             result.Add(new ViewInformation(registeredType.Name,
-                registeredType.FullName ?? registeredType.Name,
+                registeredType.AssemblyQualifiedName,
                 instance?.ViewParameterDescriptors));
         }
         
