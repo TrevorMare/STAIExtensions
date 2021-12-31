@@ -17,11 +17,8 @@ public class AzureDataExplorerClientTests
     [InlineData("   ")]
     public void ConfigureApi_WhenAppIdNullOrEmpty_ShouldThrowException(string appId)
     {
-        Assert.Throws<ArgumentNullException>(() => new AzureDataExplorerClient(new TelemetryLoaderOptions()
-        {
-            ApiKey = "Abc",
-            AppId = appId
-        }));
+        Assert.Throws<ArgumentNullException>(
+            () => new AzureDataExplorerClient(new TelemetryLoaderOptions("Abc", appId)));
     }
     
     [Theory]
@@ -30,11 +27,8 @@ public class AzureDataExplorerClientTests
     [InlineData("   ")]
     public void ConfigureApi_WhenAppKeyNullOrEmpty_ShouldThrowException(string appKey)
     {
-        Assert.Throws<ArgumentNullException>(() => new AzureDataExplorerClient(new TelemetryLoaderOptions()
-        {
-            ApiKey = appKey,
-            AppId = "Abc"
-        }));
+        Assert.Throws<ArgumentNullException>(() =>
+            new AzureDataExplorerClient(new TelemetryLoaderOptions(appKey, "Abc")));
     }
 
 

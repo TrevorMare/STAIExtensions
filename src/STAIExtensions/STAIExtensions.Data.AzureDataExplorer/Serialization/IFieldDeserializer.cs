@@ -4,5 +4,5 @@ namespace STAIExtensions.Data.AzureDataExplorer.Serialization;
 
 public interface IFieldDeserializer
 {
-    object DeserializeValue(JsonElement jsonElement);
+    object? DeserializeValue(JsonElement jsonElement);
 }
