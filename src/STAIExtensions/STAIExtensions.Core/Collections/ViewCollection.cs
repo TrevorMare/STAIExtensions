@@ -27,38 +27,42 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
 
     #region Properties
 
+    public int ViewCount => _dataSetViewCollection.Count;
+    
     public event IViewCollection.OnDataSetViewUpdatedHandler? OnDataSetViewUpdated;
+    
     public bool ViewsExpire => _options.ViewsExpire;
 
     public bool UseStrictViews => _options.UseStrictViews ?? false;
+
+    public int? MaximumViews => _options.MaximumViews;
+
+    public TimeSpan? DefaultSlidingExpiryTimeSpan => _options.SlidingExpirationTimeSpan;
     #endregion
     
     #region Methods
-    public IDataSetView? GetView(string id, string ownerId)
+    public IDataSetView? GetView(string id, string? ownerId)
     {
         try
         {
             IDataSetView? result = null;
             
-            if (string.IsNullOrEmpty(id))
+            if (string.IsNullOrEmpty(id) || id.Trim() == "")
                 throw new ArgumentNullException(nameof(id));
 
-            if (_options.UseStrictViews == true && string.IsNullOrEmpty(ownerId))
+            if (UseStrictViews == true && (string.IsNullOrEmpty(ownerId) || ownerId.Trim() == ""))
                 throw new ArgumentNullException(nameof(ownerId));
 
             if (_options.UseStrictViews == true)
             {
-                if (string.IsNullOrEmpty(ownerId))
-                    throw new ArgumentNullException(nameof(ownerId));
-
                 result = _dataSetViewCollection.FirstOrDefault(dsv =>
-                    string.Equals(dsv.Id, id, StringComparison.CurrentCultureIgnoreCase) && string.Equals(dsv.OwnerId,
-                        ownerId, StringComparison.CurrentCultureIgnoreCase));
+                    string.Equals(dsv.Id.Trim(), id.Trim(), StringComparison.CurrentCultureIgnoreCase) && string.Equals(dsv.OwnerId.Trim(),
+                        ownerId.Trim(), StringComparison.CurrentCultureIgnoreCase));
                 result?.SetExpiryDate();
                 return result;
             }
         
-            result = _dataSetViewCollection.FirstOrDefault(dsv => string.Equals(dsv.Id, id, StringComparison.CurrentCultureIgnoreCase));
+            result = _dataSetViewCollection.FirstOrDefault(dsv => string.Equals(dsv.Id.Trim(), id.Trim(), StringComparison.CurrentCultureIgnoreCase));
             result?.SetExpiryDate();
             return result;
         }
@@ -69,18 +73,24 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
         }
     }
 
-    public IDataSetView CreateView(string viewTypeName, string ownerId)
+    public IDataSetView CreateView(string viewTypeName, string? ownerId)
     {
         
         try
         {
-            if (_options.UseStrictViews == true && string.IsNullOrEmpty(ownerId))
+            if (string.IsNullOrEmpty(viewTypeName) || viewTypeName.Trim() == "")
+                throw new ArgumentNullException(nameof(viewTypeName));
+            
+            if (UseStrictViews == true && string.IsNullOrEmpty(ownerId) || ownerId?.Trim() == "")
                 throw new ArgumentNullException(nameof(ownerId));
 
-            if (_options.MaximumViews.HasValue && _dataSetViewCollection.Count >= _options.MaximumViews.Value)
-                throw new Exception($"Maximum number of allowed ({_options.MaximumViews.Value}) views reached");
-            
-            
+
+            if (MaximumViews.HasValue && _dataSetViewCollection.Count >= MaximumViews.Value)
+                throw new Exception($"Maximum number of allowed ({MaximumViews.Value}) views reached");
+
+            viewTypeName = viewTypeName.Trim();
+            ownerId = ownerId?.Trim();
+
             _logger?.LogInformation("Attempting to create view of type {ViewType} for owner {OwnerId}", 
                 viewTypeName, ownerId);
             // Fully qualified type name
@@ -101,9 +111,9 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
             IDataSetView instance = (IDataSetView) resolvedInstance;
             
             instance.OwnerId = ownerId;
-            if (_options.DefaultViewExpiryDate.HasValue)
+            if (DefaultSlidingExpiryTimeSpan.HasValue)
             {
-                instance.SlidingExpiration = _options.DefaultViewExpiryDate.Value;
+                instance.SlidingExpiration = DefaultSlidingExpiryTimeSpan.Value;
             }
             instance.SetExpiryDate();
 
@@ -127,10 +137,10 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
     {
         try
         {
-            if (string.IsNullOrEmpty(id))
+            if (string.IsNullOrEmpty(id) || id.Trim() == "")
                 throw new ArgumentNullException(nameof(id));
         
-            return _dataSetViewCollection.FirstOrDefault(dsv => string.Equals(dsv.Id, id, StringComparison.CurrentCultureIgnoreCase));
+            return _dataSetViewCollection.FirstOrDefault(dsv => string.Equals(dsv.Id.Trim(), id.Trim(), StringComparison.CurrentCultureIgnoreCase));
         }
         catch (Exception e)
         {
@@ -146,7 +156,8 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
 
     public void RemoveView(IDataSetView? expiredView)
     {
-        if (expiredView == null) return;
+        if (expiredView == null) 
+            throw new ArgumentNullException(nameof(expiredView));
 
         _logger?.LogInformation("Removing view with Id {ViewId}", expiredView.Id);
 
@@ -161,21 +172,23 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
 
     public void RemoveView(string viewId)
     {
-        if (string.IsNullOrEmpty(viewId))
-            return;
+        if (string.IsNullOrEmpty(viewId) || viewId.Trim() == "")
+            throw new ArgumentNullException(nameof(viewId));
+        
         var view = this._dataSetViewCollection.FirstOrDefault(x =>
-            string.Equals(x.Id, viewId, StringComparison.OrdinalIgnoreCase));
+            string.Equals(x.Id.Trim(), viewId.Trim(), StringComparison.OrdinalIgnoreCase));
+        
         RemoveView(view);
     }
 
-    public void SetViewParameters(string requestViewId, string requestOwnerId,
-        Dictionary<string, object>? requestViewParameters)
+    public void SetViewParameters(string viewId, string? ownerId,
+        Dictionary<string, object>? viewParameters)
     {
-        var view = this.GetView(requestViewId, requestOwnerId);
+        var view = this.GetView(viewId, ownerId);
 
         if (view == null) return;
         
-        view.SetViewParameters(requestViewParameters);
+        view.SetViewParameters(viewParameters);
     }
     #endregion
 

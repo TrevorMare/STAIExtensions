@@ -11,6 +11,12 @@ namespace STAIExtensions.Core.Collections;
 public class DataSetCollection : Abstractions.Collections.IDataSetCollection
 {
 
+    #region Events
+
+    public event IDataSetCollection.OnDataSetUpdatedHandler? OnDataSetUpdated;
+
+    #endregion
+    
     #region Members
     private readonly List<IDataSet> _dataSetCollection = new();
     private readonly Dictionary<string, List<string>> _dataSetAttachedViews = new();
@@ -28,9 +34,17 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
     }
     #endregion
 
-    #region Methods
+    #region Properties
 
-    public event IDataSetCollection.OnDataSetUpdatedHandler? OnDataSetUpdated;
+    public int NumberOfDataSets => _dataSetCollection.Count;
+    
+    public int? MaximumDataSets => _options.MaximumDataSets;
+    
+    public int? MaximumViewsPerDataSet => _options.MaximumViewsPerDataSet;
+
+    #endregion
+    
+    #region Methods
 
     public bool AttachDataSet(IDataSet dataSet)
     {
@@ -45,9 +59,9 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
                 return false;
             }
 
-            if (_options.MaximumDataSets.HasValue && _dataSetCollection.Count >= _options.MaximumDataSets.Value)
+            if (MaximumDataSets.HasValue && _dataSetCollection.Count >= MaximumDataSets.Value)
             {
-                throw new Exception($"The maximum number ({_options.MaximumDataSets.Value}) of allowed datasets is already attached");
+                throw new Exception($"The maximum number ({MaximumDataSets.Value}) of allowed datasets is already attached");
             }
 
             dataSet.OnDataSetUpdated += OnDataSetObjectUpdated;
@@ -121,6 +135,9 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
     {
         try
         {
+            if (string.IsNullOrEmpty(dataSetId) || dataSetId.Trim() == "")
+                throw new ArgumentNullException(nameof(dataSetId));
+            
             if (view == null)
                 throw new ArgumentNullException(nameof(view));
         
@@ -138,10 +155,10 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
                 if (!_dataSetAttachedViews[dataSetId].Contains(view.Id.ToLower()))
                 {
 
-                    if (_options.MaximumViewsPerDataSet.HasValue &&
-                        _dataSetAttachedViews[dataSetId].Count >= _options.MaximumViewsPerDataSet.Value)
+                    if (MaximumViewsPerDataSet.HasValue &&
+                        _dataSetAttachedViews[dataSetId].Count >= MaximumViewsPerDataSet.Value)
                         throw new Exception(
-                            $"The dataset with Id {dataSetId} already has the maximum number ({_options.MaximumViewsPerDataSet.Value} of allowed views attached)");
+                            $"The dataset with Id {dataSetId} already has the maximum number ({MaximumViewsPerDataSet.Value} of allowed views attached)");
                 
                     _dataSetAttachedViews[dataSetId].Add(view.Id.ToLower());
                     _logger?.LogInformation(
@@ -168,6 +185,8 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
     {
         try
         {
+            if (string.IsNullOrEmpty(dataSetId) || dataSetId.Trim() == "")
+                throw new ArgumentNullException(nameof(dataSetId));
                
             if (view == null)
                 throw new ArgumentNullException(nameof(view));
@@ -211,10 +230,11 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
     {
         try
         {
-            if (string.IsNullOrEmpty(dataSetId))
+            if (string.IsNullOrEmpty(dataSetId) || dataSetId.Trim() == "")
                 throw new ArgumentNullException(nameof(dataSetId));
-        
-            return this._dataSetCollection.FirstOrDefault(ds => ds.DataSetId.ToLower() == dataSetId.ToLower());
+
+            return this._dataSetCollection.FirstOrDefault(ds =>
+                string.Equals(ds.DataSetId.Trim(), dataSetId.Trim(), StringComparison.CurrentCultureIgnoreCase));
         }
         catch (Exception e)
         {
@@ -227,10 +247,11 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
     {
         try
         {
-            if (string.IsNullOrEmpty(dataSetName))
+            if (string.IsNullOrEmpty(dataSetName) || dataSetName.Trim() == "")
                 throw new ArgumentNullException(nameof(dataSetName));
-        
-            return this._dataSetCollection.FirstOrDefault(ds => ds.DataSetName.ToLower() == dataSetName.ToLower());
+
+            return this._dataSetCollection.FirstOrDefault(ds =>
+                string.Equals(ds.DataSetName.Trim(), dataSetName.Trim(), StringComparison.CurrentCultureIgnoreCase));
         }
         catch (Exception e)
         {
@@ -240,22 +261,22 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
    
     }
 
-    public IEnumerable<IDataSet>? FindDataSetsByViewId(string requestViewId)
+    public IEnumerable<IDataSet>? FindDataSetsByViewId(string viewId)
     {
         
         try
         {
-            if (string.IsNullOrEmpty(requestViewId))
-                throw new ArgumentNullException(nameof(requestViewId));
+            if (string.IsNullOrEmpty(viewId) || viewId.Trim() == "")
+                throw new ArgumentNullException(nameof(viewId));
 
             lock (_dataSetAttachedViews)
             {
                 var dataSetIdsAttachedToView =
                     (from q in _dataSetAttachedViews
-                        where q.Value.Any(x => string.Equals(x, requestViewId, StringComparison.OrdinalIgnoreCase))
+                        where q.Value.Any(x => string.Equals(x.Trim(), viewId.Trim(), StringComparison.OrdinalIgnoreCase))
                         select q.Key.ToLower()).Distinct().ToList();
                 
-                return this._dataSetCollection.Where(ds => dataSetIdsAttachedToView.Contains(ds.DataSetId.ToLower()));
+                return this._dataSetCollection.Where(ds => dataSetIdsAttachedToView.Contains(ds.DataSetId.ToLower().Trim()));
             }
         }
         catch (Exception e)
@@ -264,6 +285,23 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
             throw;
         }
         
+    }
+    
+    public void RemoveViewFromDataSets(string viewId)
+    {
+
+        if (string.IsNullOrEmpty(viewId) || viewId.Trim() == "")
+            throw new ArgumentNullException(nameof(viewId));
+        
+        _logger?.LogWarning("Removing view with Id {Id} from all datasets", viewId);
+        
+        lock (_dataSetAttachedViews)
+        {
+            _dataSetAttachedViews.Keys.ToList().ForEach(key =>
+            {
+                _dataSetAttachedViews[key].RemoveAll(x => string.Equals(x.Trim(), key.Trim(), StringComparison.OrdinalIgnoreCase));
+            });
+        }
     }
     #endregion
 
@@ -283,31 +321,24 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
                 return;
 
             _logger?.LogInformation("Data set with Id {Id} updated", dataSet.DataSetId);
-            
+
             OnDataSetUpdated?.Invoke(dataSet, EventArgs.Empty);
-            
+
             foreach (var viewId in _dataSetAttachedViews[dataSet.DataSetId])
             {
-                _logger?.LogInformation("Updating view {ViewId} with data set Id {DataSetId}", viewId, dataSet.DataSetId);
+                _logger?.LogInformation("Updating view {ViewId} with data set Id {DataSetId}", viewId,
+                    dataSet.DataSetId);
                 await DependencyExtensions.Mediator?.Send(
                     new Abstractions.CQRS.DataSetViews.Commands.UpdateViewFromDataSetCommand(viewId, dataSet))!;
             }
         }
-        finally
-        { 
-            await this.RunCleanup(); 
-        }
-    }
-
-    public void RemoveViewFromDataSets(string expiredViewId)
-    {
-        _logger?.LogWarning("Removing view with Id {Id} from all datasets", expiredViewId);
-        lock (_dataSetAttachedViews)
+        catch (Exception ex)
         {
-            _dataSetAttachedViews.Keys.ToList().ForEach(key =>
-            {
-                _dataSetAttachedViews[key].RemoveAll(x => string.Equals(x, key, StringComparison.OrdinalIgnoreCase));
-            });
+            _logger?.LogError(ex, "An error occured updating the dataset views");
+        }
+        finally
+        {
+            await this.RunCleanup();
         }
     }
     #endregion

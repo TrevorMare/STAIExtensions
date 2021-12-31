@@ -12,10 +12,16 @@ public interface IViewCollection
     bool ViewsExpire { get; }
     
     bool UseStrictViews { get; }
-    
-    IDataSetView? GetView(string id, string ownerId);
 
-    IDataSetView CreateView(string viewTypeName, string ownerId);
+    int? MaximumViews { get; }
+    
+    int ViewCount { get; }
+    
+    TimeSpan? DefaultSlidingExpiryTimeSpan { get; }
+
+    IDataSetView? GetView(string id, string? ownerId);
+
+    IDataSetView CreateView(string viewTypeName, string? ownerId);
 
     IDataSetView? GetViewForUpdate(string id);
 
@@ -25,5 +31,5 @@ public interface IViewCollection
     
     void RemoveView(string viewId);
 
-    void SetViewParameters(string requestViewId, string requestOwnerId, Dictionary<string, object>? requestViewParameters);
+    void SetViewParameters(string viewId, string? ownerId, Dictionary<string, object>? requestViewParameters);
 }
