@@ -38,7 +38,7 @@ public class UpdateViewFromDataSetCommandHandler : IRequestHandler<UpdateViewFro
     public async Task<bool> Handle(UpdateViewFromDataSetCommand request, CancellationToken cancellationToken)
     {
         var view = _viewCollection.GetViewForUpdate(request.ViewId);
-        await view?.OnDataSetUpdated(request.DataSet)!;
+        await view?.UpdateViewFromDataSet(request.DataSet)!;
         return true;
     }
     #endregion

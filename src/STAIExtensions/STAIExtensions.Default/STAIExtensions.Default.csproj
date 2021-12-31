@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\STAIExtensions.Core\STAIExtensions.Core.csproj" />
+    </ItemGroup>
+
 </Project>

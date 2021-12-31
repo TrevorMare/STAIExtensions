@@ -7,9 +7,13 @@ namespace STAIExtensions.Core.DataSets;
 public abstract class DataSet : Abstractions.Data.IDataSet
 {
 
-    #region Properties
+    #region Members
 
-    public List<IDataSetView> Views { get; protected set; } = new();
+    private bool _disposed = false;
+
+    #endregion
+    
+    #region Properties
 
     public string DataSetName { get; set; }
 
@@ -97,15 +101,7 @@ public abstract class DataSet : Abstractions.Data.IDataSet
             this.Logger?.LogTrace("Starting update of data set {DataSetName}", DataSetName);
             
             await ExecuteQueries();
-
-            var updateViewTasks = new List<Task>();
-            foreach (var view in Views)
-            {
-                updateViewTasks.Add(view.OnDataSetUpdated(this)); 
-            }
-
-            Task.WaitAll(updateViewTasks.ToArray());
-            
+                        
             this.OnDataSetUpdated?.Invoke(this, EventArgs.Empty);
         }
         catch (Exception ex)
@@ -127,24 +123,29 @@ public abstract class DataSet : Abstractions.Data.IDataSet
     
     private async void OnTimerTick(object? state)
     {
-        await UpdateDataSet();
+        try
+        {
+            await UpdateDataSet();
+        }
+        catch (Exception ex)
+        {
+            this.Logger?.LogError(ex, "An error occurred with the dataset update");
+        }
     }
     #endregion
 
     #region Dispose
     protected virtual void Dispose(bool disposing)
     {
-        if (disposing)
-        {
-            Abstractions.DependencyExtensions.Mediator?.Send(new Abstractions.CQRS.DataSets.Commands.DetachDataSetCommand(this));
-            _autoRefreshTimer.Dispose();
-        }
+        if (!disposing || _disposed) return;
+        _disposed = true;        
+        Abstractions.DependencyExtensions.Mediator?.Send(new Abstractions.CQRS.DataSets.Commands.DetachDataSetCommand(this));
+        _autoRefreshTimer.Dispose();
     }
 
     public void Dispose()
     {
         Dispose(true);
-        GC.SuppressFinalize(this);
     }
     #endregion
    

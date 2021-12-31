@@ -8,11 +8,11 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     
     #region Members
 
-    private string _viewId = Guid.NewGuid().ToString();
-    
-    private bool _disposed = false;
+    private readonly string _viewId = Guid.NewGuid().ToString();
     
     private TimeSpan _slidingExpiration = TimeSpan.FromMinutes(15);
+
+    private bool _disposed = false;
     
     #endregion
     
@@ -40,18 +40,14 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     }
 
     protected Dictionary<string, object>? ViewParameters { get; private set; } = null;
-    
-    
     #endregion
 
     #region Events
-    public event EventHandler? OnDisposing;
-    
     public event EventHandler? OnViewUpdated;
     #endregion
 
     #region Methods
-    public virtual Task OnDataSetUpdated(IDataSet dataset)
+    public virtual Task UpdateViewFromDataSet(IDataSet dataset)
     {
         OnViewUpdated?.Invoke(this, EventArgs.Empty);
         LastUpdate = DateTime.Now;
@@ -75,13 +71,12 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     #endregion
 
     #region Dispose
-
     protected virtual void Dispose(bool disposing)
     {
         if (disposing && _disposed == false)
         {
             _disposed = true;
-            this.OnDisposing?.Invoke(this, EventArgs.Empty);
+            Abstractions.DependencyExtensions.Mediator?.Send(new Abstractions.CQRS.DataSetViews.Commands.RemoveViewCommand(this.Id));
         }
     }
 

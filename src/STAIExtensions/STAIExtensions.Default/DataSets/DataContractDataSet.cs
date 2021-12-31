@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using STAIExtensions.Abstractions.Data;
-using STAIExtensions.Abstractions.DataContracts;
+﻿using STAIExtensions.Abstractions.Data;
 using STAIExtensions.Abstractions.DataContracts.Models;
 using STAIExtensions.Abstractions.Queries;
 using STAIExtensions.Core.Collections;
-using STAIExtensions.Core.DataSets.Options;
+using STAIExtensions.Core.DataSets;
+using STAIExtensions.Default.DataSets.Options;
 
-namespace STAIExtensions.Core.DataSets;
+namespace STAIExtensions.Default.DataSets;
 
 public class DataContractDataSet : DataSet
 {

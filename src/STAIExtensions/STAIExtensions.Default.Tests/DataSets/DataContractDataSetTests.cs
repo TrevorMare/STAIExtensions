@@ -1,19 +1,17 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using NSubstitute;
-using NSubstitute.Extensions;
 using STAIExtensions.Abstractions.Data;
 using STAIExtensions.Abstractions.DataContracts.Models;
 using STAIExtensions.Abstractions.Queries;
-using STAIExtensions.Core.DataSets;
-using STAIExtensions.Core.DataSets.Options;
-using STAIExtensions.Core.Tests.Fixtures;
+using STAIExtensions.Default.DataSets;
+using STAIExtensions.Default.DataSets.Options;
+using STAIExtensions.Default.Tests.Fixtures;
 using Xunit;
 
-namespace STAIExtensions.Core.Tests.DataSets;
+namespace STAIExtensions.Default.Tests.DataSets;
 
 public class DataContractDataSetTests
 {
