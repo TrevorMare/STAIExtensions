@@ -9,6 +9,12 @@ public interface IDataSetCollection
 
     delegate void OnDataSetUpdatedHandler(IDataSet sender, EventArgs e);
 
+    int? MaximumDataSets { get; }
+    
+    int? MaximumViewsPerDataSet { get; }
+
+    int NumberOfDataSets { get; }
+
     event OnDataSetUpdatedHandler OnDataSetUpdated;
     
     bool AttachDataSet(IDataSet dataSet);
