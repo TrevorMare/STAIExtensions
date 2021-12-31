@@ -5,7 +5,7 @@ namespace STAIExtensions.Data.AzureDataExplorer.Serialization;
 
 public class ExceptionParsedStackSerialization : Serialization.IFieldDeserializer
 {
-    public object DeserializeValue(JsonElement jsonElement)
+    public object? DeserializeValue(JsonElement jsonElement)
     {
         var rawText = jsonElement.ToString() ?? "";
         var serializationOptions = new JsonSerializerOptions()
