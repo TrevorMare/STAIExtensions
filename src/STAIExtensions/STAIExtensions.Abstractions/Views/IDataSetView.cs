@@ -16,12 +16,10 @@ public interface IDataSetView : IDisposable
     IEnumerable<DataSetViewParameterDescriptor>? ViewParameterDescriptors { get; }
 
     TimeSpan SlidingExpiration { get; set; }
-
-    event EventHandler OnDisposing;
     
     event EventHandler OnViewUpdated;
 
-    Task OnDataSetUpdated(IDataSet dataset);
+    Task UpdateViewFromDataSet(IDataSet dataset);
 
     void SetExpiryDate();
 

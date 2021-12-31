@@ -1,7 +1,9 @@
 ﻿using STAIExtensions.Abstractions.Data;
 using STAIExtensions.Abstractions.Views;
+using STAIExtensions.Core.Views;
+using STAIExtensions.Default.DataSets;
 
-namespace STAIExtensions.Core.Views;
+namespace STAIExtensions.Default.Views;
 
 public class MyErrorsView : DataSetView
 {
@@ -16,15 +18,15 @@ public class MyErrorsView : DataSetView
 
     public IEnumerable<Abstractions.DataContracts.Models.AIException>? LastErrors { get; private set; }
 
-    public override Task OnDataSetUpdated(IDataSet dataset)
+    public override Task UpdateViewFromDataSet(IDataSet dataset)
     {
-        if (dataset is DataSets.DataContractDataSet dataContractDataSet)
+        if (dataset is DataContractDataSet dataContractDataSet)
         {
             this.TotalErrorCount = dataContractDataSet.Exceptions.Count();
             this.LastErrors = dataContractDataSet.Exceptions.OrderByDescending(x => x.TimeStamp).Take(5);
         }
         
-        return base.OnDataSetUpdated(dataset);
+        return base.UpdateViewFromDataSet(dataset);
     }
     
     
