@@ -49,6 +49,9 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     #region Methods
     public virtual Task UpdateViewFromDataSet(IDataSet dataset)
     {
+        if (dataset == null)
+            return Task.CompletedTask;
+        
         OnViewUpdated?.Invoke(this, EventArgs.Empty);
         LastUpdate = DateTime.Now;
         return Task.CompletedTask;
