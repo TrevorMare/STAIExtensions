@@ -15,6 +15,7 @@
       <ProjectReference Include="..\STAIExtensions.Data.AzureDataExplorer\STAIExtensions.Data.AzureDataExplorer.csproj" />
       <ProjectReference Include="..\STAIExtensions.Default\STAIExtensions.Default.csproj" />
       <ProjectReference Include="..\STAIExtensions.Host.Api\STAIExtensions.Host.Api.csproj" />
+      <ProjectReference Include="..\STAIExtensions.Host.Grpc\STAIExtensions.Host.Grpc.csproj" />
       <ProjectReference Include="..\STAIExtensions.Host.SignalR\STAIExtensions.Host.SignalR.csproj" />
     </ItemGroup>
 

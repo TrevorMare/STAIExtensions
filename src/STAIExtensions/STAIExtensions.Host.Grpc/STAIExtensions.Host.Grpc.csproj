@@ -6,4 +6,21 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+        <Protobuf Include="Protos\STAIExtensionsGrpc.proto" GrpcServices="Server" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.41.0" />
+        <PackageReference Include="Grpc.Tools" Version="2.43.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Grpc.AspNetCore" Version="2.32.0" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\STAIExtensions.Core\STAIExtensions.Core.csproj" />
+    </ItemGroup>
+    
 </Project>

@@ -1,0 +1,124 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "STAIExtensions.Host.Grpc";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+package STAIExtensionsGrpc;
+
+// The greeting service definition.
+service STAIExtensionsGrpcService {
+  
+  // Create a new view  
+  rpc CreateView(CreateViewRequest) returns (IDataSetView);
+  // Get a view
+  rpc GetView(GetViewRequest) returns (IDataSetView);
+  // List the data sets
+  rpc ListDataSets(NoParameters) returns (ListDataSetsResponse);
+  // List the available views
+  rpc GetRegisteredViews(NoParameters) returns (GetRegisteredViewsResponse);
+  // Remove View
+  rpc RemoveView(RemoveViewRequest) returns (BoolResponseMessage);
+  // Attaches a View to a dataset
+  rpc AttachViewToDataset(AttachViewToDatasetRequest) returns (BoolResponseMessage);
+  // Attaches a View to a dataset
+  rpc DetachViewFromDataset(DetachViewFromDatasetRequest) returns (BoolResponseMessage);
+  // Set view Parameters
+  rpc SetViewParameters(SetViewParametersRequest) returns (BoolResponseMessage);
+  // Set view Enabled
+  rpc SetViewAutoRefreshEnabled(SetViewAutoRefreshEnabledRequest) returns (BoolResponseMessage);
+  // Set view Disabled
+  rpc SetViewAutoRefreshDisabled(SetViewAutoRefreshEnabledRequest) returns (BoolResponseMessage);
+}
+
+// Requests 
+message CreateViewRequest {
+  string viewType = 1;
+  string ownerId = 2;
+}
+
+message GetViewRequest {
+  string viewId = 1;
+  string ownerId = 2;
+}
+
+message RemoveViewRequest {
+  string viewId = 1;
+  string ownerId = 2;
+}
+
+message AttachViewToDatasetRequest {
+  string viewId = 1;
+  string dataSetId = 2;
+  string ownerId = 3;
+}
+
+message DetachViewFromDatasetRequest {
+  string viewId = 1;
+  string dataSetId = 2;
+  string ownerId = 3;
+}
+
+message SetViewParametersRequest {
+  string viewId = 1;
+  string ownerId = 2;
+}
+
+message SetViewAutoRefreshEnabledRequest {
+  string viewId = 1;
+  string ownerId = 2;
+}
+
+message SetViewAutoRefreshDisabledRequest {
+  string viewId = 1;
+  string ownerId = 2;
+}
+
+// Models
+message IDataSetView {
+  string Id = 1;
+  string OwnerId = 2;
+  google.protobuf.Timestamp ExpiryDate = 3;
+  google.protobuf.Timestamp LastUpdate = 4;
+  bool RefreshEnabled = 5;
+  repeated DataSetViewParameterDescriptor ViewParameterDescriptors = 6;
+  google.protobuf.Duration SlidingExpiration = 7;
+}
+
+message DataSetViewParameterDescriptor {
+  bool Required = 1;
+  string Name = 2;
+  string Type = 3;
+  string Description = 4;
+  
+}
+
+message ListDataSetsResponse {
+  repeated DataSetInformation Items = 1;
+}
+
+message GetRegisteredViewsResponse {
+    repeated DataSetViewInformation Items = 1;
+}
+
+message DataSetInformation {
+  string DataSetName = 1;
+  string DataSetId = 2;
+  string DataSetType = 3;
+}
+
+message DataSetViewInformation {
+  string ViewName = 1;
+  string ViewTypeName = 2;
+  repeated DataSetViewParameterDescriptor DataSetViewParameterDescriptors = 3;
+}
+
+// Shared
+message NoParameters {}
+
+// Responses
+message BoolResponseMessage {
+  bool Result = 1;
+}
+

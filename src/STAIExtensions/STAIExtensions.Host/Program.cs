@@ -1,5 +1,6 @@
 using STAIExtensions.Core;
 using STAIExtensions.Host.Api;
+using STAIExtensions.Host.Grpc;
 using STAIExtensions.Host.Services;
 using STAIExtensions.Host.SignalR;
 
@@ -22,6 +23,7 @@ var dsvOptions = new STAIExtensions.Abstractions.Collections.ViewCollectionOptio
 
 builder.Services.UseSTAIExtensions(() => dsOptions, () => dsvOptions );
 builder.Services.UseSTAISignalR();
+builder.Services.UseSTAIGrpc();
 builder.Services.AddHostedService<ServiceRunner>();
 
 var app = builder.Build();
@@ -41,6 +43,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapSTAISignalRHubs();
+app.MapSTAIGrpc(app.Environment);
 
 app.MapControllers();
 
