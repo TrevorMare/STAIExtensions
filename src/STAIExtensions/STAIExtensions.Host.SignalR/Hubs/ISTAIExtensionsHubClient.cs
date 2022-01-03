@@ -83,4 +83,20 @@ public interface ISTAIExtensionsHubClient
     /// <param name="callbackId"></param>
     /// <returns></returns>
     Task OnSetViewParametersResponse(bool response, string callbackId);
+    
+    /// <summary>
+    /// Callback for thr set auto refresh view enabled
+    /// </summary>
+    /// <param name="response"></param>
+    /// <param name="callbackId"></param>
+    /// <returns></returns>
+    Task OnSetViewAutoRefreshEnabledResponse(bool response, string callbackId);
+    
+    /// <summary>
+    /// Callback for thr set auto refresh view enabled
+    /// </summary>
+    /// <param name="response"></param>
+    /// <param name="callbackId"></param>
+    /// <returns></returns>
+    Task OnSetViewAutoRefreshDisabledResponse(bool response, string callbackId);
 }

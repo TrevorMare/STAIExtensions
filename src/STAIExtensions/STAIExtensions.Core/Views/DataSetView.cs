@@ -18,6 +18,8 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     
     #region Properties
 
+    public bool RefreshEnabled { get; protected set; } = true;
+    
     public virtual IEnumerable<DataSetViewParameterDescriptor>? ViewParameterDescriptors { get; } = null;
     
     public string Id => _viewId;
@@ -52,7 +54,9 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
         if (dataset == null)
             return Task.CompletedTask;
         
-        OnViewUpdated?.Invoke(this, EventArgs.Empty);
+        if (RefreshEnabled)
+            OnViewUpdated?.Invoke(this, EventArgs.Empty);
+        
         LastUpdate = DateTime.Now;
         return Task.CompletedTask;
     }
@@ -71,6 +75,17 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     {
         this.ViewParameters = parameters;
     }
+
+    public void SetViewRefreshEnabled()
+    {
+        this.RefreshEnabled = true;
+    }
+
+    public void SetViewRefreshDisabled()
+    {
+        this.RefreshEnabled = false;
+    }
+
     #endregion
 
     #region Dispose

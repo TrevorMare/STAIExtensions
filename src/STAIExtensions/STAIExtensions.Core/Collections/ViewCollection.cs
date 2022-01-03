@@ -151,7 +151,10 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
 
     public IEnumerable<IDataSetView> GetExpiredViews()
     {
-        return ViewsExpire == false ? new List<IDataSetView>() : _dataSetViewCollection.Where(vw => vw.ExpiryDate.HasValue && vw.ExpiryDate < DateTime.Now);
+        return ViewsExpire == false
+            ? new List<IDataSetView>()
+            : _dataSetViewCollection.Where(vw =>
+                vw.ExpiryDate.HasValue && vw.ExpiryDate < DateTime.Now && vw.RefreshEnabled == true);
     }
 
     public void RemoveView(IDataSetView? expiredView)

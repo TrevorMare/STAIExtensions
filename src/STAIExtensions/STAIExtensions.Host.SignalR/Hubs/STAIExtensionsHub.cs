@@ -82,6 +82,20 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
         var response = await _mediator?.Send(new SetViewParametersCommand(viewId, ownerId, viewParameters))!;
         await Clients.Caller.OnSetViewParametersResponse(response, callBackId);
     }
+    
+    public async Task SetViewAutoRefreshEnabled(string viewId, string ownerId, string callBackId)
+    {
+        var response = await _mediator?.Send(new SetViewEnabledCommand(viewId, ownerId))!;
+        await Clients.Caller.OnSetViewAutoRefreshEnabledResponse(response, callBackId);
+    }
+    
+    public async Task SetViewAutoRefreshDisabled(string viewId, string ownerId, string callBackId)
+    {
+        var response = await _mediator?.Send(new SetViewEnabledCommand(viewId, ownerId))!;
+        await Clients.Caller.OnSetViewAutoRefreshDisabledResponse(response, callBackId);
+    }
+    
+    
     #endregion
     
 }

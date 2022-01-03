@@ -77,6 +77,20 @@ public class ViewController : ControllerBase
     { 
         return await _mediator.Send(new SetViewParametersCommand(request.ViewId, request.OwnerId, request.ViewParameters));
     }
+    
+    [HttpPost]
+    [Route("SetViewAutoRefreshEnabled")]
+    public async Task<bool> SetViewAutoRefreshEnabled(SetViewAutoRefreshEnabledRequest request)
+    { 
+        return await _mediator.Send(new SetViewEnabledCommand(request.ViewId, request.OwnerId));
+    }
+    
+    [HttpPost]
+    [Route("SetViewAutoRefreshDisabled")]
+    public async Task<bool> SetViewAutoRefreshDisabled(SetViewAutoRefreshDisabledRequest request)
+    { 
+        return await _mediator.Send(new SetViewDisabledCommand(request.ViewId, request.OwnerId));
+    }
     #endregion
     
 }

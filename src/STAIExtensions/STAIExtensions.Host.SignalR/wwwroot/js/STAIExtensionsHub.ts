@@ -102,6 +102,14 @@ class STAIExtensionsHub {
         this._connection.on("OnSetViewParametersResponse", function (response: Boolean, callbackId: string) {
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
+
+        this._connection.on("OnSetViewAutoRefreshEnabledResponse", function (response: Boolean, callbackId: string) {
+            instance._callbackHandler.OnCallbackReceived(callbackId, response);
+        });
+
+        this._connection.on("OnSetViewAutoRefreshDisabledResponse", function (response: Boolean, callbackId: string) {
+            instance._callbackHandler.OnCallbackReceived(callbackId, response);
+        });
     }
     
     public CreateView(viewType: string, success: (callbackId: string, iView: IView) => any = null, error: (err: any) => any = null): string {
@@ -256,4 +264,41 @@ class STAIExtensionsHub {
         return callbackId;
     }
 
+    public SetViewAutoRefreshEnabled(viewId: string, success: (callbackId: string, response: Boolean) => any = null, error: (err: any) => any = null): string {
+        this.ValidateConnection();
+        const callbackId = STAIExtensionsHub.GenerateCallbackId();
+        const instance = this;
+
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId : callbackId, CallbackName: "SetViewAutoRefreshEnabled"})
+        }
+
+        this._connection.invoke("SetViewAutoRefreshEnabled", viewId, this._ownerId, callbackId).catch(function (err: any) {
+            instance._callbackHandler.RemoveCallback(callbackId);
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
+        });
+
+        return callbackId;
+    }
+
+    public SetViewAutoRefreshDisabled(viewId: string, success: (callbackId: string, response: Boolean) => any = null, error: (err: any) => any = null): string {
+        this.ValidateConnection();
+        const callbackId = STAIExtensionsHub.GenerateCallbackId();
+        const instance = this;
+
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId : callbackId, CallbackName: "SetViewAutoRefreshDisabled"})
+        }
+
+        this._connection.invoke("SetViewAutoRefreshDisabled", viewId, this._ownerId, callbackId).catch(function (err: any) {
+            instance._callbackHandler.RemoveCallback(callbackId);
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
+        });
+
+        return callbackId;
+    }
 }
