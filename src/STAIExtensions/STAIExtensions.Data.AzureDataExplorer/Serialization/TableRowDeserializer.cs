@@ -1,9 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Reflection;
-using System.Reflection.Metadata;
 using System.Text.Json;
 using Microsoft.Extensions.Logging;
-using STAIExtensions.Abstractions.DataContracts;
 using STAIExtensions.Data.AzureDataExplorer.Attributes;
 using STAIExtensions.Data.AzureDataExplorer.DataContractMetaData;
 
@@ -282,7 +280,7 @@ internal class TableRowDeserializer
         var dataContractMetaData = types.FirstOrDefault();
         
         if (dataContractMetaData != null)
-            return (IDataContractMetaData<T>)Activator.CreateInstance(dataContractMetaData);
+            return (IDataContractMetaData<T>?)Activator.CreateInstance(dataContractMetaData);
 
         return null;
     }

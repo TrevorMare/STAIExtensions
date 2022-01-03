@@ -1,7 +1,7 @@
 ## STAIExtensions Core
 
 This library contains the default implementation of the Dataset and Dataset View Collections
-as well as the startup classes to register the required DI Objects.
+as well as the startup classes to register the required dependency injection Objects.
 
 ## Nuget
 
@@ -33,6 +33,10 @@ builder.Services.UseSTAIExtensions();
 
 ```
 
+## Custom Data Sets
+TODO - 
+## Custom Views
+TODO -
 ## Dependencies
 
 - System.ServiceModel.Primitives

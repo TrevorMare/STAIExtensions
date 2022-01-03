@@ -4,9 +4,9 @@ public class TelemetryLoaderOptions : Abstractions.Data.ITelemetryLoaderOptions
 {
     
     #region Properties
-    public string ApiKey { get; init; } = "";
+    public string ApiKey { get;  } = "";
 
-    public string AppId { get; init; } = ""; 
+    public string AppId { get;  } = ""; 
     #endregion
 
     #region ctor
