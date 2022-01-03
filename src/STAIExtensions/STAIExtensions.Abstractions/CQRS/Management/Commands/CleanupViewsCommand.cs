@@ -52,10 +52,3 @@ public class ExpireViewsCommandHandler : IRequestHandler<ExpireViewsCommand, int
     #endregion
     
 }
-
-// Find all the views that is past the expiry date
-
-
-// Detach the views from the datasets
-
-// Remove the datasets from memory

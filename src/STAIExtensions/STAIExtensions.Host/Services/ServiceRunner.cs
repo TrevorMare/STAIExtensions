@@ -19,6 +19,8 @@ public class ServiceRunner : IHostedService
     public Task StartAsync(CancellationToken cancellationToken)
     {
 
+        
+
         var telemetryLoader = new STAIExtensions.Data.AzureDataExplorer.TelemetryLoader(new TelemetryLoaderOptions("2h1cqet6ae4nua4fjc0zqux14d2o1pb3uguavjts", "e666c38b-3ced-4bad-9661-ddc4dd01bb5b"));
         _ds = new Default.DataSets.DataContractDataSet(telemetryLoader, new DataContractDataSetOptions(), "MyDataSet");
         _ds.StartAutoRefresh(TimeSpan.FromSeconds(30), cancellationToken);

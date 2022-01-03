@@ -50,7 +50,7 @@ internal class TableRowDeserializer
             var tableRows = DeserializeTableRowsFromJson(table.Rows);
             if (tableRows == null || tableRows.Any() == false)
             {
-                this.Logger?.LogWarning("Could not deserialize rows for table {TableName}", table.TableName);
+                this.Logger?.LogTrace("No rows returned for query on table {TableName}", table.TableName);
                 return null;
             }
 

@@ -17,7 +17,10 @@ builder.Services.UseSTAIExtensionsApiHost();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.UseSTAIExtensions();
+var dsOptions = new STAIExtensions.Abstractions.Collections.DataSetCollectionOptions();
+var dsvOptions = new STAIExtensions.Abstractions.Collections.ViewCollectionOptions(1000, false, true, TimeSpan.FromMinutes(2));
+
+builder.Services.UseSTAIExtensions(() => dsOptions, () => dsvOptions );
 builder.Services.UseSTAISignalR();
 builder.Services.AddHostedService<ServiceRunner>();
 

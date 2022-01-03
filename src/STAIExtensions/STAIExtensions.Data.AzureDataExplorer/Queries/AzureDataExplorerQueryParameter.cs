@@ -132,7 +132,8 @@ public class AzureDataExplorerQueryParameter
 
     internal string GetDateString(DateTimeOffset dateTimeOffset)
     {
-        return dateTimeOffset.ToString(@"yyyy-MM-dd HH:mm:ss");
+        var utcDateTime = dateTimeOffset.ToUniversalTime();
+        return utcDateTime.ToString(@"yyyy-MM-dd HH:mm:ss.fff");
     }
 
     internal string GetAgoString(int interval, Abstractions.Common.AgoPeriod agoPeriod)

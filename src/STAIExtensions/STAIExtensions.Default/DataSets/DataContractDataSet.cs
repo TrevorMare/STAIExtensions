@@ -14,7 +14,7 @@ public class DataContractDataSet : DataSet
 
     private DataContractDataSetOptions _options;
     private const bool ExecuteTasksAsync = true;
-    
+
     #endregion
 
     #region Properties
@@ -22,35 +22,40 @@ public class DataContractDataSet : DataSet
     public SizedList<Availability> Availability { get; private set; } = new();
 
     public SizedList<BrowserTiming> BrowserTiming { get; private set; } = new();
-    
+
     public SizedList<CustomEvent> CustomEvents { get; private set; } = new();
 
     public SizedList<CustomMetric> CustomMetrics { get; private set; } = new();
-    
+
     public SizedList<Dependency> Dependencies { get; private set; } = new();
-    
+
     public SizedList<AIException> Exceptions { get; private set; } = new();
-    
+
     public SizedList<PageView> PageViews { get; private set; } = new();
-    
+
     public SizedList<PerformanceCounter> PerformanceCounters { get; private set; } = new();
-    
+
     public SizedList<Request> Requests { get; private set; } = new();
-    
+
     public SizedList<Trace> Traces { get; private set; } = new();
+
     #endregion
-    
+
     #region ctor
-    public DataContractDataSet(ITelemetryLoader telemetryLoader, DataContractDataSetOptions options, string? dataSetName = default) 
+
+    public DataContractDataSet(ITelemetryLoader telemetryLoader, DataContractDataSetOptions options,
+        string? dataSetName = default)
         : base(telemetryLoader, dataSetName)
     {
         _options = options ??= new DataContractDataSetOptions();
-        
+
         SetInternalBufferSizes(_options);
     }
+
     #endregion
 
     #region Methods
+
     protected override async Task ExecuteQueries()
     {
         if (TelemetryLoader.DataContractQueryFactory == null)
@@ -88,7 +93,7 @@ public class DataContractDataSet : DataSet
             await ExecuteTracesQuery();
         }
     }
-    
+
     private void SetInternalBufferSizes(DataContractDataSetOptions options)
     {
         this.Availability.MaxSize = options.Availiblity.BufferSize;
@@ -102,11 +107,13 @@ public class DataContractDataSet : DataSet
         this.Requests.MaxSize = options.Requests.BufferSize;
         this.Traces.MaxSize = options.Traces.BufferSize;
     }
-    
+
     private async Task ExecuteAvailabilityQuery()
     {
-        
-        var loadOptions = ExtractQueryInformation<Availability>(_options.Availiblity, Availability);
+
+        var loadOptions =
+            ExtractQueryInformation<Availability>(_options.Availiblity, Availability,
+                Availability.DefaultIfEmpty().Max(x => x?.TimeStamp));
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -115,14 +122,16 @@ public class DataContractDataSet : DataSet
             else
             {
                 await ExecuteDataQuery(
-                    TelemetryLoader.DataContractQueryFactory.BuildAvailabilityQueryWithCustomDate(loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
+                    TelemetryLoader.DataContractQueryFactory.BuildAvailabilityQueryWithCustomDate(
+                        loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
             }
-        } 
+        }
     }
-    
+
     private async Task ExecuteBrowserTimingQuery()
     {
-        var loadOptions = ExtractQueryInformation<BrowserTiming>(_options.BrowserTiming, BrowserTiming);
+        var loadOptions = ExtractQueryInformation<BrowserTiming>(_options.BrowserTiming, BrowserTiming,
+            BrowserTiming.DefaultIfEmpty().Max(x => x?.TimeStamp));
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -131,14 +140,17 @@ public class DataContractDataSet : DataSet
             else
             {
                 await ExecuteDataQuery(
-                    TelemetryLoader.DataContractQueryFactory.BuildBrowserTimingQueryWithCustomDate(loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
+                    TelemetryLoader.DataContractQueryFactory.BuildBrowserTimingQueryWithCustomDate(
+                        loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
             }
-        } 
+        }
     }
-    
+
     private async Task ExecuteCustomEventsQuery()
     {
-        var loadOptions = ExtractQueryInformation<CustomEvent>(_options.CustomEvents, CustomEvents);
+        var loadOptions =
+            ExtractQueryInformation<CustomEvent>(_options.CustomEvents, CustomEvents,
+                CustomEvents.DefaultIfEmpty().Max(x => x?.TimeStamp));
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -147,14 +159,16 @@ public class DataContractDataSet : DataSet
             else
             {
                 await ExecuteDataQuery(
-                    TelemetryLoader.DataContractQueryFactory.BuildCustomEventQueryWithCustomDate(loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
+                    TelemetryLoader.DataContractQueryFactory.BuildCustomEventQueryWithCustomDate(
+                        loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
             }
-        } 
+        }
     }
-    
+
     private async Task ExecuteCustomMetricsQuery()
     {
-        var loadOptions = ExtractQueryInformation<CustomMetric>(_options.CustomMetrics, CustomMetrics);
+        var loadOptions = ExtractQueryInformation<CustomMetric>(_options.CustomMetrics, CustomMetrics,
+            CustomMetrics.DefaultIfEmpty().Max(x => x?.TimeStamp));
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -163,14 +177,17 @@ public class DataContractDataSet : DataSet
             else
             {
                 await ExecuteDataQuery(
-                    TelemetryLoader.DataContractQueryFactory.BuildCustomMetricQueryWithCustomDate(loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
+                    TelemetryLoader.DataContractQueryFactory.BuildCustomMetricQueryWithCustomDate(
+                        loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
             }
-        } 
+        }
     }
-    
+
     private async Task ExecuteDependenciesQuery()
     {
-        var loadOptions = ExtractQueryInformation<Dependency>(_options.Dependencies, Dependencies);
+        var loadOptions =
+            ExtractQueryInformation<Dependency>(_options.Dependencies, Dependencies,
+                Dependencies.DefaultIfEmpty().Max(x => x?.TimeStamp));
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -179,14 +196,17 @@ public class DataContractDataSet : DataSet
             else
             {
                 await ExecuteDataQuery(
-                    TelemetryLoader.DataContractQueryFactory.BuildDependencyQueryWithCustomDate(loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
+                    TelemetryLoader.DataContractQueryFactory.BuildDependencyQueryWithCustomDate(
+                        loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
             }
-        } 
+        }
     }
-    
+
     private async Task ExecuteExceptionsQuery()
     {
-        var loadOptions = ExtractQueryInformation<AIException>(_options.Exceptions, Exceptions);
+        var loadOptions =
+            ExtractQueryInformation<AIException>(_options.Exceptions, Exceptions,
+                Exceptions.DefaultIfEmpty().Max(x => x?.TimeStamp));
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -195,14 +215,17 @@ public class DataContractDataSet : DataSet
             else
             {
                 await ExecuteDataQuery(
-                    TelemetryLoader.DataContractQueryFactory.BuildExceptionQueryWithCustomDate(loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
+                    TelemetryLoader.DataContractQueryFactory.BuildExceptionQueryWithCustomDate(
+                        loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
             }
-        } 
+        }
     }
-    
+
     private async Task ExecutePageViewsQuery()
     {
-        var loadOptions = ExtractQueryInformation<PageView>(_options.PageViews, PageViews);
+        var loadOptions =
+            ExtractQueryInformation<PageView>(_options.PageViews, PageViews,
+                PageViews.DefaultIfEmpty().Max(x => x?.TimeStamp));
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -211,30 +234,36 @@ public class DataContractDataSet : DataSet
             else
             {
                 await ExecuteDataQuery(
-                    TelemetryLoader.DataContractQueryFactory.BuildPageViewQueryWithCustomDate(loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
+                    TelemetryLoader.DataContractQueryFactory.BuildPageViewQueryWithCustomDate(
+                        loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
             }
-        } 
+        }
     }
 
     private async Task ExecutePerformanceCountersQuery()
     {
-        var loadOptions = ExtractQueryInformation<PerformanceCounter>(_options.PerformanceCounters, PerformanceCounters);
+        var loadOptions =
+            ExtractQueryInformation<PerformanceCounter>(_options.PerformanceCounters, PerformanceCounters,
+                PerformanceCounters.DefaultIfEmpty().Max(x => x?.TimeStamp));
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
                 await ExecuteDataQuery(
-                    TelemetryLoader.DataContractQueryFactory.BuildPerformanceCounterQuery(loadOptions.MaximumRows, true));
+                    TelemetryLoader.DataContractQueryFactory.BuildPerformanceCounterQuery(loadOptions.MaximumRows,
+                        true));
             else
             {
                 await ExecuteDataQuery(
-                    TelemetryLoader.DataContractQueryFactory.BuildPerformanceCounterQueryWithCustomDate(loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
+                    TelemetryLoader.DataContractQueryFactory.BuildPerformanceCounterQueryWithCustomDate(
+                        loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
             }
-        } 
+        }
     }
 
     private async Task ExecuteRequestsQuery()
     {
-        var loadOptions = ExtractQueryInformation<Request>(_options.Requests, Requests);
+        var loadOptions = ExtractQueryInformation<Request>(_options.Requests, Requests,
+            Requests.DefaultIfEmpty().Max(x => x?.TimeStamp));
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -243,14 +272,16 @@ public class DataContractDataSet : DataSet
             else
             {
                 await ExecuteDataQuery(
-                    TelemetryLoader.DataContractQueryFactory.BuildRequestQueryWithCustomDate(loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
+                    TelemetryLoader.DataContractQueryFactory.BuildRequestQueryWithCustomDate(
+                        loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
             }
-        } 
+        }
     }
-    
+
     private async Task ExecuteTracesQuery()
     {
-        var loadOptions = ExtractQueryInformation<Trace>(_options.Traces, Traces);
+        var loadOptions =
+            ExtractQueryInformation<Trace>(_options.Traces, Traces, Traces.DefaultIfEmpty().Max(x => x?.TimeStamp));
         if (loadOptions.ExecuteQuery)
         {
             if (loadOptions.FullPeriod == true)
@@ -259,18 +290,20 @@ public class DataContractDataSet : DataSet
             else
             {
                 await ExecuteDataQuery(
-                    TelemetryLoader.DataContractQueryFactory.BuildTraceQueryWithCustomDate(loadOptions.FromPeriod.Value, loadOptions.MaximumRows, true));
+                    TelemetryLoader.DataContractQueryFactory.BuildTraceQueryWithCustomDate(loadOptions.FromPeriod.Value,
+                        loadOptions.MaximumRows, true));
             }
-        } 
+        }
     }
-    
-    private (bool ExecuteQuery, bool FullPeriod, DateTime? FromPeriod, int? MaximumRows) ExtractQueryInformation<T>(LoadOptions options, SizedList<T> list) where T : DataContract
+
+    private (bool ExecuteQuery, bool FullPeriod, DateTime? FromPeriod, int? MaximumRows) ExtractQueryInformation<T>(
+        LoadOptions options, SizedList<T> list, DateTime? MaxDateTimeStamp) where T : DataContract
     {
         var executeQuery = false;
         var fullPeriod = true;
         DateTime? fromPeriod = null;
         int? maxRows = null;
-        
+
         if (options.Enabled == true)
         {
             maxRows = options.TelemetryLoadMaxRows;
@@ -278,7 +311,7 @@ public class DataContractDataSet : DataSet
             if (list.Any())
             {
                 fullPeriod = false;
-                fromPeriod = DateTime.Now;
+                fromPeriod = MaxDateTimeStamp ?? DateTime.Now;
             }
         }
 
@@ -289,57 +322,58 @@ public class DataContractDataSet : DataSet
     {
         if (query.ContractType == typeof(Availability))
         {
-            if (records is IEnumerable<Availability> items) 
+            if (records is IEnumerable<Availability> items)
                 Availability.AddRange(items.OrderBy(x => x.TimeStamp));
         }
         else if (query.ContractType == typeof(BrowserTiming))
         {
-            if (records is IEnumerable<BrowserTiming> items) 
+            if (records is IEnumerable<BrowserTiming> items)
                 BrowserTiming.AddRange(items.OrderBy(x => x.TimeStamp));
         }
         else if (query.ContractType == typeof(CustomEvent))
         {
-            if (records is IEnumerable<CustomEvent> items) 
+            if (records is IEnumerable<CustomEvent> items)
                 CustomEvents.AddRange(items.OrderBy(x => x.TimeStamp));
         }
         else if (query.ContractType == typeof(CustomMetric))
         {
-            if (records is IEnumerable<CustomMetric> items) 
+            if (records is IEnumerable<CustomMetric> items)
                 CustomMetrics.AddRange(items.OrderBy(x => x.TimeStamp));
         }
         else if (query.ContractType == typeof(Dependency))
         {
-            if (records is IEnumerable<Dependency> items) 
+            if (records is IEnumerable<Dependency> items)
                 Dependencies.AddRange(items.OrderBy(x => x.TimeStamp));
         }
         else if (query.ContractType == typeof(AIException))
         {
-            if (records is IEnumerable<AIException> items) 
+            if (records is IEnumerable<AIException> items)
                 Exceptions.AddRange(items.OrderBy(x => x.TimeStamp));
         }
         else if (query.ContractType == typeof(PageView))
         {
-            if (records is IEnumerable<PageView> items) 
+            if (records is IEnumerable<PageView> items)
                 PageViews.AddRange(items.OrderBy(x => x.TimeStamp));
         }
         else if (query.ContractType == typeof(PerformanceCounter))
         {
-            if (records is IEnumerable<PerformanceCounter> items) 
+            if (records is IEnumerable<PerformanceCounter> items)
                 PerformanceCounters.AddRange(items.OrderBy(x => x.TimeStamp));
         }
         else if (query.ContractType == typeof(Request))
         {
-            if (records is IEnumerable<Request> items) 
+            if (records is IEnumerable<Request> items)
                 Requests.AddRange(items.OrderBy(x => x.TimeStamp));
         }
         else if (query.ContractType == typeof(Trace))
         {
-            if (records is IEnumerable<Trace> items) 
+            if (records is IEnumerable<Trace> items)
                 Traces.AddRange(items.OrderBy(x => x.TimeStamp));
         }
+
         return Task.CompletedTask;
     }
-    #endregion
 
-   
+    #endregion
+    
 }

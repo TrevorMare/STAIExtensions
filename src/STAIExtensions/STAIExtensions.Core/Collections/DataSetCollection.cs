@@ -299,7 +299,7 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
         {
             _dataSetAttachedViews.Keys.ToList().ForEach(key =>
             {
-                _dataSetAttachedViews[key].RemoveAll(x => string.Equals(x.Trim(), key.Trim(), StringComparison.OrdinalIgnoreCase));
+                _dataSetAttachedViews[key].RemoveAll(x => string.Equals(x.Trim(), viewId.Trim(), StringComparison.OrdinalIgnoreCase));
             });
         }
     }
@@ -324,7 +324,13 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
 
             OnDataSetUpdated?.Invoke(dataSet, EventArgs.Empty);
 
-            foreach (var viewId in _dataSetAttachedViews[dataSet.DataSetId])
+            List<string> viewIds;
+            lock (_dataSetAttachedViews)
+            {
+                viewIds = _dataSetAttachedViews[dataSet.DataSetId].ToList();    
+            }
+            
+            foreach (var viewId in viewIds)
             {
                 _logger?.LogInformation("Updating view {ViewId} with data set Id {DataSetId}", viewId,
                     dataSet.DataSetId);
