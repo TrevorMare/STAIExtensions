@@ -80,12 +80,11 @@ public abstract class DataSet : Abstractions.Data.IDataSet
         {
             if (query == null)
                 throw new ArgumentNullException(nameof(query));
-        
-            this.Logger?.LogInformation("Executing query of type {TypeName} on telemetry loader", query.ContractType);
-            
+           
             var queryResult = await TelemetryLoader.ExecuteQueryAsync(query);
-            
-            this.Logger?.LogInformation("Query returned {NumberOfRows} rows", queryResult?.Count());
+
+            this.Logger?.LogInformation("Query type {TypeName} returned {NumberOfRows} rows", query.ContractType.Name,
+                queryResult?.Count() ?? 0);
             
             await ProcessQueryRecords(query, queryResult);
         }
