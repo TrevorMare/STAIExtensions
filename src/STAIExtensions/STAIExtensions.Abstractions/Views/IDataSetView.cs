@@ -13,6 +13,8 @@ public interface IDataSetView : IDisposable
     
     DateTime? LastUpdate { get; }
 
+    bool RefreshEnabled { get; }
+
     IEnumerable<DataSetViewParameterDescriptor>? ViewParameterDescriptors { get; }
 
     TimeSpan SlidingExpiration { get; set; }
@@ -26,4 +28,8 @@ public interface IDataSetView : IDisposable
     void SetExpiryDate(DateTime value);
 
     void SetViewParameters(Dictionary<string, object>? parameters);
+
+    void SetViewRefreshEnabled();
+    
+    void SetViewRefreshDisabled();
 }

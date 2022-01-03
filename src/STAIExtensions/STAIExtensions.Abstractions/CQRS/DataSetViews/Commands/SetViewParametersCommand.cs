@@ -63,7 +63,10 @@ public class SetViewParametersCommandHandler : IRequestHandler<SetViewParameters
         var enumerable = dataSets as IDataSet[] ?? dataSets.ToArray();
         foreach (var dataSet in enumerable)
         {
-            await view?.UpdateViewFromDataSet(dataSet)!;
+            if (view.RefreshEnabled)
+                await view.UpdateViewFromDataSet(dataSet)!;    
+            else
+                view.SetExpiryDate();
         }
         
         return true;
