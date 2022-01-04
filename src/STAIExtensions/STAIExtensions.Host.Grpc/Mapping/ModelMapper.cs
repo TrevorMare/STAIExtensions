@@ -23,7 +23,8 @@ internal static class ModelMapper
             OwnerId = view.OwnerId,
             RefreshEnabled = view.RefreshEnabled,
             SlidingExpiration = Duration.FromTimeSpan(view.SlidingExpiration),
-            ViewParameterDescriptors = { ConvertViewParameters(view.ViewParameterDescriptors) }
+            ViewParameterDescriptors = { ConvertViewParameters(view.ViewParameterDescriptors) },
+            ViewTypeName = view.ViewTypeName
         };
         
         if (view.ExpiryDate.HasValue)

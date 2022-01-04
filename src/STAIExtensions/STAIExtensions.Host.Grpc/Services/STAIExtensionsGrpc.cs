@@ -135,7 +135,7 @@ public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensions
         return new BoolResponse() { Result = response };
     }
 
-    public override async Task<BoolResponse> SetViewAutoRefreshDisabled(SetViewAutoRefreshEnabledRequest request, ServerCallContext context)
+    public override async Task<BoolResponse> SetViewAutoRefreshDisabled(SetViewAutoRefreshDisabledRequest request, ServerCallContext context)
     {
         var response = await _mediator?.Send(new SetViewDisabledCommand( request.ViewId, request.OwnerId ))!;
         return new BoolResponse() { Result = response };

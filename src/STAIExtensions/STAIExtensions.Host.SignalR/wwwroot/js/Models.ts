@@ -18,9 +18,10 @@ interface IDataSetViewParameterDescriptor {
 }
 
 interface IView {
-     id: string,
-     ownerId: string,
-     expiryDate?: Date,
-     lastUpdate?: Date,
-     slidingExpiration: Number
+    id: string,
+    viewTypeName: string,
+    ownerId: string,
+    expiryDate?: Date,
+    lastUpdate?: Date,
+    slidingExpiration: Number
 }

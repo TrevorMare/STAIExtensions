@@ -34,7 +34,7 @@ service STAIExtensionsGrpcService {
   // Set view Enabled
   rpc SetViewAutoRefreshEnabled(SetViewAutoRefreshEnabledRequest) returns (BoolResponse);
   // Set view Disabled
-  rpc SetViewAutoRefreshDisabled(SetViewAutoRefreshEnabledRequest) returns (BoolResponse);
+  rpc SetViewAutoRefreshDisabled(SetViewAutoRefreshDisabledRequest) returns (BoolResponse);
 }
 
 // Requests 
@@ -89,6 +89,7 @@ message IDataSetView {
   bool RefreshEnabled = 5;
   repeated DataSetViewParameterDescriptor ViewParameterDescriptors = 6;
   google.protobuf.Duration SlidingExpiration = 7;
+  string ViewTypeName = 8;
 }
 
 message IDataSetViewJson {
