@@ -10,6 +10,11 @@ interface IViewInformation {
     dataSetViewParameterDescriptors?: IDataSetViewParameterDescriptor[]
 }
 
+interface IMyView {
+    viewId: string,
+    viewTypeName: string
+}
+
 interface IDataSetViewParameterDescriptor {
     required: Boolean,
     name: string,

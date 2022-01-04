@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using STAIExtensions.Abstractions;
 using STAIExtensions.Abstractions.Collections;
+using STAIExtensions.Abstractions.Common;
 using STAIExtensions.Abstractions.Views;
 
 namespace STAIExtensions.Core.Collections;
@@ -69,7 +70,7 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
         catch (Exception e)
         {
             _logger?.LogError(e, "An error occured retrieving view. {Error}", e);
-            throw;
+            return null;
         }
     }
 
@@ -192,6 +193,13 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
         if (view == null) return;
         
         view.SetViewParameters(viewParameters);
+    }
+
+    public IEnumerable<MyViewInformation> GetMyViews(string ownerId)
+    {
+        return this._dataSetViewCollection
+            .Where(vw => string.Equals(ownerId.Trim(), vw.Id.Trim(), StringComparison.OrdinalIgnoreCase))
+            .Select(x => new MyViewInformation(x.Id, x.ViewTypeName));
     }
     #endregion
 

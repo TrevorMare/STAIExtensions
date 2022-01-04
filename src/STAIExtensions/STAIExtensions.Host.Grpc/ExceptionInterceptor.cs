@@ -14,7 +14,7 @@ public class ExceptionInterceptor : Interceptor
     {
         _logger = Abstractions.DependencyExtensions.CreateLogger<ExceptionInterceptor>();
     }
-     
+    
     public override async Task<TResponse> UnaryServerHandler<TRequest, TResponse>(
         TRequest request,
         ServerCallContext context,

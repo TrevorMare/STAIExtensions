@@ -1,4 +1,6 @@
-﻿using Grpc.Net.Client;
+﻿using System.Text.Json;
+using Grpc.Core;
+using Grpc.Net.Client;
 
 namespace STAIExtensions.Host.Grpc.Client;
 
@@ -32,6 +34,13 @@ public class GrpcClientManaged : IDisposable
             AppContext.SetSwitch(
                 "System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
 
+        var defaultCredentials = SetupAuthorization();
+        if (defaultCredentials != null)
+        {
+            // Override the credentials on the channel
+            _options.GrpcChannelOptions.Credentials = ChannelCredentials.Create(new SslCredentials(), defaultCredentials);
+        }
+       
         this._aiExtensionsChannel = GrpcChannel.ForAddress(_options.ChannelUrl, _options.GrpcChannelOptions);
         this._client = new STAIExtensionsGrpcService.STAIExtensionsGrpcServiceClient(this._aiExtensionsChannel);
 
@@ -142,20 +151,22 @@ public class GrpcClientManaged : IDisposable
         return response.Result;
     }
     
-    public async Task<bool> SetViewParameters(string viewId, string dataSetId)
+    public async Task<bool> SetViewParameters(string viewId, Dictionary<string, object>? viewParameters)
     {
         if (string.IsNullOrEmpty(viewId) || viewId.Trim() == "")
             throw new ArgumentNullException(nameof(viewId));
+
+        var jsonPayload = string.Empty;
+        if (viewParameters != null)
+            jsonPayload = JsonSerializer.Serialize(viewParameters);
         
-        if (string.IsNullOrEmpty(dataSetId) || dataSetId.Trim() == "")
-            throw new ArgumentNullException(nameof(dataSetId));
-        
-        var response = await this._client.DetachViewFromDatasetAsync(new DetachViewFromDatasetRequest()
+        var response = await this._client.SetViewParametersAsync(new SetViewParametersRequest() 
         {
             OwnerId = _options.OwnerId,
             ViewId = viewId,
-            DataSetId = dataSetId
+            JsonPayload = jsonPayload
         },null, null, _cancellationTokenSource.Token);
+        
         return response.Result;
     }
 
@@ -185,9 +196,40 @@ public class GrpcClientManaged : IDisposable
         return response.Result;
     }
     
+    public async Task<List<MyViewResponse.Types.MyView>> GetMyViewsAsync()
+    {
+        
+        var response = await this._client.GetMyViewsAsync(new GetMyViewsRequest() 
+        {
+            OwnerId = _options.OwnerId
+        },null, null, _cancellationTokenSource.Token);
+        return response.Items.ToList();
+    }
+    
     #endregion
     
     #region Private Methods
+
+    private CallCredentials? SetupAuthorization()
+    {
+        if (_options.UseDefaultAuthorization != true) return null;
+
+        if (string.IsNullOrEmpty(_options.AuthBearerToken))
+            throw new Exception("The Auth Bearer Token is required when use default credentials is set");
+       
+        var credentials = CallCredentials.FromInterceptor((context, metadata) =>
+        {
+            if (!string.IsNullOrEmpty(_options.AuthBearerToken))
+            {
+                metadata.Add("Authorization", $"Bearer {_options.AuthBearerToken}");
+            }
+            return Task.CompletedTask;
+        });
+
+        return credentials;
+
+    }
+    
     private void SetupAsyncTasks()
     {
         Task.Run(async () =>

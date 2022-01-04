@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Text.Json;
 using Google.Protobuf.Collections;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
@@ -147,11 +148,36 @@ public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensions
         return new BoolResponse() {Result = response};
     }
 
-    // public override async Task<BoolResponseMessage> SetViewParameters(SetViewParametersRequest request, ServerCallContext context)
-    // {
-    //     var response = await _mediator?.Send(new DetachViewFromDataSetCommand( request.ViewId, request.da, request.OwnerId ))!;
-    //     return new BoolResponseMessage() {Result = response};
-    // }
+    public override async Task<BoolResponse> SetViewParameters(SetViewParametersRequest request, ServerCallContext context)
+    {
+        Dictionary<string, object> viewParameters = null;
+        if ((request?.JsonPayload?.Trim() ?? "") != "")
+            viewParameters = JsonSerializer.Deserialize<Dictionary<string, object>>(request.JsonPayload);
+
+        var response =
+            await _mediator?.Send(new SetViewParametersCommand(request.ViewId, request.OwnerId, viewParameters))!;
+        
+        return new BoolResponse() { Result = response};
+    }
+
+    public override async Task<MyViewResponse> GetMyViews(GetMyViewsRequest request, ServerCallContext context)
+    {
+        var response =
+            await _mediator?.Send(new GetMyViewsQuery(request.OwnerId))!;
+
+        return new MyViewResponse()
+        {
+            Items =
+            {
+                response.Select(x => new MyViewResponse.Types.MyView()
+                {
+                    ViewId = x.ViewId,
+                    ViewTypeName = x.ViewTypeName
+                })
+            }
+        };
+    }
+
     #endregion
    
     

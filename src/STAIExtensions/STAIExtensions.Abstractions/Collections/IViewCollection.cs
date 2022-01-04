@@ -1,4 +1,5 @@
-﻿using STAIExtensions.Abstractions.Views;
+﻿using STAIExtensions.Abstractions.Common;
+using STAIExtensions.Abstractions.Views;
 
 namespace STAIExtensions.Abstractions.Collections;
 
@@ -32,4 +33,6 @@ public interface IViewCollection
     void RemoveView(string viewId);
 
     void SetViewParameters(string viewId, string? ownerId, Dictionary<string, object>? requestViewParameters);
+    
+    IEnumerable<MyViewInformation> GetMyViews(string ownerId);
 }

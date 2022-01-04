@@ -20,7 +20,12 @@ public class Class1
         
             Console.WriteLine("Initialising Grpc Connection");
 
-            using var managedClient = new Host.Grpc.Client.GrpcClientManaged(new GrpcClientManagedOptions("https://localhost:44309", "ABC"));
+            using var managedClient =
+                new Host.Grpc.Client.GrpcClientManaged(new GrpcClientManagedOptions("https://localhost:44309", "ABC")
+                {
+                    UseDefaultAuthorization = true,
+                    AuthBearerToken = "SameAsServerConfiguration"
+                });
             // Attach to the Events
             Console.WriteLine("Attaching the dataset updates");
             
@@ -62,6 +67,8 @@ public class Class1
                 Console.WriteLine("No Datasets found");
             }
 
+
+            
             Console.ReadLine();
             Console.WriteLine("Press any key to stop");
 

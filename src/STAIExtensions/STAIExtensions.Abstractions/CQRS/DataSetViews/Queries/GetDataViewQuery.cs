@@ -10,16 +10,16 @@ public class GetDataViewQuery : IRequest<IDataSetView?>
 
     public string ViewId { get; set; } = "";
 
-    public string UserSessionId { get; set; } = "";
+    public string OwnerId { get; set; } = "";
 
     #region ctor
 
     public GetDataViewQuery() {}
 
-    public GetDataViewQuery(string viewId, string userSessionId)
+    public GetDataViewQuery(string viewId, string ownerId)
     {
         this.ViewId = viewId;
-        this.UserSessionId = userSessionId;
+        this.OwnerId = ownerId;
     }
     #endregion
     
@@ -45,7 +45,7 @@ public class GetDataViewQueryHandler : IRequestHandler<GetDataViewQuery, IDataSe
     #region Methods
     public Task<IDataSetView?> Handle(GetDataViewQuery request, CancellationToken cancellationToken)
     {
-        return Task.FromResult(_viewCollection.GetView(request.ViewId, request.UserSessionId ));
+        return Task.FromResult(_viewCollection.GetView(request.ViewId, request.OwnerId ));
     }
     #endregion
     

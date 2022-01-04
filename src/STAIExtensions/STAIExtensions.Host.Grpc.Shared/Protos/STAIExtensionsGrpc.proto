@@ -35,6 +35,9 @@ service STAIExtensionsGrpcService {
   rpc SetViewAutoRefreshEnabled(SetViewAutoRefreshEnabledRequest) returns (BoolResponse);
   // Set view Disabled
   rpc SetViewAutoRefreshDisabled(SetViewAutoRefreshDisabledRequest) returns (BoolResponse);
+  // Get My Views
+  rpc GetMyViews(GetMyViewsRequest) returns (MyViewResponse);
+  
 }
 
 // Requests 
@@ -68,6 +71,11 @@ message DetachViewFromDatasetRequest {
 message SetViewParametersRequest {
   string viewId = 1;
   string ownerId = 2;
+  string jsonPayload = 3;
+}
+
+message GetMyViewsRequest {
+  string ownerId = 1;
 }
 
 message SetViewAutoRefreshEnabledRequest {
@@ -94,6 +102,14 @@ message IDataSetView {
 
 message IDataSetViewJson {
   string Payload = 1;
+}
+
+message MyViewResponse {
+  message MyView {
+    string ViewId = 1;
+    string ViewTypeName = 2;
+  }
+  repeated MyView Items = 1;
 }
 
 message DataSetViewParameterDescriptor {

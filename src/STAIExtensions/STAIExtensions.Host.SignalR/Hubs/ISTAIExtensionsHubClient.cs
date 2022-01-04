@@ -99,4 +99,12 @@ public interface ISTAIExtensionsHubClient
     /// <param name="callbackId"></param>
     /// <returns></returns>
     Task OnSetViewAutoRefreshDisabledResponse(bool response, string callbackId);
+    
+    /// <summary>
+    /// Callback for the get my views 
+    /// </summary>
+    /// <param name="response"></param>
+    /// <param name="callbackId"></param>
+    /// <returns></returns>
+    Task OnGetMyViewsResponse(IEnumerable<MyViewInformation> response, string callbackId);
 }
