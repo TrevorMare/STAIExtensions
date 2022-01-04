@@ -11,8 +11,13 @@ public static class StartupExtensions
     
     public static IServiceCollection UseSTAIGrpc(this IServiceCollection services)
     {
-        services.AddGrpc();
+        services.AddGrpc(
+            options =>
+            {
+                options.Interceptors.Add<ExceptionInterceptor>();
+            });
         services.AddGrpcReflection();
+
         return services;
     }
 

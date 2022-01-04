@@ -9,27 +9,32 @@ package STAIExtensionsGrpc;
 
 // The greeting service definition.
 service STAIExtensionsGrpcService {
-  
+  // Registers for dataset updated   
+  rpc OnDataViewUpdated(OnDataSetViewUpdatedRequest) returns (stream OnDataSetViewUpdatedResponse);
+  // Registers for dataset updated   
+  rpc OnDataSetUpdated(NoParameters) returns (stream OnDataSetUpdatedResponse);
   // Create a new view  
   rpc CreateView(CreateViewRequest) returns (IDataSetView);
   // Get a view
   rpc GetView(GetViewRequest) returns (IDataSetView);
+  // Get a view
+  rpc GetViewJson(GetViewRequest) returns (IDataSetViewJson);
   // List the data sets
   rpc ListDataSets(NoParameters) returns (ListDataSetsResponse);
   // List the available views
   rpc GetRegisteredViews(NoParameters) returns (GetRegisteredViewsResponse);
   // Remove View
-  rpc RemoveView(RemoveViewRequest) returns (BoolResponseMessage);
+  rpc RemoveView(RemoveViewRequest) returns (BoolResponse);
   // Attaches a View to a dataset
-  rpc AttachViewToDataset(AttachViewToDatasetRequest) returns (BoolResponseMessage);
+  rpc AttachViewToDataset(AttachViewToDatasetRequest) returns (BoolResponse);
   // Attaches a View to a dataset
-  rpc DetachViewFromDataset(DetachViewFromDatasetRequest) returns (BoolResponseMessage);
+  rpc DetachViewFromDataset(DetachViewFromDatasetRequest) returns (BoolResponse);
   // Set view Parameters
-  rpc SetViewParameters(SetViewParametersRequest) returns (BoolResponseMessage);
+  rpc SetViewParameters(SetViewParametersRequest) returns (BoolResponse);
   // Set view Enabled
-  rpc SetViewAutoRefreshEnabled(SetViewAutoRefreshEnabledRequest) returns (BoolResponseMessage);
+  rpc SetViewAutoRefreshEnabled(SetViewAutoRefreshEnabledRequest) returns (BoolResponse);
   // Set view Disabled
-  rpc SetViewAutoRefreshDisabled(SetViewAutoRefreshEnabledRequest) returns (BoolResponseMessage);
+  rpc SetViewAutoRefreshDisabled(SetViewAutoRefreshEnabledRequest) returns (BoolResponse);
 }
 
 // Requests 
@@ -86,12 +91,19 @@ message IDataSetView {
   google.protobuf.Duration SlidingExpiration = 7;
 }
 
+message IDataSetViewJson {
+  string Payload = 1;
+}
+
 message DataSetViewParameterDescriptor {
   bool Required = 1;
   string Name = 2;
   string Type = 3;
   string Description = 4;
-  
+}
+
+message OnDataSetViewUpdatedRequest {
+  string OwnerId = 1;
 }
 
 message ListDataSetsResponse {
@@ -118,7 +130,14 @@ message DataSetViewInformation {
 message NoParameters {}
 
 // Responses
-message BoolResponseMessage {
+message BoolResponse {
   bool Result = 1;
 }
 
+message OnDataSetUpdatedResponse {
+  string DataSetId = 1;
+}
+
+message OnDataSetViewUpdatedResponse {
+  string ViewId = 1;
+}
