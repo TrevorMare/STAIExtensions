@@ -7,20 +7,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Protobuf Include="..\STAIExtensions.Host.Grpc.Shared\Protos\STAIExtensionsGrpc.proto" GrpServices="Server" />
-    </ItemGroup>
-    
-    <ItemGroup>
-        <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.41.0" />
+        <PackageReference Include="Google.Protobuf" Version="3.18.0" />
+        <PackageReference Include="Grpc.Net.Client" Version="2.39.0" />
         <PackageReference Include="Grpc.Tools" Version="2.43.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Grpc.AspNetCore" Version="2.32.0" />
     </ItemGroup>
-    
     <ItemGroup>
-      <ProjectReference Include="..\STAIExtensions.Core\STAIExtensions.Core.csproj" />
+        <Protobuf Include="..\STAIExtensions.Host.Grpc.Shared\Protos\STAIExtensionsGrpc.proto" GrpServices="Client" />
     </ItemGroup>
     
 </Project>

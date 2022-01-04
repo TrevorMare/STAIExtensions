@@ -12,6 +12,8 @@ public interface IDataSetView : IDisposable
     DateTime? ExpiryDate { get; }
     
     DateTime? LastUpdate { get; }
+    
+    string ViewTypeName { get; }
 
     bool RefreshEnabled { get; }
 

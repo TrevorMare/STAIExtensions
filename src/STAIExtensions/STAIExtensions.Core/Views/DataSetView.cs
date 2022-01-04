@@ -18,6 +18,8 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     
     #region Properties
 
+    public string ViewTypeName => this.GetType().AssemblyQualifiedName;
+    
     public bool RefreshEnabled { get; protected set; } = true;
     
     public virtual IEnumerable<DataSetViewParameterDescriptor>? ViewParameterDescriptors { get; } = null;

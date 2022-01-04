@@ -1,7 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions", "STAIExtensions\STAIExtensions.csproj", "{BE39E5A4-BC6E-4517-9E7A-EF91260AE6EE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions.Core", "STAIExtensions.Core\STAIExtensions.Core.csproj", "{0CFC2C0D-7A28-4BCE-80A1-55FB7E445B7A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions.Abstractions", "STAIExtensions.Abstractions\STAIExtensions.Abstractions.csproj", "{F5E30548-B6BF-42B2-B46D-C4D0CE120161}"
@@ -28,16 +26,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions.Default", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions.Default.Tests", "STAIExtensions.Default.Tests\STAIExtensions.Default.Tests.csproj", "{6254E362-4282-436E-97E6-452186BA7247}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions.Host.Grpc.Client", "STAIExtensions.Host.Grpc.Client\STAIExtensions.Host.Grpc.Client.csproj", "{93513653-234E-450B-8088-D5D6C982F782}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BE39E5A4-BC6E-4517-9E7A-EF91260AE6EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BE39E5A4-BC6E-4517-9E7A-EF91260AE6EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BE39E5A4-BC6E-4517-9E7A-EF91260AE6EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BE39E5A4-BC6E-4517-9E7A-EF91260AE6EE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0CFC2C0D-7A28-4BCE-80A1-55FB7E445B7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0CFC2C0D-7A28-4BCE-80A1-55FB7E445B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CFC2C0D-7A28-4BCE-80A1-55FB7E445B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -90,5 +86,9 @@ Global
 		{6254E362-4282-436E-97E6-452186BA7247}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6254E362-4282-436E-97E6-452186BA7247}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6254E362-4282-436E-97E6-452186BA7247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93513653-234E-450B-8088-D5D6C982F782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93513653-234E-450B-8088-D5D6C982F782}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93513653-234E-450B-8088-D5D6C982F782}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93513653-234E-450B-8088-D5D6C982F782}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

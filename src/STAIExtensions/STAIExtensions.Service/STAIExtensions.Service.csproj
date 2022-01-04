@@ -10,6 +10,7 @@
     <ItemGroup>
       <ProjectReference Include="..\STAIExtensions.Core\STAIExtensions.Core.csproj" />
       <ProjectReference Include="..\STAIExtensions.Data.AzureDataExplorer\STAIExtensions.Data.AzureDataExplorer.csproj" />
+      <ProjectReference Include="..\STAIExtensions.Host.Grpc.Client\STAIExtensions.Host.Grpc.Client.csproj" />
     </ItemGroup>
 
     <ItemGroup>
