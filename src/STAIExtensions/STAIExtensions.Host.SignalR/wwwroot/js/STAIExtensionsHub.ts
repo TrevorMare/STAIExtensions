@@ -110,6 +110,10 @@ class STAIExtensionsHub {
         this._connection.on("OnSetViewAutoRefreshDisabledResponse", function (response: Boolean, callbackId: string) {
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
+
+        this._connection.on("OnGetMyViewsResponse", function (response: IMyView[], callbackId: string) {
+            instance._callbackHandler.OnCallbackReceived(callbackId, response);
+        });
     }
     
     public CreateView(viewType: string, success: (callbackId: string, iView: IView) => any = null, error: (err: any) => any = null): string {
@@ -293,6 +297,25 @@ class STAIExtensionsHub {
         }
 
         this._connection.invoke("SetViewAutoRefreshDisabled", viewId, this._ownerId, callbackId).catch(function (err: any) {
+            instance._callbackHandler.RemoveCallback(callbackId);
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
+        });
+
+        return callbackId;
+    }
+
+    public GetMyViews(success: (callbackId: string, response: IMyView[]) => any = null, error: (err: any) => any = null): string {
+        this.ValidateConnection();
+        const callbackId = STAIExtensionsHub.GenerateCallbackId();
+        const instance = this;
+
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId : callbackId, CallbackName: "GetMyViews"})
+        }
+
+        this._connection.invoke("GetMyViews", callbackId).catch(function (err: any) {
             instance._callbackHandler.RemoveCallback(callbackId);
             if (error !== undefined && error !== null) {
                 error(err);

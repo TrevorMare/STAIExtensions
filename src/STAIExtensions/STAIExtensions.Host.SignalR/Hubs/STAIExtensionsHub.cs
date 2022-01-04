@@ -95,6 +95,11 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
         await Clients.Caller.OnSetViewAutoRefreshDisabledResponse(response, callBackId);
     }
     
+    public async Task GetMyViews(string ownerId, string callBackId)
+    {
+        var response = await _mediator?.Send(new GetMyViewsQuery(ownerId))!;
+        await Clients.Caller.OnGetMyViewsResponse(response, callBackId);
+    }
     
     #endregion
     

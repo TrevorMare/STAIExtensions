@@ -9,13 +9,19 @@ namespace STAIExtensions.Host.Grpc;
 public static class StartupExtensions
 {
     
-    public static IServiceCollection UseSTAIGrpc(this IServiceCollection services)
+    public static IServiceCollection UseSTAIGrpc(this IServiceCollection services, GrpcHostOptions? options = default)
     {
+        options ??= new GrpcHostOptions();
+
+        services.AddScoped<GrpcHostOptions>((s) => options);
+        
         services.AddGrpc(
             options =>
             {
+                options.Interceptors.Add<AuthorizationInterceptor>();
                 options.Interceptors.Add<ExceptionInterceptor>();
             });
+        
         services.AddGrpcReflection();
 
         return services;

@@ -6,7 +6,7 @@
         <LangVersion>latestmajor</LangVersion>
         <TargetFrameworks>net5.0;net6.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>0.0.1</PackageVersion>
+        <PackageVersion>1.0.0</PackageVersion>
         <Title>STAIExtensions Grpc Client</Title>
         <Authors>Trevor Mare</Authors>
         <Description>.NET library to connect to the STAIExtensions Grpc Host</Description>
@@ -15,6 +15,7 @@
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>STAIExtensions, Application Insights, Grpc, Client</PackageTags>
+        <PackageReleaseNotes>v1.0.0 - Initial Release</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
@@ -24,6 +25,7 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="System.Text.Json" Version="6.0.1" />
     </ItemGroup>
     <ItemGroup>
         <Protobuf Include="..\STAIExtensions.Host.Grpc.Shared\Protos\STAIExtensionsGrpc.proto" GrpServices="Client" />

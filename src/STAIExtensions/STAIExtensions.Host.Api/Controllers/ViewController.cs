@@ -91,6 +91,13 @@ public class ViewController : ControllerBase
     { 
         return await _mediator.Send(new SetViewDisabledCommand(request.ViewId, request.OwnerId));
     }
+    
+    [HttpPost]
+    [Route("GetMyViews")]
+    public async Task<IEnumerable<MyViewInformation>> GetMyViews(GetMyViewsRequest request)
+    { 
+        return await _mediator.Send(new GetMyViewsQuery((request.OwnerId)));
+    }
     #endregion
     
 }

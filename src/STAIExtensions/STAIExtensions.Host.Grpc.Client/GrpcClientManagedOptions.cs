@@ -10,6 +10,10 @@ public class GrpcClientManagedOptions
 
     public string OwnerId { get; set; }
 
+    public bool UseDefaultAuthorization { get; set; } = true;
+
+    public string AuthBearerToken { get; set; } = "598cd5656c78fc13c4d7c274ac41f34737e6b4d0e86af5c3ab47c81674dde666";
+
     public GrpcChannelOptions GrpcChannelOptions { get; set; } = new();
 
     public GrpcClientManagedOptions(string channelUrl, string ownerId)
