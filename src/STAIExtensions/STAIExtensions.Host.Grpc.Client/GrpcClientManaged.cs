@@ -43,6 +43,7 @@ public class GrpcClientManaged : IDisposable
 
     public async Task<IDataSetView?> CreateViewAsync(string viewTypeName)
     {
+        
         if (string.IsNullOrEmpty(viewTypeName) || viewTypeName.Trim() == "")
             throw new ArgumentNullException(nameof(viewTypeName));
         

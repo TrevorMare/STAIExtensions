@@ -1,9 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <LangVersion>latestmajor</LangVersion>
+        <TargetFrameworks>net5.0;net6.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>0.0.1</PackageVersion>
+        <Title>STAIExtensions Grpc Client</Title>
+        <Authors>Trevor Mare</Authors>
+        <Description>.NET library to connect to the STAIExtensions Grpc Host</Description>
+        <PackageProjectUrl>https://github.com/TrevorMare/STAIExtensions</PackageProjectUrl>
+        <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <PackageTags>STAIExtensions, Application Insights, Grpc, Client</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>

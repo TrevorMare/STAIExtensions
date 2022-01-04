@@ -17,9 +17,7 @@ public class Class1
 
         try
         {
-            AppContext.SetSwitch(
-                "System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
-            
+        
             Console.WriteLine("Initialising Grpc Connection");
 
             using var managedClient = new Host.Grpc.Client.GrpcClientManaged(new GrpcClientManagedOptions("https://localhost:44309", "ABC"));
