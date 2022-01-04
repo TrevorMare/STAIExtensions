@@ -69,7 +69,9 @@ app.MapSTAIGrpc(app.Environment);
 
 ## Example Code Service/Console Application:
 
-
+```c#
+    TODO
+```
 
 ## Target Frameworks
 
