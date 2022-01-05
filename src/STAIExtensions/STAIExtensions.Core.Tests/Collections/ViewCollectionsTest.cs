@@ -169,30 +169,6 @@ public class ViewCollectionsTest
     [InlineData(null)]
     [InlineData("")]
     [InlineData("   ")]
-    public void GetView_WhenViewIdNotSet_ShouldThrowArgumentNullException(string viewId)
-    {
-        var options = new ViewCollectionOptions(1000, true, true, null);
-        var sut = new ViewCollection(options);
-
-        Assert.Throws<ArgumentNullException>(() => sut.GetView(viewId, "123"));
-    }
-    
-    [Theory]
-    [InlineData(null)]
-    [InlineData("")]
-    [InlineData("   ")]
-    public void GetView_WhenOwnerIdNotSetAndUseStrictViewsIsSet_ShouldThrowArgumentNullException(string ownerId)
-    {
-        var options = new ViewCollectionOptions(1000, true, true, null);
-        var sut = new ViewCollection(options);
-
-        Assert.Throws<ArgumentNullException>(() => sut.GetView("123", ownerId));
-    }
-    
-    [Theory]
-    [InlineData(null)]
-    [InlineData("")]
-    [InlineData("   ")]
     public void GetView_WhenOwnerIdNotSetAndUseStrictViewsIsFalse_ShouldNotFail(string ownerId)
     {
         var options = new ViewCollectionOptions(1000, false, true, null);
