@@ -3,6 +3,8 @@
 This library contains a default .NET Protobuf Client. It also contains a managed wrapper to ease development
 of handling the connections and callbacks from and to the Grpc Server.
 
+[![.NET](https://github.com/TrevorMare/STAIExtensions/actions/workflows/dotnet.yml/badge.svg)](https://github.com/TrevorMare/STAIExtensions/actions/workflows/dotnet.yml)
+
 ## Nuget
 
 ```http request
