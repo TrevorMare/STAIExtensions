@@ -9,6 +9,7 @@ package STAIExtensionsGrpc;
 
 // The greeting service definition.
 service STAIExtensionsGrpcService {
+  rpc RegisterConnectionState(NoParameters) returns (stream ConnectionStateResponse);
   // Registers for dataset updated   
   rpc OnDataViewUpdated(OnDataSetViewUpdatedRequest) returns (stream OnDataSetViewUpdatedResponse);
   // Registers for dataset updated   
@@ -157,4 +158,8 @@ message OnDataSetUpdatedResponse {
 
 message OnDataSetViewUpdatedResponse {
   string ViewId = 1;
+}
+
+message ConnectionStateResponse {
+  google.protobuf.Timestamp ServerTimeUTC = 1;
 }

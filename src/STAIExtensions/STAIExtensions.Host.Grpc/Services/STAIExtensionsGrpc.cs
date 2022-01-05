@@ -40,6 +40,20 @@ public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensions
 
     #region Methods
 
+    public override async Task RegisterConnectionState(NoParameters request, IServerStreamWriter<ConnectionStateResponse> responseStream, ServerCallContext context)
+    {
+        var contextCancellationToken = context.CancellationToken;
+        while (contextCancellationToken.IsCancellationRequested == false)
+        {
+            await responseStream.WriteAsync(new ConnectionStateResponse()
+                {
+                    ServerTimeUTC = Timestamp.FromDateTime(DateTime.Now.ToUniversalTime())
+                }
+            );
+            await Task.Delay(1000, contextCancellationToken);
+        }
+    }
+
     public override async Task OnDataSetUpdated(NoParameters request, IServerStreamWriter<OnDataSetUpdatedResponse> responseStream, ServerCallContext context)
     {
         _dataSetCollection.OnDataSetUpdated += (sender, args) =>
@@ -49,7 +63,7 @@ public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensions
 
         var contextCancellationToken = context.CancellationToken;
         
-        while (true && contextCancellationToken.IsCancellationRequested == false)
+        while (contextCancellationToken.IsCancellationRequested == false)
         {
             while (this._datasetUpdates.Count > 0)
             {
@@ -72,7 +86,7 @@ public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensions
 
         var contextCancellationToken = context.CancellationToken;
         
-        while (true && contextCancellationToken.IsCancellationRequested == false)
+        while (contextCancellationToken.IsCancellationRequested == false)
         {
             while (this._viewUpdates.Count > 0)
             {
