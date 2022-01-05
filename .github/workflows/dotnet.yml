@@ -17,9 +17,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
-    - name: Restore Nuget Dependencies
+    # Restore the solution dependencies for ST AI Extensions    
+    - name: Restore Nuget Dependencies STAIExtensions
       run: dotnet restore ./src/STAIExtensions/STAIExtensions.sln
     - name: Build STAIExtensions
       run: dotnet build ./src/STAIExtensions/STAIExtensions.sln --no-restore --configuration Release
-    - name: Run Unit Tests
-      run: dotnet test ./src/STAIExtensions/STAIExtensions.sln --no-build -configuration Release
+    - name: Run Unit Tests STAIExtensions
+      run: dotnet test ./src/STAIExtensions/STAIExtensions.sln --no-build --configuration Release
+    - name: Push Nuget STAIExtensions Host Grpc Client
+      run: dotnet nuget push ./src/STAIExtensions/STAIExtensions.Host.Grpc.Client/bin/Release/*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate

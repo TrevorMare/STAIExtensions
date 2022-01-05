@@ -10,7 +10,7 @@
         <Title>STAIExtensions Grpc Client</Title>
         <Authors>Trevor Mare</Authors>
         <Description>.NET library to connect to the STAIExtensions Grpc Host</Description>
-        <PackageProjectUrl>https://github.com/TrevorMare/STAIExtensions</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/TrevorMare/STAIExtensions/tree/main/src/STAIExtensions/STAIExtensions.Host.Grpc.Client</PackageProjectUrl>
         <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
