@@ -8,18 +8,18 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET
+    # Restore the .NET Environment
+    - name: Setup .NET Environment
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
-    - name: Restore dependencies
+    - name: Restore Nuget Dependencies
       run: dotnet restore ./src/STAIExtensions/STAIExtensions.sln
-    - name: Build
+    - name: Build STAIExtensions
       run: dotnet build ./src/STAIExtensions/STAIExtensions.sln --no-restore --configuration Release
     #- name: Test
     #  run: dotnet test ./src/STAIExtensions/STAIExtensions.sln --no-build
