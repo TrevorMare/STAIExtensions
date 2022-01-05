@@ -1,7 +1,7 @@
 ﻿## STAIExtensions Host Grpc
 
-This library contains the .NET Protobuf Grpc Service. It currently only supports hosting via an AspNet Core application and
-can be extended in future. If required, the service can be instantiated manually if the host is a service or console application.
+This library contains the .NET Protobuf Grpc Service. It can be hosted in both console applications
+and in ASPNet Web projects. For example usage, check the Examples folder.
 
 ## Nuget
 
@@ -12,7 +12,7 @@ https://nuget.org/TODO
 ## Usage
 
 To use the library in a .NET project, install the package from Nuget. 
-
+Follow the examples to host the application
 
 ## Example Code AspNet Core:
 
@@ -62,7 +62,7 @@ app.MapSTAISignalRHubs();
 // *********************
 // Map the Grpc Controllers here after routing and Authorization
 // *********************
-app.MapSTAIGrpc(app.Environment);
+app.MapSTAIGrpc(app.Environment.IsDevelopment());
 ...
 
 ```
@@ -70,7 +70,47 @@ app.MapSTAIGrpc(app.Environment);
 ## Example Code Service/Console Application:
 
 ```c#
-    TODO
+
+using Examples.Grpc.Host.Console.Services;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using STAIExtensions.Core;
+using STAIExtensions.Host.Grpc;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureServices(services =>
+            {
+                var dsOptions = new STAIExtensions.Abstractions.Collections.DataSetCollectionOptions();
+                var dsvOptions = new STAIExtensions.Abstractions.Collections.ViewCollectionOptions(1000, false, true, TimeSpan.FromMinutes(2));
+                services.UseSTAIExtensions(() => dsOptions, () => dsvOptions);
+                services.UseSTAIGrpc();
+                services.AddLogging(configure => configure.AddConsole());
+                services.Configure<LoggerFilterOptions>(options => options.MinLevel = LogLevel.Information);
+                services.AddHostedService<ServiceRunner>();
+            }).ConfigureWebHostDefaults((webBuilder) =>
+            {
+                webBuilder.Configure(app =>
+                {
+                    app.UseRouting();
+                    app.MapSTAIGrpc();
+                });
+                webBuilder.ConfigureKestrel(options =>
+                    options.ConfigureEndpointDefaults(o => o.Protocols = HttpProtocols.Http2));
+            });
+}
+
 ```
 
 ## Target Frameworks

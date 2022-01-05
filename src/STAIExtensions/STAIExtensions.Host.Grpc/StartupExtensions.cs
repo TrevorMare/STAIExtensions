@@ -27,12 +27,12 @@ public static class StartupExtensions
         return services;
     }
 
-    public static IApplicationBuilder MapSTAIGrpc(this IApplicationBuilder app, IWebHostEnvironment env)
+    public static IApplicationBuilder MapSTAIGrpc(this IApplicationBuilder app, bool mapGrpcReflectionService = true)
     {
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapGrpcService<Services.STAIExtensionsGrpcService>();
-            if (env.IsDevelopment())
+            if (mapGrpcReflectionService == true)
             {
                 endpoints.MapGrpcReflectionService();
             }

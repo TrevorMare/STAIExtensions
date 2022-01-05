@@ -24,7 +24,7 @@ public class Class1
             Console.WriteLine("Initialising Grpc Connection");
 
             using var managedClient =
-                new Host.Grpc.Client.GrpcClientManaged(new GrpcClientManagedOptions("https://localhost:7029", "ABC")
+                new Host.Grpc.Client.GrpcClientManaged(new GrpcClientManagedOptions(" https://localhost:5001", "ABC")
                 ,logger);
 
             while (managedClient.ConnectionState != ConnectionState.Connected)

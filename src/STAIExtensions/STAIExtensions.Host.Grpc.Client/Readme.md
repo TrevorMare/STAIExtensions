@@ -96,6 +96,9 @@ restarted, the Views that were created during this session will not exist and ha
 
 #### Example Code:
 
+***Note***: The example below just waits for the connection to establish before continuing with the rest of the operations. A better practice would
+be to attach an event to the OnConnectionStateChanged event and drive the process from there.
+
 ```c#
 
 public async Task SetupManagedClient()
