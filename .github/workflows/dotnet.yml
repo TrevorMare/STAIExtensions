@@ -22,4 +22,4 @@ jobs:
     - name: Build STAIExtensions
       run: dotnet build ./src/STAIExtensions/STAIExtensions.sln --no-restore --configuration Release
     - name: Run Unit Tests
-      run: dotnet test ./src/STAIExtensions/STAIExtensions.sln --no-build
+      run: dotnet test ./src/STAIExtensions/STAIExtensions.sln --no-build -configuration Release
