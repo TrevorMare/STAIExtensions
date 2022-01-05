@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions.Default.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STAIExtensions.Host.Grpc.Client", "STAIExtensions.Host.Grpc.Client\STAIExtensions.Host.Grpc.Client.csproj", "{93513653-234E-450B-8088-D5D6C982F782}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.Grpc.Host.Console", "Example Projects\Examples.Grpc.Host.Console\Examples.Grpc.Host.Console.csproj", "{B42D85B5-DC0B-45C3-A998-69F6C5DA5038}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,5 +92,9 @@ Global
 		{93513653-234E-450B-8088-D5D6C982F782}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93513653-234E-450B-8088-D5D6C982F782}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93513653-234E-450B-8088-D5D6C982F782}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B42D85B5-DC0B-45C3-A998-69F6C5DA5038}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B42D85B5-DC0B-45C3-A998-69F6C5DA5038}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B42D85B5-DC0B-45C3-A998-69F6C5DA5038}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B42D85B5-DC0B-45C3-A998-69F6C5DA5038}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

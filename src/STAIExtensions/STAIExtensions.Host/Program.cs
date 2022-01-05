@@ -43,7 +43,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapSTAISignalRHubs();
-app.MapSTAIGrpc(app.Environment);
+app.MapSTAIGrpc(app.Environment.IsDevelopment());
 
 app.MapControllers();
 
