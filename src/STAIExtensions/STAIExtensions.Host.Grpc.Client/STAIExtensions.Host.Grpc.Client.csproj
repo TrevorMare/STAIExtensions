@@ -16,6 +16,8 @@
         <RepositoryType>Git</RepositoryType>
         <PackageTags>STAIExtensions, Application Insights, Grpc, Client</PackageTags>
         <PackageReleaseNotes>v1.0.0 - Initial Release</PackageReleaseNotes>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <FileVersion>1.0.0</FileVersion>
     </PropertyGroup>
 
     <ItemGroup>
