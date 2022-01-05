@@ -73,6 +73,7 @@ public void GetView(string viewId, string ownerId, CancellationToken cancellatio
 | ListDataSets               |       yes       | Lists the currently running datasets that views can be attached to                                                                                               |
 | OnDataSetUpdated           |       yes       | Callback stream that notifies the client that a dataset has updated                                                                                              |
 | OnDataViewUpdated          |       yes       | Callback stream that notifies the client that a view belonging to the owner has been updated                                                                     |
+| RegisterConnectionState    |       yes       | Callback stream to monitor the streaming connection states. The server will stream the server time in UTC every second                                           |
 | RemoveView                 |       yes       | Removes a view from all datasets and disposes it                                                                                                                 |
 | SetViewAutoRefreshDisabled |       yes       | Pauses the view updates on a view                                                                                                                                |
 | SetViewAutoRefreshEnabled  |       yes       | Resumes the view updates on a view                                                                                                                               |
@@ -89,11 +90,15 @@ Additionally to the basic setup and configuration, this managed client allows fo
 to be injected as part of the options. This will use a Bearer token that will be sent across in the header metadata
 and validated against the server. The server host and the client bearer token must be the same.
 
+The managed client will also automatically watch the streaming connection states and attempt to reconnect the channel and client
+when a connection drop is noticed. This might work fine in some cases, but when the hosting application
+restarted, the Views that were created during this session will not exist and have to be recreated.
+
 #### Example Code:
 
 ```c#
 
-public void SetupManagedClient()
+public async Task SetupManagedClient()
 {
     using var managedClient =
         new Host.Grpc.Client.GrpcClientManaged(new GrpcClientManagedOptions("https://localhost:44309", "ABC")
@@ -101,6 +106,12 @@ public void SetupManagedClient()
             UseDefaultAuthorization = true,
             AuthBearerToken = "SameAsServerConfiguration"
         });
+    
+    // Wait for the connection
+    while (managedClient.ConnectionState != ConnectionState.Connected)
+    {
+        await Task.Delay(200);
+    }
     
     managedClient.OnDataSetUpdated += (sender, id) =>
     {

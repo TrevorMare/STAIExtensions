@@ -4,6 +4,13 @@ namespace STAIExtensions.Host.Grpc.Client;
 
 public class GrpcClientManagedOptions
 {
+
+    #region Properties
+
+    public bool AutoReconnect { get; set; } = true;
+
+    public int? AutoReconnectMaxAttempts { get; set; } = null;
+
     public bool UseHttp2UnencryptedSupport { get; set; } = true;
 
     public string ChannelUrl { get; set; }
@@ -25,5 +32,8 @@ public class GrpcClientManagedOptions
         this.ChannelUrl = channelUrl;
         this.OwnerId = ownerId;
     }
+
+    #endregion
+    
     
 }

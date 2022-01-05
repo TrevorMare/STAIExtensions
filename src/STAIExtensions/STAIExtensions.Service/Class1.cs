@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using STAIExtensions.Host.Grpc;
 using STAIExtensions.Host.Grpc.Client;
+using STAIExtensions.Host.Grpc.Client.Common;
 
 namespace STAIExtensions.Service;
 
@@ -12,20 +13,25 @@ public class Class1
     
     public static async Task Main()
     {
-        
-      
-
         try
         {
+            var serviceCollection = new ServiceCollection();
+            ConfigureServices(serviceCollection);
+            var serviceProvider = serviceCollection.BuildServiceProvider();
+
+            var logger = serviceProvider.GetService<ILogger<GrpcClientManaged>>();
         
             Console.WriteLine("Initialising Grpc Connection");
 
             using var managedClient =
-                new Host.Grpc.Client.GrpcClientManaged(new GrpcClientManagedOptions("https://localhost:44309", "ABC")
-                {
-                    UseDefaultAuthorization = true,
-                    AuthBearerToken = "SameAsServerConfiguration"
-                });
+                new Host.Grpc.Client.GrpcClientManaged(new GrpcClientManagedOptions("https://localhost:7029", "ABC")
+                ,logger);
+
+            while (managedClient.ConnectionState != ConnectionState.Connected)
+            {
+                await Task.Delay(200);
+            }
+            
             // Attach to the Events
             Console.WriteLine("Attaching the dataset updates");
             
@@ -88,31 +94,12 @@ public class Class1
         }
 
         Console.ReadLine();
-
-        // var serviceCollection = new ServiceCollection();
-        // ConfigureServices(serviceCollection);
-        //
-        // serviceCollection.UseSTAIExtensions();
-        //
-        // var serviceProvider = serviceCollection.BuildServiceProvider();
-        //
-        // var telemetryLoader = new STAIExtensions.Data.AzureDataExplorer.TelemetryLoader(new TelemetryLoaderOptions(null, null));
-        // var dataset =
-        //     new Core.DataSets.DataContractDataSet(telemetryLoader, new DataContractDataSetOptions(), "MyDataSet");
-        //
-        // dataset.StartAutoRefresh(TimeSpan.FromSeconds(30));
-        //
-        // Console.ReadLine();
-        //
-        // dataset.StopAutoRefresh();
-
-
     }
     
     private static void ConfigureServices(IServiceCollection services)
     {
         services.AddLogging(configure => configure.AddConsole())
-            .Configure<LoggerFilterOptions>(options => options.MinLevel = LogLevel.Information);
+            .Configure<LoggerFilterOptions>(options => options.MinLevel = LogLevel.Trace);
     }
     
 }
