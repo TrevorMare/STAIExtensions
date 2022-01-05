@@ -26,6 +26,6 @@ jobs:
       run: dotnet test ./src/STAIExtensions/STAIExtensions.sln --no-build --configuration Release
     - name: Package STAIExtensions Host Grpc Client
       run: dotnet pack ./src/STAIExtensions/STAIExtensions.Host.Grpc.Client/STAIExtensions.Host.Grpc.Client.csproj --no-build --configuration Release
-    - name: Push Nuget STAIExtensions Host Grpc Client
-      run: dotnet nuget push ./src/STAIExtensions/STAIExtensions.Host.Grpc.Client/bin/Release/*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+    #- name: Push Nuget STAIExtensions Host Grpc Client
+    #  run: dotnet nuget push ./src/STAIExtensions/STAIExtensions.Host.Grpc.Client/bin/Release/*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
  
