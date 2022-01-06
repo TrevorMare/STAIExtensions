@@ -18,6 +18,7 @@
         <PackageReleaseNotes>v1.0.0 - Initial Release</PackageReleaseNotes>
         <AssemblyVersion>1.0.0</AssemblyVersion>
         <FileVersion>1.0.0</FileVersion>
+        <PackageIconUrl>https://github.com/TrevorMare/STAIExtensions/blob/4c8a46ec201e7757c43de77862a40e62bbf6a946/src/STAIExtensions/Resources/st_icon.ico</PackageIconUrl>
     </PropertyGroup>
 
     <ItemGroup>
