@@ -8,19 +8,19 @@ namespace Examples.Grpc.Host.Console.Services;
 public class ServiceRunner : IHostedService
 {
     private IDataSet _ds;
-    private IServiceProvider _serviceProvider;
-
-    public ServiceRunner(IServiceProvider serviceProvider)
-    {
-        _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
-    }
     
     public Task StartAsync(CancellationToken cancellationToken)
     {
+        // 1) Create a new telemetry loader instance
         var telemetryLoader = new STAIExtensions.Data.AzureDataExplorer.TelemetryLoader(
             new TelemetryLoaderOptions("fn884tsrbltm7rwc7bggidd8nkbls6huvwlz05m1",
                 "435b44c6-c1bd-4316-92a7-2760a0960cbe"));
-        _ds = new STAIExtensions.Default.DataSets.DataContractDataSet(telemetryLoader, new DataContractDataSetOptions(), "MyDataSet");
+        
+        // 2) Register a new dataset with the telemetry loader
+        _ds = new STAIExtensions.Default.DataSets.DataContractDataSet(telemetryLoader, new DataContractDataSetOptions(),
+            "DataContractDataSet");
+        
+        // 3) Start the auto refresh on the dataset.
         _ds.StartAutoRefresh(TimeSpan.FromSeconds(30), cancellationToken);
         
         return Task.CompletedTask;
