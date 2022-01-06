@@ -24,13 +24,12 @@ jobs:
       run: dotnet build ./src/STAIExtensions/STAIExtensions.sln --no-restore --configuration Release
     - name: Run Unit Tests STAIExtensions
       run: dotnet test ./src/STAIExtensions/STAIExtensions.sln --no-build --configuration Release
+    # Rebuild the library to get the nuget package  
     - name: Package STAIExtensions Host Grpc Client
-      run: dotnet pack ./src/STAIExtensions/STAIExtensions.Host.Grpc.Client/STAIExtensions.Host.Grpc.Client.csproj --configuration Release --no-build --nologo --verbosity d
-    - name: Sleep for 30 seconds
-      run: Start-Sleep -s 30
-      shell: powershell
-    - name: Push Nuget STAIExtensions Host Grpc Client
-      run: dotnet nuget push ./src/STAIExtensions/STAIExtensions.Host.Grpc.Client/bin/Release/*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+      run: dotnet build ./src/STAIExtensions/STAIExtensions.Host.Grpc.Client/STAIExtensions.Host.Grpc.Client.csproj --no-restore --configuration Release 
+    # Push the package to nuget
+    #- name: Push Nuget STAIExtensions Host Grpc Client
+    #  run: dotnet nuget push ./src/STAIExtensions/STAIExtensions.Host.Grpc.Client/bin/Release/*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
    
       
 
