@@ -3,13 +3,16 @@
 This library contains a default .NET Protobuf Client. It also contains a managed wrapper to ease development
 of handling the connections and callbacks from and to the Grpc Server.
 
-[![.NET](https://github.com/TrevorMare/STAIExtensions/actions/workflows/dotnet.yml/badge.svg)](https://github.com/TrevorMare/STAIExtensions/actions/workflows/dotnet.yml)
+
+
+[![.NET](https://img.shields.io/github/workflow/status/TrevorMare/STAIExtensions/dotnet.yml?style=for-the-badge)](https://github.com/TrevorMare/STAIExtensions/actions/workflows/dotnet.yml)
 
 ## Nuget
+[![Nuget](https://img.shields.io/nuget/v/STAIExtensions.Host.Grpc.Client?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Host.Grpc.Client/)
+[![Nuget](https://img.shields.io/nuget/dt/STAIExtensions.Host.Grpc.Client?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Host.Grpc.Client/)
 
-```http request
-https://nuget.org/TODO
-```
+
+[https://www.nuget.org/packages/STAIExtensions.Host.Grpc.Client/](https://www.nuget.org/packages/STAIExtensions.Host.Grpc.Client/)
 
 ## Usage
 
