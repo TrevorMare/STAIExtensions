@@ -1,14 +1,16 @@
 ﻿## STAIExtensions Abstractions
 
-At a top level, this library defines the interfaces for queries, datasets, dataset views, AI data contracts models, the managing collections of the datasets and views 
-and lastly the CQRS pattern to update the entities. The rest of the project relies heavily on this
+This library is the root that defines the interfaces for queries, datasets, dataset views, Application Insights data contract models, the collection management interfaces 
+and lastly the CQRS pattern to update the objects. The rest of the projects rely heavily on this
 project for the dataflow and shared structures.
 
-## Nuget
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TrevorMare/STAIExtensions/.NET?style=for-the-badge)
 
-```http request
-https://nuget.org/TODO
-```
+## Nuget
+[![Nuget](https://img.shields.io/nuget/v/STAIExtensions.Abstractions?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Abstractions/)
+[![Nuget](https://img.shields.io/nuget/dt/STAIExtensions.Abstractions?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Abstractions/)
+
+[https://www.nuget.org/packages/STAIExtensions.Abstractions/](https://www.nuget.org/packages/STAIExtensions.Host.Grpc.Client/)
 
 ### Collections
 Defines the interfaces for the collection management of views and data sets. This also includes an interface for
@@ -39,6 +41,13 @@ of persisting the IServiceCollection to retrieve the singleton collections.
 
 This class is automatically instantiated by the STAIExtensions.Core project and does not need to be called manually. 
 
+## Target Frameworks
+
+- .NET Standard 2.1
+- .NET Core 3.1
+- .NET 5
+- .NET 6
+
 ## Dependencies
 
 - MediatR
@@ -47,3 +56,4 @@ This class is automatically instantiated by the STAIExtensions.Core project and 
 - Microsoft.Extensions.Logging.Abstractions
 - Microsoft.Extensions.DependencyInjection.Abstractions
 - Microsoft.Extensions.DependencyInjection
+- Microsoft.ApplicationInsights

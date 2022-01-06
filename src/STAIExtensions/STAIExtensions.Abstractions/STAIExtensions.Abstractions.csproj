@@ -11,11 +11,11 @@
         <Description>General abstractions for the ST Application Insights Extensions</Description>
         <TargetFrameworks>net5.0;net6.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
         <Copyright>Trevor Maré</Copyright>
-        <PackageProjectUrl>https://github.com/TrevorMare/STAIExtensions</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/TrevorMare/STAIExtensions/tree/main/src/STAIExtensions/STAIExtensions.Abstractions</PackageProjectUrl>
         <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
-        <PackageTags>Application Insights, Custom Views, </PackageTags>
+        <PackageTags>Application Insights, Custom Views, Grpc, SignalR, .Net</PackageTags>
         <PackageReleaseNotes>0.0.1 - Initial Release</PackageReleaseNotes>
         <AssemblyVersion>0.0.1</AssemblyVersion>
         <FileVersion>0.0.1</FileVersion>
