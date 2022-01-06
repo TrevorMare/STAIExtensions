@@ -25,7 +25,7 @@ jobs:
     - name: Run Unit Tests STAIExtensions
       run: dotnet test ./src/STAIExtensions/STAIExtensions.sln --no-build --configuration Release
     - name: Package STAIExtensions Host Grpc Client
-      run: dotnet pack ./src/STAIExtensions/STAIExtensions.Host.Grpc.Client/STAIExtensions.Host.Grpc.Client.csproj --configuration Release --no-build --nologo
+      run: dotnet pack ./src/STAIExtensions/STAIExtensions.Host.Grpc.Client/STAIExtensions.Host.Grpc.Client.csproj --configuration Release --no-build --nologo --verbosity d
     - name: Sleep for 30 seconds
       run: Start-Sleep -s 30
       shell: powershell
