@@ -23,7 +23,7 @@ public class Program
                 var dsOptions = new STAIExtensions.Abstractions.Collections.DataSetCollectionOptions();
                 var dsvOptions = new STAIExtensions.Abstractions.Collections.ViewCollectionOptions(1000, false, true, TimeSpan.FromMinutes(2));
                 services.UseSTAIExtensions(() => dsOptions, () => dsvOptions);
-                services.UseSTAIGrpc();
+                services.UseSTAIGrpc(new GrpcHostOptions(BearerToken: "ABC"));
                 services.AddLogging(configure => configure.AddConsole());
                 services.Configure<LoggerFilterOptions>(options => options.MinLevel = LogLevel.Information);
                 services.AddHostedService<ServiceRunner>();
