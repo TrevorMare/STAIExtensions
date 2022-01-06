@@ -6,7 +6,7 @@
         <LangVersion>latestmajor</LangVersion>
         <TargetFrameworks>net5.0;net6.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>1.0.0</PackageVersion>
+        <PackageVersion>1.0.1</PackageVersion>
         <Title>STAIExtensions Grpc Client</Title>
         <Authors>Trevor Mare</Authors>
         <Description>.NET library to connect to the STAIExtensions Grpc Host</Description>
@@ -15,10 +15,13 @@
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>STAIExtensions, Application Insights, Grpc, Client</PackageTags>
-        <PackageReleaseNotes>v1.0.0 - Initial Release</PackageReleaseNotes>
+        <PackageReleaseNotes>
+            v1.0.1 - Added package Icon
+            v1.0.0 - Initial Release
+        </PackageReleaseNotes>
         <AssemblyVersion>1.0.0</AssemblyVersion>
         <FileVersion>1.0.0</FileVersion>
-        <PackageIconUrl>https://github.com/TrevorMare/STAIExtensions/blob/4c8a46ec201e7757c43de77862a40e62bbf6a946/src/STAIExtensions/Resources/st_icon.ico</PackageIconUrl>
+        <PackageIcon>content\st_icon.png</PackageIcon>
     </PropertyGroup>
 
     <ItemGroup>
@@ -31,7 +34,10 @@
         <PackageReference Include="System.Text.Json" Version="6.0.1" />
     </ItemGroup>
     <ItemGroup>
-        <Protobuf Include="..\STAIExtensions.Host.Grpc.Shared\Protos\STAIExtensionsGrpc.proto" GrpServices="Client" />
+        <Protobuf Pack="true" PackagePath="content" Include="..\STAIExtensions.Host.Grpc.Shared\Protos\STAIExtensionsGrpc.proto" GrpServices="Client" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="..\Resources\st_icon.png" Pack="true" PackagePath="content"/>
     </ItemGroup>
     
 </Project>
