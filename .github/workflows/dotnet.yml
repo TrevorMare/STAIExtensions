@@ -24,19 +24,28 @@ jobs:
       run: dotnet build ./src/STAIExtensions/STAIExtensions.sln --no-restore --configuration Release
     - name: Run Unit Tests STAIExtensions
       run: dotnet test ./src/STAIExtensions/STAIExtensions.sln --no-build --configuration Release
-    # Pack the Host Grpc Client  
+
+      # Pack the STAIExtensions Abstractions project  
+    - name: Package STAIExtensions Abstractions
+      run: dotnet pack ./src/STAIExtensions/STAIExtensions.Abstractions/STAIExtensions.Abstractions.csproj --no-build --configuration Release
+      # Push the STAIExtensions Abstractions project
+    - name: Push Nuget STAIExtensions Abstractions
+      run: dotnet nuget push src\STAIExtensions\STAIExtensions.Abstractions\bin\Release\*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+      
+      # Pack the STAIExtensions Core project  
+    - name: Package STAIExtensions Core
+      run: dotnet pack ./src/STAIExtensions/STAIExtensions.Core/STAIExtensions.Core.csproj --no-build --configuration Release
+      # Push the STAIExtensions Core project
+    - name: Push Nuget STAIExtensions Core
+      run: dotnet nuget push src\STAIExtensions\STAIExtensions.Core\bin\Release\*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+    
+     # Pack the Host Grpc Client  
     - name: Package STAIExtensions Host Grpc Client
       run: dotnet pack ./src/STAIExtensions/STAIExtensions.Host.Grpc.Client/STAIExtensions.Host.Grpc.Client.csproj --no-build --configuration Release 
-    # Push the package to nuget
+     # Push the package to nuget
     - name: Push Nuget STAIExtensions Host Grpc Client
       run: dotnet nuget push src\STAIExtensions\STAIExtensions.Host.Grpc.Client\bin\Release\*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
       
-    # Pack the Abstractions project  
-    - name: Package STAIExtensions Abstractions
-      run: dotnet pack ./src/STAIExtensions/STAIExtensions.Abstractions/STAIExtensions.Abstractions.csproj --no-build --configuration Release
-    # Push the Abstractions project
-    - name: Push Nuget STAIExtensions Abstractions
-      run: dotnet nuget push src\STAIExtensions\STAIExtensions.Abstractions\bin\Release\*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
       
 
  

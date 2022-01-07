@@ -15,7 +15,7 @@
         <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
-        <PackageTags>Application Insights, Custom Views, Grpc, SignalR, .Net</PackageTags>
+        <PackageTags>Application Insights, Custom Views, Grpc, SignalR, .Net, STAIExtensions, Trevor Mare, Abstractions, dotnet</PackageTags>
         <PackageReleaseNotes>
             v0.0.3 - Added Package Readme
             v0.0.2 - Added Package Icon
@@ -35,6 +35,7 @@
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
       <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
       <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+      <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="6.0.0" />
     </ItemGroup>
     <ItemGroup>
         <None Include="..\Resources\st_icon.png" Pack="true" PackagePath="content" />

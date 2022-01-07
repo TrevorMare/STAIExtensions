@@ -13,16 +13,20 @@
         <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
-        <PackageTags>Application Insights Extensions STAIExtension</PackageTags>
+        <PackageTags>Application Insights, Custom Views, Grpc, SignalR, .Net, STAIExtensions, Trevor Mare, Core, dotnet</PackageTags>
         <PackageReleaseNotes>0.0.1 Initial Release</PackageReleaseNotes>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <FileVersion>1.0.0</FileVersion>
+        <PackageIcon>content\st_icon.png</PackageIcon>
+        <PackageReadmeFile>content\NugetReadme.md</PackageReadmeFile>
     </PropertyGroup>
-
     <ItemGroup>
-      <ProjectReference Include="..\STAIExtensions.Abstractions\STAIExtensions.Abstractions.csproj" />
+        <PackageReference Include="STAIExtensions.Abstractions" Version="0.0.3" />
+        <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
     </ItemGroup>
-
     <ItemGroup>
-      <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
+        <None Include="..\Resources\st_icon.png" Pack="true" PackagePath="content" />
+        <None Include="NugetReadme.md" Pack="true" PackagePath="content" />
     </ItemGroup>
 
 </Project>
