@@ -21,7 +21,15 @@
         <PackageReadmeFile>content\NugetReadme.md</PackageReadmeFile>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="STAIExtensions.Abstractions" Version="0.0.3" />
+        <PackageReference Include="MediatR" Version="9.*" />
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.*" />
+        <PackageReference Include="Microsoft.ApplicationInsights" Version="*" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="*" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="*" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="*" />
+        <PackageReference Include="System.ComponentModel.Annotations" Version="*" />
+        <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="*" />
+        <PackageReference Include="STAIExtensions.Abstractions" Version="*" />
         <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
     </ItemGroup>
     <ItemGroup>
