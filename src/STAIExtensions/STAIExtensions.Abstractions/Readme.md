@@ -10,7 +10,7 @@ project for the dataflow and shared structures.
 [![Nuget](https://img.shields.io/nuget/v/STAIExtensions.Abstractions?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Abstractions/)
 [![Nuget](https://img.shields.io/nuget/dt/STAIExtensions.Abstractions?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Abstractions/)
 
-[https://www.nuget.org/packages/STAIExtensions.Abstractions/](https://www.nuget.org/packages/STAIExtensions.Host.Grpc.Client/)
+[https://www.nuget.org/packages/STAIExtensions.Abstractions/](https://www.nuget.org/packages/STAIExtensions.Abstractions/)
 
 ### Collections
 Defines the interfaces for the collection management of views and data sets. This also includes an interface for
