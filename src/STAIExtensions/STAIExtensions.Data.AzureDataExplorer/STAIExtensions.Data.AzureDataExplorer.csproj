@@ -10,20 +10,40 @@
         <Title>STAIExtensions Data AzureDataExplorer</Title>
         <Authors>Trevor Maré</Authors>
         <Description>Azure Data Explorer Telemetry Loader for STAIExtensions.</Description>
-        <PackageProjectUrl>https://github.com/TrevorMare/STAIExtensions</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/TrevorMare/STAIExtensions/tree/main/src/STAIExtensions/STAIExtensions.Data.AzureDataExplorer</PackageProjectUrl>
         <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
-        <PackageTags>AzureDataExplorer STAIExtensions Application Insights</PackageTags>
+        <PackageTags>Application Insights, Custom Views, Grpc, SignalR, .Net, STAIExtensions, Trevor Mare, Core, dotnet, AzureDataExplorer</PackageTags>
         <PackageReleaseNotes>0.0.1 - Initial Release</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\STAIExtensions.Abstractions\STAIExtensions.Abstractions.csproj" />
+<!--        &lt;!&ndash; Root nested packages required by this component &ndash;&gt;-->
+<!--        <PackageReference Include="MediatR" Version="9.0.0" />-->
+<!--        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />-->
+<!--        <PackageReference Include="Microsoft.ApplicationInsights" Version="2.20.0" />-->
+<!--        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />-->
+<!--        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />-->
+<!--        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />-->
+<!--        <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />-->
+<!--        <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="6.0.0" />-->
+
+<!--        &lt;!&ndash; Core packages required by this component &ndash;&gt;-->
+<!--        <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />-->
+<!--        <PackageReference Include="STAIExtensions.Abstractions" Version="1.0.0" />-->
+<!--        <PackageReference Include="STAIExtensions.Core" Version="1.0.0" />-->
+        
+        <!-- Additional Packages required by this library -->
+        <PackageReference Include="STAIExtensions.Core" Version="1.0.0" />
+        <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
+      <None Update="NugetReadme.md">
+        <Pack>true</Pack>
+        <PackagePath>content</PackagePath>
+      </None>
     </ItemGroup>
 
 </Project>

@@ -5,32 +5,37 @@
         <Nullable>enable</Nullable>
         <LangVersion>latestmajor</LangVersion>
         <TargetFrameworks>net5.0;net6.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
-        <PackageVersion>0.0.1</PackageVersion>
+        <PackageVersion>1.0.0</PackageVersion>
         <Title>STAIExtensions Core</Title>
         <Authors>Trevor Maré</Authors>
         <Description>Core library with the default implementations of the fixed size lists and collections</Description>
-        <PackageProjectUrl>https://github.com/TrevorMare/STAIExtensions</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/TrevorMare/STAIExtensions/tree/main/src/STAIExtensions/STAIExtensions.Core</PackageProjectUrl>
         <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>Application Insights, Custom Views, Grpc, SignalR, .Net, STAIExtensions, Trevor Mare, Core, dotnet</PackageTags>
-        <PackageReleaseNotes>0.0.1 Initial Release</PackageReleaseNotes>
+        <PackageReleaseNotes>
+            v1.0.0 Public Release
+            v0.0.1 Initial Release
+        </PackageReleaseNotes>
         <AssemblyVersion>1.0.0</AssemblyVersion>
         <FileVersion>1.0.0</FileVersion>
         <PackageIcon>content\st_icon.png</PackageIcon>
         <PackageReadmeFile>content\NugetReadme.md</PackageReadmeFile>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="MediatR" Version="9.*" />
-        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.*" />
-        <PackageReference Include="Microsoft.ApplicationInsights" Version="*" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="*" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="*" />
-        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="*" />
-        <PackageReference Include="System.ComponentModel.Annotations" Version="*" />
-        <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="*" />
-        <PackageReference Include="STAIExtensions.Abstractions" Version="*" />
+        <!-- Root nested packages required by this component -->
+        <PackageReference Include="MediatR" Version="9.0.0" />
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+        <PackageReference Include="Microsoft.ApplicationInsights" Version="2.20.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
+        <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+        <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="6.0.0" />
+        <!-- Additional packages required by this component -->
         <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
+        <PackageReference Include="STAIExtensions.Abstractions" Version="1.0.0" />
     </ItemGroup>
     <ItemGroup>
         <None Include="..\Resources\st_icon.png" Pack="true" PackagePath="content" />

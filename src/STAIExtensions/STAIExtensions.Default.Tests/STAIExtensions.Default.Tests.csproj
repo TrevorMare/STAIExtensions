@@ -22,7 +22,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\STAIExtensions.Core\STAIExtensions.Core.csproj" />
       <ProjectReference Include="..\STAIExtensions.Default\STAIExtensions.Default.csproj" />
     </ItemGroup>
 

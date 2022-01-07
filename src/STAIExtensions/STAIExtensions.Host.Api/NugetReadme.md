@@ -5,12 +5,6 @@ as well as the startup classes to register the required dependency injection Obj
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TrevorMare/STAIExtensions/.NET?style=for-the-badge)
 
-## Nuget
-[![Nuget](https://img.shields.io/nuget/v/STAIExtensions.Core?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Core/)
-[![Nuget](https://img.shields.io/nuget/dt/STAIExtensions.Core?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Core/)
-
-[https://www.nuget.org/packages/STAIExtensions.Core/](https://www.nuget.org/packages/Core/)
-
 ### Collections
 Default implementations of the Dataset and Dataset View Collections and the Fixed Lists.
 
@@ -34,21 +28,4 @@ builder.Services.UseSTAIExtensions();
 ...
 
 ```
-## Target Frameworks
 
-- .NET Standard 2.1
-- .NET Core 3.1
-- .NET 5
-- .NET 6
-
-## Dependencies
-- MediatR
-- MediatR.Extensions.Microsoft.DependencyInjection
-- System.ComponentModel.Annotations
-- Microsoft.Extensions.Logging.Abstractions
-- Microsoft.Extensions.DependencyInjection.Abstractions
-- Microsoft.Extensions.DependencyInjection
-- Microsoft.ApplicationInsights
-- System.Diagnostics.DiagnosticsSource
-- System.ServiceModel.Primitives
-- STAIExtensions.Abstractions

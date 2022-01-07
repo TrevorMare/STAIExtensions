@@ -18,10 +18,9 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Grpc.AspNetCore" Version="2.32.0" />
+        <PackageReference Include="STAIExtensions.Core" Version="1.0.0" />
     </ItemGroup>
     
-    <ItemGroup>
-      <ProjectReference Include="..\STAIExtensions.Core\STAIExtensions.Core.csproj" />
-    </ItemGroup>
+
     
 </Project>

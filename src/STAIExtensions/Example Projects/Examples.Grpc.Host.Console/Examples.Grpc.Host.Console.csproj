@@ -10,9 +10,8 @@
     <ItemGroup>
         <ProjectReference Include="..\..\STAIExtensions.Core\STAIExtensions.Core.csproj" />
         <ProjectReference Include="..\..\STAIExtensions.Data.AzureDataExplorer\STAIExtensions.Data.AzureDataExplorer.csproj" />
-        <ProjectReference Include="..\..\STAIExtensions.Default\STAIExtensions.Default.csproj" />
         <ProjectReference Include="..\..\STAIExtensions.Host.Grpc\STAIExtensions.Host.Grpc.csproj" />
-        <ProjectReference Include="..\..\STAIExtensions.Host.SignalR\STAIExtensions.Host.SignalR.csproj" />
+        <ProjectReference Include="..\..\STAIExtensions.Default\STAIExtensions.Default.csproj" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,13 +1,35 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <LangVersion>latestmajor</LangVersion>
+        <TargetFrameworks>net5.0;net6.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
+        <PackageVersion>0.0.1</PackageVersion>
+        <Title>STAIExtensions Default</Title>
+        <Authors>Trevor Maré</Authors>
+        <Description>A collection of default views and datasets included</Description>
+        <PackageProjectUrl>https://github.com/TrevorMare/STAIExtensions</PackageProjectUrl>
+        <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <PackageTags>Application Insights, Custom Views, Grpc, SignalR, .Net, STAIExtensions, Trevor Mare, Core, dotnet</PackageTags>
+        <PackageReleaseNotes>
+            v0.0.1 Initial Release
+        </PackageReleaseNotes>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <FileVersion>1.0.0</FileVersion>
+        <PackageIcon>content\st_icon.png</PackageIcon>
+        <PackageReadmeFile>content\NugetReadme.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\STAIExtensions.Core\STAIExtensions.Core.csproj" />
+      <PackageReference Include="STAIExtensions.Core" Version="1.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\Resources\st_icon.png" Pack="true" PackagePath="content" />
+        <None Include="..\Resources\st_icon.png" Pack="true" PackagePath="content" />
     </ItemGroup>
 
 </Project>

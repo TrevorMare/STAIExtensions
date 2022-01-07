@@ -57,3 +57,4 @@ This class is automatically instantiated by the STAIExtensions.Core project and 
 - Microsoft.Extensions.DependencyInjection.Abstractions
 - Microsoft.Extensions.DependencyInjection
 - Microsoft.ApplicationInsights
+- System.Diagnostics.DiagnosticsSource
