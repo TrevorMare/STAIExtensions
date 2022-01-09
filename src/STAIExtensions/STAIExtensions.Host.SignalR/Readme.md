@@ -1,5 +1,6 @@
-STAIExtensions Host Api
+## STAIExtensions Host SignalR
 
-This Library contains the extension to add dataset and view controllers to an API project
+SignalR Library
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TrevorMare/STAIExtensions/.NET?style=for-the-badge)
+

@@ -8,22 +8,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\STAIExtensions.Core\STAIExtensions.Core.csproj" />
-      <ProjectReference Include="..\STAIExtensions.Data.AzureDataExplorer\STAIExtensions.Data.AzureDataExplorer.csproj" />
-      <ProjectReference Include="..\STAIExtensions.Host.Grpc.Client\STAIExtensions.Host.Grpc.Client.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="MediatR" Version="9.0.0" />
-        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
-        <PackageReference Include="Microsoft.ApplicationInsights" Version="2.20.0" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
-        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
-        <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-        <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="6.0.0" />
-        <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+        <PackageReference Include="STAIExtensions.Data.AzureDataExplorer" Version="0.0.2" />
+        <PackageReference Include="STAIExtensions.Host.Grpc.Client" Version="1.0.2" />
     </ItemGroup>
 
 </Project>

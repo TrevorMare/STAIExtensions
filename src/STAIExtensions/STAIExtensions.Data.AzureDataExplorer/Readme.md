@@ -6,16 +6,19 @@ In most cases this should be enough to get going. This package exposes abstract 
 that can be implemented and load custom KUSTO query data from the source. By default
 it is able to populate all the models found in Application Insights at this point in time.
 
-## Nuget
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TrevorMare/STAIExtensions/.NET?style=for-the-badge)
 
-```http request
-https://nuget.org/TODO
-```
+## Nuget
+[![Nuget](https://img.shields.io/nuget/v/STAIExtensions.Data.AzureDataExplorer?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Data.AzureDataExplorer/)
+[![Nuget](https://img.shields.io/nuget/dt/STAIExtensions.Data.AzureDataExplorer?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Data.AzureDataExplorer/)
+
+[https://www.nuget.org/packages/STAIExtensions.Data.AzureDataExplorer/](https://www.nuget.org/packages/STAIExtensions.Data.AzureDataExplorer/)
+
 
 ## Usage
 
 To use this project to populate datasets, create a new instance of the telemetry loader
-with the Api Key and App Id - TODO Images
+with the Api Key and App Id
 
 Then create a new default data set instance with this telemetry client or define a custom dataset
 to read from this client.
@@ -28,5 +31,3 @@ to read from this client.
 
 ```
 
-## Custom Queries and Models
-TODO

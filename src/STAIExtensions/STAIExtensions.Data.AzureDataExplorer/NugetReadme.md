@@ -1,31 +1,22 @@
-## STAIExtensions Core
 
-This library contains the default implementation of the Dataset and Dataset View Collections
-as well as the startup classes to register the required dependency injection Objects.
+### Overview
+This library is included to enable Application Insights to be read via the Azure Data Explorer Api.
+In most cases this should be enough to get going. This package exposes abstract queries
+that can be implemented and load custom KUSTO query data from the source. By default
+it is able to populate all the models found in Application Insights at this point in time.
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TrevorMare/STAIExtensions/.NET?style=for-the-badge)
+## Usage
 
-### Collections
-Default implementations of the Dataset and Dataset View Collections and the Fixed Lists.
+To use this project to populate datasets, create a new instance of the telemetry loader
+with the Api Key and App Id.
 
-### DataSets
-Abstract implementation of the default dataset object required by the project
-
-### Views
-Abstract implementation of the default dataset view object required by the project
-
-### Other
-
-StartupExtensions - This is the entry for the hosting application to register the Dependency Injection Services required by this project.
+Then create a new default data set instance with this telemetry client or define a custom dataset
+to read from this client.
 
 ```c#
-using STAIExtensions.Core;
-
 ...
-
-builder.Services.UseSTAIExtensions();
-
+    var telemetryLoader = new STAIExtensions.Data.AzureDataExplorer.TelemetryLoader(new TelemetryLoaderOptions("apiKey", "appId"));
+    var dataSet = new Default.DataSets.DataContractDataSet(telemetryLoader, new DataContractDataSetOptions(), "MyDataSet");
 ...
 
 ```
-

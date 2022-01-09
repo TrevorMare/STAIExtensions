@@ -4,7 +4,28 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>latestmajor</LangVersion>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <FileVersion>1.0.0</FileVersion>
         <TargetFrameworks>net5.0;net6.0;netcoreapp3.1</TargetFrameworks>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>0.0.1</PackageVersion>
+        <Title>STAIExtensions Host Grpc</Title>
+        <Authors>Trevor Maré</Authors>
+        <Description>STAIExtension Grpc Host service used to push events and retrieve data</Description>
+        <PackageProjectUrl>https://github.com/TrevorMare/STAIExtensions/tree/main/src/STAIExtensions/STAIExtensions.Host.Grpc</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <PackageTags>application-insights;custom-views;grpc;signalr;STAIExtensions;trevor;mare;staiextensions-data-azuredataexplorer;azuredataexplorer;dotnet</PackageTags>
+        <PackageReleaseNotes>v0.0.1 - Initial Release</PackageReleaseNotes>
+        <PackageIcon>content\st_icon.png</PackageIcon>
+        <PackageReadmeFile>content\NugetReadme.md</PackageReadmeFile>
+        <Deterministic>true</Deterministic>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+        <DebugType>embedded</DebugType>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     </PropertyGroup>
 
     <ItemGroup>
@@ -12,15 +33,22 @@
     </ItemGroup>
     
     <ItemGroup>
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.41.0" />
         <PackageReference Include="Grpc.Tools" Version="2.43.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Grpc.AspNetCore" Version="2.32.0" />
-        <PackageReference Include="STAIExtensions.Core" Version="1.0.0" />
+        <PackageReference Include="STAIExtensions.Core" Version="1.0.*" />
     </ItemGroup>
-    
 
+    <ItemGroup>
+        <None Include="..\Resources\st_icon.png" Pack="true" PackagePath="content" />
+        <None Include="NugetReadme.md" Pack="true" PackagePath="content" />
+    </ItemGroup>
     
 </Project>

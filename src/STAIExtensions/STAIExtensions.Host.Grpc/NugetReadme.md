@@ -3,15 +3,9 @@
 This library contains the .NET Protobuf Grpc Service. It can be hosted in both console applications
 and in ASPNet Web projects. For example usage, check the Examples folder.
 
-## Nuget
-
-```http request
-https://nuget.org/TODO
-```
-
 ## Usage
 
-To use the library in a .NET project, install the package from Nuget. 
+To use the library in a .NET project, install the package from Nuget.
 Follow the examples to host the application
 
 ## Example Code AspNet Core:
@@ -112,17 +106,4 @@ public class Program
 }
 
 ```
-
-## Target Frameworks
-
-- .NET Core 3.1
-- .NET 5
-- .NET 6
-
-## Dependencies
-
-- Grpc.AspNetCore
-- Grpc.AspNetCore.Server.Reflection
-- Grp.Tools (Internal)
-- STAIExtensions.Core
 

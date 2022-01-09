@@ -4,7 +4,7 @@
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
-    "outFile": "../STAIExtensions.Host/wwwroot/js/STAIExtensions.js",
+    "outFile": "/wwwroot/js/STAIExtensions.js",
     "sourceMap": true,
     "lib": ["ES2015"]
   },
