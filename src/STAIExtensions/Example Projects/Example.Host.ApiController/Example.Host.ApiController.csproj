@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.20.0" />
+        <PackageReference Include="STAIExtensions.Core" Version="1.0.5" />
+        <PackageReference Include="STAIExtensions.Data.AzureDataExplorer" Version="1.0.1" />
+        <PackageReference Include="STAIExtensions.Default" Version="0.0.3" />
+        <PackageReference Include="STAIExtensions.Host.Api" Version="1.0.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    </ItemGroup>
+
+</Project>
