@@ -54,7 +54,7 @@ jobs:
 
         # Pack the STAIExtensions Host Api
       - name: Package STAIExtensions Host Api
-        run: dotnet pack ./src/STAIExtensions/STAIExtensions.Host.Api/STAIExtensions.Default.csproj --no-build --configuration Release
+        run: dotnet pack ./src/STAIExtensions/STAIExtensions.Host.Api/STAIExtensions.Host.Api.csproj --no-build --configuration Release
         # Push the STAIExtensions Host Api
       - name: Push Nuget STAIExtensions Host Api
         run: dotnet nuget push src\STAIExtensions\STAIExtensions.Host.Api\bin\Release\*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
