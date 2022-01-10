@@ -38,6 +38,8 @@ public static class DependencyExtensions
     public static IServiceCollection UseSTAIExtensionsAbstractions(this IServiceCollection serviceCollection)
     {
         serviceCollection.AddMediatR(Assembly.GetExecutingAssembly());
+        serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(CQRS.Behaviours.LoggingBehaviour<,>));
+        
         _serviceCollection ??= serviceCollection;
 
         return serviceCollection;

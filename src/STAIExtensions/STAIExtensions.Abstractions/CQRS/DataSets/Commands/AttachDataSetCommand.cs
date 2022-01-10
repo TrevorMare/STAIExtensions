@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.ApplicationInsights;
 using Microsoft.Extensions.DependencyInjection;
 using STAIExtensions.Abstractions.Collections;
 using STAIExtensions.Abstractions.Data;
@@ -23,7 +24,7 @@ public class AttachDataSetCommandHandler : IRequestHandler<AttachDataSetCommand,
     #endregion
 
     #region ctor
-    public AttachDataSetCommandHandler()
+    public AttachDataSetCommandHandler(TelemetryClient? telemetryClient)
     {
         _dataSetCollection = DependencyExtensions.ServiceProvider?.GetRequiredService<IDataSetCollection>() ??
                              throw new Exception("Could not retrieve data set collection from DI");

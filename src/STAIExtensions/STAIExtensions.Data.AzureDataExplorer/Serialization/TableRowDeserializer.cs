@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Reflection;
 using System.Text.Json;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.Extensions.Logging;
 using STAIExtensions.Data.AzureDataExplorer.Attributes;
 using STAIExtensions.Data.AzureDataExplorer.DataContractMetaData;
@@ -12,6 +14,8 @@ internal class TableRowDeserializer
 
     #region Members
 
+    private readonly TelemetryClient? _telemetryClient;
+    
     protected readonly ILogger<TableRowDeserializer>? Logger;
 
     #endregion
@@ -21,6 +25,7 @@ internal class TableRowDeserializer
     public TableRowDeserializer()
     {
         this.Logger = Abstractions.DependencyExtensions.CreateLogger<TableRowDeserializer>();
+        this._telemetryClient = (TelemetryClient?)Abstractions.DependencyExtensions.ServiceProvider?.GetService(typeof(TelemetryClient));
     }
     #endregion
 
@@ -73,6 +78,9 @@ internal class TableRowDeserializer
 
     internal IEnumerable<T> ExtractRowsFromTableRows<T>(IEnumerable<IEnumerable<object>> rows, List<TableColumnPropertyMap> columnIndices)
     {
+        using var extractOperation =
+            this._telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(ExtractRowsFromTableRows)}");
+        
         var result = new List<T>();
 
         var iRow = 0;
@@ -82,12 +90,24 @@ internal class TableRowDeserializer
             foreach (var row in rows)
             {
                 this.Logger?.LogTrace("Extracting information from row index {RowIndex}", iRow);
+                
                 result.Add(ExtractRowFromTableRow<T>(row.ToList(), columnIndices.ToList()));
                 iRow++;
             }
+
+            if (extractOperation != null)
+            {
+                extractOperation.Telemetry.Properties["NumberOfRows"] = iRow.ToString();
+            }
+                
         }
         catch (Exception ex)
         {
+            if (extractOperation != null)
+                extractOperation.Telemetry.Success = false;
+            
+            this._telemetryClient?.TrackException(ex);
+                
             this.Logger?.LogError(ex, "Error on row {RowIndex}", iRow);
             throw;
         }

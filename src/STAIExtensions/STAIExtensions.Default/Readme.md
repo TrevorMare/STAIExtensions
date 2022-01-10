@@ -1,13 +1,23 @@
 ## STAIExtensions Default
 
-This library contains the default implementation of a Dataset and a collection of views that are shipped by default
+This library contains the default DataSet and a collection of views that are shipped by default
 for the library.
 
-## Nuget
+This is a work in progress and will be updated with the latest views when available.
 
-```http request
-https://nuget.org/TODO
-```
+
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TrevorMare/STAIExtensions/.NET?style=for-the-badge)
+![License](https://img.shields.io/github/license/trevormare/staiextensions?style=for-the-badge)
+
+## Nuget
+[![Nuget](https://img.shields.io/nuget/v/STAIExtensions.Default?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Default/)
+[![Nuget](https://img.shields.io/nuget/dt/STAIExtensions.Default?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Default/)
+
+[https://www.nuget.org/packages/STAIExtensions.Default](https://www.nuget.org/packages/STAIExtensions.Default/)
+
+## Usage
+
+Check to main documentation page and or examples for the usage of the default views.
 
 ## Target Frameworks
 
@@ -18,8 +28,5 @@ https://nuget.org/TODO
 
 ## Dependencies
 
-- Grpc.AspNetCore
-- Grpc.AspNetCore.Server.Reflection
-- Grp.Tools (Internal)
 - STAIExtensions.Core
 

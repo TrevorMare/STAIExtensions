@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.Extensions.Logging;
 using STAIExtensions.Abstractions.Queries;
 using STAIExtensions.Abstractions.Views;
 
@@ -10,6 +12,8 @@ public abstract class DataSet : Abstractions.Data.IDataSet
     #region Members
 
     private bool _disposed = false;
+
+    private readonly TelemetryClient? _telemetryClient;
 
     #endregion
     
@@ -45,6 +49,9 @@ public abstract class DataSet : Abstractions.Data.IDataSet
         this.Logger = Abstractions.DependencyExtensions.CreateLogger<DataSet>();
         this._autoRefreshTimer = new Timer(OnTimerTick);
         this.DataSetName = string.IsNullOrEmpty(dataSetName) ? Guid.NewGuid().ToString() : dataSetName;
+        this._telemetryClient = (TelemetryClient?)Abstractions.DependencyExtensions.ServiceProvider?.GetService(typeof(TelemetryClient));
+
+        var mediatR = STAIExtensions.Abstractions.DependencyExtensions.Mediator;
         
         // Attach this data set to the data set collection
         Abstractions.DependencyExtensions.Mediator?.Send(new Abstractions.CQRS.DataSets.Commands.AttachDataSetCommand(this));
@@ -76,6 +83,9 @@ public abstract class DataSet : Abstractions.Data.IDataSet
 
     protected virtual async Task ExecuteDataQuery<T>(DataContractQuery<T> query) where T : Abstractions.DataContracts.Models.DataContract
     {
+        
+        using var loadDataOperation = this._telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(ExecuteDataQuery)}"); 
+        
         try
         {
             if (query == null)
@@ -86,21 +96,45 @@ public abstract class DataSet : Abstractions.Data.IDataSet
             this.Logger?.LogInformation("Query type {TypeName} returned {NumberOfRows} rows", query.ContractType.Name,
                 queryResult?.Count() ?? 0);
             
+            if (loadDataOperation != null)
+            {
+                loadDataOperation.Telemetry.Properties["DataSetType"] = this.DataSetType;
+                loadDataOperation.Telemetry.Properties["DataSetName"] = this.DataSetName;
+                loadDataOperation.Telemetry.Properties["QueryType"] = query.ContractType.Name;
+                loadDataOperation.Telemetry.Properties["RowsReturned"] = queryResult?.Count().ToString() ?? "0";
+            }
+            
             await ProcessQueryRecords(query, queryResult);
         }
         catch (Exception ex)
         {
+            if (loadDataOperation != null)
+                loadDataOperation.Telemetry.Success = false;
+            
             this.Logger?.LogError(ex, "An error occured fetching data from the telemetry client");
         }
     }
     
     public virtual async Task UpdateDataSet()
     {
+        using var updateOperation = this._telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(UpdateDataSet)}"); 
+        
         try
         {
             this.CancellationToken?.ThrowIfCancellationRequested();
          
             this.Logger?.LogTrace("Starting update of data set {DataSetName}", DataSetName);
+            
+            this._telemetryClient?.TrackEvent(new EventTelemetry()
+            {
+                Name = "UpdateDataSet",
+                Properties =
+                {
+                    { "DataSetName", this.DataSetName },
+                    { "DataSetId", this.DataSetId },
+                    { "DataSetType", this.DataSetType }
+                }
+            });
             
             await ExecuteQueries();
                         
@@ -108,7 +142,11 @@ public abstract class DataSet : Abstractions.Data.IDataSet
         }
         catch (Exception ex)
         {
-            this.Logger?.LogError(ex, "An error occured during the update of the data set {DataSetName}. {Ex}", DataSetName, ex);
+            if (updateOperation != null)
+                updateOperation.Telemetry.Success = false;
+
+            this.Logger?.LogError(ex, "An error occured during the update of the data set {DataSetName}. {Ex}",
+                DataSetName, ex);
         }
         finally
         {

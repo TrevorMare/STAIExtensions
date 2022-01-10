@@ -1,4 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.Extensions.Logging;
 using STAIExtensions.Abstractions.DataContracts;
 using STAIExtensions.Abstractions.Queries;
@@ -22,6 +24,8 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
     private AzureDataExplorerClient _azureDataExplorerClient;
 
     private TableRowDeserializer _tableRowDeserializer;
+
+    private readonly TelemetryClient? _telemetryClient;
     #endregion
 
     #region Properties
@@ -35,6 +39,9 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
             throw new ArgumentNullException(nameof(loaderOptionsBuilder));
         
         this._loaderOptions = loaderOptionsBuilder.Invoke();
+        this._telemetryClient =
+            (TelemetryClient?) Abstractions.DependencyExtensions.ServiceProvider?.GetService(typeof(TelemetryClient));
+        
         Initialise();
     }
     
@@ -65,31 +72,58 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
    
     public async Task<IEnumerable<T>> ExecuteQueryAsync<T>(DataContractQuery<T> query) where T : Abstractions.DataContracts.Models.DataContract
     {
-        if (query == null)
-            throw new ArgumentNullException(nameof(query));
 
-        if (query.Enabled == false)
-            return new List<T>();
+        using var executeOperation = this._telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(ExecuteQueryAsync)}");
 
-        var queryData = query.BuildQueryData()?.ToString() ?? "";
-        if (string.IsNullOrEmpty(queryData))
+        try
         {
-            this._logger?.LogWarning("Query did not return any data to retrieve");
-            return new List<T>();
+            this._logger?.LogTrace("Start Execute Query on Azure Data Explorer");
+
+            if (query == null)
+                throw new ArgumentNullException(nameof(query));
+
+            if (query.Enabled == false)
+            {
+                this._logger?.LogTrace("Query disabled");
+                return new List<T>();
+            }
+
+            var queryData = query.BuildQueryData()?.ToString() ?? "";
+            
+            if (executeOperation != null)
+                executeOperation.Telemetry.Data = queryData;
+            
+            if (string.IsNullOrEmpty(queryData))
+            {
+                this._logger?.LogWarning("Query did not return any data to retrieve");
+                return new List<T>();
+            }
+        
+            // Call the telemetry client to load the query
+            var clientResponse = await _azureDataExplorerClient.ExecuteQueryAndGetResponseAsync(queryData);
+        
+            if (clientResponse?.Tables == null)
+                return new List<T>();
+
+            if (clientResponse.Tables.Count() != 1)
+                throw new Exception("Unexpected number of tables in deserialization");
+        
+            IEnumerable<T> result = this._tableRowDeserializer.DeserializeTableRows<T>(clientResponse.Tables.FirstOrDefault());
+
+            return result;
+        }
+        catch (Exception ex)
+        {
+            if (executeOperation != null)
+                executeOperation.Telemetry.Success = false;
+            
+            this._telemetryClient?.TrackException(ex);
+            
+            this._logger?.LogError(ex,
+                "An error occured executing query in Azure Data Explorer Telemetry loader: {ErrorMessage}", ex.Message);
+            throw;
         }
         
-        // Call the telemetry client to load the query
-        var clientResponse = await _azureDataExplorerClient.ExecuteQueryAndGetResponseAsync(queryData);
-        
-        if (clientResponse?.Tables == null)
-            return new List<T>();
-
-        if (clientResponse.Tables.Count() != 1)
-            throw new Exception("Unexpected number of tables in deserialization");
-        
-        IEnumerable<T> result = this._tableRowDeserializer.DeserializeTableRows<T>(clientResponse.Tables.FirstOrDefault());
-
-        return result;
     }
     #endregion
     

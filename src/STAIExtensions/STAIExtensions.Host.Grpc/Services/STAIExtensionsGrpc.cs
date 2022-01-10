@@ -128,7 +128,8 @@ public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensions
 
     public override async Task<IDataSetView> CreateView(CreateViewRequest request, ServerCallContext context)
     {
-        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>(nameof(CreateView));
+        
+        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(CreateView)}");
         try
         {
             var response = await _mediator?.Send(new CreateViewCommand(request.ViewType, request.OwnerId))!;
@@ -152,7 +153,7 @@ public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensions
     
     public override async Task<IDataSetViewJson> GetViewJson(GetViewRequest request, ServerCallContext context)
     {
-        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>(nameof(GetViewJson));
+        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(GetViewJson)}");
         try
         {
             var response = await _mediator?.Send(new GetDataViewQuery(request.ViewId, request.OwnerId))!;
@@ -180,7 +181,7 @@ public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensions
 
     public override async Task<IDataSetView> GetView(GetViewRequest request, ServerCallContext context)
     {
-        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>(nameof(GetView));
+        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(GetView)}");
         try
         {
             var response = await _mediator?.Send(new GetDataViewQuery(request.ViewId, request.OwnerId))!;
@@ -203,7 +204,7 @@ public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensions
 
     public override async Task<ListDataSetsResponse> ListDataSets(NoParameters request, ServerCallContext context)
     {
-        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>(nameof(ListDataSets));
+        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(ListDataSets)}");
         try
         {
             var response = await _mediator?.Send(new ListDataSetsQuery())!;
@@ -225,7 +226,7 @@ public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensions
 
     public override async Task<GetRegisteredViewsResponse> GetRegisteredViews(NoParameters request, ServerCallContext context)
     {
-        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>(nameof(GetRegisteredViews));
+        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(GetRegisteredViews)}");
         try
         {
             var response = await _mediator?.Send(new GetRegisteredViewsQuery())!;
@@ -247,7 +248,7 @@ public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensions
 
     public override async Task<BoolResponse> RemoveView(RemoveViewRequest request, ServerCallContext context)
     {
-        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>(nameof(RemoveView));
+        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(RemoveView)}");
         try
         {
             var response = await _mediator?.Send(new RemoveViewCommand( request.ViewId ))!;
@@ -271,7 +272,7 @@ public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensions
 
     public override async Task<BoolResponse> AttachViewToDataset(AttachViewToDatasetRequest request, ServerCallContext context)
     {
-        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>(nameof(AttachViewToDataset));
+        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(AttachViewToDataset)}");
         try
         {
             var response = await _mediator?.Send(new AttachViewToDataSetCommand( request.ViewId, request.DataSetId, request.OwnerId ))!;
@@ -296,7 +297,7 @@ public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensions
 
     public override async Task<BoolResponse> DetachViewFromDataset(DetachViewFromDatasetRequest request, ServerCallContext context)
     {
-        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>(nameof(DetachViewFromDataset));
+        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(DetachViewFromDataset)}");
         try
         {
             var response = await _mediator?.Send(new DetachViewFromDataSetCommand( request.ViewId, request.DataSetId, request.OwnerId ))!;
@@ -321,7 +322,7 @@ public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensions
 
     public override async Task<BoolResponse> SetViewAutoRefreshDisabled(SetViewAutoRefreshDisabledRequest request, ServerCallContext context)
     {
-        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>(nameof(SetViewAutoRefreshDisabled));
+        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(SetViewAutoRefreshDisabled)}");
         try
         {
  
@@ -345,7 +346,7 @@ public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensions
 
     public override async Task<BoolResponse> SetViewAutoRefreshEnabled(SetViewAutoRefreshEnabledRequest request, ServerCallContext context)
     {
-        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>(nameof(SetViewAutoRefreshEnabled));
+        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(SetViewAutoRefreshEnabled)}");
         try
         {
             var response = await _mediator?.Send(new SetViewEnabledCommand( request.ViewId, request.OwnerId ))!;
@@ -369,7 +370,7 @@ public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensions
 
     public override async Task<BoolResponse> SetViewParameters(SetViewParametersRequest request, ServerCallContext context)
     {
-        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>(nameof(SetViewParameters));
+        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(SetViewParameters)}");
 
         try
         {
@@ -400,7 +401,7 @@ public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensions
 
     public override async Task<MyViewResponse> GetMyViews(GetMyViewsRequest request, ServerCallContext context)
     {
-        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>(nameof(GetMyViews));
+        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(GetMyViews)}");
         try
         {
                

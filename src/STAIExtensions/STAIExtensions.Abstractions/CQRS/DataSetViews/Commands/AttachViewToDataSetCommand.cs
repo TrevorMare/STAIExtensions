@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.ApplicationInsights;
 using Microsoft.Extensions.DependencyInjection;
 using STAIExtensions.Abstractions.Collections;
 
@@ -38,14 +39,13 @@ public class AttachViewToDataSetCommandHandler : IRequestHandler<AttachViewToDat
 {
 
     #region Members
-
     private readonly IViewCollection _viewCollection;
     private readonly IDataSetCollection _dataSetCollection;
 
     #endregion
 
     #region ctor
-    public AttachViewToDataSetCommandHandler()
+    public AttachViewToDataSetCommandHandler(TelemetryClient? telemetryClient)
     {
         _viewCollection = DependencyExtensions.ServiceProvider?.GetRequiredService<IViewCollection>() ??
                           throw new Exception("Could not retrieve data set views collection from DI");
