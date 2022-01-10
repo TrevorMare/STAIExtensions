@@ -38,15 +38,15 @@ Log in to the Azure portal and navigate to the Application Insights instance you
 
 Scroll down in the left menu and find the **Api Access** menu item. 
 
-![Image 1](G:\STAIExtensions\src\STAIExtensions\Resources\azure_ai_api_access_1.png)
+![Image 1](https://github.com/TrevorMare/STAIExtensions/blob/ac767f0c844df6364ef3bbfaeb73b4f8b59fe64b/src/STAIExtensions/Resources/azure_ai_api_access_1.png?raw=true)
 
 The Application Id can be found at the top of the page, next we will need to set up an Api Key. Click on the Create Api Key at the top of the page.
 
-![Image 2](G:\STAIExtensions\src\STAIExtensions\Resources\azure_ai_api_access_2.png)
+![Image 2](https://github.com/TrevorMare/STAIExtensions/blob/main/src/STAIExtensions/Resources/azure_ai_api_access_2.png?raw=true)
 
 At a minimum this service will require the Read Telemetry to be checked. For full integration into live telemetry, the Authenticate SDK control channel tick is also required. Next click on the Generate Key button. 
 
-![Image 3](G:\STAIExtensions\src\STAIExtensions\Resources\azure_ai_api_access_3.png)
+![Image 3](https://github.com/TrevorMare/STAIExtensions/blob/main/src/STAIExtensions/Resources/azure_ai_api_access_3.png?raw=true)
 
 Copy the Generated key and use this to instantiate the Telemetry loader object. ***NOTE*** Keep this key private!
 

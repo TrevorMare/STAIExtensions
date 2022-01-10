@@ -10,8 +10,7 @@
     <ItemGroup>
         <PackageReference Include="STAIExtensions.Data.AzureDataExplorer" Version="1.0.1" />
         <PackageReference Include="STAIExtensions.Default" Version="0.0.3" />
-        <PackageReference Include="STAIExtensions.Host.Grpc" Version="1.0.0" />
-<!--        <PackageReference Include="STAIExtensions.Host.Grpc" Version="1.0.2" />-->
+        <PackageReference Include="STAIExtensions.Host.Grpc" Version="1.0.2" />
     </ItemGroup>
  
 </Project>

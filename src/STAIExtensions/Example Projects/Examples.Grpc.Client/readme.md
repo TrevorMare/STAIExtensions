@@ -9,5 +9,18 @@ may be removed at any time.
 To run this example, build the project and run it.
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TrevorMare/STAIExtensions/.NET?style=for-the-badge)
+![License](https://img.shields.io/github/license/trevormare/staiextensions?style=for-the-badge)
 
+## Usage
 
+This example project uses *ABC* as the token to pass to the hosting service. If you change the service token, this should also be changed.
+
+```c# 
+      using var managedClient =
+        new GrpcClientManaged(new GrpcClientManagedOptions(" https://localhost:5001", Guid.NewGuid().ToString())
+            {
+                AuthBearerToken = "ABC",
+                UseDefaultAuthorization = true
+            }
+            ,logger);
+```
