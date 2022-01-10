@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Specialized;
+using Microsoft.Extensions.Logging;
 
 namespace STAIExtensions.Core.Collections;
 
@@ -20,6 +21,7 @@ public class SizedList<T> : Abstractions.Collections.ISizedList<T>
     
     private readonly SynchronizedCollection<T> _fullDataSource = new SynchronizedCollection<T>();
 
+    private readonly ILogger<SizedList<T>>? _logger;
     #endregion
 
     #region Properties
@@ -61,7 +63,7 @@ public class SizedList<T> : Abstractions.Collections.ISizedList<T>
         };
 
         this._maxSize = maximumNumberOfItems;
-       
+        this._logger = Abstractions.DependencyExtensions.CreateLogger<SizedList<T>>();
         if (items != null)
         {
             this.AddRange(items);
@@ -79,6 +81,8 @@ public class SizedList<T> : Abstractions.Collections.ISizedList<T>
 
             if (reductionSize > 0)
             {
+                this._logger?.LogTrace("Reducing Sized List by {NumberOfItems} items", reductionSize);
+                
                 return TrimList(reductionSize);
             }
         }

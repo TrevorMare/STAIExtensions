@@ -4,33 +4,10 @@ This library is the root that defines the interfaces for queries, datasets, data
 and lastly the CQRS pattern to update the objects. The rest of the projects rely heavily on this
 project for the dataflow and shared structures.
 
+It also defines the basic general interaction with the interfaces via the MediatR package required to keep the collections in sync and register for UI interactions. All projects
+using this library and the core library should use the MediatR object for commands and queries. For this to work, the MediatR package
+needs to be registered in the service collection. If you are using this library on a direct reference without the Core library, you would need
+to register the services by calling the **DependencyExtensions.UseSTAIExtensionsAbstractions** method.
+
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TrevorMare/STAIExtensions/.NET?style=for-the-badge)
-
-### Collections
-Defines the interfaces for the collection management of views and data sets. This also includes an interface for
-a list with a fixed size.
-
-### Common
-Additional information classes returned from the abstraction library on registered data set and data set view types
-
-### CQRS
-General CQRS pattern that will interact with the collections, datasets and views. The **MediatR** package is used to assist with the pattern.
-
-### Data
-Defines the interfaces for the telemetry loader and the dataset.
-
-### Data Contracts
-Defines the POCO objects that are returned by the telemetry loader as defined by the standard application insights data contracts.
-
-### Queries
-Defines the interfaces, abstracts for the data contract query as well as the query factory used by the telemetry loader interface.
-
-### Views
-Defines the interface for the data set view object and parameter descriptors.
-
-### Other
-
-DependencyExtensions - Due to current limitations with the dependency injection used, this class is implemented around an Anti-Pattern
-of persisting the IServiceCollection to retrieve the singleton collections.
-
-This class is automatically instantiated by the STAIExtensions.Core project and does not need to be called manually.
+![License](https://img.shields.io/github/license/trevormare/staiextensions?style=for-the-badge)

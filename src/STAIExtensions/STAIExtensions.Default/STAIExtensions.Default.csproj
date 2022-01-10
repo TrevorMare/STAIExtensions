@@ -6,8 +6,9 @@
         <LangVersion>latestmajor</LangVersion>
         <AssemblyVersion>1.0.0</AssemblyVersion>
         <FileVersion>1.0.0</FileVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <TargetFrameworks>net5.0;net6.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
-        <PackageVersion>0.0.1</PackageVersion>
+        <PackageVersion>0.0.3</PackageVersion>
         <Title>STAIExtensions Default</Title>
         <Authors>Trevor Maré</Authors>
         <Description>A collection of default views and datasets included</Description>
@@ -16,7 +17,9 @@
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>application-insights;custom-views;grpc;signalr;STAIExtensions;trevor;mare;staiextensions-core;dotnet;host</PackageTags>
-        <PackageReleaseNotes>v0.0.1 Initial Release</PackageReleaseNotes>
+        <PackageReleaseNotes>v0.0.3 Updated package references
+v0.0.2 Updated package references
+v0.0.1 Initial Release</PackageReleaseNotes>
         <PackageIcon>content\st_icon.png</PackageIcon>
         <PackageReadmeFile>content\NugetReadme.md</PackageReadmeFile>
         <Deterministic>true</Deterministic>
@@ -32,7 +35,7 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-      <PackageReference Include="STAIExtensions.Core" Version="1.0.*" />
+      <PackageReference Include="STAIExtensions.Core" Version="1.0.5" />
     </ItemGroup>
     <ItemGroup>
         <None Include="..\Resources\st_icon.png" Pack="true" PackagePath="content" />

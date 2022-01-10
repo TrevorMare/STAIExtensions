@@ -5,9 +5,10 @@
         <Nullable>enable</Nullable>
         <LangVersion>latestmajor</LangVersion>
         <AssemblyVersion>1.0.0</AssemblyVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <FileVersion>1.0.0</FileVersion>
         <TargetFrameworks>net5.0;net6.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
-        <PackageVersion>1.0.1</PackageVersion>
+        <PackageVersion>1.0.5</PackageVersion>
         <Title>STAIExtensions Core</Title>
         <Authors>Trevor Maré</Authors>
         <Description>Core library with the default implementations of the fixed size lists and collections</Description>
@@ -16,7 +17,11 @@
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>application-insights;custom-views;grpc;signalr;STAIExtensions;trevor;mare;staiextensions-core;dotnet</PackageTags>
-        <PackageReleaseNotes>v1.0.1 - Added Source Link and Deterministic Build
+        <PackageReleaseNotes>v1.0.5 - Fixed Nuget References
+v1.0.4 - Fixed Nuget References
+v1.0.3 - Fixed Telemetry Data and Name Refinement
+v1.0.2 - Added logging and Telemetry outputs
+v1.0.1 - Added Source Link and Deterministic Build
 v1.0.0 - Public Release
 v0.0.1 - Initial Release
         </PackageReleaseNotes>
@@ -36,7 +41,7 @@ v0.0.1 - Initial Release
         </PackageReference>
         <!-- Additional packages required by this component -->
         <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
-        <PackageReference Include="STAIExtensions.Abstractions" Version="1.*" />
+        <PackageReference Include="STAIExtensions.Abstractions" Version="1.0.3" />
     </ItemGroup>
     <ItemGroup>
         <None Include="..\Resources\st_icon.png" Pack="true" PackagePath="content" />

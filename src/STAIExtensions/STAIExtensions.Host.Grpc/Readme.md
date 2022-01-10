@@ -3,11 +3,15 @@
 This library contains the .NET Protobuf Grpc Service. It can be hosted in both console applications
 and in ASPNet Web projects. For example usage, check the Examples folder.
 
-## Nuget
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TrevorMare/STAIExtensions/.NET?style=for-the-badge)
+![License](https://img.shields.io/github/license/trevormare/staiextensions?style=for-the-badge)
 
-```http request
-https://nuget.org/TODO
-```
+## Nuget
+[![Nuget](https://img.shields.io/nuget/v/STAIExtensions.Host.Grpc?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Host.Grpc/)
+[![Nuget](https://img.shields.io/nuget/dt/STAIExtensions.Host.Grpc?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Host.Grpc/)
+
+[https://www.nuget.org/packages/STAIExtensions.Host.Grpc](https://www.nuget.org/packages/STAIExtensions.Host.Grpc/)
+
 
 ## Usage
 

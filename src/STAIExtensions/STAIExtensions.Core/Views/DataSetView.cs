@@ -1,4 +1,7 @@
-﻿using STAIExtensions.Abstractions.Data;
+﻿using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.Extensions.Logging;
+using STAIExtensions.Abstractions.Data;
 using STAIExtensions.Abstractions.Views;
 
 namespace STAIExtensions.Core.Views;
@@ -7,6 +10,10 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
 {
     
     #region Members
+
+    protected readonly ILogger<DataSetView>? Logger;
+    
+    private readonly TelemetryClient? _telemetryClient;
 
     private readonly string _viewId = Guid.NewGuid().ToString();
     
@@ -50,16 +57,47 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     public event EventHandler? OnViewUpdated;
     #endregion
 
+    #region ctor
+
+    protected DataSetView()
+    {
+        _telemetryClient =
+            (TelemetryClient?) Abstractions.DependencyExtensions.ServiceProvider?.GetService(typeof(TelemetryClient));
+        Logger = Abstractions.DependencyExtensions.CreateLogger<DataSetView>();
+    }
+
+    #endregion
+
     #region Methods
     public virtual Task UpdateViewFromDataSet(IDataSet dataset)
     {
-        if (dataset == null)
-            return Task.CompletedTask;
+        using var updateViewOperation = this._telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(UpdateViewFromDataSet)}");
+
+        try
+        {
+            if (dataset == null)
+                return Task.CompletedTask;
         
-        if (RefreshEnabled)
-            OnViewUpdated?.Invoke(this, EventArgs.Empty);
+            if (RefreshEnabled)
+                OnViewUpdated?.Invoke(this, EventArgs.Empty);
         
-        LastUpdate = DateTime.Now;
+            LastUpdate = DateTime.Now;
+            
+            this._telemetryClient?.TrackEvent("UpdateViewFromDataSet", 
+                new Dictionary<string, string>()
+                {
+                    { "DataSetId", dataset.DataSetId },
+                    { "ViewId", this.Id }
+                });
+            
+        }
+        catch (Exception ex)
+        {
+            if (updateViewOperation != null)
+                updateViewOperation.Telemetry.Success = false;
+            
+            this.Logger?.LogError(ex, "An error occured updating the view: {ErrorMessage}", ex.Message);
+        }
         return Task.CompletedTask;
     }
 

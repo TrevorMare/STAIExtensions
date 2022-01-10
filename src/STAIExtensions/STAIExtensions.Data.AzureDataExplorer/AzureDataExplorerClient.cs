@@ -1,4 +1,6 @@
 ﻿using System.Net.Http.Json;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.Extensions.Logging;
 using STAIExtensions.Data.AzureDataExplorer.Models;
 
@@ -11,6 +13,7 @@ namespace STAIExtensions.Data.AzureDataExplorer
         private const string QueryApiBaseUrl = "https://api.applicationinsights.io/v1/apps/{app-id}/query";
         private string? _queryApiUrl;
         private readonly ILogger<AzureDataExplorerClient>? _logger;
+        private readonly TelemetryClient? _telemetryClient;
         #endregion
 
         #region Properties
@@ -25,6 +28,8 @@ namespace STAIExtensions.Data.AzureDataExplorer
         public AzureDataExplorerClient(TelemetryLoaderOptions options)
         {
             this._logger = Abstractions.DependencyExtensions.CreateLogger<AzureDataExplorerClient>();
+            this._telemetryClient = (TelemetryClient?)
+                Abstractions.DependencyExtensions.ServiceProvider?.GetService(typeof(TelemetryClient));
             
             this.ConfigureApi(options.AppId, options.ApiKey);
         }
@@ -66,6 +71,8 @@ namespace STAIExtensions.Data.AzureDataExplorer
                 throw new InvalidOperationException("Please call ConfigureApi before attempting to execute queries");
 
             this._logger?.LogTrace($"Executing Asynchronous Query on {nameof(AzureDataExplorerClient)}");
+
+            using var clientExecuteAsyncOperation = this._telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(ExecuteQueryAsync)}");
             
             try
             {
@@ -89,6 +96,11 @@ namespace STAIExtensions.Data.AzureDataExplorer
             }
             catch (Exception ex)
             {
+                if (clientExecuteAsyncOperation != null)
+                    clientExecuteAsyncOperation.Telemetry.Success = false;
+                
+                this._telemetryClient?.TrackException(ex);
+                
                 this._logger?.LogCritical("There was an error getting the response from the server. {ResponseException}", ex);
                 return new WebApiResponse(null, false, ex.ToString());
             }
