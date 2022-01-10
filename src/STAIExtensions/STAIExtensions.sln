@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.Grpc.Host.Console"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.Grpc.Client", "Example Projects\Examples.Grpc.Client\Examples.Grpc.Client.csproj", "{2BCF24A2-EE01-45CC-A62E-B669E438F56C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.Host.ApiController", "Example Projects\Example.Host.ApiController\Example.Host.ApiController.csproj", "{4097FA49-64DF-4368-BB69-D947BBC4E8EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -96,5 +98,9 @@ Global
 		{2BCF24A2-EE01-45CC-A62E-B669E438F56C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BCF24A2-EE01-45CC-A62E-B669E438F56C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BCF24A2-EE01-45CC-A62E-B669E438F56C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4097FA49-64DF-4368-BB69-D947BBC4E8EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4097FA49-64DF-4368-BB69-D947BBC4E8EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4097FA49-64DF-4368-BB69-D947BBC4E8EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4097FA49-64DF-4368-BB69-D947BBC4E8EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
