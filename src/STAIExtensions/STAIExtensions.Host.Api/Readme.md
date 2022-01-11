@@ -26,6 +26,32 @@ builder.Services.AddSwaggerGen();
 
 ```
 
+## Security Options
+
+By default the Api Controllers will use the default Authorization setup in the library
+
+- Authorization Header Name : x-api-key
+- Key Value: 38faf88370680da3e210610e017d5a5ab626a206788cd9548466c559895e2fa0
+
+These values can be set when registering the Api Controller. 
+
+```c#
+
+// Inject the Controllers and the options to expose the Api 
+var controllerApiOptions = new ApiOptions()
+{
+    HeaderName = "x-api-key",
+    UseAuthorization = true,
+    AllowedApiKeys = new List<string>()
+    {
+        builder.Configuration["ApiAuthorizationToken"]
+    }
+};
+
+builder.Services.UseSTAIExtensionsApiHost(() => controllerApiOptions);
+
+```
+
 ## Target Frameworks
 
 - .NET Core 3.1

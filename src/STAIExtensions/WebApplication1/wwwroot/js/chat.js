@@ -11,7 +11,7 @@ const SetupHub = function() {
     console.log(`Initializing hub`);
     
     hub = new STAIExtensionsHub("123",
-        "https://localhost:44309/STAIExtensionsHub",
+        "https://localhost:7114/STAIExtensionsHub",
         null,
         dsUpdatedCallback,
         dsvUpdatedCallback);
