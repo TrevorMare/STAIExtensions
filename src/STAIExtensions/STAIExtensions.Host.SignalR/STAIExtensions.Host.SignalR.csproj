@@ -58,4 +58,13 @@ v0.0.1 - Initial Release
         <None Include="NugetReadme.md" Pack="true" PackagePath="content" />
         <None Include="wwwroot\js\STAIExtensions.js" Pack="true" PackagePath="content" />
     </ItemGroup>
+
+    <Target Name="Copy SignalR Js Client" AfterTargets="Build">
+        <Message Text="Copy SignalR Js Client" Importance="High" />
+        <Copy 
+                SourceFiles="$(ProjectDir)wwwroot\js\STAIExtensions.js"
+                DestinationFiles="$(SolutionDir)Resources\STAIExtensions_v$(PackageVersion).js"
+                ContinueOnError="false" />
+        
+    </Target>
 </Project>

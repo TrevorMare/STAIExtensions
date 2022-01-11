@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.Grpc.Client", "Exa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.Host.ApiController", "Example Projects\Example.Host.ApiController\Example.Host.ApiController.csproj", "{4097FA49-64DF-4368-BB69-D947BBC4E8EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples.Host.ApiFull", "Example Projects\Examples.Host.ApiFull\Examples.Host.ApiFull.csproj", "{BD4D5359-6B42-44E7-A383-9DF9C75E8876}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -102,5 +104,9 @@ Global
 		{4097FA49-64DF-4368-BB69-D947BBC4E8EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4097FA49-64DF-4368-BB69-D947BBC4E8EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4097FA49-64DF-4368-BB69-D947BBC4E8EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD4D5359-6B42-44E7-A383-9DF9C75E8876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD4D5359-6B42-44E7-A383-9DF9C75E8876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD4D5359-6B42-44E7-A383-9DF9C75E8876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD4D5359-6B42-44E7-A383-9DF9C75E8876}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
