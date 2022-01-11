@@ -7,13 +7,9 @@ using STAIExtensions.Host.Api;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
-configuration.InstrumentationKey = "c065e6f4-03cd-472e-94fd-c0518f8463f3";
-configuration.TelemetryInitializers.Add(new TelemetryInitializer());
-var telemetryClient = new TelemetryClient(configuration);
-
-builder.Services.AddScoped((s) => telemetryClient);
+// The following line enables Application Insights telemetry collection.
+builder.Services.AddSingleton<ITelemetryInitializer, TelemetryInitializer>();
+builder.Services.AddApplicationInsightsTelemetry();
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -29,8 +25,7 @@ var dsvOptions = new STAIExtensions.Abstractions.Collections.ViewCollectionOptio
 builder.Services.UseSTAIExtensions(() => dsOptions, () => dsvOptions );
 
 builder.Services.AddHostedService<ServiceRunner>();
-// The following line enables Application Insights telemetry collection.
-builder.Services.AddApplicationInsightsTelemetry();
+
 
 var app = builder.Build();
 
