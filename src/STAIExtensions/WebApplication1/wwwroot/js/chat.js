@@ -5,21 +5,16 @@ let hub = STAIExtensionsHub;
 let datasetId = "";
 let datasetViewId = "";
 
-
 const SetupHub = function() {
     
     console.log(`Initializing hub`);
     
-    hub = new STAIExtensionsHub("123",
-        "https://localhost:7114/STAIExtensionsHub",
-        null,
+    hub = new STAIExtensionsHub("Trevor Mare",
+        "https://localhost:5001/STAIExtensionsHub",
+        "1a99436ef0e79d26ada7bb20e675a27d3fe13d91156624e9f50ec428d71e8495",
         dsUpdatedCallback,
         dsvUpdatedCallback);
-
-    
-    
     console.log(`Hub Initialised`);
-  
 }
 
 const InitViews = function() {
@@ -40,8 +35,6 @@ const InitViews = function() {
     }, (err) => {
         console.log(`An error occured loading the datasets ${err}`);
     });
-    
-    
 }
 
 const CreateView = function() {
@@ -88,8 +81,9 @@ const dsvUpdatedCallback = function(dsvId) {
 }
 
 SetupHub();
-setTimeout(() => {
 
+setTimeout(() => {
+    // Wait for the connection to establish
     InitViews();
 }, 1000)
 

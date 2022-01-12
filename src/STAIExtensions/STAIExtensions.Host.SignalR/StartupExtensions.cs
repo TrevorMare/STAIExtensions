@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.DependencyInjection;
 using STAIExtensions.Host.SignalR.Identity;
@@ -8,8 +10,12 @@ namespace STAIExtensions.Host.SignalR;
 public static class StartupExtensions
 {
 
-    public static IServiceCollection UseSTAISignalR(this IServiceCollection services)
+    public static IServiceCollection UseSTAISignalR(this IServiceCollection services, SignalRHostOptions? options = default)
     {
+        
+        options ??= new SignalRHostOptions();
+        
+        services.AddSingleton(options);
         services.AddSingleton<ISignalRUserGroups, SignalRUserGroups>();
         services.AddHostedService<Services.HubContextNotificationService>();
         
@@ -31,6 +37,16 @@ public static class StartupExtensions
                 });
         });
         
+        services.AddSingleton<IAuthorizationHandler, AuthTokenRequirementHandler>();
+        
+        services
+            .AddAuthorization(options =>
+            {
+                options.AddPolicy("AuthTokenRequired", policy =>
+                {
+                    policy.Requirements.Add(new AuthTokenRequirement());
+                });
+            });
         
         services.AddSignalR();
         

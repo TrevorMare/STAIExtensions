@@ -6,4 +6,12 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <None Include="wwwroot\js\STAIExtensions.js">
+        <Pack>true</Pack>
+        <PackagePath>content</PackagePath>
+      </None>
+      <None Include="wwwroot\js\STAIExtensions.js.map" />
+    </ItemGroup>
+
 </Project>

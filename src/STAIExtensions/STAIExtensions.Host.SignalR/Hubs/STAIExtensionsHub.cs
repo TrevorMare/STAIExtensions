@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using STAIExtensions.Abstractions.CQRS.DataSets.Queries;
 using STAIExtensions.Abstractions.CQRS.DataSetViews.Commands;
@@ -7,7 +8,7 @@ using STAIExtensions.Host.SignalR.Identity;
 
 namespace STAIExtensions.Host.SignalR.Hubs;
 
-// TODO: [Authorize]
+[Authorize(policy : "AuthTokenRequired")]
 internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
 {
 
