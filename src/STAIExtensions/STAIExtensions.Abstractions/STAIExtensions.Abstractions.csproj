@@ -7,7 +7,7 @@
         <AssemblyVersion>1.0.0</AssemblyVersion>
         <FileVersion>1.0.0</FileVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>1.0.3</PackageVersion>
+        <PackageVersion>1.0.4</PackageVersion>
         <Title>STAIExtensions Abstractions</Title>
         <Authors>Trevor Maré</Authors>
         <Description>General abstractions for the ST Application Insights Extensions</Description>
@@ -17,7 +17,8 @@
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>application-insights;custom-views;grpc;signalr;STAIExtensions;trevor;mare;staiextensions-abstractions;dotnet</PackageTags>
-        <PackageReleaseNotes>v1.0.3 - Telemetry Name Refinement
+        <PackageReleaseNotes>v1.0.4 - Removed hard dependency on TelemetryClient
+v1.0.3 - Telemetry Name Refinement
 v1.0.2 - Added CQRS Logging and Telemetry
 v1.0.1 - Added Source Link and Deterministic Build 
 v1.0.0 - Public Release

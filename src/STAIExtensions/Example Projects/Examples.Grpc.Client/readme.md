@@ -13,13 +13,13 @@ To run this example, build the project and run it.
 
 ## Usage
 
-This example project uses *ABC* as the token to pass to the hosting service. If you change the service token, this should also be changed.
+This example project uses *598cd5656c78fc13c4d7c274ac41f34737e6b4d0e86af5c3ab47c81674dde666* as the token to pass to the hosting service. If you change the service token, this should also be changed.
 
 ```c# 
       using var managedClient =
         new GrpcClientManaged(new GrpcClientManagedOptions(" https://localhost:5001", Guid.NewGuid().ToString())
             {
-                AuthBearerToken = "ABC",
+                AuthBearerToken = "598cd5656c78fc13c4d7c274ac41f34737e6b4d0e86af5c3ab47c81674dde666",
                 UseDefaultAuthorization = true
             }
             ,logger);

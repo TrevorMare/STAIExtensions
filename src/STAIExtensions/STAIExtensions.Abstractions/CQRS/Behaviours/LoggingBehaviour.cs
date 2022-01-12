@@ -17,10 +17,10 @@ public class LoggingBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest,
 
     #region ctor
 
-    public LoggingBehaviour(TelemetryClient? telemetryClient, ILogger<TRequest>? logger)
+    public LoggingBehaviour()
     {
-        this._logger = logger;
-        this._telemetryClient = telemetryClient;
+        this._logger = DependencyExtensions.CreateLogger<TRequest>();
+        this._telemetryClient = DependencyExtensions.TelemetryClient;
     }
 
     #endregion
@@ -54,7 +54,10 @@ public class LoggingBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest,
         {
             if (timedOperation != null)
                 timedOperation.Telemetry.Success = false;
-            this._logger?.LogError(ex, "An error occured during request processing: {ErrorMessage}", ex.Message);
+
+            Common.ErrorLoggingFactory.LogError(_telemetryClient, _logger, ex,
+                "An error occured during request processing: {ErrorMessage}", ex.Message);
+
             throw;
         }
     }

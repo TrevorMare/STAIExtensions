@@ -1,4 +1,7 @@
-﻿namespace STAIExtensions.Abstractions.CQRS.DataSetViews.Commands;
+﻿using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+
+namespace STAIExtensions.Abstractions.CQRS.DataSetViews.Commands;
 
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,6 +34,7 @@ public class SetViewEnabledCommandHandler : IRequestHandler<SetViewEnabledComman
     
     #region Members
     private readonly IViewCollection _viewCollection;
+    private readonly TelemetryClient? _telemetryClient;
     #endregion
 
     #region ctor
@@ -38,6 +42,7 @@ public class SetViewEnabledCommandHandler : IRequestHandler<SetViewEnabledComman
     {
         _viewCollection = DependencyExtensions.ServiceProvider?.GetRequiredService<IViewCollection>() ??
                           throw new Exception("Could not retrieve data set views collection from DI");
+        this._telemetryClient = DependencyExtensions.TelemetryClient;
     }
     #endregion
 
@@ -45,7 +50,7 @@ public class SetViewEnabledCommandHandler : IRequestHandler<SetViewEnabledComman
     public Task<bool> Handle(SetViewEnabledCommand request, CancellationToken cancellationToken)
     {
         var result = false;
-
+        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(Handle)}");
         var view = _viewCollection.GetView(request.ViewId, request.OwnerId);
         if (view != null)
         {

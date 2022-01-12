@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.Extensions.DependencyInjection;
 using STAIExtensions.Abstractions.Collections;
 using STAIExtensions.Abstractions.Data;
@@ -21,6 +22,7 @@ public class DetachDataSetCommandHandler : IRequestHandler<DetachDataSetCommand,
 {
     
     #region Members
+    private readonly TelemetryClient? _telemetryClient;
     private readonly IDataSetCollection _dataSetCollection;
     #endregion
 
@@ -29,12 +31,14 @@ public class DetachDataSetCommandHandler : IRequestHandler<DetachDataSetCommand,
     {
         _dataSetCollection = DependencyExtensions.ServiceProvider?.GetRequiredService<IDataSetCollection>() ??
                              throw new Exception("Could not retrieve data set collection from DI");
+        this._telemetryClient = DependencyExtensions.TelemetryClient;
     }
     #endregion
 
     #region Methods
     public Task<bool> Handle(DetachDataSetCommand request, CancellationToken cancellationToken)
     {
+        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(Handle)}");
         return Task.FromResult(_dataSetCollection.DetachDataSet(request.DataSet));
     }
     #endregion
