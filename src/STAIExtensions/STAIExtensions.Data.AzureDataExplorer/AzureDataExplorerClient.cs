@@ -28,8 +28,7 @@ namespace STAIExtensions.Data.AzureDataExplorer
         public AzureDataExplorerClient(TelemetryLoaderOptions options)
         {
             this._logger = Abstractions.DependencyExtensions.CreateLogger<AzureDataExplorerClient>();
-            this._telemetryClient = (TelemetryClient?)
-                Abstractions.DependencyExtensions.ServiceProvider?.GetService(typeof(TelemetryClient));
+            this._telemetryClient = Abstractions.DependencyExtensions.TelemetryClient;
             
             this.ConfigureApi(options.AppId, options.ApiKey);
         }
@@ -98,10 +97,10 @@ namespace STAIExtensions.Data.AzureDataExplorer
             {
                 if (clientExecuteAsyncOperation != null)
                     clientExecuteAsyncOperation.Telemetry.Success = false;
-                
-                this._telemetryClient?.TrackException(ex);
-                
-                this._logger?.LogCritical("There was an error getting the response from the server. {ResponseException}", ex);
+
+                Abstractions.Common.ErrorLoggingFactory.LogError(this._telemetryClient, this._logger, ex,
+                    "There was an error getting the response from the server. {ResponseException}", ex);
+
                 return new WebApiResponse(null, false, ex.ToString());
             }
         }
@@ -127,7 +126,8 @@ namespace STAIExtensions.Data.AzureDataExplorer
             }
             catch (Exception ex)
             {
-                this._logger?.LogError(ex, $"Error parsing response");
+                Abstractions.Common.ErrorLoggingFactory.LogError(this._telemetryClient, this._logger, ex,
+                    $"Error parsing response");
                 throw;
             }
         }

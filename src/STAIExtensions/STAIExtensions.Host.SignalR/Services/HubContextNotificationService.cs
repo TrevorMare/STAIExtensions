@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.ApplicationInsights;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using STAIExtensions.Abstractions.Collections;
 using STAIExtensions.Abstractions.Data;
 using STAIExtensions.Abstractions.Views;

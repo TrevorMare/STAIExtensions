@@ -25,7 +25,7 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
 
     private TableRowDeserializer _tableRowDeserializer;
 
-    private readonly TelemetryClient? _telemetryClient;
+    private TelemetryClient? _telemetryClient;
     #endregion
 
     #region Properties
@@ -39,8 +39,7 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
             throw new ArgumentNullException(nameof(loaderOptionsBuilder));
         
         this._loaderOptions = loaderOptionsBuilder.Invoke();
-        this._telemetryClient =
-            (TelemetryClient?) Abstractions.DependencyExtensions.ServiceProvider?.GetService(typeof(TelemetryClient));
+        
         
         Initialise();
     }
@@ -59,6 +58,7 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
         this.DataContractQueryFactory = new Queries.AzureDataExplorerQueryFactory();
         
         this._logger = Abstractions.DependencyExtensions.CreateLogger<TelemetryLoader>();
+        this._telemetryClient = Abstractions.DependencyExtensions.TelemetryClient;
         
         if (this._loaderOptions == null)
             throw new ArgumentNullException(nameof(_loaderOptions));        
@@ -119,7 +119,7 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
             
             this._telemetryClient?.TrackException(ex);
             
-            this._logger?.LogError(ex,
+            Abstractions.Common.ErrorLoggingFactory.LogError(this._telemetryClient, this._logger, ex,
                 "An error occured executing query in Azure Data Explorer Telemetry loader: {ErrorMessage}", ex.Message);
             throw;
         }
