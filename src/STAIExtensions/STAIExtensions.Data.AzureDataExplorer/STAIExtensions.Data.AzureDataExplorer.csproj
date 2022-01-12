@@ -8,7 +8,7 @@
         <FileVersion>1.0.0</FileVersion>
         <TargetFrameworks>net5.0;net6.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>1.0.1</PackageVersion>
+        <PackageVersion>1.0.2</PackageVersion>
         <Title>STAIExtensions Data AzureDataExplorer</Title>
         <Authors>Trevor Maré</Authors>
         <Description>Azure Data Explorer Telemetry Loader for STAIExtensions.</Description>
@@ -17,7 +17,8 @@
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>application-insights;custom-views;grpc;signalr;STAIExtensions;trevor;mare;staiextensions-data-azuredataexplorer;azuredataexplorer;dotnet</PackageTags>
-        <PackageReleaseNotes>v1.0.1 - Telemetry Name Refinement
+        <PackageReleaseNotes>v1.0.2 - Telemetry Error Logging
+v1.0.1 - Telemetry Name Refinement
 v1.0.0 - Initial Public Release            
 v0.0.2 - Added Source Link and Deterministic Build
 v0.0.1 - Initial Release</PackageReleaseNotes>
@@ -37,7 +38,7 @@ v0.0.1 - Initial Release</PackageReleaseNotes>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <!-- Additional Packages required by this library -->
-        <PackageReference Include="STAIExtensions.Core" Version="1.0.5" />
+        <PackageReference Include="STAIExtensions.Core" Version="1.0.6" />
         <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
     </ItemGroup>
 

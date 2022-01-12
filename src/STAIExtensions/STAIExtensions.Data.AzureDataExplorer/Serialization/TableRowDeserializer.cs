@@ -25,7 +25,7 @@ internal class TableRowDeserializer
     public TableRowDeserializer()
     {
         this.Logger = Abstractions.DependencyExtensions.CreateLogger<TableRowDeserializer>();
-        this._telemetryClient = (TelemetryClient?)Abstractions.DependencyExtensions.ServiceProvider?.GetService(typeof(TelemetryClient));
+        this._telemetryClient = Abstractions.DependencyExtensions.TelemetryClient;
     }
     #endregion
 
@@ -61,7 +61,8 @@ internal class TableRowDeserializer
         }
         catch (Exception ex)
         {
-            this.Logger?.LogError(ex, "An error occured deserializing rows");
+            Abstractions.Common.ErrorLoggingFactory.LogError(this._telemetryClient, this.Logger, ex,
+                "An error occured deserializing rows");
             throw;
         }
     }
@@ -105,10 +106,9 @@ internal class TableRowDeserializer
         {
             if (extractOperation != null)
                 extractOperation.Telemetry.Success = false;
-            
-            this._telemetryClient?.TrackException(ex);
-                
-            this.Logger?.LogError(ex, "Error on row {RowIndex}", iRow);
+
+            Abstractions.Common.ErrorLoggingFactory.LogError(this._telemetryClient, this.Logger, ex,
+                "Error on row {RowIndex}", iRow);
             throw;
         }
         return result;
