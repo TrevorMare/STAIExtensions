@@ -13,7 +13,7 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
 
     protected readonly ILogger<DataSetView>? Logger;
     
-    private readonly TelemetryClient? _telemetryClient;
+    protected readonly TelemetryClient? TelemetryClient;
 
     private readonly string _viewId = Guid.NewGuid().ToString();
     
@@ -61,8 +61,7 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
 
     protected DataSetView()
     {
-        _telemetryClient =
-            (TelemetryClient?) Abstractions.DependencyExtensions.ServiceProvider?.GetService(typeof(TelemetryClient));
+        TelemetryClient = Abstractions.DependencyExtensions.TelemetryClient;
         Logger = Abstractions.DependencyExtensions.CreateLogger<DataSetView>();
     }
 
@@ -71,7 +70,7 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     #region Methods
     public virtual Task UpdateViewFromDataSet(IDataSet dataset)
     {
-        using var updateViewOperation = this._telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(UpdateViewFromDataSet)}");
+        using var updateViewOperation = this.TelemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(UpdateViewFromDataSet)}");
 
         try
         {
@@ -83,7 +82,7 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
         
             LastUpdate = DateTime.Now;
             
-            this._telemetryClient?.TrackEvent("UpdateViewFromDataSet", 
+            this.TelemetryClient?.TrackEvent("UpdateViewFromDataSet", 
                 new Dictionary<string, string>()
                 {
                     { "DataSetId", dataset.DataSetId },
@@ -95,8 +94,9 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
         {
             if (updateViewOperation != null)
                 updateViewOperation.Telemetry.Success = false;
-            
-            this.Logger?.LogError(ex, "An error occured updating the view: {ErrorMessage}", ex.Message);
+
+            Abstractions.Common.ErrorLoggingFactory.LogError(this.TelemetryClient, this.Logger, ex,
+                "An error occured updating the view: {ErrorMessage}", ex.Message);
         }
         return Task.CompletedTask;
     }
