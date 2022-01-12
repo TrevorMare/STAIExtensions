@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <ApplicationInsightsResourceId>/subscriptions/38388872-dd61-4568-b633-2791951d7aad/resourceGroups/STAIExtensions/providers/microsoft.insights/components/aiSTAIExtensions</ApplicationInsightsResourceId>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.15.0" />
+    </ItemGroup>
+
+</Project>
