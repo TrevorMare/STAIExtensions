@@ -25,12 +25,12 @@ public class Program
             {
                 services.AddSingleton<ITelemetryInitializer, TelemetryInitializer>();
                 
-                // // Add application insights to push sample telemetry
-                // TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
-                // configuration.InstrumentationKey = "c065e6f4-03cd-472e-94fd-c0518f8463f3";
-                // configuration.TelemetryInitializers.Add(new TelemetryInitializer());
-                // var telemetryClient = new TelemetryClient(configuration);
-                // services.AddScoped((s) => telemetryClient);
+                // Add application insights to push sample telemetry
+                TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+                configuration.InstrumentationKey = "c065e6f4-03cd-472e-94fd-c0518f8463f3";
+                configuration.TelemetryInitializers.Add(new TelemetryInitializer());
+                var telemetryClient = new TelemetryClient(configuration);
+                services.AddScoped((s) => telemetryClient);
                 
                 var dsOptions = new STAIExtensions.Abstractions.Collections.DataSetCollectionOptions();
                 var dsvOptions =
