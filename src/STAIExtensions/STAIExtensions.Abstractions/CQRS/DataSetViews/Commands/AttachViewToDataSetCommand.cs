@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.Extensions.DependencyInjection;
 using STAIExtensions.Abstractions.Collections;
 
@@ -41,7 +42,7 @@ public class AttachViewToDataSetCommandHandler : IRequestHandler<AttachViewToDat
     #region Members
     private readonly IViewCollection _viewCollection;
     private readonly IDataSetCollection _dataSetCollection;
-
+    private readonly TelemetryClient? _telemetryClient;
     #endregion
 
     #region ctor
@@ -51,14 +52,15 @@ public class AttachViewToDataSetCommandHandler : IRequestHandler<AttachViewToDat
                           throw new Exception("Could not retrieve data set views collection from DI");
         _dataSetCollection = DependencyExtensions.ServiceProvider?.GetRequiredService<IDataSetCollection>() ??
                              throw new Exception("Could not retrieve data set collection from DI");
+        this._telemetryClient = DependencyExtensions.TelemetryClient;
     }
     #endregion
 
     #region Methods
     public Task<bool> Handle(AttachViewToDataSetCommand request, CancellationToken cancellationToken)
     {
+        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(Handle)}");
         var view = _viewCollection.GetView(request.ViewId, request.UserSessionId);
-
         return Task.FromResult(view != null && _dataSetCollection.AttachViewToDataSet(request.DataSetId, view));
     }
     #endregion

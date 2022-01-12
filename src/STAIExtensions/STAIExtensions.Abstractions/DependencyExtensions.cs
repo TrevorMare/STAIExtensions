@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using MediatR;
+using Microsoft.ApplicationInsights;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using STAIExtensions.Abstractions.Collections;
@@ -10,7 +11,6 @@ public static class DependencyExtensions
 {
 
     #region Members
-
     private static IServiceCollection? _serviceCollection = null;
     private static IServiceProvider? _serviceProvider = null;
     private static ILoggerFactory? _loggerFactory = null;
@@ -32,6 +32,9 @@ public static class DependencyExtensions
     {
         get { return _mediator ??= ServiceProvider?.GetService<IMediator>(); }
     }
+
+    public static TelemetryClient? TelemetryClient =>
+        (TelemetryClient?) ServiceProvider?.GetService(typeof(TelemetryClient));
     #endregion
 
     #region Extension Method

@@ -16,13 +16,13 @@ To run this example, build the project and run it.
 
 ## Usage
 
-This example application uses the an Authorization Token with the value of *ABC*. If you change this, you will also need to change the applications connecting to it.
+This example application uses the an Authorization Token with the value of *598cd5656c78fc13c4d7c274ac41f34737e6b4d0e86af5c3ab47c81674dde666*. If you change this, you will also need to change the applications connecting to it.
 
 ```c#
     ...
     
     // Create the required services for the Grpc Channels and Authorization
-    services.UseSTAIGrpc(new GrpcHostOptions(BearerToken: "ABC"));
+    services.UseSTAIGrpc(new GrpcHostOptions(BearerToken: "598cd5656c78fc13c4d7c274ac41f34737e6b4d0e86af5c3ab47c81674dde666"));
     
     ...
 ```

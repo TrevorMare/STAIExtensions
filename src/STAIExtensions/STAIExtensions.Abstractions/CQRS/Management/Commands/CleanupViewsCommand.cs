@@ -1,4 +1,6 @@
 using MediatR;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.Extensions.DependencyInjection;
 using STAIExtensions.Abstractions.Collections;
 using STAIExtensions.Abstractions.Views;
@@ -16,7 +18,7 @@ public class ExpireViewsCommandHandler : IRequestHandler<ExpireViewsCommand, int
 
     private readonly IViewCollection _viewCollection;
     private readonly IDataSetCollection _dataSetCollection;
-
+    private readonly TelemetryClient? _telemetryClient;
     #endregion
 
     #region ctor
@@ -26,6 +28,7 @@ public class ExpireViewsCommandHandler : IRequestHandler<ExpireViewsCommand, int
                           throw new Exception("Could not retrieve data set views collection from DI");
         _dataSetCollection = DependencyExtensions.ServiceProvider?.GetRequiredService<IDataSetCollection>() ??
                              throw new Exception("Could not retrieve data set collection from DI");
+        this._telemetryClient = DependencyExtensions.TelemetryClient;
     }
     #endregion
 
@@ -33,7 +36,7 @@ public class ExpireViewsCommandHandler : IRequestHandler<ExpireViewsCommand, int
 
     public Task<int> Handle(ExpireViewsCommand request, CancellationToken cancellationToken)
     {
-        
+        using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(Handle)}");
         var expiredViews = _viewCollection.GetExpiredViews();
 
         var dataSetViews = expiredViews as IDataSetView[] ?? expiredViews.ToArray();
