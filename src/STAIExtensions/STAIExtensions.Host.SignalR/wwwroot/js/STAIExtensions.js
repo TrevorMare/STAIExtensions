@@ -43,7 +43,12 @@ var STAIExtensionsHub = (function () {
         this._dataSetUpdatedCallback = dataSetUpdatedCallback;
         this._dataSetViewUpdatedCallback = dataSetViewUpdatedCallback;
         this._connection = new signalR.HubConnectionBuilder()
-            .withUrl(this._connectionEndpoint, { accessTokenFactory: function () { return _this._accessToken; } })
+            .withUrl(this._connectionEndpoint, {
+            accessTokenFactory: function () { return _this._accessToken; },
+            skipNegotiation: true,
+            transport: signalR.HttpTransportType.WebSockets
+        })
+            .withAutomaticReconnect()
             .build();
         this.SetupHandlers();
         this.StartConnection();
@@ -98,6 +103,15 @@ var STAIExtensionsHub = (function () {
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
         this._connection.on("OnSetViewParametersResponse", function (response, callbackId) {
+            instance._callbackHandler.OnCallbackReceived(callbackId, response);
+        });
+        this._connection.on("OnSetViewAutoRefreshEnabledResponse", function (response, callbackId) {
+            instance._callbackHandler.OnCallbackReceived(callbackId, response);
+        });
+        this._connection.on("OnSetViewAutoRefreshDisabledResponse", function (response, callbackId) {
+            instance._callbackHandler.OnCallbackReceived(callbackId, response);
+        });
+        this._connection.on("OnGetMyViewsResponse", function (response, callbackId) {
             instance._callbackHandler.OnCallbackReceived(callbackId, response);
         });
     };
@@ -231,6 +245,57 @@ var STAIExtensionsHub = (function () {
             this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId: callbackId, CallbackName: "SetViewParameters" });
         }
         this._connection.invoke("SetViewParameters", viewId, this._ownerId, viewParameters, callbackId)["catch"](function (err) {
+            instance._callbackHandler.RemoveCallback(callbackId);
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
+        });
+        return callbackId;
+    };
+    STAIExtensionsHub.prototype.SetViewAutoRefreshEnabled = function (viewId, success, error) {
+        if (success === void 0) { success = null; }
+        if (error === void 0) { error = null; }
+        this.ValidateConnection();
+        var callbackId = STAIExtensionsHub.GenerateCallbackId();
+        var instance = this;
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId: callbackId, CallbackName: "SetViewAutoRefreshEnabled" });
+        }
+        this._connection.invoke("SetViewAutoRefreshEnabled", viewId, this._ownerId, callbackId)["catch"](function (err) {
+            instance._callbackHandler.RemoveCallback(callbackId);
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
+        });
+        return callbackId;
+    };
+    STAIExtensionsHub.prototype.SetViewAutoRefreshDisabled = function (viewId, success, error) {
+        if (success === void 0) { success = null; }
+        if (error === void 0) { error = null; }
+        this.ValidateConnection();
+        var callbackId = STAIExtensionsHub.GenerateCallbackId();
+        var instance = this;
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId: callbackId, CallbackName: "SetViewAutoRefreshDisabled" });
+        }
+        this._connection.invoke("SetViewAutoRefreshDisabled", viewId, this._ownerId, callbackId)["catch"](function (err) {
+            instance._callbackHandler.RemoveCallback(callbackId);
+            if (error !== undefined && error !== null) {
+                error(err);
+            }
+        });
+        return callbackId;
+    };
+    STAIExtensionsHub.prototype.GetMyViews = function (success, error) {
+        if (success === void 0) { success = null; }
+        if (error === void 0) { error = null; }
+        this.ValidateConnection();
+        var callbackId = STAIExtensionsHub.GenerateCallbackId();
+        var instance = this;
+        if (success !== undefined && success !== null) {
+            this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId: callbackId, CallbackName: "GetMyViews" });
+        }
+        this._connection.invoke("GetMyViews", callbackId)["catch"](function (err) {
             instance._callbackHandler.RemoveCallback(callbackId);
             if (error !== undefined && error !== null) {
                 error(err);

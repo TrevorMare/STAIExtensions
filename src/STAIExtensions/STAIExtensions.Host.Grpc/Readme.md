@@ -16,7 +16,8 @@ and in ASPNet Web projects. For example usage, check the Examples folder.
 ## Usage
 
 To use the library in a .NET project, install the package from Nuget. 
-Follow the examples to host the application
+Follow the examples to host the application.
+
 
 ## Example Code AspNet Core:
 

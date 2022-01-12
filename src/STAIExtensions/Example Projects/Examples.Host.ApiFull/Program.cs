@@ -43,7 +43,9 @@ var viewCollectionOptions = new STAIExtensions.Abstractions.Collections.ViewColl
 builder.Services.UseSTAIExtensions(() => dataSetCollectionOptions, () => viewCollectionOptions);
 
 // Now add the Grpc and the SignalR Communication services
-builder.Services.UseSTAISignalR();
+
+var signalROptions = new SignalRHostOptions(true, builder.Configuration["SignalRAuthorizationToken"]);
+builder.Services.UseSTAISignalR(signalROptions);
 
 var grpcOptions = new GrpcHostOptions(true, builder.Configuration["GrpcAuthorizationToken"]);
 builder.Services.UseSTAIGrpc(grpcOptions);

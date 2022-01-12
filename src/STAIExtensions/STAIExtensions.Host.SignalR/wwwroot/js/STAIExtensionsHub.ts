@@ -26,9 +26,16 @@ class STAIExtensionsHub {
         this._dataSetUpdatedCallback = dataSetUpdatedCallback;
         this._dataSetViewUpdatedCallback = dataSetViewUpdatedCallback;
         
+        
         // @ts-ignore
         this._connection = new signalR.HubConnectionBuilder()
-            .withUrl(this._connectionEndpoint, { accessTokenFactory: () => this._accessToken })
+            .withUrl(this._connectionEndpoint, { 
+                    accessTokenFactory: () => this._accessToken,
+                    skipNegotiation: true, 
+                    // @ts-ignore
+                    transport: signalR.HttpTransportType.WebSockets
+                })
+            .withAutomaticReconnect()
             .build();
         
         this.SetupHandlers();
