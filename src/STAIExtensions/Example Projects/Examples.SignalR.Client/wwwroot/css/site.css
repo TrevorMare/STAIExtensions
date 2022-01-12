@@ -1,0 +1,55 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.console-output {
+  width: 60vw;
+  height: 50vh;
+  box-sizing: border-box;
+}
+
+.console-output .header {
+  border-top-left-radius: 0.6rem;
+  border-top-right-radius: 0.6rem;
+  background-color: #555;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  color: #DDD;
+}
+
+.console-output .message-output {
+  box-sizing: border-box;
+  padding: 20px;
+  height: calc(50vh - 45px);
+  overflow: scroll;
+  background-color: #000;
+  text-align: left;
+}
+
+.console-output .message-output p.error {
+  color: #de3400;
+}
+
+.console-output .message-output p.warn {
+  color: #de7600;
+}
+
+.console-output .message-output p.log {
+  color: #63de00;
+}

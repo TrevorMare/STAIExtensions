@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>STAIExtensions SignalR Client</p>
+</div>
+
+<div class="text-center">
+    <div class="console-output">
+        <div class="header">
+            <p>Console Output</p>
+        </div>
+        <div class="message-output" id="log-output">
+            
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="https://cdn.jsdelivr.net/gh/TrevorMare/STAIExtensions@main/src/STAIExtensions/Resources/STAIExtensions_v1.0.0.js" crossorigin="anonymous"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/site.js"></script>
+}
