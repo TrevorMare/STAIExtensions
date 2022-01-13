@@ -83,6 +83,12 @@ jobs:
       # Push the package to nuget
       - name: Push Nuget STAIExtensions Host SignalR
         run: dotnet nuget push src\STAIExtensions\STAIExtensions.Host.SignalR\bin\Release\*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
-  
+      
+      # Pack the STAIExtensions Host SignalR Client  
+      - name: Package STAIExtensions Host SignalR Client
+        run: dotnet pack ./src/STAIExtensions/STAIExtensions.Host.SignalR.Client/STAIExtensions.Host.SignalR.Client.csproj --no-build --configuration Release
+      # Push the package to nuget
+      - name: Push Nuget STAIExtensions Host SignalR Client
+        run: dotnet nuget push src\STAIExtensions\STAIExtensions.Host.SignalR.Client\bin\Release\*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
  

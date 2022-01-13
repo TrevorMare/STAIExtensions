@@ -290,10 +290,10 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
 
         try
         {
-            var response = await _mediator?.Send(new SetViewEnabledCommand(viewId, ownerId))!;
+            var response = await _mediator?.Send(new SetViewDisabledCommand(viewId, ownerId))!;
             await Clients.Caller.OnSetViewAutoRefreshDisabledResponse(response, callBackId);
 
-            _telemetryClient?.TrackEvent(nameof(SetViewAutoRefreshEnabled), new Dictionary<string, string>()
+            _telemetryClient?.TrackEvent(nameof(SetViewAutoRefreshDisabled), new Dictionary<string, string>()
             {
                 {"OwnerId", ownerId},
                 {"ViewId", viewId},
