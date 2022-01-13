@@ -2,7 +2,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["APPINSIGHTS_CONNECTIONSTRING"]);
+builder.Services.AddApplicationInsightsTelemetry("c065e6f4-03cd-472e-94fd-c0518f8463f3");
 
 var app = builder.Build();
 

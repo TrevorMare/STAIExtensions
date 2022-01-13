@@ -8,16 +8,17 @@
         <AssemblyVersion>1.0.0</AssemblyVersion>
         <FileVersion>1.0.0</FileVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>1.0.1</PackageVersion>
+        <PackageVersion>1.0.2</PackageVersion>
         <Title>STAIExtensions Host SignalR</Title>
         <Authors>Trevor Maré</Authors>
         <Description>STAIExtensions SignalR Host</Description>
-        <PackageProjectUrl>https://github.com/TrevorMare/STAIExtensions/tree/main/src/STAIExtensions/STAIExtensions.Host.SignalR</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/TrevorMare/STAIExtensions/tree/main/src/STAIExtensions/STAIExtensions.Host.Grpc.Client</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>application-insights;custom-views;grpc;signalr;STAIExtensions;trevor;mare;staiextensions-data-azuredataexplorer;azuredataexplorer;dotnet</PackageTags>
-        <PackageReleaseNotes>v1.0.1 - Updated package references
+        <PackageReleaseNotes>v1.0.1 - Fixed Disable View
+v1.0.1 - Updated package references
 v1.0.0 - Added Authorization
 v0.0.3 - Updated Package References
 v0.0.2 - Fixed Js Include
