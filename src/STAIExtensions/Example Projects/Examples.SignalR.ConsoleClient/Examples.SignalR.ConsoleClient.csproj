@@ -8,7 +8,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\STAIExtensions.Host.SignalR.Client\STAIExtensions.Host.SignalR.Client.csproj" />
+      <PackageReference Include="STAIExtensions.Host.SignalR.Client" Version="1.0.0" />
     </ItemGroup>
+
+ 
 
 </Project>
