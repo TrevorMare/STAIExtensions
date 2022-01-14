@@ -37,7 +37,7 @@
       {
         "files": [
           "api/**.yml",
-          "Pages/index.md"
+          "index.md"
         ]
       },
       {
@@ -63,7 +63,7 @@
         ],
         "exclude": [
           "obj/**",
-          "_site/**"
+          "wwwroot/**"
         ]
       }
     ],

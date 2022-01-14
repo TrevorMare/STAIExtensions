@@ -4,18 +4,6 @@
   "xrefmap": "xrefmap.yml",
   "files": [
     {
-      "type": "Conceptual",
-      "source_relative_path": "Pages/index.md",
-      "output": {
-        ".html": {
-          "relative_path": "Pages/index.html",
-          "hash": "VV0xvKuInr91IZ8A5X+srSnK+JQXpJGR5vwWIIRdy3s="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
       "type": "ManagedReference",
       "source_relative_path": "api/STAIExtensions.Core.Collections.DataSetCollection.yml",
       "output": {
@@ -1562,6 +1550,18 @@
       },
       "is_incremental": false,
       "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "CORIKskGkLNAfHFpBtalvb8WhTYRMihqhs/ktARbA1s="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
     }
   ],
   "incremental_info": [
@@ -1574,11 +1574,10 @@
       },
       "processors": {
         "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor ConceptualDocumentProcessor disable incremental build because last build doesn't contain version .",
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 1,
-          "skipped_file_count": 0
+          "skipped_file_count": 1
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
