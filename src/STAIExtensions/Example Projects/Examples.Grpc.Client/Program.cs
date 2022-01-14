@@ -22,7 +22,7 @@ public static class Program
             Console.WriteLine("Initialising Grpc Connection");
 
             using var managedClient =
-                new GrpcClientManaged(new GrpcClientManagedOptions(" https://localhost:5001", Guid.NewGuid().ToString())
+                new GrpcClientManaged(new GrpcClientManagedOptions("https://localhost:5001", "Trevor Mare")
                     {
                         AuthBearerToken = "598cd5656c78fc13c4d7c274ac41f34737e6b4d0e86af5c3ab47c81674dde666",
                         UseDefaultAuthorization = true
@@ -56,12 +56,6 @@ public static class Program
             };
 
             Console.WriteLine("Press any key to stop");
-            Console.ReadLine();
-            
-
-            Console.WriteLine("Closing Connections");
-            Console.WriteLine("Done");
-
             Console.ReadLine();
         }
         catch (RpcException e)

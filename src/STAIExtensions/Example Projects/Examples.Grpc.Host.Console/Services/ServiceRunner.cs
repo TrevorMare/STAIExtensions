@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using STAIExtensions.Abstractions.Data;
 using STAIExtensions.Data.AzureDataExplorer;
 using STAIExtensions.Default.DataSets.Options;
@@ -7,14 +8,21 @@ namespace Examples.Grpc.Host.Console.Services;
 
 public class ServiceRunner : IHostedService
 {
-    private IDataSet _ds;
+    private IDataSet? _ds;
+    private readonly string _apiKey;
+    private readonly string _appId;
+
+    public ServiceRunner(IConfiguration configuration)
+    {
+        _apiKey = configuration["ReadTelemetryApiKey"];
+        _appId = configuration["ReadTelemetryAppId"];
+    }
     
     public Task StartAsync(CancellationToken cancellationToken)
     {
         // 1) Create a new telemetry loader instance
-        var telemetryLoader = new STAIExtensions.Data.AzureDataExplorer.TelemetryLoader(
-            new TelemetryLoaderOptions("fn884tsrbltm7rwc7bggidd8nkbls6huvwlz05m1",
-                "435b44c6-c1bd-4316-92a7-2760a0960cbe"));
+        var telemetryLoader = new TelemetryLoader(
+            new TelemetryLoaderOptions(_apiKey, _appId));
         
         // 2) Register a new dataset with the telemetry loader
         _ds = new STAIExtensions.Default.DataSets.DataContractDataSet(telemetryLoader, new DataContractDataSetOptions(),
@@ -28,7 +36,7 @@ public class ServiceRunner : IHostedService
 
     public Task StopAsync(CancellationToken cancellationToken)
     {
-        _ds.StopAutoRefresh();
+        _ds?.StopAutoRefresh();
         return Task.CompletedTask;
     }
 }

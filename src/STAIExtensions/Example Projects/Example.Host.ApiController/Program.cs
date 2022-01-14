@@ -1,6 +1,5 @@
 using Example.Host.ApiController;
 using Example.Host.ApiController.Services;
-using Microsoft.ApplicationInsights;
 using Microsoft.ApplicationInsights.Extensibility;
 using STAIExtensions.Core;
 using STAIExtensions.Host.Api;
@@ -27,7 +26,7 @@ builder.Services.AddSwaggerGen();
 
 // Wire up the local application insights to generate data for the DataSets
 builder.Services.AddSingleton<ITelemetryInitializer, TelemetryInitializer>();
-builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["ApplicationInsights:ConnectionString"]);
+builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["InstrumentationKey"]);
 
 // Register the STAIExtensions Core Library with the options provided
 var dataSetCollectionOptions = new STAIExtensions.Abstractions.Collections.DataSetCollectionOptions(

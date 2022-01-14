@@ -64,7 +64,7 @@ v0.0.1 - Initial Release
 
     <Target Name="Copy SignalR Js Client" AfterTargets="Build">
         <Message Text="Copy SignalR Js Client" Importance="High" />
-        <Copy SourceFiles="$(ProjectDir)wwwroot\js\STAIExtensions.js" DestinationFiles="$(SolutionDir)Resources\STAIExtensions_v$(PackageVersion).js" ContinueOnError="false" />
-        <Copy SourceFiles="$(ProjectDir)wwwroot\js\STAIExtensions.js.map" DestinationFiles="$(SolutionDir)Resources\STAIExtensions_v$(PackageVersion).js.map" ContinueOnError="false" />
+        <Copy SourceFiles="$(ProjectDir)wwwroot\js\STAIExtensions.js" DestinationFiles="$(SolutionDir)Resources\js\STAIExtensions_v$(PackageVersion).js" ContinueOnError="false" />
+        <Copy SourceFiles="$(ProjectDir)wwwroot\js\STAIExtensions.js.map" DestinationFiles="$(SolutionDir)Resources\js\STAIExtensions_v$(PackageVersion).js.map" ContinueOnError="false" />
     </Target>
 </Project>
