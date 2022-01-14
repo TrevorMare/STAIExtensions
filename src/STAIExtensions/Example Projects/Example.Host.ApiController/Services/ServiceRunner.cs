@@ -4,11 +4,9 @@ using STAIExtensions.Default.DataSets.Options;
 
 namespace Example.Host.ApiController.Services;
 
-
-
 public class ServiceRunner : IHostedService
 {
-    private IDataSet _ds;
+    private IDataSet? _ds;
     private readonly string _apiKey;
     private readonly string _appId;
 
@@ -21,7 +19,7 @@ public class ServiceRunner : IHostedService
     public Task StartAsync(CancellationToken cancellationToken)
     {
         // 1) Create a new telemetry loader instance
-        var telemetryLoader = new STAIExtensions.Data.AzureDataExplorer.TelemetryLoader(
+        var telemetryLoader = new TelemetryLoader(
             new TelemetryLoaderOptions(_apiKey, _appId));
         
         // 2) Register a new dataset with the telemetry loader
@@ -36,7 +34,7 @@ public class ServiceRunner : IHostedService
 
     public Task StopAsync(CancellationToken cancellationToken)
     {
-        _ds.StopAutoRefresh();
+        _ds?.StopAutoRefresh();
         return Task.CompletedTask;
     }
 }

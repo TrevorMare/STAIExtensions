@@ -2,11 +2,16 @@
 
 using STAIExtensions.Host.SignalR.Client;
 
-Console.WriteLine("Hello, World!");
+Console.WriteLine("Hello, SignalR World!");
 
 var clientManager =
     new SignalRClientManaged(new SignalRClientManagedOptions("https://localhost:5001/STAIExtensionsHub",
-        "Trevor Mare"));
+        "Trevor Mare")
+    {
+        AuthBearerToken = "1a99436ef0e79d26ada7bb20e675a27d3fe13d91156624e9f50ec428d71e8495", 
+        UseDefaultAuthorization = true
+    });
+
 try
 {
     var viewToCreateName = "STAIExtensions.Default.Views.BrowserTimingsView, STAIExtensions.Default, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null";
@@ -35,9 +40,6 @@ try
 
     await clientManager.AttachViewToDataset(view.View.Id, dataSets.ToList()[0].DataSetId);
 
-    var parameters = new Dictionary<string, object>() {{"TestParam", "123"}};
-
-    await clientManager.SetViewParameters(view.View.Id, parameters);
 
 }
 catch (Exception e)
