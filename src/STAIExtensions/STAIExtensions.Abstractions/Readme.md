@@ -1,22 +1,31 @@
-﻿## STAIExtensions Abstractions
+﻿![Logo](https://github.com/TrevorMare/STAIExtensions/blob/15fe0579e00cfa9763671fc33816c7251e933a7b/src/STAIExtensions/Resources/logo_full.png?raw=true)
 
-This library is the root that defines the interfaces for queries, datasets, dataset views, Application Insights data contract models, the collection management interfaces 
-and lastly the CQRS pattern to update the objects. The rest of the projects rely heavily on this
-project for the dataflow and shared structures.
-
-It also defines the basic general interaction with the interfaces via the MediatR package required to keep the collections in sync and register for UI interactions. All projects
-using this library and the core library should use the MediatR object for commands and queries. For this to work, the MediatR package
-needs to be registered in the service collection. If you are using this library on a direct reference without the Core library, you would need
-to register the services by calling the **DependencyExtensions.UseSTAIExtensionsAbstractions** method.
+# STAIExtensions Abstractions
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TrevorMare/STAIExtensions/.NET?style=for-the-badge)
 ![License](https://img.shields.io/github/license/trevormare/staiextensions?style=for-the-badge)
+![Last Commit](https://img.shields.io/github/last-commit/trevormare/staiextensions?style=for-the-badge)
 
 ## Nuget
 [![Nuget](https://img.shields.io/nuget/v/STAIExtensions.Abstractions?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Abstractions/)
 [![Nuget](https://img.shields.io/nuget/dt/STAIExtensions.Abstractions?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Abstractions/)
 
-[https://www.nuget.org/packages/STAIExtensions.Abstractions/](https://www.nuget.org/packages/STAIExtensions.Abstractions/)
+This library is the root that defines the interfaces for queries, datasets, dataset views, Application Insights data contract models, the collection management interfaces 
+and lastly the CQRS pattern to interact with the system. The rest of the projects rely heavily on this
+project for the dataflow and shared structures.
+
+Additionally it defines the Mediator pattern that the implemented interfaces use, the MediatR package 
+is used to keep the collections in sync and registration for UI interactions. All projects
+using this library and the core library should use the provided MediatR commands and queries and not change the collections
+directly. On startup the MediatR services needs to be registered. If you are using this library as a direct reference without the Core library, you would need
+to register the services by calling the **DependencyExtensions.UseSTAIExtensionsAbstractions** method.
+
+```c# 
+    services.UseSTAIExtensionsAbstractions();
+```
+
+If you are implicitly loading this package via the STAIExtions.Core package, this
+will be handled internally.
 
 ### Collections
 Defines the interfaces for the collection management of views and data sets. This also includes an interface for
@@ -55,19 +64,19 @@ This class is automatically instantiated by the STAIExtensions.Core project and 
 
 ## Target Frameworks
 
-- .NET Standard 2.1
-- .NET Core 3.1
-- .NET 5
-- .NET 6
+- :heavy_check_mark: .NET Standard 2.1
+- :heavy_check_mark: .NET Core 3.1
+- :heavy_check_mark: .NET 5
+- :heavy_check_mark: .NET 6
 
 ## Dependencies
 
-- MediatR
-- MediatR.Extensions.Microsoft.DependencyInjection
-- System.ComponentModel.Annotations
-- Microsoft.Extensions.Logging.Abstractions
-- Microsoft.Extensions.DependencyInjection.Abstractions
-- Microsoft.Extensions.DependencyInjection
-- Microsoft.ApplicationInsights
-- System.Diagnostics.DiagnosticsSource
-- System.Text.Json
+- :heavy_check_mark: MediatR
+- :heavy_check_mark: MediatR.Extensions.Microsoft.DependencyInjection
+- :heavy_check_mark: System.ComponentModel.Annotations
+- :heavy_check_mark: Microsoft.Extensions.Logging.Abstractions
+- :heavy_check_mark: Microsoft.Extensions.DependencyInjection.Abstractions
+- :heavy_check_mark: Microsoft.Extensions.DependencyInjection
+- :heavy_check_mark: Microsoft.ApplicationInsights
+- :heavy_check_mark: System.Diagnostics.DiagnosticsSource
+- :heavy_check_mark: System.Text.Json
