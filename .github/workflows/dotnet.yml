@@ -23,8 +23,10 @@ jobs:
       # Restore the solution dependencies for ST AI Extensions    
       - name: Restore Nuget Dependencies STAIExtensions
         run: dotnet restore ./src/STAIExtensions/STAIExtensions.sln
+      # Build the project
       - name: Build STAIExtensions
         run: dotnet build ./src/STAIExtensions/STAIExtensions.sln --no-restore --configuration Release
+      # Run the tests and publish the results
       - name: Run Unit Tests STAIExtensions
         run: dotnet test ./src/STAIExtensions/STAIExtensions.sln --no-build --configuration Release
         
