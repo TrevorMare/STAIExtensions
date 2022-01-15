@@ -20,55 +20,79 @@ jobs:
         with:
           dotnet-version: 6.0.x
       
+      # Install DocFX
+      - name: Setup DocFX
+        uses: crazy-max/ghaction-chocolatey@v1
+        with:
+          args: install docfx
+      
       # Restore the solution dependencies for ST AI Extensions    
       - name: Restore Nuget Dependencies STAIExtensions
         run: dotnet restore ./src/STAIExtensions/STAIExtensions.sln
+     
       # Build the project
       - name: Build STAIExtensions
         run: dotnet build ./src/STAIExtensions/STAIExtensions.sln --no-restore --configuration Release
+     
       # Run the tests and publish the results
       - name: Run Unit Tests STAIExtensions
         run: dotnet test ./src/STAIExtensions/STAIExtensions.sln --no-build --configuration Release
+      
+      # Build the DocFX Documentation
+      - name: DocFX Build
+        working-directory: ./src/STAIExtensions/STAIExtensions.Documentation
+        run: docfx docfx.json
+        continue-on-error: false    
         
-        # Pack the STAIExtensions Abstractions project  
+      - name: Publish Documentation
+        #if: github.event_name == 'push'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./src/STAIExtensions/STAIExtensions.Documentation/wwwroot
+          force_orphan: true        
+        
+      # Pack the STAIExtensions Abstractions project  
       - name: Package STAIExtensions Abstractions
         run: dotnet pack ./src/STAIExtensions/STAIExtensions.Abstractions/STAIExtensions.Abstractions.csproj --no-build --configuration Release
-        # Push the STAIExtensions Abstractions project
+      
+      # Push the STAIExtensions Abstractions project
       - name: Push Nuget STAIExtensions Abstractions
         run: dotnet nuget push src\STAIExtensions\STAIExtensions.Abstractions\bin\Release\*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
         
-        # Pack the STAIExtensions Core project  
+      # Pack the STAIExtensions Core project  
       - name: Package STAIExtensions Core
         run: dotnet pack ./src/STAIExtensions/STAIExtensions.Core/STAIExtensions.Core.csproj --no-build --configuration Release
-        # Push the STAIExtensions Core project
+      
+      # Push the STAIExtensions Core project
       - name: Push Nuget STAIExtensions Core
         run: dotnet nuget push src\STAIExtensions\STAIExtensions.Core\bin\Release\*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
         
-        # Pack the STAIExtensions Data Azure Data Explorer 
+      # Pack the STAIExtensions Data Azure Data Explorer 
       - name: Package STAIExtensions Data Azure Data Explorer
         run: dotnet pack ./src/STAIExtensions/STAIExtensions.Data.AzureDataExplorer/STAIExtensions.Data.AzureDataExplorer.csproj --no-build --configuration Release
-        # Push the STAIExtensions Core project
+      # Push the STAIExtensions Core project
       - name: Push Nuget STAIExtensions Data Azure Data Explorer
         run: dotnet nuget push src\STAIExtensions\STAIExtensions.Data.AzureDataExplorer\bin\Release\*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
         
-        # Pack the STAIExtensions Default
+      # Pack the STAIExtensions Default
       - name: Package STAIExtensions Default
         run: dotnet pack ./src/STAIExtensions/STAIExtensions.Default/STAIExtensions.Default.csproj --no-build --configuration Release
-        # Push the STAIExtensions Default
+      # Push the STAIExtensions Default
       - name: Push Nuget STAIExtensions Default
         run: dotnet nuget push src\STAIExtensions\STAIExtensions.Default\bin\Release\*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
-        # Pack the STAIExtensions Host Api
+      # Pack the STAIExtensions Host Api
       - name: Package STAIExtensions Host Api
         run: dotnet pack ./src/STAIExtensions/STAIExtensions.Host.Api/STAIExtensions.Host.Api.csproj --no-build --configuration Release
-        # Push the STAIExtensions Host Api
+      # Push the STAIExtensions Host Api
       - name: Push Nuget STAIExtensions Host Api
         run: dotnet nuget push src\STAIExtensions\STAIExtensions.Host.Api\bin\Release\*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
-        # Pack the STAIExtensions Host Grpc
+      # Pack the STAIExtensions Host Grpc
       - name: Package STAIExtensions Host Grpc
         run: dotnet pack ./src/STAIExtensions/STAIExtensions.Host.Grpc/STAIExtensions.Host.Grpc.csproj --no-build --configuration Release
-        # Push the STAIExtensions Host Grpc
+      # Push the STAIExtensions Host Grpc
       - name: Push Nuget STAIExtensions Host Grpc
         run: dotnet nuget push src\STAIExtensions\STAIExtensions.Host.Grpc\bin\Release\*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
@@ -94,3 +118,4 @@ jobs:
         run: dotnet nuget push src\STAIExtensions\STAIExtensions.Host.SignalR.Client\bin\Release\*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
  
+      
