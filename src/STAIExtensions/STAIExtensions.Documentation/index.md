@@ -1,1 +1,1 @@
-﻿# [API Reference](STAIExtensions/api/STAIExtensions.Core.html)
+﻿# [API Reference](/STAIExtensions/api/STAIExtensions.Core.html)
