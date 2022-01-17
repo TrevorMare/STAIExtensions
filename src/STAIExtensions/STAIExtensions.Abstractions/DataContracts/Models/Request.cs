@@ -1,6 +1,10 @@
 ﻿
 namespace STAIExtensions.Abstractions.DataContracts.Models
 {
+    
+    /// <summary>
+    /// Model for Requests returned from the telemetry source
+    /// </summary>
     public class Request : DataContractFull, IHasCustomMeasurement
     {
 

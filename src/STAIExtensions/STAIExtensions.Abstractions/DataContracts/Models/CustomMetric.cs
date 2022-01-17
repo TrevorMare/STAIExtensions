@@ -2,6 +2,9 @@
 
 namespace STAIExtensions.Abstractions.DataContracts.Models
 {
+    /// <summary>
+    /// Model for Custom Metrics returned from the telemetry source
+    /// </summary>
     public class CustomMetric : DataContractFull
     {
 

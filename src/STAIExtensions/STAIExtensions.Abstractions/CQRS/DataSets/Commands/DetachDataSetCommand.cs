@@ -8,8 +8,14 @@ using STAIExtensions.Abstractions.Data;
 namespace STAIExtensions.Abstractions.CQRS.DataSets.Commands;
 
 
+/// <summary>
+/// CQRS command to detach a DataSet instance from the DataSet Collection instance
+/// </summary>
 public class DetachDataSetCommand : IRequest<bool>
 {
+    /// <summary>
+    /// Gets or sets the DataSet to detach to the DataSet Collection instance
+    /// </summary>
     public IDataSet DataSet { get; set; }
 
     public DetachDataSetCommand(IDataSet dataSet)
@@ -18,6 +24,9 @@ public class DetachDataSetCommand : IRequest<bool>
     }
 }
 
+/// <summary>
+/// CQRS command handler to detach a DataSet instance to the DataSet Collection instance
+/// </summary>
 public class DetachDataSetCommandHandler : IRequestHandler<DetachDataSetCommand, bool>
 {
     

@@ -6,15 +6,27 @@ using STAIExtensions.Abstractions.Collections;
 
 namespace STAIExtensions.Abstractions.CQRS.DataSetViews.Commands;
 
+/// <summary>
+/// CQRS Command to remove the link from the view to the DataSet
+/// </summary>
 public class DetachViewFromDataSetCommand : IRequest<bool>
 {
     #region Properties
 
+    /// <summary>
+    /// Gets or sets the View Id to find for the operation
+    /// </summary>
     public string ViewId { get; set; } = "";
 
+    /// <summary>
+    /// Gets or sets the Data Set Id to remove the link from
+    /// </summary>
     public string DataSetId { get; set; } = "";
 
-    public string UserSessionId { get; set; } = "";
+    /// <summary>
+    /// Gets or sets the Owner Id of the View
+    /// </summary>
+    public string OwnerId { get; set; } = "";
 
     #endregion
 
@@ -25,15 +37,18 @@ public class DetachViewFromDataSetCommand : IRequest<bool>
         
     }
 
-    public DetachViewFromDataSetCommand(string viewId, string dataSetId, string userSessionId)
+    public DetachViewFromDataSetCommand(string viewId, string dataSetId, string ownerId)
     {
         this.ViewId = viewId;
         this.DataSetId = dataSetId;
-        this.UserSessionId = userSessionId;
+        this.OwnerId = ownerId;
     }
     #endregion
 }
 
+/// <summary>
+/// CQRS Command handler to remove the link from the view to the DataSet
+/// </summary>
 public class DetachViewFromDataSetCommandHandler : IRequestHandler<DetachViewFromDataSetCommand, bool>
 {
     
@@ -60,7 +75,7 @@ public class DetachViewFromDataSetCommandHandler : IRequestHandler<DetachViewFro
     public Task<bool> Handle(DetachViewFromDataSetCommand request, CancellationToken cancellationToken)
     {
         using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(Handle)}");
-        var view = _viewCollection.GetView(request.ViewId, request.UserSessionId);
+        var view = _viewCollection.GetView(request.ViewId, request.OwnerId);
 
         return Task.FromResult(view != null && _dataSetCollection.DetachViewFromDataSet(request.DataSetId, view));
     }

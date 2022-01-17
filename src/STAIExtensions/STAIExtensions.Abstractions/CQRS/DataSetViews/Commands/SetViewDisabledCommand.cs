@@ -6,13 +6,21 @@ using STAIExtensions.Abstractions.Collections;
 
 namespace STAIExtensions.Abstractions.CQRS.DataSetViews.Commands;
 
+/// <summary>
+/// CQRS Command to temporarily freeze updates on a View
+/// </summary>
 public class SetViewDisabledCommand : IRequest<bool>
 {
 
     #region Properties
-
+    /// <summary>
+    /// The View Id to freeze updates on
+    /// </summary>
     public string ViewId { get; set; }
 
+    /// <summary>
+    /// The Owner Id of the View
+    /// </summary>
     public string OwnerId { get; set; }
 
     #endregion
@@ -28,6 +36,9 @@ public class SetViewDisabledCommand : IRequest<bool>
     
 }
 
+/// <summary>
+/// CQRS Command handler to temporarily freeze updates on a View
+/// </summary>
 public class SetViewDisabledCommandHandler : IRequestHandler<SetViewDisabledCommand, bool>
 {
     

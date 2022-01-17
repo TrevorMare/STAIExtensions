@@ -1,6 +1,10 @@
 ﻿
 namespace STAIExtensions.Abstractions.DataContracts.Models
 {
+    
+    /// <summary>
+    /// Model for Page Views returned from the telemetry source
+    /// </summary>
     public class PageView : DataContractFull, IHasCustomMeasurement
     {
 

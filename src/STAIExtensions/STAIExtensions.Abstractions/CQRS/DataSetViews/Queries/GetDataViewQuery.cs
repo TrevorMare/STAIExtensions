@@ -7,11 +7,20 @@ using STAIExtensions.Abstractions.Views;
 
 namespace STAIExtensions.Abstractions.CQRS.DataSetViews.Queries;
 
+/// <summary>
+/// CQRS Query to fetch a view from the View Collection Instance
+/// </summary>
 public class GetDataViewQuery : IRequest<IDataSetView?>
 {
 
+    /// <summary>
+    /// Gets or sets the View Id to fetch
+    /// </summary>
     public string ViewId { get; set; } = "";
 
+    /// <summary>
+    /// Gets or sets the owner Id of the view to fetch
+    /// </summary>
     public string OwnerId { get; set; } = "";
 
     #region ctor
@@ -27,6 +36,9 @@ public class GetDataViewQuery : IRequest<IDataSetView?>
     
 }
 
+/// <summary>
+///  CQRS Query handler to fetch a view from the View Collection Instance
+/// </summary>
 public class GetDataViewQueryHandler : IRequestHandler<GetDataViewQuery, IDataSetView?>
 {
 

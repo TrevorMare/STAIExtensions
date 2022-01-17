@@ -1,6 +1,9 @@
 ﻿
 namespace STAIExtensions.Abstractions.DataContracts.Models
 {
+    /// <summary>
+    /// Model for Availability returned from the telemetry source
+    /// </summary>
     public class Availability : DataContractFull, IHasCustomMeasurement
     {
 

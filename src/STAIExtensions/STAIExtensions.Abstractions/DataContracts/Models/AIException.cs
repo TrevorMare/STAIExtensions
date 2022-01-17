@@ -1,6 +1,10 @@
 ﻿
 namespace STAIExtensions.Abstractions.DataContracts.Models
 {
+    
+    /// <summary>
+    /// Model for any Error returned from the telemetry source
+    /// </summary>
     public class AIException : DataContractFull, IHasCustomMeasurement
     {
 

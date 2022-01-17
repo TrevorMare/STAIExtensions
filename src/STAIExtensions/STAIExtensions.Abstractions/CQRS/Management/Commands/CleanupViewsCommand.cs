@@ -7,11 +7,17 @@ using STAIExtensions.Abstractions.Views;
 
 namespace STAIExtensions.Abstractions.CQRS.Management.Commands;
 
+/// <summary>
+/// CQRS Command to remove all views that had no interaction with in the allowed timeframe
+/// </summary>
 public class ExpireViewsCommand : IRequest<int>
 {
     
 }
 
+/// <summary>
+/// CQRS Command handler to expire all views that had no interaction with in the allowed timeframe
+/// </summary>
 public class ExpireViewsCommandHandler : IRequestHandler<ExpireViewsCommand, int>
 {
     #region Members
