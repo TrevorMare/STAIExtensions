@@ -15,6 +15,11 @@ public class DataSetCollectionOptions
     /// </summary>
     public int? MaximumViewsPerDataSet { get; } 
 
+    /// <summary>
+    /// Creates a new instance of the options
+    /// </summary>
+    /// <param name="maximumDataSets"><see cref="MaximumDataSets"/></param>
+    /// <param name="maximumViewsPerDataSet"><see cref="MaximumViewsPerDataSet"/></param>
     public DataSetCollectionOptions(int? maximumDataSets = default, int? maximumViewsPerDataSet = default)
     {
         this.MaximumDataSets = maximumDataSets;
