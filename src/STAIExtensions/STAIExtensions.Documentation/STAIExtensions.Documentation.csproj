@@ -13,6 +13,21 @@
       </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="_site\.dependencymap.json" />
+      <_ContentIncludedByDefault Remove="_site\.links.json" />
+      <_ContentIncludedByDefault Remove="_site\.manifest.json" />
+      <_ContentIncludedByDefault Remove="_site\.publish.json" />
+      <_ContentIncludedByDefault Remove="_site\.xrefmap.json" />
+      <_ContentIncludedByDefault Remove="_site\api\toc\index.json" />
+      <_ContentIncludedByDefault Remove="_site\filemap.json" />
+      <_ContentIncludedByDefault Remove="_site\op_aggregated_file_map_info.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="templates" />
+    </ItemGroup>
+
 
 
 </Project>

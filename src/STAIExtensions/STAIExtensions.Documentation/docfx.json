@@ -4,7 +4,7 @@
       "src": [
         {
           "files": [
-            "STAIExtensions.Core/STAIExtensions.Abstractions.csproj",
+            "STAIExtensions.Abstractions/STAIExtensions.Abstractions.csproj",
             "STAIExtensions.Core/STAIExtensions.Core.csproj",
             "STAIExtensions.Data.AzureDataExplorer/STAIExtensions.Data.AzureDataExplorer.csproj",
             "STAIExtensions.Default/STAIExtensions.Default.csproj",
@@ -20,7 +20,10 @@
       ],
       "dest": "api",
       "disableGitFeatures": false,
-      "disableDefaultFilter": false
+      "disableDefaultFilter": false,
+      "properties": {
+        "targetFramwork": "net6.0"
+      }
     }
   ],
   "build": {
@@ -52,7 +55,9 @@
     "resource": [
       {
         "files": [
-          "images/**"
+          "images/**",
+          "styles/*.css",
+          "styles/*.js"
         ]
       }
     ],
@@ -71,7 +76,8 @@
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
-      "default"
+      "default",
+      "templates/stdocfx"
     ],
     "postProcessors": [],
     "markdownEngineName": "markdig",
@@ -79,5 +85,6 @@
     "keepFileLink": false,
     "cleanupCacheHistory": false,
     "disableGitFeatures": false
+    
   }
 }
