@@ -18,54 +18,6 @@ references:
   href: api/STAIExtensions.Abstractions.Collections..html
   commentId: T:STAIExtensions.Abstractions.Collections.
   fullName: STAIExtensions.Abstractions.Collections.
-- uid: STAIExtensions.Abstractions.Collections.DataSetCollectionOptions
-  name: DataSetCollectionOptions
-  href: api/STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.html
-  commentId: T:STAIExtensions.Abstractions.Collections.DataSetCollectionOptions
-  fullName: STAIExtensions.Abstractions.Collections.DataSetCollectionOptions
-  nameWithType: DataSetCollectionOptions
-- uid: STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.#ctor(System.Nullable{System.Int32},System.Nullable{System.Int32})
-  name: DataSetCollectionOptions(Nullable<Int32>, Nullable<Int32>)
-  href: api/STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.html#STAIExtensions_Abstractions_Collections_DataSetCollectionOptions__ctor_System_Nullable_System_Int32__System_Nullable_System_Int32__
-  commentId: M:STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.#ctor(System.Nullable{System.Int32},System.Nullable{System.Int32})
-  name.vb: DataSetCollectionOptions(Nullable(Of Int32), Nullable(Of Int32))
-  fullName: STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.DataSetCollectionOptions(System.Nullable<System.Int32>, System.Nullable<System.Int32>)
-  fullName.vb: STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.DataSetCollectionOptions(System.Nullable(Of System.Int32), System.Nullable(Of System.Int32))
-  nameWithType: DataSetCollectionOptions.DataSetCollectionOptions(Nullable<Int32>, Nullable<Int32>)
-  nameWithType.vb: DataSetCollectionOptions.DataSetCollectionOptions(Nullable(Of Int32), Nullable(Of Int32))
-- uid: STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.#ctor*
-  name: DataSetCollectionOptions
-  href: api/STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.html#STAIExtensions_Abstractions_Collections_DataSetCollectionOptions__ctor_
-  commentId: Overload:STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.#ctor
-  isSpec: "True"
-  fullName: STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.DataSetCollectionOptions
-  nameWithType: DataSetCollectionOptions.DataSetCollectionOptions
-- uid: STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.MaximumDataSets
-  name: MaximumDataSets
-  href: api/STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.html#STAIExtensions_Abstractions_Collections_DataSetCollectionOptions_MaximumDataSets
-  commentId: P:STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.MaximumDataSets
-  fullName: STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.MaximumDataSets
-  nameWithType: DataSetCollectionOptions.MaximumDataSets
-- uid: STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.MaximumDataSets*
-  name: MaximumDataSets
-  href: api/STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.html#STAIExtensions_Abstractions_Collections_DataSetCollectionOptions_MaximumDataSets_
-  commentId: Overload:STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.MaximumDataSets
-  isSpec: "True"
-  fullName: STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.MaximumDataSets
-  nameWithType: DataSetCollectionOptions.MaximumDataSets
-- uid: STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.MaximumViewsPerDataSet
-  name: MaximumViewsPerDataSet
-  href: api/STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.html#STAIExtensions_Abstractions_Collections_DataSetCollectionOptions_MaximumViewsPerDataSet
-  commentId: P:STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.MaximumViewsPerDataSet
-  fullName: STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.MaximumViewsPerDataSet
-  nameWithType: DataSetCollectionOptions.MaximumViewsPerDataSet
-- uid: STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.MaximumViewsPerDataSet*
-  name: MaximumViewsPerDataSet
-  href: api/STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.html#STAIExtensions_Abstractions_Collections_DataSetCollectionOptions_MaximumViewsPerDataSet_
-  commentId: Overload:STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.MaximumViewsPerDataSet
-  isSpec: "True"
-  fullName: STAIExtensions.Abstractions.Collections.DataSetCollectionOptions.MaximumViewsPerDataSet
-  nameWithType: DataSetCollectionOptions.MaximumViewsPerDataSet
 - uid: STAIExtensions.Abstractions.Collections.IDataSetCollection
   name: IDataSetCollection
   href: api/STAIExtensions.Abstractions.Collections.IDataSetCollection.html
@@ -302,24 +254,6 @@ references:
   fullName.vb: STAIExtensions.Abstractions.Collections.ISizedList(Of T).Exists
   nameWithType: ISizedList<T>.Exists
   nameWithType.vb: ISizedList(Of T).Exists
-- uid: STAIExtensions.Abstractions.Collections.ISizedList`1.ExistsDeep(Predicate{`0})
-  name: ExistsDeep(Predicate<T>)
-  href: api/STAIExtensions.Abstractions.Collections.ISizedList-1.html#STAIExtensions_Abstractions_Collections_ISizedList_1_ExistsDeep_Predicate__0__
-  commentId: M:STAIExtensions.Abstractions.Collections.ISizedList`1.ExistsDeep(Predicate{`0})
-  name.vb: ExistsDeep(Predicate(Of T))
-  fullName: STAIExtensions.Abstractions.Collections.ISizedList<T>.ExistsDeep(Predicate<T>)
-  fullName.vb: STAIExtensions.Abstractions.Collections.ISizedList(Of T).ExistsDeep(Predicate(Of T))
-  nameWithType: ISizedList<T>.ExistsDeep(Predicate<T>)
-  nameWithType.vb: ISizedList(Of T).ExistsDeep(Predicate(Of T))
-- uid: STAIExtensions.Abstractions.Collections.ISizedList`1.ExistsDeep*
-  name: ExistsDeep
-  href: api/STAIExtensions.Abstractions.Collections.ISizedList-1.html#STAIExtensions_Abstractions_Collections_ISizedList_1_ExistsDeep_
-  commentId: Overload:STAIExtensions.Abstractions.Collections.ISizedList`1.ExistsDeep
-  isSpec: "True"
-  fullName: STAIExtensions.Abstractions.Collections.ISizedList<T>.ExistsDeep
-  fullName.vb: STAIExtensions.Abstractions.Collections.ISizedList(Of T).ExistsDeep
-  nameWithType: ISizedList<T>.ExistsDeep
-  nameWithType.vb: ISizedList(Of T).ExistsDeep
 - uid: STAIExtensions.Abstractions.Collections.IViewCollection
   name: IViewCollection
   href: api/STAIExtensions.Abstractions.Collections.IViewCollection.html
@@ -503,6 +437,80 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Abstractions.Collections.IViewCollection.ViewsExpire
   nameWithType: IViewCollection.ViewsExpire
+- uid: STAIExtensions.Abstractions.Collections.ViewCollectionOptions
+  name: ViewCollectionOptions
+  href: api/STAIExtensions.Abstractions.Collections.ViewCollectionOptions.html
+  commentId: T:STAIExtensions.Abstractions.Collections.ViewCollectionOptions
+  fullName: STAIExtensions.Abstractions.Collections.ViewCollectionOptions
+  nameWithType: ViewCollectionOptions
+- uid: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.#ctor(System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Boolean,System.Nullable{TimeSpan})
+  name: ViewCollectionOptions(Nullable<Int32>, Nullable<Boolean>, Boolean, Nullable<TimeSpan>)
+  href: api/STAIExtensions.Abstractions.Collections.ViewCollectionOptions.html#STAIExtensions_Abstractions_Collections_ViewCollectionOptions__ctor_System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Boolean_System_Nullable_TimeSpan__
+  commentId: M:STAIExtensions.Abstractions.Collections.ViewCollectionOptions.#ctor(System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Boolean,System.Nullable{TimeSpan})
+  name.vb: ViewCollectionOptions(Nullable(Of Int32), Nullable(Of Boolean), Boolean, Nullable(Of TimeSpan))
+  fullName: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.ViewCollectionOptions(System.Nullable<System.Int32>, System.Nullable<System.Boolean>, System.Boolean, System.Nullable<TimeSpan>)
+  fullName.vb: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.ViewCollectionOptions(System.Nullable(Of System.Int32), System.Nullable(Of System.Boolean), System.Boolean, System.Nullable(Of TimeSpan))
+  nameWithType: ViewCollectionOptions.ViewCollectionOptions(Nullable<Int32>, Nullable<Boolean>, Boolean, Nullable<TimeSpan>)
+  nameWithType.vb: ViewCollectionOptions.ViewCollectionOptions(Nullable(Of Int32), Nullable(Of Boolean), Boolean, Nullable(Of TimeSpan))
+- uid: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.#ctor*
+  name: ViewCollectionOptions
+  href: api/STAIExtensions.Abstractions.Collections.ViewCollectionOptions.html#STAIExtensions_Abstractions_Collections_ViewCollectionOptions__ctor_
+  commentId: Overload:STAIExtensions.Abstractions.Collections.ViewCollectionOptions.#ctor
+  isSpec: "True"
+  fullName: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.ViewCollectionOptions
+  nameWithType: ViewCollectionOptions.ViewCollectionOptions
+- uid: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.MaximumViews
+  name: MaximumViews
+  href: api/STAIExtensions.Abstractions.Collections.ViewCollectionOptions.html#STAIExtensions_Abstractions_Collections_ViewCollectionOptions_MaximumViews
+  commentId: P:STAIExtensions.Abstractions.Collections.ViewCollectionOptions.MaximumViews
+  fullName: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.MaximumViews
+  nameWithType: ViewCollectionOptions.MaximumViews
+- uid: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.MaximumViews*
+  name: MaximumViews
+  href: api/STAIExtensions.Abstractions.Collections.ViewCollectionOptions.html#STAIExtensions_Abstractions_Collections_ViewCollectionOptions_MaximumViews_
+  commentId: Overload:STAIExtensions.Abstractions.Collections.ViewCollectionOptions.MaximumViews
+  isSpec: "True"
+  fullName: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.MaximumViews
+  nameWithType: ViewCollectionOptions.MaximumViews
+- uid: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.SlidingExpirationTimeSpan
+  name: SlidingExpirationTimeSpan
+  href: api/STAIExtensions.Abstractions.Collections.ViewCollectionOptions.html#STAIExtensions_Abstractions_Collections_ViewCollectionOptions_SlidingExpirationTimeSpan
+  commentId: P:STAIExtensions.Abstractions.Collections.ViewCollectionOptions.SlidingExpirationTimeSpan
+  fullName: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.SlidingExpirationTimeSpan
+  nameWithType: ViewCollectionOptions.SlidingExpirationTimeSpan
+- uid: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.SlidingExpirationTimeSpan*
+  name: SlidingExpirationTimeSpan
+  href: api/STAIExtensions.Abstractions.Collections.ViewCollectionOptions.html#STAIExtensions_Abstractions_Collections_ViewCollectionOptions_SlidingExpirationTimeSpan_
+  commentId: Overload:STAIExtensions.Abstractions.Collections.ViewCollectionOptions.SlidingExpirationTimeSpan
+  isSpec: "True"
+  fullName: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.SlidingExpirationTimeSpan
+  nameWithType: ViewCollectionOptions.SlidingExpirationTimeSpan
+- uid: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.UseStrictViews
+  name: UseStrictViews
+  href: api/STAIExtensions.Abstractions.Collections.ViewCollectionOptions.html#STAIExtensions_Abstractions_Collections_ViewCollectionOptions_UseStrictViews
+  commentId: P:STAIExtensions.Abstractions.Collections.ViewCollectionOptions.UseStrictViews
+  fullName: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.UseStrictViews
+  nameWithType: ViewCollectionOptions.UseStrictViews
+- uid: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.UseStrictViews*
+  name: UseStrictViews
+  href: api/STAIExtensions.Abstractions.Collections.ViewCollectionOptions.html#STAIExtensions_Abstractions_Collections_ViewCollectionOptions_UseStrictViews_
+  commentId: Overload:STAIExtensions.Abstractions.Collections.ViewCollectionOptions.UseStrictViews
+  isSpec: "True"
+  fullName: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.UseStrictViews
+  nameWithType: ViewCollectionOptions.UseStrictViews
+- uid: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.ViewsExpire
+  name: ViewsExpire
+  href: api/STAIExtensions.Abstractions.Collections.ViewCollectionOptions.html#STAIExtensions_Abstractions_Collections_ViewCollectionOptions_ViewsExpire
+  commentId: P:STAIExtensions.Abstractions.Collections.ViewCollectionOptions.ViewsExpire
+  fullName: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.ViewsExpire
+  nameWithType: ViewCollectionOptions.ViewsExpire
+- uid: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.ViewsExpire*
+  name: ViewsExpire
+  href: api/STAIExtensions.Abstractions.Collections.ViewCollectionOptions.html#STAIExtensions_Abstractions_Collections_ViewCollectionOptions_ViewsExpire_
+  commentId: Overload:STAIExtensions.Abstractions.Collections.ViewCollectionOptions.ViewsExpire
+  isSpec: "True"
+  fullName: STAIExtensions.Abstractions.Collections.ViewCollectionOptions.ViewsExpire
+  nameWithType: ViewCollectionOptions.ViewsExpire
 - uid: STAIExtensions.Abstractions.Common
   name: STAIExtensions.Abstractions.Common
   href: api/STAIExtensions.Abstractions.Common.html
@@ -652,6 +660,64 @@ references:
   commentId: F:STAIExtensions.Abstractions.Common.DataContractSource.Trace
   fullName: STAIExtensions.Abstractions.Common.DataContractSource.Trace
   nameWithType: DataContractSource.Trace
+- uid: STAIExtensions.Abstractions.Common.DataSetInformation
+  name: DataSetInformation
+  href: api/STAIExtensions.Abstractions.Common.DataSetInformation.html
+  commentId: T:STAIExtensions.Abstractions.Common.DataSetInformation
+  fullName: STAIExtensions.Abstractions.Common.DataSetInformation
+  nameWithType: DataSetInformation
+- uid: STAIExtensions.Abstractions.Common.DataSetInformation.#ctor(System.String,System.String,System.String)
+  name: DataSetInformation(String, String, String)
+  href: api/STAIExtensions.Abstractions.Common.DataSetInformation.html#STAIExtensions_Abstractions_Common_DataSetInformation__ctor_System_String_System_String_System_String_
+  commentId: M:STAIExtensions.Abstractions.Common.DataSetInformation.#ctor(System.String,System.String,System.String)
+  fullName: STAIExtensions.Abstractions.Common.DataSetInformation.DataSetInformation(System.String, System.String, System.String)
+  nameWithType: DataSetInformation.DataSetInformation(String, String, String)
+- uid: STAIExtensions.Abstractions.Common.DataSetInformation.#ctor*
+  name: DataSetInformation
+  href: api/STAIExtensions.Abstractions.Common.DataSetInformation.html#STAIExtensions_Abstractions_Common_DataSetInformation__ctor_
+  commentId: Overload:STAIExtensions.Abstractions.Common.DataSetInformation.#ctor
+  isSpec: "True"
+  fullName: STAIExtensions.Abstractions.Common.DataSetInformation.DataSetInformation
+  nameWithType: DataSetInformation.DataSetInformation
+- uid: STAIExtensions.Abstractions.Common.DataSetInformation.DataSetId
+  name: DataSetId
+  href: api/STAIExtensions.Abstractions.Common.DataSetInformation.html#STAIExtensions_Abstractions_Common_DataSetInformation_DataSetId
+  commentId: P:STAIExtensions.Abstractions.Common.DataSetInformation.DataSetId
+  fullName: STAIExtensions.Abstractions.Common.DataSetInformation.DataSetId
+  nameWithType: DataSetInformation.DataSetId
+- uid: STAIExtensions.Abstractions.Common.DataSetInformation.DataSetId*
+  name: DataSetId
+  href: api/STAIExtensions.Abstractions.Common.DataSetInformation.html#STAIExtensions_Abstractions_Common_DataSetInformation_DataSetId_
+  commentId: Overload:STAIExtensions.Abstractions.Common.DataSetInformation.DataSetId
+  isSpec: "True"
+  fullName: STAIExtensions.Abstractions.Common.DataSetInformation.DataSetId
+  nameWithType: DataSetInformation.DataSetId
+- uid: STAIExtensions.Abstractions.Common.DataSetInformation.DataSetName
+  name: DataSetName
+  href: api/STAIExtensions.Abstractions.Common.DataSetInformation.html#STAIExtensions_Abstractions_Common_DataSetInformation_DataSetName
+  commentId: P:STAIExtensions.Abstractions.Common.DataSetInformation.DataSetName
+  fullName: STAIExtensions.Abstractions.Common.DataSetInformation.DataSetName
+  nameWithType: DataSetInformation.DataSetName
+- uid: STAIExtensions.Abstractions.Common.DataSetInformation.DataSetName*
+  name: DataSetName
+  href: api/STAIExtensions.Abstractions.Common.DataSetInformation.html#STAIExtensions_Abstractions_Common_DataSetInformation_DataSetName_
+  commentId: Overload:STAIExtensions.Abstractions.Common.DataSetInformation.DataSetName
+  isSpec: "True"
+  fullName: STAIExtensions.Abstractions.Common.DataSetInformation.DataSetName
+  nameWithType: DataSetInformation.DataSetName
+- uid: STAIExtensions.Abstractions.Common.DataSetInformation.DataSetType
+  name: DataSetType
+  href: api/STAIExtensions.Abstractions.Common.DataSetInformation.html#STAIExtensions_Abstractions_Common_DataSetInformation_DataSetType
+  commentId: P:STAIExtensions.Abstractions.Common.DataSetInformation.DataSetType
+  fullName: STAIExtensions.Abstractions.Common.DataSetInformation.DataSetType
+  nameWithType: DataSetInformation.DataSetType
+- uid: STAIExtensions.Abstractions.Common.DataSetInformation.DataSetType*
+  name: DataSetType
+  href: api/STAIExtensions.Abstractions.Common.DataSetInformation.html#STAIExtensions_Abstractions_Common_DataSetInformation_DataSetType_
+  commentId: Overload:STAIExtensions.Abstractions.Common.DataSetInformation.DataSetType
+  isSpec: "True"
+  fullName: STAIExtensions.Abstractions.Common.DataSetInformation.DataSetType
+  nameWithType: DataSetInformation.DataSetType
 - uid: STAIExtensions.Abstractions.Common.EnumExtensions
   name: EnumExtensions
   href: api/STAIExtensions.Abstractions.Common.EnumExtensions.html
@@ -946,12 +1012,6 @@ references:
   commentId: T:STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand
   fullName: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand
   nameWithType: AttachViewToDataSetCommand
-- uid: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.#ctor
-  name: AttachViewToDataSetCommand()
-  href: api/STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.html#STAIExtensions_Abstractions_CQRS_DataSetViews_Commands_AttachViewToDataSetCommand__ctor
-  commentId: M:STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.#ctor
-  fullName: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.AttachViewToDataSetCommand()
-  nameWithType: AttachViewToDataSetCommand.AttachViewToDataSetCommand()
 - uid: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.#ctor(System.String,System.String,System.String)
   name: AttachViewToDataSetCommand(String, String, String)
   href: api/STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.html#STAIExtensions_Abstractions_CQRS_DataSetViews_Commands_AttachViewToDataSetCommand__ctor_System_String_System_String_System_String_
@@ -978,19 +1038,19 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.DataSetId
   nameWithType: AttachViewToDataSetCommand.DataSetId
-- uid: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.UserSessionId
-  name: UserSessionId
-  href: api/STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.html#STAIExtensions_Abstractions_CQRS_DataSetViews_Commands_AttachViewToDataSetCommand_UserSessionId
-  commentId: P:STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.UserSessionId
-  fullName: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.UserSessionId
-  nameWithType: AttachViewToDataSetCommand.UserSessionId
-- uid: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.UserSessionId*
-  name: UserSessionId
-  href: api/STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.html#STAIExtensions_Abstractions_CQRS_DataSetViews_Commands_AttachViewToDataSetCommand_UserSessionId_
-  commentId: Overload:STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.UserSessionId
+- uid: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.OwnerId
+  name: OwnerId
+  href: api/STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.html#STAIExtensions_Abstractions_CQRS_DataSetViews_Commands_AttachViewToDataSetCommand_OwnerId
+  commentId: P:STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.OwnerId
+  fullName: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.OwnerId
+  nameWithType: AttachViewToDataSetCommand.OwnerId
+- uid: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.OwnerId*
+  name: OwnerId
+  href: api/STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.html#STAIExtensions_Abstractions_CQRS_DataSetViews_Commands_AttachViewToDataSetCommand_OwnerId_
+  commentId: Overload:STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.OwnerId
   isSpec: "True"
-  fullName: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.UserSessionId
-  nameWithType: AttachViewToDataSetCommand.UserSessionId
+  fullName: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.OwnerId
+  nameWithType: AttachViewToDataSetCommand.OwnerId
 - uid: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.ViewId
   name: ViewId
   href: api/STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.AttachViewToDataSetCommand.html#STAIExtensions_Abstractions_CQRS_DataSetViews_Commands_AttachViewToDataSetCommand_ViewId
@@ -1061,19 +1121,19 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.CreateViewCommand
   nameWithType: CreateViewCommand.CreateViewCommand
-- uid: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.UserSessionId
-  name: UserSessionId
-  href: api/STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.html#STAIExtensions_Abstractions_CQRS_DataSetViews_Commands_CreateViewCommand_UserSessionId
-  commentId: P:STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.UserSessionId
-  fullName: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.UserSessionId
-  nameWithType: CreateViewCommand.UserSessionId
-- uid: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.UserSessionId*
-  name: UserSessionId
-  href: api/STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.html#STAIExtensions_Abstractions_CQRS_DataSetViews_Commands_CreateViewCommand_UserSessionId_
-  commentId: Overload:STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.UserSessionId
+- uid: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.OwnerId
+  name: OwnerId
+  href: api/STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.html#STAIExtensions_Abstractions_CQRS_DataSetViews_Commands_CreateViewCommand_OwnerId
+  commentId: P:STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.OwnerId
+  fullName: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.OwnerId
+  nameWithType: CreateViewCommand.OwnerId
+- uid: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.OwnerId*
+  name: OwnerId
+  href: api/STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.html#STAIExtensions_Abstractions_CQRS_DataSetViews_Commands_CreateViewCommand_OwnerId_
+  commentId: Overload:STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.OwnerId
   isSpec: "True"
-  fullName: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.UserSessionId
-  nameWithType: CreateViewCommand.UserSessionId
+  fullName: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.OwnerId
+  nameWithType: CreateViewCommand.OwnerId
 - uid: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.ViewType
   name: ViewType
   href: api/STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.CreateViewCommand.html#STAIExtensions_Abstractions_CQRS_DataSetViews_Commands_CreateViewCommand_ViewType
@@ -1157,19 +1217,19 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.DataSetId
   nameWithType: DetachViewFromDataSetCommand.DataSetId
-- uid: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.UserSessionId
-  name: UserSessionId
-  href: api/STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.html#STAIExtensions_Abstractions_CQRS_DataSetViews_Commands_DetachViewFromDataSetCommand_UserSessionId
-  commentId: P:STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.UserSessionId
-  fullName: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.UserSessionId
-  nameWithType: DetachViewFromDataSetCommand.UserSessionId
-- uid: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.UserSessionId*
-  name: UserSessionId
-  href: api/STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.html#STAIExtensions_Abstractions_CQRS_DataSetViews_Commands_DetachViewFromDataSetCommand_UserSessionId_
-  commentId: Overload:STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.UserSessionId
+- uid: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.OwnerId
+  name: OwnerId
+  href: api/STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.html#STAIExtensions_Abstractions_CQRS_DataSetViews_Commands_DetachViewFromDataSetCommand_OwnerId
+  commentId: P:STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.OwnerId
+  fullName: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.OwnerId
+  nameWithType: DetachViewFromDataSetCommand.OwnerId
+- uid: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.OwnerId*
+  name: OwnerId
+  href: api/STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.html#STAIExtensions_Abstractions_CQRS_DataSetViews_Commands_DetachViewFromDataSetCommand_OwnerId_
+  commentId: Overload:STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.OwnerId
   isSpec: "True"
-  fullName: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.UserSessionId
-  nameWithType: DetachViewFromDataSetCommand.UserSessionId
+  fullName: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.OwnerId
+  nameWithType: DetachViewFromDataSetCommand.OwnerId
 - uid: STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.ViewId
   name: ViewId
   href: api/STAIExtensions.Abstractions.CQRS.DataSetViews.Commands.DetachViewFromDataSetCommand.html#STAIExtensions_Abstractions_CQRS_DataSetViews_Commands_DetachViewFromDataSetCommand_ViewId
@@ -5989,6 +6049,19 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Core.Views.DataSetView.DataSetView
   nameWithType: DataSetView.DataSetView
+- uid: STAIExtensions.Core.Views.DataSetView.BuildViewData(STAIExtensions.Abstractions.Data.IDataSet)
+  name: BuildViewData(IDataSet)
+  href: api/STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_BuildViewData_STAIExtensions_Abstractions_Data_IDataSet_
+  commentId: M:STAIExtensions.Core.Views.DataSetView.BuildViewData(STAIExtensions.Abstractions.Data.IDataSet)
+  fullName: STAIExtensions.Core.Views.DataSetView.BuildViewData(STAIExtensions.Abstractions.Data.IDataSet)
+  nameWithType: DataSetView.BuildViewData(IDataSet)
+- uid: STAIExtensions.Core.Views.DataSetView.BuildViewData*
+  name: BuildViewData
+  href: api/STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_BuildViewData_
+  commentId: Overload:STAIExtensions.Core.Views.DataSetView.BuildViewData
+  isSpec: "True"
+  fullName: STAIExtensions.Core.Views.DataSetView.BuildViewData
+  nameWithType: DataSetView.BuildViewData
 - uid: STAIExtensions.Core.Views.DataSetView.Dispose
   name: Dispose()
   href: api/STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_Dispose

@@ -6,6 +6,9 @@ using STAIExtensions.Abstractions.Views;
 
 namespace STAIExtensions.Core.DataSets;
 
+/// <summary>
+/// Abstract implementation of the IDataSet 
+/// </summary>
 public abstract class DataSet : Abstractions.Data.IDataSet
 {
 
@@ -18,21 +21,44 @@ public abstract class DataSet : Abstractions.Data.IDataSet
     #endregion
     
     #region Properties
-
+    /// <summary>
+    /// Gets or sets the Data Set Friendly name
+    /// </summary>
     public string DataSetName { get; set; }
 
+    /// <summary>
+    /// Gets or sets the unique Id of the DataSet
+    /// </summary>
     public string DataSetId { get; set; } = Guid.NewGuid().ToString();
 
+    /// <summary>
+    /// Gets the fully qualified type name of the DataSet
+    /// </summary>
     public string DataSetType => this.GetType().Name;
     
+    /// <summary>
+    /// An Event that occurs once all queries has run and the dataset has updated
+    /// </summary>
     public event EventHandler? OnDataSetUpdated;
     
+    /// <summary>
+    /// Gets a value indicating if the DataSet is currently Auto-Refreshing
+    /// </summary>
     public bool AutoRefreshEnabled { get; protected set; }
 
+    /// <summary>
+    /// Gets the Cancellation Token for the Data Set
+    /// </summary>
     protected CancellationToken? CancellationToken { get; private set; }
     
+    /// <summary>
+    /// Gets the default Logger for the Data Set if registered
+    /// </summary>
     protected ILogger<DataSet>? Logger { get; private set; }
     
+    /// <summary>
+    /// Gets the Auto Refresh interval from the last Start Auto Refresh value
+    /// </summary>
     protected TimeSpan? AutoRefreshInterval { get; private set; }
     #endregion
     
@@ -57,6 +83,12 @@ public abstract class DataSet : Abstractions.Data.IDataSet
     #endregion
 
     #region Methods
+    /// <summary>
+    /// Starts the Auto Refresh process
+    /// </summary>
+    /// <param name="autoRefreshInterval">The Auto Refresh Interval</param>
+    /// <param name="cancellationToken">A Cancellation Token to stop the processing with</param>
+    /// <exception cref="ArgumentException"></exception>
     public void StartAutoRefresh(TimeSpan autoRefreshInterval, CancellationToken? cancellationToken = default)
     {
         if (autoRefreshInterval.Ticks < 0)
@@ -70,6 +102,9 @@ public abstract class DataSet : Abstractions.Data.IDataSet
         this._autoRefreshTimer.Change(TimeSpan.Zero, Timeout.InfiniteTimeSpan);
     }
 
+    /// <summary>
+    /// Stops the DataSet Auto-Refresh processing
+    /// </summary>
     public void StopAutoRefresh()
     {
         this.Logger?.LogInformation("Stopping auto refresh on dataset {DataSetName}", DataSetName);
@@ -77,8 +112,18 @@ public abstract class DataSet : Abstractions.Data.IDataSet
         this._autoRefreshTimer.Change(Timeout.InfiniteTimeSpan, Timeout.InfiniteTimeSpan);
     }
 
+    /// <summary>
+    /// Execute the Data Set queries and handle the response of the queries
+    /// </summary>
+    /// <returns></returns>
     protected abstract Task ExecuteQueries();
 
+    /// <summary>
+    /// Executes a query against the telemetry loader instance
+    /// </summary>
+    /// <param name="query">The query to execute</param>
+    /// <typeparam name="T">The return record type</typeparam>
+    /// <exception cref="ArgumentNullException"></exception>
     protected virtual async Task ExecuteDataQuery<T>(DataContractQuery<T> query) where T : Abstractions.DataContracts.Models.DataContract
     {
         
@@ -114,6 +159,9 @@ public abstract class DataSet : Abstractions.Data.IDataSet
         }
     }
     
+    /// <summary>
+    /// A method that will be executed on the internal auto refresh interval
+    /// </summary>
     public virtual async Task UpdateDataSet()
     {
         using var updateOperation = this.TelemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(UpdateDataSet)}"); 
@@ -157,6 +205,13 @@ public abstract class DataSet : Abstractions.Data.IDataSet
         }
     }
    
+    /// <summary>
+    /// Process and persist the data returned by the query 
+    /// </summary>
+    /// <param name="query">The query that was executed</param>
+    /// <param name="records">The result of the query</param>
+    /// <typeparam name="T">The type of data contract entity</typeparam>
+    /// <returns></returns>
     protected abstract Task ProcessQueryRecords<T>(DataContractQuery<T> query,
         IEnumerable<T> records) where T : Abstractions.DataContracts.Models.DataContract; 
     

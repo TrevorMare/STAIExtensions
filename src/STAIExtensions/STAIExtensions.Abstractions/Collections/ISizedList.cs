@@ -24,14 +24,6 @@ public interface ISizedList<T> : IList<T>, INotifyCollectionChanged, IDisposable
     bool Exists(Predicate<T> match);
     
     /// <summary>
-    /// TODO: Remove this when Nuget Updated
-    /// </summary>
-    /// <param name="match"></param>
-    /// <returns></returns>
-    [Obsolete]
-    bool ExistsDeep(Predicate<T> match);
-    
-    /// <summary>
     /// Gets or sets an action that is executed when the collection is updated
     /// </summary>
     Action? CollectionChangedCallback { get; set; }

@@ -11,4 +11,8 @@ public class DataSetViewFixture : Core.Views.DataSetView
 
     public Dictionary<string, object>? FixtureParameters => ViewParameters;
 
+    protected override Task BuildViewData(IDataSet dataSet)
+    {
+        return Task.CompletedTask;
+    }
 }

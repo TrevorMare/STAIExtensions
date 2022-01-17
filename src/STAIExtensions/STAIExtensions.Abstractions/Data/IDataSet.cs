@@ -47,8 +47,7 @@ public interface IDataSet : IDisposable
     void StopAutoRefresh();
     
     /// <summary>
-    /// A method that will be executed once all data queries has run and custom logic
-    /// needs to be applied to build the DataSet
+    /// A method that will be executed on the internal auto refresh interval
     /// </summary>
     /// <returns></returns>
     Task UpdateDataSet();
