@@ -8,11 +8,19 @@ using STAIExtensions.Abstractions.Views;
 
 namespace STAIExtensions.Core.Collections;
 
+/// <summary>
+/// Implementation of the Data Set collection. This collection manages all the Data Set instances
+/// created at runtime and also notifies linked views of updates and changes to data sets. This collection
+/// is further used to in notifying the user of any changes 
+/// </summary>
 public class DataSetCollection : Abstractions.Collections.IDataSetCollection
 {
 
     #region Events
 
+    /// <summary>
+    /// An event that will be raised once a data set has been updated
+    /// </summary>
     public event IDataSetCollection.OnDataSetUpdatedHandler? OnDataSetUpdated;
 
     #endregion
@@ -36,16 +44,32 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
 
     #region Properties
 
+    /// <summary>
+    /// The current number of registered DataSets
+    /// </summary>
     public int NumberOfDataSets => _dataSetCollection.Count;
     
+    /// <summary>
+    /// Exposes the maximum number of allowed DataSets from the options
+    /// </summary>
     public int? MaximumDataSets => _options.MaximumDataSets;
     
+    /// <summary>
+    /// Exposes the maximum number of views allowed per DataSet from the options
+    /// </summary>
     public int? MaximumViewsPerDataSet => _options.MaximumViewsPerDataSet;
 
     #endregion
     
     #region Methods
 
+    /// <summary>
+    /// Attaches a DataSet to the collection and attaches to the DataSet events
+    /// </summary>
+    /// <param name="dataSet">The DataSet to attach to the collection</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    /// <exception cref="Exception"></exception>
     public bool AttachDataSet(IDataSet dataSet)
     {
         try
@@ -87,6 +111,12 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
         }
     }
 
+    /// <summary>
+    /// Detaches a DataSet from the collection and removes all view links from this DataSet. 
+    /// </summary>
+    /// <param name="dataSet">The DataSet to detach from the collection</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
     public bool DetachDataSet(IDataSet dataSet)
     {
         try
@@ -126,11 +156,23 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
         }
     }
 
+    /// <summary>
+    /// Gets a list of attached DataSets from the collection
+    /// </summary>
+    /// <returns></returns>
     public IEnumerable<DataSetInformation> ListDataSets()
     {
         return _dataSetCollection.Select(dataSet => new DataSetInformation(dataSet.DataSetName, dataSet.DataSetId, dataSet.DataSetType));
     }
 
+    /// <summary>
+    /// Attaches a View Instance to a DataSet for updates
+    /// </summary>
+    /// <param name="dataSetId">The unique Id of the DataSet</param>
+    /// <param name="view">The view to link for updates</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    /// <exception cref="Exception"></exception>
     public bool AttachViewToDataSet(string dataSetId, IDataSetView view)
     {
         try
@@ -181,6 +223,13 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
         }
     }
 
+    /// <summary>
+    /// Detaches a View Instance from a DataSet to remove updates
+    /// </summary>
+    /// <param name="dataSetId">The unique Id of the DataSet</param>
+    /// <param name="view">The view to link for updates</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
     public bool DetachViewFromDataSet(string dataSetId, IDataSetView view)
     {
         try
@@ -226,6 +275,12 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
      
     }
 
+    /// <summary>
+    /// Finds an attached DataSet by Id
+    /// </summary>
+    /// <param name="dataSetId">The unique Id of the DataSet</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
     public IDataSet? FindDataSetById(string dataSetId)
     {
         try
@@ -243,6 +298,12 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
         }
     }
 
+    /// <summary>
+    /// Finds an attached DataSet by name
+    /// </summary>
+    /// <param name="dataSetName">The unique name of the dataset</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
     public IDataSet? FindDataSetByName(string dataSetName)
     {
         try
@@ -258,9 +319,14 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
             _logger?.LogError(e, "Could not locate the data set. {Error}", e);
             throw;
         }
-   
     }
 
+    /// <summary>
+    /// Finds all the DataSets that are linked to the view
+    /// </summary>
+    /// <param name="viewId">The unique Id of the view to find the links with</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
     public IEnumerable<IDataSet>? FindDataSetsByViewId(string viewId)
     {
         
@@ -287,6 +353,11 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
         
     }
     
+    /// <summary>
+    /// Removes a View link from all DataSets in the collection
+    /// </summary>
+    /// <param name="viewId">The view Id to find and remove from updates</param>
+    /// <exception cref="ArgumentNullException"></exception>
     public void RemoveViewFromDataSets(string viewId)
     {
 

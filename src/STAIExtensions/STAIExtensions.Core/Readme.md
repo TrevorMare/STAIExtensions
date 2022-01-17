@@ -5,12 +5,13 @@ and the abstract DataSet and DataSetView objects
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TrevorMare/STAIExtensions/.NET?style=for-the-badge)
 ![License](https://img.shields.io/github/license/trevormare/staiextensions?style=for-the-badge)
+![Last Commit](https://img.shields.io/github/last-commit/trevormare/staiextensions?style=for-the-badge)
+<a href="https://trevormare.github.io/STAIExtensions/api/STAIExtensions.Core.html"><img src="https://img.shields.io/badge/Documentation-Help-informational?style=for-the-badge" /></a>
+
 
 ## Nuget
 [![Nuget](https://img.shields.io/nuget/v/STAIExtensions.Core?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Core/)
 [![Nuget](https://img.shields.io/nuget/dt/STAIExtensions.Core?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Core/)
-
-[https://www.nuget.org/packages/STAIExtensions.Core/](https://www.nuget.org/packages/Core/)
 
 ### Collections
 Default implementations of the Dataset and Dataset View Collections and the Fixed Lists.
@@ -38,12 +39,20 @@ builder.Services.UseSTAIExtensions();
 ```
 ## Target Frameworks
 
-- .NET Standard 2.1
-- .NET Core 3.1
-- .NET 5
-- .NET 6
+- :heavy_check_mark: .NET Standard 2.1
+- :heavy_check_mark: .NET Core 3.1
+- :heavy_check_mark: .NET 5
+- :heavy_check_mark: .NET 6
 
 ## Dependencies
 
-- System.ServiceModel.Primitives
-- STAIExtensions.Abstractions
+- :heavy_check_mark: STAIExtensions.Abstractions
+- :black_square_button: STAIExtensions.Core
+- :black_square_button: STAIExtensions.Data.AzureDataExplorer
+- :black_square_button: STAIExtensions.Default
+- :black_square_button: STAIExtensions.Host.Api
+- :black_square_button: STAIExtensions.Host.Grpc
+- :black_square_button: STAIExtensions.Host.Grpc.Client
+- :black_square_button: STAIExtensions.Host.SignalR
+- :black_square_button: STAIExtensions.Host.SignalR.Client
+- :heavy_check_mark: System.ServiceModel.Primitives
