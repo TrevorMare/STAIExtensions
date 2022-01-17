@@ -5,9 +5,7 @@
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TrevorMare/STAIExtensions/.NET?style=for-the-badge)
 ![License](https://img.shields.io/github/license/trevormare/staiextensions?style=for-the-badge)
 ![Last Commit](https://img.shields.io/github/last-commit/trevormare/staiextensions?style=for-the-badge)
-![Last Commit](https://img.shields.io/badge/Documentation-Help-lightgrey?style=for-the-badge)
-
-
+<a href="https://trevormare.github.io/STAIExtensions/api/STAIExtensions.Core.html"><img src="https://img.shields.io/badge/Documentation-Help-informational?style=for-the-badge" /></a>
 
 ## Nuget
 [![Nuget](https://img.shields.io/nuget/v/STAIExtensions.Abstractions?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Abstractions/)

@@ -1,8 +1,28 @@
 namespace STAIExtensions.Abstractions.Collections;
 
-public record class DataSetCollectionOptions(int? MaximumDataSets = default,    
-    int? MaximumViewsPerDataSet = default)
+/// <summary>
+/// Options for the Data Set Collection.
+/// </summary>
+public class DataSetCollectionOptions
 {
-    public int? MaximumDataSets { get; } = MaximumDataSets;
-    public int? MaximumViewsPerDataSet { get; } = MaximumViewsPerDataSet;
+    /// <summary>
+    /// The maximum allowed number of DataSets that can be handled by the system. Set a value to limit memory usage
+    /// </summary>
+    public int? MaximumDataSets { get; } 
+    
+    /// <summary>
+    /// The maximum number of allowed views that can be attached to any DataSet
+    /// </summary>
+    public int? MaximumViewsPerDataSet { get; } 
+
+    /// <summary>
+    /// Creates a new instance of the options
+    /// </summary>
+    /// <param name="maximumDataSets"><see cref="MaximumDataSets"/></param>
+    /// <param name="maximumViewsPerDataSet"><see cref="MaximumViewsPerDataSet"/></param>
+    public DataSetCollectionOptions(int? maximumDataSets = default, int? maximumViewsPerDataSet = default)
+    {
+        this.MaximumDataSets = maximumDataSets;
+        this.MaximumViewsPerDataSet = maximumViewsPerDataSet;
+    }
 }
