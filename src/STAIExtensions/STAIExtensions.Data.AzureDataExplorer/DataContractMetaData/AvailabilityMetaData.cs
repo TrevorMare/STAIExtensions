@@ -4,6 +4,9 @@ using STAIExtensions.Data.AzureDataExplorer.Attributes;
 namespace STAIExtensions.Data.AzureDataExplorer.DataContractMetaData
 {
   
+    /// <summary>
+    /// Meta data class that exposes deserialization information
+    /// </summary>
     public class AvailabilityMetaData : DataContractFullMetaData, IDataContractMetaData<Availability>
     {
         

@@ -2,25 +2,52 @@
 
 namespace STAIExtensions.Data.AzureDataExplorer.Queries;
 
+/// <summary>
+/// Known structure that is passed between the Query object and Telemetry Loader object 
+/// </summary>
 public class AzureDataExplorerQueryParameter
 {
 
     #region Members
 
+    /// <summary>
+    /// Gets or sets the Kusto Query table name
+    /// </summary>
     public string TableName { get; set; } = "";
 
+    /// <summary>
+    /// Gets or sets the Kusto Query Alias
+    /// </summary>
     public string Alias { get; set; } = "";
 
+    /// <summary>
+    /// Gets or sets the interval to search data from. This works with the Ago Period <see cref="AgoPeriod"/>
+    /// </summary>
     public int? AgoInterval { get; set; }
 
+    /// <summary>
+    /// Gets or sets the period to start looking for data
+    /// </summary>
     public Abstractions.Common.AgoPeriod AgoPeriod { get; set; } = AgoPeriod.None;
 
+    /// <summary>
+    /// Gets or sets a timespan to start searching for data from
+    /// </summary>
     public TimeSpan? AgoTimeSpan { get; set; }
 
+    /// <summary>
+    /// Gets or sets a fixed UTC date time to search data from
+    /// </summary>
     public DateTimeOffset? AgoDateTime { get; set; }
 
+    /// <summary>
+    /// Gets or sets a value to indicate if the results should be ordered by Time Stamp Desc
+    /// </summary>
     public bool? OrderByTimestampDesc { get; set; }
 
+    /// <summary>
+    /// The maximum number of rows to return from the query
+    /// </summary>
     public int? TopRows { get; set; }
 
     #endregion
@@ -43,6 +70,12 @@ public class AzureDataExplorerQueryParameter
 
     #region Methods
 
+    /// <summary>
+    /// Helper method to setup the query by a Timespan
+    /// </summary>
+    /// <param name="agoTimespan">The timespan to start fetching data from</param>
+    /// <exception cref="ArgumentNullException"></exception>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
     public void SetupQueryForTimespan(TimeSpan agoTimespan)
     {
         if (agoTimespan == null)
@@ -55,6 +88,11 @@ public class AzureDataExplorerQueryParameter
         this.AgoPeriod = Abstractions.Common.AgoPeriod.Time;
     }
 
+    /// <summary>
+    /// Helper method to setup the query by a specified date to start fetching data from
+    /// </summary>
+    /// <param name="agoDateTime">The UTC date</param>
+    /// <exception cref="ArgumentNullException"></exception>
     public void SetupQueryForCustom(DateTimeOffset agoDateTime)
     {
         if (agoDateTime == null)
@@ -64,6 +102,13 @@ public class AzureDataExplorerQueryParameter
         this.AgoPeriod = Abstractions.Common.AgoPeriod.Custom;
     }
 
+    /// <summary>
+    /// Helper method to setup the query by an interval
+    /// </summary>
+    /// <param name="agoInterval">The interval</param>
+    /// <param name="agoPeriod">The type of interval</param>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
+    /// <exception cref="Exception"></exception>
     public void SetupQueryForInterval(int agoInterval, Abstractions.Common.AgoPeriod agoPeriod)
     {
         if (agoInterval < 0)
@@ -83,6 +128,10 @@ public class AzureDataExplorerQueryParameter
         this.AgoPeriod = agoPeriod;
     }
 
+    /// <summary>
+    /// Takes all the options specified and builds a Kusto Query that can be used by the telemetry loader
+    /// </summary>
+    /// <returns></returns>
     public string BuildKustoQuery()
     {
         var outputLines = new List<string>();

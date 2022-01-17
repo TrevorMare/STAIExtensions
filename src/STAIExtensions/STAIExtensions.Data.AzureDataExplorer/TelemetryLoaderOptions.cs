@@ -1,11 +1,20 @@
 ﻿namespace STAIExtensions.Data.AzureDataExplorer;
 
+/// <summary>
+/// Azure Data Explorer Telemetry Loader Options
+/// </summary>
 public class TelemetryLoaderOptions : Abstractions.Data.ITelemetryLoaderOptions
 {
     
     #region Properties
+    /// <summary>
+    /// Gets or sets the Api key to read the telemetry with
+    /// </summary>
     public string ApiKey { get;  } = "";
 
+    /// <summary>
+    /// Gets or sets the App Id to read the telemetry with
+    /// </summary>
     public string AppId { get;  } = ""; 
     #endregion
 
