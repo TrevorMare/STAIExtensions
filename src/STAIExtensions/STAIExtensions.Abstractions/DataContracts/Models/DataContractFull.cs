@@ -1,5 +1,8 @@
 ﻿namespace STAIExtensions.Abstractions.DataContracts.Models;
 
+/// <summary>
+/// Base Model for data returned from the telemetry source
+/// </summary>
 public class DataContractFull : DataContract, IHasCustomDimension
 {
     

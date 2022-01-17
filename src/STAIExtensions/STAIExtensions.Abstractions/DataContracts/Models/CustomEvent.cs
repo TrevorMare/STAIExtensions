@@ -1,6 +1,10 @@
 ﻿
 namespace STAIExtensions.Abstractions.DataContracts.Models
 {
+    
+    /// <summary>
+    /// Model for Custom Events returned from the telemetry source
+    /// </summary>
     public class CustomEvent : DataContractFull, IHasCustomMeasurement
     {
 

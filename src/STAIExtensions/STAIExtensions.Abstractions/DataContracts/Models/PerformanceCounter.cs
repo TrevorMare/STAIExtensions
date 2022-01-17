@@ -1,6 +1,10 @@
 ﻿
 namespace STAIExtensions.Abstractions.DataContracts.Models
 {
+    
+    /// <summary>
+    /// Model for Performance Counters returned from the telemetry source
+    /// </summary>
     public class PerformanceCounter : DataContractFull
     {
 

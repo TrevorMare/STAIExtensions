@@ -7,10 +7,20 @@ using STAIExtensions.Abstractions.Data;
 
 namespace STAIExtensions.Abstractions.CQRS.DataSetViews.Commands;
 
+/// <summary>
+/// CQRS Command to update a View from a DataSet
+/// </summary>
 public class UpdateViewFromDataSetCommand : IRequest<bool>
 {
+    
+    /// <summary>
+    /// Gets or sets the View Id to update
+    /// </summary>
     public string ViewId { get; set; }
 
+    /// <summary>
+    /// Gets or sets the DataSet source to update the view with
+    /// </summary>
     public IDataSet DataSet { get; set; }
 
     public UpdateViewFromDataSetCommand(string viewId, IDataSet dataSet)
@@ -20,7 +30,9 @@ public class UpdateViewFromDataSetCommand : IRequest<bool>
     }
 }
 
-
+/// <summary>
+/// CQRS Command handler to update a View from a DataSet
+/// </summary>
 public class UpdateViewFromDataSetCommandHandler : IRequestHandler<UpdateViewFromDataSetCommand, bool>
 {
     

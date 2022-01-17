@@ -5,6 +5,12 @@ using Microsoft.Extensions.Logging;
 
 namespace STAIExtensions.Abstractions.CQRS.Behaviours;
 
+/// <summary>
+/// A pipeline MediatR behaviour that logs information and telemetry on requests and responses.
+/// By default this will track exceptions and Dependency Telemetry and Timings
+/// </summary>
+/// <typeparam name="TRequest">The MediatR request</typeparam>
+/// <typeparam name="TResponse">The MediatR response</typeparam>
 public class LoggingBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
 {
 
@@ -26,6 +32,14 @@ public class LoggingBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest,
     #endregion
 
     #region Public Methods
+    
+    /// <summary>
+    /// Method to handle and log the information of the request and the response.
+    /// </summary>
+    /// <param name="request">The MediatR request</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <param name="next">The next Request handler delegate</param>
+    /// <returns></returns>
     public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
     {
         var requestName = request?.GetType()?.Name ?? "Unknown request";

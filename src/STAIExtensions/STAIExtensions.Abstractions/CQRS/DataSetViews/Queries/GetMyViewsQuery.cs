@@ -7,11 +7,17 @@ using STAIExtensions.Abstractions.Common;
 
 namespace STAIExtensions.Abstractions.CQRS.DataSetViews.Queries;
 
+/// <summary>
+/// CQRS Query to fetch all the views registered for the Owner
+/// </summary>
 public class GetMyViewsQuery : IRequest<IEnumerable<MyViewInformation>>
 {
 
     #region Properties
 
+    /// <summary>
+    /// Gets or sets the Owner Id of the Views
+    /// </summary>
     public string OwnerId { get; set; }
 
     #endregion
@@ -22,6 +28,9 @@ public class GetMyViewsQuery : IRequest<IEnumerable<MyViewInformation>>
     }
 }
 
+/// <summary>
+/// CQRS Query handler to fetch all the views registered for the Owner
+/// </summary>
 public class GetMyViewsQueryHandler : IRequestHandler<GetMyViewsQuery, IEnumerable<MyViewInformation>>
 {
     

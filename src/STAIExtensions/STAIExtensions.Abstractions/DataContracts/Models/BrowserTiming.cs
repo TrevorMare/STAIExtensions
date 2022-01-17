@@ -1,6 +1,10 @@
 ﻿
 namespace STAIExtensions.Abstractions.DataContracts.Models
 {
+    
+    /// <summary>
+    /// Model for Browser Timing returned from the telemetry source
+    /// </summary>
     public class BrowserTiming : DataContractFull, IHasCustomMeasurement
     {
 

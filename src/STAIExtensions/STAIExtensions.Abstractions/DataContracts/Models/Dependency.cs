@@ -1,6 +1,9 @@
 ﻿
 namespace STAIExtensions.Abstractions.DataContracts.Models
 {
+    /// <summary>
+    /// Model for Dependencies returned from the telemetry source
+    /// </summary>
     public class Dependency : DataContractFull, IHasCustomMeasurement
     {
 

@@ -8,15 +8,26 @@ using STAIExtensions.Abstractions.Data;
 
 namespace STAIExtensions.Abstractions.CQRS.DataSetViews.Commands;
 
+/// <summary>
+/// CQRS Command to set the parameters on view
+/// </summary>
 public class SetViewParametersCommand : IRequest<bool>
 {
 
     #region Properties
-
+    /// <summary>
+    /// Gets or sets the View Id to set the parameters on
+    /// </summary>
     public string ViewId { get; set; }
 
+    /// <summary>
+    /// Gets or sets the owner of the view
+    /// </summary>
     public string OwnerId { get; set; }
 
+    /// <summary>
+    /// Gets or sets the parameter values to set. This can be null to reset the view.
+    /// </summary>
     public Dictionary<string, object>? ViewParameters { get; set; }
 
     #endregion
@@ -33,6 +44,10 @@ public class SetViewParametersCommand : IRequest<bool>
     
 }
 
+/// <summary>
+/// CQRS Command handler to set the parameters on view. After the parameters are
+/// set, the view will automatically update from the last instances of the attached DataSets
+/// </summary>
 public class SetViewParametersCommandHandler : IRequestHandler<SetViewParametersCommand, bool>
 {
    

@@ -5,9 +5,11 @@ using STAIExtensions.Abstractions.DataContracts.Models;
 
 namespace STAIExtensions.Abstractions.Queries;
 
+/// <summary>
+/// Interface that defines a factory to build the various default queries with.
+/// </summary>
 public interface IDataContractQueryFactory
 {
-    
     
     DataContractQuery<Availability> BuildAvailabilityQuery(
         int? topRows = default, bool? orderByTimestampDesc = default);

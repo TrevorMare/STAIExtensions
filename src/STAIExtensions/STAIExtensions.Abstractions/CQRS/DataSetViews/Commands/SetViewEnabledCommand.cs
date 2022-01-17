@@ -7,13 +7,21 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using STAIExtensions.Abstractions.Collections;
 
+/// <summary>
+/// CQRS Command to un-freeze updates on a View
+/// </summary>
 public class SetViewEnabledCommand : IRequest<bool>
 {
 
     #region Properties
-
+    /// <summary>
+    /// Gets or sets the View Id to un-freeze
+    /// </summary>
     public string ViewId { get; set; }
 
+    /// <summary>
+    /// Gets or sets the Owner Id of the View
+    /// </summary>
     public string OwnerId { get; set; }
 
     #endregion
@@ -29,6 +37,9 @@ public class SetViewEnabledCommand : IRequest<bool>
     
 }
 
+/// <summary>
+/// CQRS Command handler to un-freeze updates on a View
+/// </summary>
 public class SetViewEnabledCommandHandler : IRequestHandler<SetViewEnabledCommand, bool>
 {
     

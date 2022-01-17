@@ -7,11 +7,17 @@ using STAIExtensions.Abstractions.Common;
 
 namespace STAIExtensions.Abstractions.CQRS.DataSets.Queries;
 
+/// <summary>
+/// CQRS query to fetch the DataSets registered in the DataSet Collection instance
+/// </summary>
 public class ListDataSetsQuery : IRequest<IEnumerable<DataSetInformation>>
 {
    
 }
 
+/// <summary>
+/// CQRS query handler to fetch the DataSets registered in the DataSet Collection instance
+/// </summary>
 public class ListDataSetsQueryHandler : IRequestHandler<ListDataSetsQuery, IEnumerable<DataSetInformation>>
 {
 

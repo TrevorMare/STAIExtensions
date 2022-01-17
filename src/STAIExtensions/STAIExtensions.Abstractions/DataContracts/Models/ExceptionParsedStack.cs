@@ -2,6 +2,10 @@
 
 namespace STAIExtensions.Abstractions.DataContracts.Models
 {
+    
+    /// <summary>
+    /// Model for Exception Stack Trace returned from the telemetry source
+    /// </summary>
     public class ExceptionParsedStack
     {
         

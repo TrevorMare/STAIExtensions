@@ -7,11 +7,17 @@ using STAIExtensions.Abstractions.Views;
 
 namespace STAIExtensions.Abstractions.CQRS.DataSetViews.Queries;
 
+/// <summary>
+/// CQRS Query to load information about the types of views registered on the system
+/// </summary>
 public class GetRegisteredViewsQuery : IRequest<IEnumerable<ViewInformation>>
 {
     
 }
 
+/// <summary>
+/// CQRS Query handler to load information about the types of views registered on the system
+/// </summary>
 public class GetRegisteredViewsQueryHandler : IRequestHandler<GetRegisteredViewsQuery, IEnumerable<ViewInformation>>
 {
     
