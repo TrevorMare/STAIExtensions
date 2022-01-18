@@ -6,6 +6,8 @@
         <LangVersion>latestmajor</LangVersion>
         <AssemblyVersion>1.0.0</AssemblyVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
         <FileVersion>1.0.0</FileVersion>
         <TargetFrameworks>net5.0;net6.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
         <PackageVersion>1.0.7</PackageVersion>
@@ -43,7 +45,7 @@ v0.0.1 - Initial Release
         </PackageReference>
         <!-- Additional packages required by this component -->
         <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
-        <PackageReference Include="STAIExtensions.Abstractions" Version="1.0.5" />
+        <PackageReference Include="STAIExtensions.Abstractions" Version="1.0.7" />
     </ItemGroup>
     <ItemGroup>
         <None Include="..\Resources\st_icon.png" Pack="true" PackagePath="content" />

@@ -314,17 +314,6 @@ public class SizedList<T> : Abstractions.Collections.ISizedList<T>
     {
         return _fullDataSource.ToList().Exists(match);
     }
-
-    /// <summary>
-    /// TODO: Remove this when Nuget Updated
-    /// </summary>
-    /// <param name="match"></param>
-    /// <returns></returns>
-    [Obsolete]
-    public bool ExistsDeep(Predicate<T> match)
-    {
-        return _fullDataSource.ToList().Exists(match);
-    }
     #endregion
 
     #region Dispose
