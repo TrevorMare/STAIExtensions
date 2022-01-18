@@ -6,6 +6,9 @@ using STAIExtensions.Abstractions.Queries;
 
 namespace STAIExtensions.Data.AzureDataExplorer.Queries;
 
+/// <summary>
+/// Implementation of the Data Query Factory for the Azure Data Explorer Telemetry Loader 
+/// </summary>
 public class AzureDataExplorerQueryFactory : IDataContractQueryFactory
 {
 

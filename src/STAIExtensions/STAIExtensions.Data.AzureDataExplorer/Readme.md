@@ -8,12 +8,12 @@ it is able to populate all the models found in Application Insights at this poin
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TrevorMare/STAIExtensions/.NET?style=for-the-badge)
 ![License](https://img.shields.io/github/license/trevormare/staiextensions?style=for-the-badge)
+![Last Commit](https://img.shields.io/github/last-commit/trevormare/staiextensions?style=for-the-badge)
+<a href="https://trevormare.github.io/STAIExtensions/api/STAIExtensions.Data.AzureDataExplorer.html"><img src="https://img.shields.io/badge/Documentation-Help-informational?style=for-the-badge" /></a>
 
 ## Nuget
 [![Nuget](https://img.shields.io/nuget/v/STAIExtensions.Data.AzureDataExplorer?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Data.AzureDataExplorer/)
 [![Nuget](https://img.shields.io/nuget/dt/STAIExtensions.Data.AzureDataExplorer?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Data.AzureDataExplorer/)
-
-[https://www.nuget.org/packages/STAIExtensions.Data.AzureDataExplorer/](https://www.nuget.org/packages/STAIExtensions.Data.AzureDataExplorer/)
 
 
 ## Usage
@@ -52,12 +52,20 @@ Copy the Generated key and use this to instantiate the Telemetry loader object. 
 
 ## Target Frameworks
 
-- .NET Core 3.1
-- .NET 5
-- .NET 6
-- .NET Standard 2.1
+- :heavy_check_mark: .NET Standard 2.1
+- :heavy_check_mark: .NET Core 3.1
+- :heavy_check_mark: .NET 5
+- :heavy_check_mark: .NET 6
 
 ## Dependencies
 
-- STAIExtensions.Core
-- System.Net.Http.Json
+- :black_square_button: STAIExtensions.Abstractions
+- :heavy_check_mark: STAIExtensions.Core
+- :black_square_button: STAIExtensions.Data.AzureDataExplorer
+- :black_square_button: STAIExtensions.Default
+- :black_square_button: STAIExtensions.Host.Api
+- :black_square_button: STAIExtensions.Host.Grpc
+- :black_square_button: STAIExtensions.Host.Grpc.Client
+- :black_square_button: STAIExtensions.Host.SignalR
+- :black_square_button: STAIExtensions.Host.SignalR.Client
+- :heavy_check_mark: System.Net.Http.Json

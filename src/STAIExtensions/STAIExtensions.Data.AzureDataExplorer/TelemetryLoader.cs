@@ -12,6 +12,9 @@ using STAIExtensions.Data.AzureDataExplorer.Serialization;
 
 namespace STAIExtensions.Data.AzureDataExplorer;
 
+/// <summary>
+/// Azure Data Explorer Telemetry Loader 
+/// </summary>
 public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
 {
 
@@ -29,6 +32,9 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
     #endregion
 
     #region Properties
+    /// <summary>
+    /// Gets or sets the Data Contract Query Factory
+    /// </summary>
     public IDataContractQueryFactory? DataContractQueryFactory { get; set; } = null;
     #endregion
 
@@ -70,6 +76,14 @@ public class TelemetryLoader : Abstractions.Data.ITelemetryLoader
     
     #region Methods
    
+    /// <summary>
+    /// Executes a query and returns a collection of records
+    /// </summary>
+    /// <param name="query">The query to execute</param>
+    /// <typeparam name="T">The data contract type to return</typeparam>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    /// <exception cref="Exception"></exception>
     public async Task<IEnumerable<T>> ExecuteQueryAsync<T>(DataContractQuery<T> query) where T : Abstractions.DataContracts.Models.DataContract
     {
 
