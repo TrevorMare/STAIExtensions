@@ -6,6 +6,10 @@ using STAIExtensions.Host.Grpc.Client.Common;
 
 namespace STAIExtensions.Host.Grpc.Client;
 
+/// <summary>
+/// Managed Grpc client that will handle reconnections to the host service and exposes method
+/// calls
+/// </summary>
 public class GrpcClientManaged : IDisposable
 {
 
@@ -33,6 +37,9 @@ public class GrpcClientManaged : IDisposable
     #endregion
 
     #region Properties
+    /// <summary>
+    /// Gets the current connection state of the manager 
+    /// </summary>
     public Common.ConnectionState ConnectionState
     {
         get => _connectionState;
@@ -46,8 +53,14 @@ public class GrpcClientManaged : IDisposable
         }
     }
 
+    /// <summary>
+    /// Exposes the Auto Re-Connect maximum attempts from the options
+    /// </summary>
     protected int? AutoReconnectMaxAttempts => Options.AutoReconnectMaxAttempts;
     
+    /// <summary>
+    /// Exposes the Auto Re-Connect enabled from the options
+    /// </summary>
     protected bool AutoReconnect => Options.AutoReconnect;
     #endregion
     
@@ -71,6 +84,12 @@ public class GrpcClientManaged : IDisposable
 
     #region Public Methods
 
+    /// <summary>
+    /// Creates a new View for the owner
+    /// </summary>
+    /// <param name="viewTypeName">The fully qualified name of the view</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
     public async Task<IDataSetView?> CreateViewAsync(string viewTypeName)
     {
         try
@@ -99,6 +118,13 @@ public class GrpcClientManaged : IDisposable
         }
     }
 
+    /// <summary>
+    /// Gets a View from the host, this does not contain all the properties of the view and only the interface values.
+    /// To get the full view data, see <see cref="GetViewJsonAsync"/>
+    /// </summary>
+    /// <param name="viewId">The view Id to fetch</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
     public async Task<IDataSetView?> GetViewAsync(string viewId)
     {
         try
@@ -127,6 +153,12 @@ public class GrpcClientManaged : IDisposable
         }
     }
     
+    /// <summary>
+    /// Gets the view from the host and the full Json Payload for deserialization
+    /// </summary>
+    /// <param name="viewId">The view Id to fetch</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
     public async Task<string?> GetViewJsonAsync(string viewId)
     {
         try
@@ -155,6 +187,10 @@ public class GrpcClientManaged : IDisposable
         }
     }
     
+    /// <summary>
+    /// Lists the data sets available on the host
+    /// </summary>
+    /// <returns></returns>
     public async Task<IEnumerable<DataSetInformation>?> ListDataSetsAsync()
     {
         try
@@ -177,6 +213,10 @@ public class GrpcClientManaged : IDisposable
         }
     }
     
+    /// <summary>
+    /// Gets the view types that can be created on the host
+    /// </summary>
+    /// <returns></returns>
     public async Task<IEnumerable<DataSetViewInformation>?> GetRegisteredViewsAsync()
     {
         try
@@ -199,6 +239,12 @@ public class GrpcClientManaged : IDisposable
         }
     }
     
+    /// <summary>
+    /// Removes a view and all linking from the host
+    /// </summary>
+    /// <param name="viewId">The view Id to remove</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
     public async Task<bool?> RemoveViewAsync(string viewId)
     {
         try
@@ -227,6 +273,13 @@ public class GrpcClientManaged : IDisposable
         }
     }
     
+    /// <summary>
+    /// Links and registers a view to a data set for updates
+    /// </summary>
+    /// <param name="viewId">The view Id to attach to a data set</param>
+    /// <param name="dataSetId">The data set Id to attach to</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
     public async Task<bool?> AttachViewToDatasetAsync(string viewId, string dataSetId)
     {
         try
@@ -259,6 +312,13 @@ public class GrpcClientManaged : IDisposable
         }
     }
     
+    /// <summary>
+    /// De-Links and De-Registers a view from a data set for updates
+    /// </summary>
+    /// <param name="viewId">The view Id to detach</param>
+    /// <param name="dataSetId">The Data Set to detach from</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
     public async Task<bool?> DetachViewFromDatasetAsync(string viewId, string dataSetId)
     {
         try
@@ -291,6 +351,13 @@ public class GrpcClientManaged : IDisposable
         }
     }
     
+    /// <summary>
+    /// Sets the view parameters of a view
+    /// </summary>
+    /// <param name="viewId">The view Id to set the parameters on</param>
+    /// <param name="viewParameters">The parameter object</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
     public async Task<bool?> SetViewParameters(string viewId, Dictionary<string, object>? viewParameters)
     {
         try
@@ -325,6 +392,12 @@ public class GrpcClientManaged : IDisposable
         }
     }
 
+    /// <summary>
+    /// Un-Freezes a view for data set updates
+    /// </summary>
+    /// <param name="viewId">The view Id</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
     public async Task<bool?> SetViewAutoRefreshEnabledAsync(string viewId)
     {
         try
@@ -353,6 +426,12 @@ public class GrpcClientManaged : IDisposable
         }
     }
     
+    /// <summary>
+    /// Freezes a view for data set updates
+    /// </summary>
+    /// <param name="viewId"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
     public async Task<bool?> SetViewAutoRefreshDisabledAsync(string viewId)
     {
         try
@@ -381,6 +460,10 @@ public class GrpcClientManaged : IDisposable
         }
     }
     
+    /// <summary>
+    /// Gets a list of views registered to the owner
+    /// </summary>
+    /// <returns></returns>
     public async Task<List<MyViewResponse.Types.MyView>?> GetMyViewsAsync()
     {
         try

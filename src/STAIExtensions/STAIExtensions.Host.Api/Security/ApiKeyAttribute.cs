@@ -7,7 +7,7 @@ using Microsoft.Extensions.Primitives;
 namespace STAIExtensions.Host.Api.Security;
 
 [AttributeUsage(validOn: AttributeTargets.Class | AttributeTargets.Method)]
-public class ApiKeyAttribute : Attribute, IAsyncActionFilter
+internal class ApiKeyAttribute : Attribute, IAsyncActionFilter
 {
 
     #region MyRegion

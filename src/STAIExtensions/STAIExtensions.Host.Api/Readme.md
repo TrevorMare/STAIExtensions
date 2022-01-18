@@ -4,13 +4,12 @@ This Library contains a set of API Controllers to add to your project. It allows
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TrevorMare/STAIExtensions/.NET?style=for-the-badge)
 ![License](https://img.shields.io/github/license/trevormare/staiextensions?style=for-the-badge)
+![Last Commit](https://img.shields.io/github/last-commit/trevormare/staiextensions?style=for-the-badge)
+<a href="https://trevormare.github.io/STAIExtensions/api/STAIExtensions.Host.Api.html"><img src="https://img.shields.io/badge/Documentation-Help-informational?style=for-the-badge" /></a>
 
 ## Nuget
 [![Nuget](https://img.shields.io/nuget/v/STAIExtensions.Host.Api?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Host.Api/)
 [![Nuget](https://img.shields.io/nuget/dt/STAIExtensions.Host.Api?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Host.Api/)
-
-[https://www.nuget.org/packages/STAIExtensions.Host.Api](https://www.nuget.org/packages/STAIExtensions.Host.Api/)
-
 
 ## Usage
 
@@ -52,15 +51,57 @@ builder.Services.UseSTAIExtensionsApiHost(() => controllerApiOptions);
 
 ```
 
+## XML Swagger Documentation
+
+The XML documentation for the package is included in the Nuget package. To include it in your
+output directory, you need to update you csproj to manually copy the file to the output directory.
+To do this, paste the below section into your csproj project
+
+```xml
+    <!-- Include Api Controller XML  -->
+    <Target Name="Add Api Controller XML Documentation" AfterTargets="ResolveReferences">
+        <ItemGroup>
+            <ReferenceCopyLocalPaths Include="@(ReferenceCopyLocalPaths->'%(RootDir)%(Directory)%(Filename).xml')"
+                                     Condition="'%(ReferenceCopyLocalPaths.NuGetPackageId)'=='STAIExtensions.Host.Api' and Exists('%(RootDir)%(Directory)%(Filename).xml')" />
+        </ItemGroup>
+    </Target>
+```
+
+Next, we need to tell the swagger generation service to include the comments on the files
+
+```c#
+    builder.Services.AddSwaggerGen(options =>
+    {
+        // Include your own controller xml files if you have them
+        // ... 
+        // Include the XML Comments from the Host Api 
+        options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "STAIExtensions.Host.Api.xml"));
+    });
+```
+
+## Examples
+
+For examples check the Examples directory. This package is used in 
+- Example.Host.ApiController
+- Examples.Host.ApiFull
+
 ## Target Frameworks
 
-- .NET Core 3.1
-- .NET 5
-- .NET 6
-- .NET Standard 2.1
+- :heavy_check_mark: .NET Standard 2.1
+- :heavy_check_mark: .NET Core 3.1
+- :heavy_check_mark: .NET 5
+- :heavy_check_mark: .NET 6
 
 ## Dependencies
 
-- STAIExtensions.Core
-- Microsoft.AspNetCore.Mvc
+- :black_square_button: STAIExtensions.Abstractions
+- :heavy_check_mark: STAIExtensions.Core
+- :black_square_button: STAIExtensions.Data.AzureDataExplorer
+- :black_square_button: STAIExtensions.Default
+- :black_square_button: STAIExtensions.Host.Api
+- :black_square_button: STAIExtensions.Host.Grpc
+- :black_square_button: STAIExtensions.Host.Grpc.Client
+- :black_square_button: STAIExtensions.Host.SignalR
+- :black_square_button: STAIExtensions.Host.SignalR.Client
+- :heavy_check_mark: Microsoft.AspNetCore.Mvc
 

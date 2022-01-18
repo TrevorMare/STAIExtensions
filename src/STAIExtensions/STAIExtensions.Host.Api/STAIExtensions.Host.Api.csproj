@@ -8,7 +8,9 @@
         <FileVersion>1.0.0</FileVersion>
         <TargetFrameworks>net5.0;net6.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>1.0.1</PackageVersion>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
+        <PackageVersion>1.0.2</PackageVersion>
         <Title>STAIExtensions Host API</Title>
         <Authors>Trevor Maré</Authors>
         <Description>STAIExtensions API controllers library</Description>
@@ -17,7 +19,8 @@
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>application-insights;custom-views;grpc;signalr;STAIExtensions;trevor;mare;staiextensions-data-azuredataexplorer;azuredataexplorer;dotnet;api</PackageTags>
-        <PackageReleaseNotes>v1.0.1 - Updated package references
+        <PackageReleaseNotes>v1.0.2 - Added swagger XML Documentation
+v1.0.1 - Updated package references
 v1.0.0 - Initial Public Release
 v0.0.1 - Initial Release</PackageReleaseNotes>
         <PackageIcon>content\st_icon.png</PackageIcon>
@@ -36,7 +39,7 @@ v0.0.1 - Initial Release</PackageReleaseNotes>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
-        <PackageReference Include="STAIExtensions.Core" Version="1.0.6" />
+        <PackageReference Include="STAIExtensions.Core" Version="1.0.8" />
     </ItemGroup>
 
     <ItemGroup>

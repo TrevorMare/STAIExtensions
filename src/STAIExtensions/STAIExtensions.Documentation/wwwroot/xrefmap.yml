@@ -5398,24 +5398,6 @@ references:
   fullName.vb: STAIExtensions.Core.Collections.SizedList(Of T).Exists
   nameWithType: SizedList<T>.Exists
   nameWithType.vb: SizedList(Of T).Exists
-- uid: STAIExtensions.Core.Collections.SizedList`1.ExistsDeep(Predicate{`0})
-  name: ExistsDeep(Predicate<T>)
-  href: api/STAIExtensions.Core.Collections.SizedList-1.html#STAIExtensions_Core_Collections_SizedList_1_ExistsDeep_Predicate__0__
-  commentId: M:STAIExtensions.Core.Collections.SizedList`1.ExistsDeep(Predicate{`0})
-  name.vb: ExistsDeep(Predicate(Of T))
-  fullName: STAIExtensions.Core.Collections.SizedList<T>.ExistsDeep(Predicate<T>)
-  fullName.vb: STAIExtensions.Core.Collections.SizedList(Of T).ExistsDeep(Predicate(Of T))
-  nameWithType: SizedList<T>.ExistsDeep(Predicate<T>)
-  nameWithType.vb: SizedList(Of T).ExistsDeep(Predicate(Of T))
-- uid: STAIExtensions.Core.Collections.SizedList`1.ExistsDeep*
-  name: ExistsDeep
-  href: api/STAIExtensions.Core.Collections.SizedList-1.html#STAIExtensions_Core_Collections_SizedList_1_ExistsDeep_
-  commentId: Overload:STAIExtensions.Core.Collections.SizedList`1.ExistsDeep
-  isSpec: "True"
-  fullName: STAIExtensions.Core.Collections.SizedList<T>.ExistsDeep
-  fullName.vb: STAIExtensions.Core.Collections.SizedList(Of T).ExistsDeep
-  nameWithType: SizedList<T>.ExistsDeep
-  nameWithType.vb: SizedList(Of T).ExistsDeep
 - uid: STAIExtensions.Core.Collections.SizedList`1.GetEnumerator
   name: GetEnumerator()
   href: api/STAIExtensions.Core.Collections.SizedList-1.html#STAIExtensions_Core_Collections_SizedList_1_GetEnumerator
@@ -8569,44 +8551,6 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Host.Api.Models.SetViewParametersRequest.ViewParameters
   nameWithType: SetViewParametersRequest.ViewParameters
-- uid: STAIExtensions.Host.Api.Security
-  name: STAIExtensions.Host.Api.Security
-  href: api/STAIExtensions.Host.Api.Security.html
-  commentId: N:STAIExtensions.Host.Api.Security
-  fullName: STAIExtensions.Host.Api.Security
-  nameWithType: STAIExtensions.Host.Api.Security
-- uid: STAIExtensions.Host.Api.Security.ApiKeyAttribute
-  name: ApiKeyAttribute
-  href: api/STAIExtensions.Host.Api.Security.ApiKeyAttribute.html
-  commentId: T:STAIExtensions.Host.Api.Security.ApiKeyAttribute
-  fullName: STAIExtensions.Host.Api.Security.ApiKeyAttribute
-  nameWithType: ApiKeyAttribute
-- uid: STAIExtensions.Host.Api.Security.ApiKeyAttribute.#ctor
-  name: ApiKeyAttribute()
-  href: api/STAIExtensions.Host.Api.Security.ApiKeyAttribute.html#STAIExtensions_Host_Api_Security_ApiKeyAttribute__ctor
-  commentId: M:STAIExtensions.Host.Api.Security.ApiKeyAttribute.#ctor
-  fullName: STAIExtensions.Host.Api.Security.ApiKeyAttribute.ApiKeyAttribute()
-  nameWithType: ApiKeyAttribute.ApiKeyAttribute()
-- uid: STAIExtensions.Host.Api.Security.ApiKeyAttribute.#ctor*
-  name: ApiKeyAttribute
-  href: api/STAIExtensions.Host.Api.Security.ApiKeyAttribute.html#STAIExtensions_Host_Api_Security_ApiKeyAttribute__ctor_
-  commentId: Overload:STAIExtensions.Host.Api.Security.ApiKeyAttribute.#ctor
-  isSpec: "True"
-  fullName: STAIExtensions.Host.Api.Security.ApiKeyAttribute.ApiKeyAttribute
-  nameWithType: ApiKeyAttribute.ApiKeyAttribute
-- uid: STAIExtensions.Host.Api.Security.ApiKeyAttribute.OnActionExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext,Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate)
-  name: OnActionExecutionAsync(ActionExecutingContext, ActionExecutionDelegate)
-  href: api/STAIExtensions.Host.Api.Security.ApiKeyAttribute.html#STAIExtensions_Host_Api_Security_ApiKeyAttribute_OnActionExecutionAsync_Microsoft_AspNetCore_Mvc_Filters_ActionExecutingContext_Microsoft_AspNetCore_Mvc_Filters_ActionExecutionDelegate_
-  commentId: M:STAIExtensions.Host.Api.Security.ApiKeyAttribute.OnActionExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext,Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate)
-  fullName: STAIExtensions.Host.Api.Security.ApiKeyAttribute.OnActionExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext, Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate)
-  nameWithType: ApiKeyAttribute.OnActionExecutionAsync(ActionExecutingContext, ActionExecutionDelegate)
-- uid: STAIExtensions.Host.Api.Security.ApiKeyAttribute.OnActionExecutionAsync*
-  name: OnActionExecutionAsync
-  href: api/STAIExtensions.Host.Api.Security.ApiKeyAttribute.html#STAIExtensions_Host_Api_Security_ApiKeyAttribute_OnActionExecutionAsync_
-  commentId: Overload:STAIExtensions.Host.Api.Security.ApiKeyAttribute.OnActionExecutionAsync
-  isSpec: "True"
-  fullName: STAIExtensions.Host.Api.Security.ApiKeyAttribute.OnActionExecutionAsync
-  nameWithType: ApiKeyAttribute.OnActionExecutionAsync
 - uid: STAIExtensions.Host.Api.StartupExtensions
   name: StartupExtensions
   href: api/STAIExtensions.Host.Api.StartupExtensions.html
@@ -8903,41 +8847,6 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Host.Grpc.AttachViewToDatasetRequest.WriteTo
   nameWithType: AttachViewToDatasetRequest.WriteTo
-- uid: STAIExtensions.Host.Grpc.AuthorizationInterceptor
-  name: AuthorizationInterceptor
-  href: api/STAIExtensions.Host.Grpc.AuthorizationInterceptor.html
-  commentId: T:STAIExtensions.Host.Grpc.AuthorizationInterceptor
-  fullName: STAIExtensions.Host.Grpc.AuthorizationInterceptor
-  nameWithType: AuthorizationInterceptor
-- uid: STAIExtensions.Host.Grpc.AuthorizationInterceptor.#ctor(STAIExtensions.Host.Grpc.GrpcHostOptions)
-  name: AuthorizationInterceptor(GrpcHostOptions)
-  href: api/STAIExtensions.Host.Grpc.AuthorizationInterceptor.html#STAIExtensions_Host_Grpc_AuthorizationInterceptor__ctor_STAIExtensions_Host_Grpc_GrpcHostOptions_
-  commentId: M:STAIExtensions.Host.Grpc.AuthorizationInterceptor.#ctor(STAIExtensions.Host.Grpc.GrpcHostOptions)
-  fullName: STAIExtensions.Host.Grpc.AuthorizationInterceptor.AuthorizationInterceptor(STAIExtensions.Host.Grpc.GrpcHostOptions)
-  nameWithType: AuthorizationInterceptor.AuthorizationInterceptor(GrpcHostOptions)
-- uid: STAIExtensions.Host.Grpc.AuthorizationInterceptor.#ctor*
-  name: AuthorizationInterceptor
-  href: api/STAIExtensions.Host.Grpc.AuthorizationInterceptor.html#STAIExtensions_Host_Grpc_AuthorizationInterceptor__ctor_
-  commentId: Overload:STAIExtensions.Host.Grpc.AuthorizationInterceptor.#ctor
-  isSpec: "True"
-  fullName: STAIExtensions.Host.Grpc.AuthorizationInterceptor.AuthorizationInterceptor
-  nameWithType: AuthorizationInterceptor.AuthorizationInterceptor
-- uid: STAIExtensions.Host.Grpc.AuthorizationInterceptor.UnaryServerHandler*
-  name: UnaryServerHandler
-  href: api/STAIExtensions.Host.Grpc.AuthorizationInterceptor.html#STAIExtensions_Host_Grpc_AuthorizationInterceptor_UnaryServerHandler_
-  commentId: Overload:STAIExtensions.Host.Grpc.AuthorizationInterceptor.UnaryServerHandler
-  isSpec: "True"
-  fullName: STAIExtensions.Host.Grpc.AuthorizationInterceptor.UnaryServerHandler
-  nameWithType: AuthorizationInterceptor.UnaryServerHandler
-- uid: STAIExtensions.Host.Grpc.AuthorizationInterceptor.UnaryServerHandler``2(``0,Grpc.Core.ServerCallContext,Grpc.Core.UnaryServerMethod{``0,``1})
-  name: UnaryServerHandler<TRequest, TResponse>(TRequest, ServerCallContext, UnaryServerMethod<TRequest, TResponse>)
-  href: api/STAIExtensions.Host.Grpc.AuthorizationInterceptor.html#STAIExtensions_Host_Grpc_AuthorizationInterceptor_UnaryServerHandler__2___0_Grpc_Core_ServerCallContext_Grpc_Core_UnaryServerMethod___0___1__
-  commentId: M:STAIExtensions.Host.Grpc.AuthorizationInterceptor.UnaryServerHandler``2(``0,Grpc.Core.ServerCallContext,Grpc.Core.UnaryServerMethod{``0,``1})
-  name.vb: UnaryServerHandler(Of TRequest, TResponse)(TRequest, ServerCallContext, UnaryServerMethod(Of TRequest, TResponse))
-  fullName: STAIExtensions.Host.Grpc.AuthorizationInterceptor.UnaryServerHandler<TRequest, TResponse>(TRequest, Grpc.Core.ServerCallContext, Grpc.Core.UnaryServerMethod<TRequest, TResponse>)
-  fullName.vb: STAIExtensions.Host.Grpc.AuthorizationInterceptor.UnaryServerHandler(Of TRequest, TResponse)(TRequest, Grpc.Core.ServerCallContext, Grpc.Core.UnaryServerMethod(Of TRequest, TResponse))
-  nameWithType: AuthorizationInterceptor.UnaryServerHandler<TRequest, TResponse>(TRequest, ServerCallContext, UnaryServerMethod<TRequest, TResponse>)
-  nameWithType.vb: AuthorizationInterceptor.UnaryServerHandler(Of TRequest, TResponse)(TRequest, ServerCallContext, UnaryServerMethod(Of TRequest, TResponse))
 - uid: STAIExtensions.Host.Grpc.BoolResponse
   name: BoolResponse
   href: api/STAIExtensions.Host.Grpc.BoolResponse.html
@@ -11323,41 +11232,6 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Host.Grpc.DetachViewFromDatasetRequest.WriteTo
   nameWithType: DetachViewFromDatasetRequest.WriteTo
-- uid: STAIExtensions.Host.Grpc.ExceptionInterceptor
-  name: ExceptionInterceptor
-  href: api/STAIExtensions.Host.Grpc.ExceptionInterceptor.html
-  commentId: T:STAIExtensions.Host.Grpc.ExceptionInterceptor
-  fullName: STAIExtensions.Host.Grpc.ExceptionInterceptor
-  nameWithType: ExceptionInterceptor
-- uid: STAIExtensions.Host.Grpc.ExceptionInterceptor.#ctor
-  name: ExceptionInterceptor()
-  href: api/STAIExtensions.Host.Grpc.ExceptionInterceptor.html#STAIExtensions_Host_Grpc_ExceptionInterceptor__ctor
-  commentId: M:STAIExtensions.Host.Grpc.ExceptionInterceptor.#ctor
-  fullName: STAIExtensions.Host.Grpc.ExceptionInterceptor.ExceptionInterceptor()
-  nameWithType: ExceptionInterceptor.ExceptionInterceptor()
-- uid: STAIExtensions.Host.Grpc.ExceptionInterceptor.#ctor*
-  name: ExceptionInterceptor
-  href: api/STAIExtensions.Host.Grpc.ExceptionInterceptor.html#STAIExtensions_Host_Grpc_ExceptionInterceptor__ctor_
-  commentId: Overload:STAIExtensions.Host.Grpc.ExceptionInterceptor.#ctor
-  isSpec: "True"
-  fullName: STAIExtensions.Host.Grpc.ExceptionInterceptor.ExceptionInterceptor
-  nameWithType: ExceptionInterceptor.ExceptionInterceptor
-- uid: STAIExtensions.Host.Grpc.ExceptionInterceptor.UnaryServerHandler*
-  name: UnaryServerHandler
-  href: api/STAIExtensions.Host.Grpc.ExceptionInterceptor.html#STAIExtensions_Host_Grpc_ExceptionInterceptor_UnaryServerHandler_
-  commentId: Overload:STAIExtensions.Host.Grpc.ExceptionInterceptor.UnaryServerHandler
-  isSpec: "True"
-  fullName: STAIExtensions.Host.Grpc.ExceptionInterceptor.UnaryServerHandler
-  nameWithType: ExceptionInterceptor.UnaryServerHandler
-- uid: STAIExtensions.Host.Grpc.ExceptionInterceptor.UnaryServerHandler``2(``0,Grpc.Core.ServerCallContext,Grpc.Core.UnaryServerMethod{``0,``1})
-  name: UnaryServerHandler<TRequest, TResponse>(TRequest, ServerCallContext, UnaryServerMethod<TRequest, TResponse>)
-  href: api/STAIExtensions.Host.Grpc.ExceptionInterceptor.html#STAIExtensions_Host_Grpc_ExceptionInterceptor_UnaryServerHandler__2___0_Grpc_Core_ServerCallContext_Grpc_Core_UnaryServerMethod___0___1__
-  commentId: M:STAIExtensions.Host.Grpc.ExceptionInterceptor.UnaryServerHandler``2(``0,Grpc.Core.ServerCallContext,Grpc.Core.UnaryServerMethod{``0,``1})
-  name.vb: UnaryServerHandler(Of TRequest, TResponse)(TRequest, ServerCallContext, UnaryServerMethod(Of TRequest, TResponse))
-  fullName: STAIExtensions.Host.Grpc.ExceptionInterceptor.UnaryServerHandler<TRequest, TResponse>(TRequest, Grpc.Core.ServerCallContext, Grpc.Core.UnaryServerMethod<TRequest, TResponse>)
-  fullName.vb: STAIExtensions.Host.Grpc.ExceptionInterceptor.UnaryServerHandler(Of TRequest, TResponse)(TRequest, Grpc.Core.ServerCallContext, Grpc.Core.UnaryServerMethod(Of TRequest, TResponse))
-  nameWithType: ExceptionInterceptor.UnaryServerHandler<TRequest, TResponse>(TRequest, ServerCallContext, UnaryServerMethod<TRequest, TResponse>)
-  nameWithType.vb: ExceptionInterceptor.UnaryServerHandler(Of TRequest, TResponse)(TRequest, ServerCallContext, UnaryServerMethod(Of TRequest, TResponse))
 - uid: STAIExtensions.Host.Grpc.GetMyViewsRequest
   name: GetMyViewsRequest
   href: api/STAIExtensions.Host.Grpc.GetMyViewsRequest.html

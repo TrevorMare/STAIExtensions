@@ -7,6 +7,9 @@ using STAIExtensions.Host.SignalR.Client.Common;
 
 namespace STAIExtensions.Host.SignalR.Client;
 
+/// <summary>
+/// Managed SignalR Client with auto-reconnect features and manages the send and receive of messages
+/// </summary>
 public class SignalRClientManaged
 {
 
@@ -58,11 +61,21 @@ public class SignalRClientManaged
 
     #region Public Methods
 
+    /// <summary>
+    /// Attempts to connect to the SignalR host
+    /// </summary>
     public async Task ConnectAsync()
     {
         await this._connection.StartAsync();
     }
 
+    /// <summary>
+    /// Lists the available data sets on the host and executes either the success or failure actions when a
+    /// response is received
+    /// </summary>
+    /// <param name="success">The success action</param>
+    /// <param name="error">The error action</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
     public async Task ListDataSetsAsync(
         Action<IEnumerable<Abstractions.Common.DataSetInformation>?> success, 
         Action<Exception>? error = default,
@@ -89,6 +102,11 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Lists the available data sets on the host and waits for a sync response 
+    /// </summary>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
+    /// <returns></returns>
     public async Task<IEnumerable<Abstractions.Common.DataSetInformation>?> ListDataSets(CancellationToken cancellationToken = default)
     {
         try
@@ -111,6 +129,13 @@ public class SignalRClientManaged
         }
     }
 
+    /// <summary>
+    /// Creates a new view on the host and executes either the success or failure actions when a response is returned
+    /// </summary>
+    /// <param name="viewType">The view fully qualified view type name to create</param>
+    /// <param name="success">The success action</param>
+    /// <param name="error">The error action</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
     public async Task CreateViewAsync(string viewType, 
         Action<ViewDetail?> success, 
         Action<Exception>? error = default,
@@ -137,6 +162,12 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Creates a view on the host and waits for a sync response 
+    /// </summary>
+    /// <param name="viewType">The view fully qualified view type name to create</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
+    /// <returns></returns>
     public async Task<ViewDetail?> CreateView(string viewType, CancellationToken cancellationToken = default)
     {
         try
@@ -159,6 +190,13 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Retrieves a view from the host and executes either the success or failure actions when a response is returned
+    /// </summary>
+    /// <param name="viewId">The view Id to retrieve</param>
+    /// <param name="success">The success action</param>
+    /// <param name="error">The error action</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
     public async Task GetViewAsync(string viewId, 
         Action<ViewDetail?> success, 
         Action<Exception>? error = default,
@@ -185,6 +223,12 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Retrieves a host view from the host and waits for a sync response 
+    /// </summary>
+    /// <param name="viewId">The view Id to retrieve</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
+    /// <returns></returns>
     public async Task<ViewDetail?> GetView(string viewId, CancellationToken cancellationToken = default)
     {
         try
@@ -207,6 +251,12 @@ public class SignalRClientManaged
         }
     }
 
+    /// <summary>
+    /// Retrieves a list of view types that can be created from the host and executes either the success or failure actions when a response is returned
+    /// </summary>
+    /// <param name="success">The success action</param>
+    /// <param name="error">The error action</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
     public async Task GetRegisteredViewsAsync(Action<IEnumerable<Abstractions.Common.ViewInformation>?> success, 
         Action<Exception>? error = default,
         CancellationToken cancellationToken = default)
@@ -232,6 +282,11 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Retrieves a list of view types that can be created from the host and waits for a sync response 
+    /// </summary>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
+    /// <returns></returns>
     public async Task<IEnumerable<Abstractions.Common.ViewInformation>?> GetRegisteredViews(CancellationToken cancellationToken = default)
     {
         try
@@ -254,6 +309,13 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Removes a view from the Host and executes either the success or failure actions when a response is returned
+    /// </summary>
+    /// <param name="viewId">The view Id to remove</param>
+    /// <param name="success">The success action</param>
+    /// <param name="error">The error action</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
     public async Task RemoveViewAsync(string viewId,
         Action<bool?> success, 
         Action<Exception>? error = default,
@@ -280,6 +342,12 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Removes a view from the Host and waits for a sync response  
+    /// </summary>
+    /// <param name="viewId">The view Id to remove and unlink</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
+    /// <returns></returns>
     public async Task<bool?> RemoveView(string viewId, CancellationToken cancellationToken = default)
     {
         try
@@ -302,6 +370,14 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Attaches a view to data set on the host and executes either the success or failure actions when a response is returned
+    /// </summary>
+    /// <param name="viewId">The view Id</param>
+    /// <param name="dataSetId">The data set Id</param>
+    /// <param name="success">The success action</param>
+    /// <param name="error">The error action</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
     public async Task AttachViewToDatasetAsync(string viewId, string dataSetId,
         Action<bool?> success, 
         Action<Exception>? error = default,
@@ -328,6 +404,13 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Attaches a view to data set on the host and waits for a sync response  
+    /// </summary>
+    /// <param name="viewId">The view Id</param>
+    /// <param name="dataSetId">The data set Id</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
+    /// <returns></returns>
     public async Task<bool?> AttachViewToDataset(string viewId, string dataSetId, CancellationToken cancellationToken = default)
     {
         try
@@ -350,6 +433,14 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Detaches a view from the data set on the host and executes either the success or failure actions when a response is returned
+    /// </summary>
+    /// <param name="viewId">The view Id</param>
+    /// <param name="dataSetId">The data set Id</param>
+    /// <param name="success">The success action</param>
+    /// <param name="error">The error action</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
     public async Task DetachViewFromDatasetAsync(string viewId, string dataSetId,
         Action<bool?> success, 
         Action<Exception>? error = default,
@@ -376,6 +467,13 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Detaches a view from a data set on the host and waits for a sync response  
+    /// </summary>
+    /// <param name="viewId">The view Id</param>
+    /// <param name="dataSetId">The data set Id</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
+    /// <returns></returns>
     public async Task<bool?> DetachViewFromDataset(string viewId, string dataSetId, CancellationToken cancellationToken = default)
     {
         try
@@ -398,6 +496,14 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Sets a view's parameters on the host and executes either the success or failure actions when a response is returned
+    /// </summary>
+    /// <param name="viewId">The view to set the parameters on</param>
+    /// <param name="parameters">The view parameter values</param>
+    /// <param name="success">The success action</param>
+    /// <param name="error">The error action</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
     public async Task SetViewParametersAsync(string viewId, Dictionary<string, object>? parameters,
         Action<bool?> success, 
         Action<Exception>? error = default,
@@ -424,6 +530,13 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Sets a view's parameters on the host and waits for a sync response  
+    /// </summary>
+    /// <param name="viewId">The view Id to set the parameters on</param>
+    /// <param name="parameters">The parameter values for the view</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
+    /// <returns></returns>
     public async Task<bool?> SetViewParameters(string viewId, Dictionary<string, object>? parameters, CancellationToken cancellationToken = default)
     {
         try
@@ -446,6 +559,13 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Un-Freezes a view's updates on the host and executes either the success or failure actions when a response is returned
+    /// </summary>
+    /// <param name="viewId">The view Id</param>
+    /// <param name="success">The success action</param>
+    /// <param name="error">The error action</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
     public async Task SetViewAutoRefreshEnabledAsync(string viewId, 
         Action<bool?> success, 
         Action<Exception>? error = default,
@@ -472,6 +592,12 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Un-Freezes a view's updates on the host and waits for a sync response  
+    /// </summary>
+    /// <param name="viewId">The view Id</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
+    /// <returns></returns>
     public async Task<bool?> SetViewAutoRefreshEnabled(string viewId, CancellationToken cancellationToken = default)
     {
         try
@@ -494,6 +620,13 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Freezes a view's updates on the host and executes either the success or failure actions when a response is returned
+    /// </summary>
+    /// <param name="viewId">The view Id</param>
+    /// <param name="success">The success action</param>
+    /// <param name="error">The error action</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
     public async Task SetViewAutoRefreshDisabledAsync(string viewId, 
         Action<bool?> success, 
         Action<Exception>? error = default,
@@ -520,6 +653,12 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Freezes a view's updates on the host and waits for a sync response
+    /// </summary>
+    /// <param name="viewId">The view Id</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
+    /// <returns></returns>
     public async Task<bool?> SetViewAutoRefreshDisabled(string viewId, CancellationToken cancellationToken = default)
     {
         try
@@ -541,8 +680,13 @@ public class SignalRClientManaged
             throw;
         }
     }
-    #endregion
     
+    /// <summary>
+    /// Gets a list of owner views on the host and executes either the success or failure actions when a response is returned
+    /// </summary>
+    /// <param name="success">The success action</param>
+    /// <param name="error">The error action</param>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
     public async Task GetMyViewsAsync(
         Action<IEnumerable<Abstractions.Common.MyViewInformation>?> success, 
         Action<Exception>? error = default,
@@ -569,6 +713,11 @@ public class SignalRClientManaged
         }
     }
     
+    /// <summary>
+    /// Gets a list of owner views on the host and waits for a sync response
+    /// </summary>
+    /// <param name="cancellationToken">Timeout cancellation token</param>
+    /// <returns></returns>
     public async Task<IEnumerable<Abstractions.Common.MyViewInformation>?> GetMyViews(CancellationToken cancellationToken = default)
     {
         try
@@ -590,6 +739,7 @@ public class SignalRClientManaged
             throw;
         }
     }
+    #endregion
     
     #region Private Methods
 

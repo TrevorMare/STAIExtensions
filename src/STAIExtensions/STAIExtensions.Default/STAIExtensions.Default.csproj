@@ -7,6 +7,8 @@
         <AssemblyVersion>1.0.0</AssemblyVersion>
         <FileVersion>1.0.0</FileVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
         <TargetFrameworks>net5.0;net6.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
         <PackageVersion>0.0.4</PackageVersion>
         <Title>STAIExtensions Default</Title>
@@ -36,7 +38,7 @@ v0.0.1 Initial Release</PackageReleaseNotes>
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-      <PackageReference Include="STAIExtensions.Core" Version="1.0.6" />
+      <PackageReference Include="STAIExtensions.Core" Version="1.0.8" />
     </ItemGroup>
     <ItemGroup>
         <None Include="..\Resources\st_icon.png" Pack="true" PackagePath="content" />

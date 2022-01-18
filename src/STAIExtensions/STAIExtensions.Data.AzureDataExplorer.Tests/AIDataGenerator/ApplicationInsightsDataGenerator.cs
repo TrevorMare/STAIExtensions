@@ -8,7 +8,7 @@ namespace STAIExtensions.Data.AzureDataExplorer.Tests.AIDataGenerator;
 
 public class ApplicationInsightsDataGenerator
 {
-    private const string ai_InstrumentationKey = "bc2e4a06-9252-4448-828c-f43c309d26da";
+    private const string ai_InstrumentationKey = "c065e6f4-03cd-472e-94fd-c0518f8463f3";
 
 
     public void GenerateTelemetry()

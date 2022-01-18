@@ -17,8 +17,12 @@ using STAIExtensions.Host.Grpc.Mapping;
 
 namespace STAIExtensions.Host.Grpc.Services;
 
-public class
-    STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase
+/// <summary>
+/// STAIExtension Grpc Host Service that interacts with the collections of Data Sets and Views.
+/// This host exposes streams that will notify the client on connection state and updates that occured
+/// in the Data Sets and Views
+/// </summary>
+public class STAIExtensionsGrpcService : STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase
 {
 
     #region Members
@@ -50,6 +54,14 @@ public class
 
     #region Methods
 
+    /// <summary>
+    /// Connects to a stream that enables the connection to be monitored by the client, this
+    /// method wil periodically send the server UTC Date time to the client. This allows
+    /// the client to monitor if the Grpc Connection is still alive.
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="responseStream"></param>
+    /// <param name="context"></param>
     public override async Task RegisterConnectionState(NoParameters request,
         IServerStreamWriter<ConnectionStateResponse> responseStream, ServerCallContext context)
     {
@@ -68,6 +80,12 @@ public class
         }
     }
 
+    /// <summary>
+    /// Connects a stream to client that will notify it that a Data Set has been updated. 
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="responseStream"></param>
+    /// <param name="context"></param>
     public override async Task OnDataSetUpdated(NoParameters request,
         IServerStreamWriter<OnDataSetUpdatedResponse> responseStream, ServerCallContext context)
     {
@@ -95,6 +113,12 @@ public class
         }
     }
 
+    /// <summary>
+    /// Connects a stream to client that will notify it that a Data View has been updated. 
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="responseStream"></param>
+    /// <param name="context"></param>
     public override async Task OnDataViewUpdated(OnDataSetViewUpdatedRequest request,
         IServerStreamWriter<OnDataSetViewUpdatedResponse> responseStream, ServerCallContext context)
     {
@@ -132,6 +156,12 @@ public class
         }
     }
 
+    /// <summary>
+    /// Creates a new view and assigns it to the owner
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
     public override async Task<IDataSetView> CreateView(CreateViewRequest request, ServerCallContext context)
     {
 
@@ -159,6 +189,13 @@ public class
         }
     }
 
+    /// <summary>
+    /// Returns the View Json data to be deserialized on the client. This return object contains
+    /// the type to assist with this
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
     public override async Task<IDataSetViewJson> GetViewJson(GetViewRequest request, ServerCallContext context)
     {
         using var operation =
@@ -190,6 +227,13 @@ public class
         }
     }
 
+    /// <summary>
+    /// Gets the interface exposed properties of the View. It does not return the full view, to retrieve
+    /// the full view data use the <see cref="GetViewJson"/> method
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
     public override async Task<IDataSetView> GetView(GetViewRequest request, ServerCallContext context)
     {
         using var operation =
@@ -216,6 +260,12 @@ public class
         }
     }
 
+    /// <summary>
+    /// Lists all the data sets registered that can be attached to
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
     public override async Task<ListDataSetsResponse> ListDataSets(NoParameters request, ServerCallContext context)
     {
         using var operation =
@@ -241,6 +291,12 @@ public class
         }
     }
 
+    /// <summary>
+    /// Gets a list of registered views that can be used to create a client instance of
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
     public override async Task<GetRegisteredViewsResponse> GetRegisteredViews(NoParameters request,
         ServerCallContext context)
     {
@@ -268,6 +324,12 @@ public class
         }
     }
 
+    /// <summary>
+    /// Removes a view and all linking from the collection managers
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
     public override async Task<BoolResponse> RemoveView(RemoveViewRequest request, ServerCallContext context)
     {
         using var operation =
@@ -295,6 +357,12 @@ public class
         }
     }
 
+    /// <summary>
+    /// Attaches a view to a Data Set for updates
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
     public override async Task<BoolResponse> AttachViewToDataset(AttachViewToDatasetRequest request,
         ServerCallContext context)
     {
@@ -327,6 +395,12 @@ public class
         }
     }
 
+    /// <summary>
+    /// Detaches a view from a Data Set
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
     public override async Task<BoolResponse> DetachViewFromDataset(DetachViewFromDatasetRequest request,
         ServerCallContext context)
     {
@@ -359,6 +433,12 @@ public class
         }
     }
 
+    /// <summary>
+    /// Freezes updates from data sets on a View
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
     public override async Task<BoolResponse> SetViewAutoRefreshDisabled(SetViewAutoRefreshDisabledRequest request,
         ServerCallContext context)
     {
@@ -388,6 +468,12 @@ public class
         }
     }
 
+    /// <summary>
+    /// Un-Freezes updates from data sets on a View
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
     public override async Task<BoolResponse> SetViewAutoRefreshEnabled(SetViewAutoRefreshEnabledRequest request,
         ServerCallContext context)
     {
@@ -417,6 +503,12 @@ public class
         }
     }
 
+    /// <summary>
+    /// Sets the View Parameters on a owner view instance 
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
     public override async Task<BoolResponse> SetViewParameters(SetViewParametersRequest request,
         ServerCallContext context)
     {
@@ -453,6 +545,12 @@ public class
 
     }
 
+    /// <summary>
+    /// Gets a list of the owners currently active views
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
     public override async Task<MyViewResponse> GetMyViews(GetMyViewsRequest request, ServerCallContext context)
     {
         using var operation =

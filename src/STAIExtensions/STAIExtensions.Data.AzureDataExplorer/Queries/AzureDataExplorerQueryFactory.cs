@@ -12,15 +12,6 @@ namespace STAIExtensions.Data.AzureDataExplorer.Queries;
 public class AzureDataExplorerQueryFactory : IDataContractQueryFactory
 {
 
-    #region Extra Methods
-
-    public string GetDataContractSourceTableName(Abstractions.Common.DataContractSource source)
-    {
-        return source.DisplayName();
-    }
-
-    #endregion
-
     #region Availibility
 
     public DataContractQuery<Availability> BuildAvailabilityQuery(

@@ -8,7 +8,9 @@
         <FileVersion>1.0.0</FileVersion>
         <TargetFrameworks>net5.0;net6.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>1.0.2</PackageVersion>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
+        <PackageVersion>1.0.3</PackageVersion>
         <Title>STAIExtensions Data AzureDataExplorer</Title>
         <Authors>Trevor Maré</Authors>
         <Description>Azure Data Explorer Telemetry Loader for STAIExtensions.</Description>
@@ -39,7 +41,7 @@ v0.0.1 - Initial Release</PackageReleaseNotes>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <!-- Additional Packages required by this library -->
-        <PackageReference Include="STAIExtensions.Core" Version="1.0.7" />
+        <PackageReference Include="STAIExtensions.Core" Version="1.0.8" />
         <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
     </ItemGroup>
 
