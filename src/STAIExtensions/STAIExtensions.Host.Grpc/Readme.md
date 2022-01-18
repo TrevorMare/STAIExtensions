@@ -5,65 +5,34 @@ and in ASPNet Web projects. For example usage, check the Examples folder.
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TrevorMare/STAIExtensions/.NET?style=for-the-badge)
 ![License](https://img.shields.io/github/license/trevormare/staiextensions?style=for-the-badge)
+![Last Commit](https://img.shields.io/github/last-commit/trevormare/staiextensions?style=for-the-badge)
+<a href="https://trevormare.github.io/STAIExtensions/api/STAIExtensions.Host.Grpc.html"><img src="https://img.shields.io/badge/Documentation-Help-informational?style=for-the-badge" /></a>
 
 ## Nuget
 [![Nuget](https://img.shields.io/nuget/v/STAIExtensions.Host.Grpc?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Host.Grpc/)
 [![Nuget](https://img.shields.io/nuget/dt/STAIExtensions.Host.Grpc?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Host.Grpc/)
 
-[https://www.nuget.org/packages/STAIExtensions.Host.Grpc](https://www.nuget.org/packages/STAIExtensions.Host.Grpc/)
+## Protobuf
 
+The copy of the protobuf file is included as content in the Nuget package and 
+can be retrieved via a the Nuget Package Explorer.
 
 ## Usage
 
-To use the library in a .NET project, install the package from Nuget. 
-Follow the examples to host the application.
-
-
-## Example Code AspNet Core:
-
 ```c#
+
 using STAIExtensions.Host.Grpc;
 
 ...
-
-builder.Services.AddControllers();
-builder.Services.UseSTAIExtensionsApiHost();
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var dsOptions = new STAIExtensions.Abstractions.Collections.DataSetCollectionOptions();
-var dsvOptions = new STAIExtensions.Abstractions.Collections.ViewCollectionOptions(1000, false, true, TimeSpan.FromMinutes(2));
-
-builder.Services.UseSTAIExtensions(() => dsOptions, () => dsvOptions );
-builder.Services.UseSTAISignalR();
-
 // *********************
 // Register the Grpc Service here
 // *********************
-builder.Services.UseSTAIGrpc(new GrpcHostOptions()
-{
-    BearerToken = "ABC",
-    UseDefaultAuthorization = true
-});
+builder.Services.UseSTAIGrpc(new GrpcHostOptions());
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+...
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapSTAISignalRHubs();
 // *********************
 // Map the Grpc Controllers here after routing and Authorization
 // *********************
@@ -72,62 +41,49 @@ app.MapSTAIGrpc(app.Environment.IsDevelopment());
 
 ```
 
-## Example Code Service/Console Application:
+## Security Options
+
+By default the Grpc Service Host will use the default Authorization setup in the library
+
+- Key Value: 598cd5656c78fc13c4d7c274ac41f34737e6b4d0e86af5c3ab47c81674dde666
+
+These values can be set when registering the Service Host.
 
 ```c#
 
-using Examples.Grpc.Host.Console.Services;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using STAIExtensions.Core;
-using STAIExtensions.Host.Grpc;
-
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        CreateHostBuilder(args).Build().Run();
-    }
-
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureServices(services =>
-            {
-                var dsOptions = new STAIExtensions.Abstractions.Collections.DataSetCollectionOptions();
-                var dsvOptions = new STAIExtensions.Abstractions.Collections.ViewCollectionOptions(1000, false, true, TimeSpan.FromMinutes(2));
-                services.UseSTAIExtensions(() => dsOptions, () => dsvOptions);
-                services.UseSTAIGrpc();
-                services.AddLogging(configure => configure.AddConsole());
-                services.Configure<LoggerFilterOptions>(options => options.MinLevel = LogLevel.Information);
-                services.AddHostedService<ServiceRunner>();
-            }).ConfigureWebHostDefaults((webBuilder) =>
-            {
-                webBuilder.Configure(app =>
-                {
-                    app.UseRouting();
-                    app.MapSTAIGrpc();
-                });
-                webBuilder.ConfigureKestrel(options =>
-                    options.ConfigureEndpointDefaults(o => o.Protocols = HttpProtocols.Http2));
-            });
-}
+var grpcOptions = new GrpcHostOptions(true, builder.Configuration["GrpcAuthorizationToken"]);
+builder.Services.UseSTAIGrpc(grpcOptions);
 
 ```
 
+## Examples
+
+For examples check the Examples directory. This package is used in
+- Examples.Grpc.Host.Console
+- Examples.Host.ApiFull
+
+
 ## Target Frameworks
 
-- .NET Core 3.1
-- .NET 5
-- .NET 6
+- :black_square_button: .NET Standard 2.1
+- :heavy_check_mark: .NET Core 3.1
+- :heavy_check_mark: .NET 5
+- :heavy_check_mark: .NET 6
 
 ## Dependencies
 
-- Grpc.AspNetCore
-- Grpc.AspNetCore.Server.Reflection
-- Grp.Tools (Internal)
-- STAIExtensions.Core
+- :black_square_button: STAIExtensions.Abstractions
+- :heavy_check_mark: STAIExtensions.Core
+- :black_square_button: STAIExtensions.Data.AzureDataExplorer
+- :black_square_button: STAIExtensions.Default
+- :black_square_button: STAIExtensions.Host.Api
+- :black_square_button: STAIExtensions.Host.Grpc
+- :black_square_button: STAIExtensions.Host.Grpc.Client
+- :black_square_button: STAIExtensions.Host.SignalR
+- :black_square_button: STAIExtensions.Host.SignalR.Client
+- :heavy_check_mark: Grpc.AspNetCore
+- :heavy_check_mark: Grpc.AspNetCore.Server.Reflection
+- :heavy_check_mark: Grp.Tools (Internal)
+
+
 

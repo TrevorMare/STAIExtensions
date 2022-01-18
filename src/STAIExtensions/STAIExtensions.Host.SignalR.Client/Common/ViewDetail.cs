@@ -2,6 +2,10 @@
 
 namespace STAIExtensions.Host.SignalR.Client.Common;
 
+/// <summary>
+/// Model that includes the base of the view as well as the Json payload for
+/// client side deserialization
+/// </summary>
 public class ViewDetail
 {
     

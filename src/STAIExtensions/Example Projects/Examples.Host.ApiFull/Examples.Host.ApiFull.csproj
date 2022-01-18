@@ -17,4 +17,12 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     </ItemGroup>
 
+    <!-- Include Api Controller XML  -->
+    <Target Name="Add Api Controller XML Documentation" AfterTargets="ResolveReferences">
+        <ItemGroup>
+            <ReferenceCopyLocalPaths Include="@(ReferenceCopyLocalPaths->'%(RootDir)%(Directory)%(Filename).xml')"
+                                     Condition="'%(ReferenceCopyLocalPaths.NuGetPackageId)'=='STAIExtensions.Host.Api' and Exists('%(RootDir)%(Directory)%(Filename).xml')" />
+        </ItemGroup>
+    </Target>
+
 </Project>

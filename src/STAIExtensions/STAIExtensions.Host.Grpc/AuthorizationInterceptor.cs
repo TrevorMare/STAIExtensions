@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace STAIExtensions.Host.Grpc;
 
-public class AuthorizationInterceptor : Interceptor
+internal class AuthorizationInterceptor : Interceptor
 {
     private readonly GrpcHostOptions _options;
 
@@ -31,7 +31,6 @@ public class AuthorizationInterceptor : Interceptor
         throw new RpcException(new Status(StatusCode.PermissionDenied,
             "Authorization token is invalid or not supplied"));
     }
-  
 
     private string? ExtractContextAuthorizationKey(ServerCallContext context)
     {

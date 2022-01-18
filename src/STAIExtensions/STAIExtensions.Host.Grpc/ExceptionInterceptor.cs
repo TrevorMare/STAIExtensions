@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace STAIExtensions.Host.Grpc;
 
-public class ExceptionInterceptor : Interceptor
+internal class ExceptionInterceptor : Interceptor
 {
     
     private readonly ILogger<ExceptionInterceptor>? _logger;

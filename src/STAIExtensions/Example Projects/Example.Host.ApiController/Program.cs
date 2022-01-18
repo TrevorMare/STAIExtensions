@@ -1,3 +1,4 @@
+using System.Reflection;
 using Example.Host.ApiController;
 using Example.Host.ApiController.Services;
 using Microsoft.ApplicationInsights.Extensibility;
@@ -22,7 +23,14 @@ builder.Services.UseSTAIExtensionsApiHost(() => controllerApiOptions);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+builder.Services.AddSwaggerGen(options =>
+{
+    // Include your own controller xml files if you have them
+    // ... 
+    // Include the XML Comments from the Host Api 
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "STAIExtensions.Host.Api.xml"));
+});
 
 // Wire up the local application insights to generate data for the DataSets
 builder.Services.AddSingleton<ITelemetryInitializer, TelemetryInitializer>();
@@ -58,3 +66,8 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+static string XmlCommentsFilePath(string xmlDocFileName) 
+    => Path.Combine(AppContext.BaseDirectory, xmlDocFileName);
+static string GetAssemblyName() 
+    => typeof(Program).GetTypeInfo().Assembly.GetName().Name;

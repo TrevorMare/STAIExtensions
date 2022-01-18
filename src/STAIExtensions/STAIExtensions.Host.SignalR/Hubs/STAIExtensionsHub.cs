@@ -11,8 +11,14 @@ using STAIExtensions.Host.SignalR.Identity;
 
 namespace STAIExtensions.Host.SignalR.Hubs;
 
+
+/// <summary>
+/// The STAIExtensions SignalR hub. Because SignalR is implemented on a send message based protocol
+/// and does not allow for a return value on methods, each function exposed here has a response function
+/// to notify the attached client of the result.
+/// </summary>
 [Authorize(policy : "AuthTokenRequired")]
-internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
+public class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
 {
 
     #region Members
@@ -35,6 +41,12 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
 
     #region Public Methods
 
+    /// <summary>
+    /// Creates a new view for the Owner
+    /// </summary>
+    /// <param name="viewType">The fully qualified type name</param>
+    /// <param name="ownerId">The owner that the view belongs to</param>
+    /// <param name="callBackId">The callback Id for the response to be sent on</param>
     public async Task CreateView(string viewType, string ownerId, string callBackId)
     {
         using var operation =
@@ -68,6 +80,12 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
         
     }
 
+    /// <summary>
+    /// Gets a view in it's current state from the collections
+    /// </summary>
+    /// <param name="viewId">The view Id to retrieve</param>
+    /// <param name="ownerId">The owner of the view</param>
+    /// <param name="callBackId">The callback Id for the response to be sent on</param>
     public async Task GetView(string viewId, string ownerId, string callBackId)
     {
         using var operation =
@@ -94,6 +112,10 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
         }
     }
     
+    /// <summary>
+    /// Lists all the registered data sets in the system
+    /// </summary>
+    /// <param name="callBackId">The callback Id for the response to be sent on</param>
     public async Task ListDataSets(string callBackId)
     {
         using var operation =
@@ -120,6 +142,10 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
         }
     }
     
+    /// <summary>
+    /// Gets all the view types registered in the system
+    /// </summary>
+    /// <param name="callBackId">The callback Id for the response to be sent on</param>
     public async Task GetRegisteredViews(string callBackId)
     {
         using var operation =
@@ -145,6 +171,11 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
         }
     }
     
+    /// <summary>
+    /// Removes a view and all links from the host
+    /// </summary>
+    /// <param name="viewId">The view Id to remove</param>
+    /// <param name="callBackId">The callback Id for the response to be sent on</param>
     public async Task RemoveView(string viewId, string callBackId)
     {
         using var operation =
@@ -173,6 +204,13 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
         }
     }
 
+    /// <summary>
+    /// Attaches a view to a data set
+    /// </summary>
+    /// <param name="viewId">The View Id to attach</param>
+    /// <param name="dataSetId">The data set Id to attach to</param>
+    /// <param name="ownerId">The owner Id of the view</param>
+    /// <param name="callBackId">The callback Id for the response to be sent on</param>
     public async Task AttachViewToDataset(string viewId, string dataSetId, string ownerId, string callBackId)
     {
         using var operation =
@@ -201,6 +239,13 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
         }
     }
     
+    /// <summary>
+    /// Detaches a view from a data set
+    /// </summary>
+    /// <param name="viewId">The view Id to detach</param>
+    /// <param name="dataSetId">The data set to detach from</param>
+    /// <param name="ownerId">The owner of the view</param>
+    /// <param name="callBackId">The callback Id for the response to be sent on</param>
     public async Task DetachViewFromDataset(string viewId, string dataSetId, string ownerId, string callBackId)
     {
         using var operation =
@@ -229,6 +274,13 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
         }
     }
     
+    /// <summary>
+    /// Sets a view's parameters
+    /// </summary>
+    /// <param name="viewId">The view Id to set the parameters on</param>
+    /// <param name="ownerId">The owner of the view</param>
+    /// <param name="viewParameters">The parameter values to set</param>
+    /// <param name="callBackId">The callback Id for the response to be sent on</param>
     public async Task SetViewParameters(string viewId, string ownerId, Dictionary<string, object> viewParameters, string callBackId)
     {
         using var operation =
@@ -256,6 +308,12 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
         }
     }
     
+    /// <summary>
+    /// Un-Freezes a view from updates
+    /// </summary>
+    /// <param name="viewId">The view Id</param>
+    /// <param name="ownerId">The owner of the view</param>
+    /// <param name="callBackId">The callback Id for the response to be sent on</param>
     public async Task SetViewAutoRefreshEnabled(string viewId, string ownerId, string callBackId)
     {
         using var operation =
@@ -283,6 +341,12 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
         }
     }
     
+    /// <summary>
+    /// Freezes a view from updates
+    /// </summary>
+    /// <param name="viewId">The view Id</param>
+    /// <param name="ownerId">The owner of the view</param>
+    /// <param name="callBackId">The callback Id for the response to be sent on</param>
     public async Task SetViewAutoRefreshDisabled(string viewId, string ownerId, string callBackId)
     {
         using var operation =
@@ -312,6 +376,11 @@ internal class STAIExtensionsHub : Hub<ISTAIExtensionsHubClient>
       
     }
     
+    /// <summary>
+    /// Gets a list of active views registered for the owner
+    /// </summary>
+    /// <param name="ownerId">The owner Id of the views</param>
+    /// <param name="callBackId">The callback Id for the response to be sent on</param>
     public async Task GetMyViews(string ownerId, string callBackId)
     {
         using var operation =

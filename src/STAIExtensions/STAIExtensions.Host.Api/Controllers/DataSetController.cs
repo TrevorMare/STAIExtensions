@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using System.Net.Mime;
+using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using STAIExtensions.Abstractions.Common;
 using STAIExtensions.Abstractions.CQRS.DataSets.Queries;
@@ -26,9 +28,21 @@ public class DataSetController : ControllerBase
     #endregion
 
     #region Methods
-
+    /// <summary>
+    /// Lists the Data Sets currently registered in the system
+    /// </summary>
+    /// <remarks>
+    /// Sample request:
+    /// 
+    ///     GET /api/DataSet/ListDataSets
+    ///   
+    /// </remarks>
+    /// <returns></returns>
     [HttpGet]
-    [Route("ListDataSets")]
+    [Route("[action]")]
+    [Consumes(MediaTypeNames.Application.Json)]
+    [ProducesResponseType(typeof(IEnumerable<DataSetInformation>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IEnumerable<DataSetInformation>> ListDataSets()
     {
         return await _mediator.Send(new ListDataSetsQuery());

@@ -11,13 +11,13 @@ public class BrowserTimingsView : DataSetView
 
     public IEnumerable<BrowserTiming> TopItems { get; set; }
     
-    public override Task UpdateViewFromDataSet(IDataSet dataset)
+    protected override Task BuildViewData(IDataSet dataSet)
     {
-        if (dataset is DataContractDataSet dataContractDataSet)
+        if (dataSet is DataContractDataSet dataContractDataSet)
         {
             this.NumberOfItems = dataContractDataSet.BrowserTiming.Count;
             this.TopItems = dataContractDataSet.BrowserTiming.OrderByDescending(x => x.TimeStamp).Take(5);
         }
-        return base.UpdateViewFromDataSet(dataset);
+        return Task.CompletedTask;
     }
 }

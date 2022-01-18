@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace STAIExtensions.Host.SignalR;
 
-public class AuthTokenRequirement : IAuthorizationRequirement
+internal class AuthTokenRequirement : IAuthorizationRequirement
 {
 }
 
-public class AuthTokenRequirementHandler : AuthorizationHandler<AuthTokenRequirement>, IAuthorizationRequirement
+internal  class AuthTokenRequirementHandler : AuthorizationHandler<AuthTokenRequirement>, IAuthorizationRequirement
 {
 
     #region Members

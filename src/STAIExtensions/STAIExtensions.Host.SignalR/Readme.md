@@ -6,18 +6,16 @@ Please take note that this library uses a very basic Authorization method and wi
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TrevorMare/STAIExtensions/.NET?style=for-the-badge)
 ![License](https://img.shields.io/github/license/trevormare/staiextensions?style=for-the-badge)
+![Last Commit](https://img.shields.io/github/last-commit/trevormare/staiextensions?style=for-the-badge)
+<a href="https://trevormare.github.io/STAIExtensions/api/STAIExtensions.Host.SignalR.html"><img src="https://img.shields.io/badge/Documentation-Help-informational?style=for-the-badge" /></a>
 
 ## Nuget
 [![Nuget](https://img.shields.io/nuget/v/STAIExtensions.Host.SignalR?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Host.SignalR/)
 [![Nuget](https://img.shields.io/nuget/dt/STAIExtensions.Host.SignalR?style=for-the-badge)](https://www.nuget.org/packages/STAIExtensions.Host.SignalR/)
 
-[https://www.nuget.org/packages/STAIExtensions.Host.SignalR](https://www.nuget.org/packages/STAIExtensions.Host.SignalR/)
-
 
 ## Usage
 
-To use the library in a .NET project, install the package from Nuget.
-Follow the examples to host the application.
 
 ```c#
   
@@ -45,6 +43,7 @@ Follow the examples to host the application.
     
     app.UseAuthorization();
     
+    // Map the controllers in the SignalR Hubs
     app.MapSTAISignalRHubs();
 
     app.MapControllers();
@@ -159,13 +158,29 @@ setTimeout(() => {
 
 ```
 
+## Examples
+
+For examples check the Examples directory. This package is used in
+- Examples.Host.ApiFull
+
 ## Target Frameworks
 
-- .NET Core 3.1
-- .NET 5
-- .NET 6
+- :black_square_button: .NET Standard 2.1
+- :heavy_check_mark: .NET Core 3.1
+- :heavy_check_mark: .NET 5
+- :heavy_check_mark: .NET 6
 
 ## Dependencies
 
-- Microsoft.AspNetCore.SignalR.Client
-- STAIExtensions.Abstractions
+- :heavy_check_mark: STAIExtensions.Abstractions
+- :black_square_button: STAIExtensions.Core
+- :black_square_button: STAIExtensions.Data.AzureDataExplorer
+- :black_square_button: STAIExtensions.Default
+- :black_square_button: STAIExtensions.Host.Api
+- :black_square_button: STAIExtensions.Host.Grpc
+- :black_square_button: STAIExtensions.Host.Grpc.Client
+- :black_square_button: STAIExtensions.Host.SignalR
+- :black_square_button: STAIExtensions.Host.SignalR.Client
+- :heavy_check_mark: Microsoft.AspNetCore.SignalR.Client
+
+
