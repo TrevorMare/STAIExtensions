@@ -12,15 +12,14 @@
         <PackageReference Include="STAIExtensions.Core" Version="1.0.7" />
         <PackageReference Include="STAIExtensions.Data.AzureDataExplorer" Version="1.0.2" />
         <PackageReference Include="STAIExtensions.Default" Version="0.0.4" />
-        <PackageReference Include="STAIExtensions.Host.Api" Version="1.0.2" />
+        <PackageReference Include="STAIExtensions.Host.Api" Version="1.0.1" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     </ItemGroup>
 
     <!-- Include Api Controller XML  -->
     <Target Name="Add Api Controller XML Documentation" AfterTargets="ResolveReferences">
         <ItemGroup>
-            <ReferenceCopyLocalPaths Include="@(ReferenceCopyLocalPaths->'%(RootDir)%(Directory)%(Filename).xml')"
-                                     Condition="'%(ReferenceCopyLocalPaths.NuGetPackageId)'=='STAIExtensions.Host.Api' and Exists('%(RootDir)%(Directory)%(Filename).xml')" />
+            <ReferenceCopyLocalPaths Include="@(ReferenceCopyLocalPaths->'%(RootDir)%(Directory)%(Filename).xml')" Condition="'%(ReferenceCopyLocalPaths.NuGetPackageId)'=='STAIExtensions.Host.Api' and Exists('%(RootDir)%(Directory)%(Filename).xml')" />
         </ItemGroup>
     </Target>
     
