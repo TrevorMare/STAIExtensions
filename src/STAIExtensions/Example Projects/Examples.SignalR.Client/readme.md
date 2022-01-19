@@ -16,7 +16,7 @@ need to update the connection settings in the site.js file as well.
 ## Requirements
 
 The requirements for this project at the very least is the **signalr.js** script and this
-can be found on [cdnjs](https://cdnjs.com/libraries/aspnet-signalr). This project uses a local copy of this file.
+can be found on [cdnjs](https://cdnjs.com/libraries/microsoft-signalr). This project uses a local copy of this file.
 
 To use the optionally provided managed Js client wrapper, add a reference to the script found in this repository's 
 [Resources/js](https://github.com/TrevorMare/STAIExtensions/tree/main/src/STAIExtensions/Resources/js) directory. For each

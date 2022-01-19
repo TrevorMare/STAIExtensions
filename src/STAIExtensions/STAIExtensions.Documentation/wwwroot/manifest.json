@@ -1113,7 +1113,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Core.Views.DataSetView.html",
-          "hash": "1V4O69Wo5pFssI2exdAaKjx0HX8OnlM+YbfVZIuqxYM="
+          "hash": "xc5PiiRNenFSfdK/fEQClE47C+q7ktu9fcbtqwJvfx8="
         }
       },
       "is_incremental": false,
@@ -1353,7 +1353,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Data.AzureDataExplorer.Queries.AzureDataExplorerQueryFactory.html",
-          "hash": "wzPGhux+Pv3lKMgf9YfD8ndHI5/mAh6yl0gWqYF0R0w="
+          "hash": "R6yrnl6F6zEkBwKhY1u5bmytj75eB0k4iY9aIzPlDe4="
         }
       },
       "is_incremental": false,
@@ -1529,11 +1529,47 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/STAIExtensions.Default.Helpers.DataContractFullFilterHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/STAIExtensions.Default.Helpers.DataContractFullFilterHelper.html",
+          "hash": "1+fbJ5yC74XFmaZIFvCYTQRAXoOqm9jSk0x+AYT1t1c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/STAIExtensions.Default.Helpers.ViewParameterHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/STAIExtensions.Default.Helpers.ViewParameterHelper.html",
+          "hash": "W7TqayGglam9+y231hwzOVougwSwgJzkdv/7hRBy73E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/STAIExtensions.Default.Helpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/STAIExtensions.Default.Helpers.html",
+          "hash": "Oc+AiAdLvGhU62pY5DjUrx2Uhodt0hCleu/rQTZmZsY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/STAIExtensions.Default.Views.BrowserTimingsView.yml",
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Default.Views.BrowserTimingsView.html",
-          "hash": "r01Inz7IhZHT7itnXoDAdZfFzRrALwMWo7q5NnV6qDI="
+          "hash": "8fAzivj33WhRq1KfNh9CCSmO2W/fGMTRnfye0rEWUss="
         }
       },
       "is_incremental": false,
@@ -1545,7 +1581,19 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Default.Views.MyErrorsView.html",
-          "hash": "HvMwusCbCTDwL9lkuQGLw0kBCOzCSoV1jmV4U9/ZAM0="
+          "hash": "/wLMR6WVyq54Ydo7PELFlWKzWaAceTkpZtDm3bJiSX0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/STAIExtensions.Default.Views.TelemetryOverview.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/STAIExtensions.Default.Views.TelemetryOverview.html",
+          "hash": "IrxM7/UF5XOZrKdIlcJXnFDJkElaPWEid0CtnJFhK5w="
         }
       },
       "is_incremental": false,
@@ -1557,7 +1605,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Default.Views.html",
-          "hash": "k9hZB/dhO6B9MOemGU5PLL1u7qA4TMQgRIFn2+2OE1I="
+          "hash": "n3kls6OAVFRAROTJ+pa4KM3aDnvMD9nDZLKcMhDJ0Dw="
         }
       },
       "is_incremental": false,
@@ -1785,7 +1833,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.Grpc.Client.Common.OnConnectionStateChangedHandler.html",
-          "hash": "nve00QVmn6oLi7aEOWmV1oJhdM59mIr//F+4BjCluCE="
+          "hash": "VXfreBSs++UaR7wrhllBhLSURJJFNt5KrDOyt1algwE="
         }
       },
       "is_incremental": false,
@@ -1797,7 +1845,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.Grpc.Client.Common.OnDataSetUpdatedHandler.html",
-          "hash": "4zwqudr0et4jzU1WFFddpJfYGuGJu/UEshY8HXyYUXQ="
+          "hash": "pBVnHJqgaZq5jAyKlcvH0+gLY7SQBcQKWYjE7oFeXY4="
         }
       },
       "is_incremental": false,
@@ -1809,7 +1857,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.Grpc.Client.Common.OnDataSetViewUpdatedHandler.html",
-          "hash": "8K26eGQuEmkWXusjTT0jT6ZElwReuefq9JjR6RLmvtA="
+          "hash": "hPjVGht6qRS5VG9Eb/FHepJlJCZRqPO00xFjw1pikEg="
         }
       },
       "is_incremental": false,
@@ -1821,7 +1869,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.Grpc.Client.Common.OnDataSetViewUpdatedJsonHandler.html",
-          "hash": "asXDlq9cLxU94UB5BMSesZ+vfa9yNXXgM2xvtJ1d07s="
+          "hash": "gTO/zLaLPL+P6KUXk8mWfJaDtRshYLu+kbwcQpFTAvY="
         }
       },
       "is_incremental": false,
@@ -1833,7 +1881,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.Grpc.Client.Common.html",
-          "hash": "qAD1uEIMMtq5nnM1cGdeSpg6ybS72SENXslYVwvRO8g="
+          "hash": "1F1CsgOZFkzh09ddFV8oxgBBX9OFZI/xLZgWNwbi/74="
         }
       },
       "is_incremental": false,
@@ -1845,7 +1893,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.Grpc.Client.DataSetViewUpdatedJsonParams.html",
-          "hash": "TGykCnYgYZa1c93hDz3NCIvSS/bUFpyzxL+sekJOAm0="
+          "hash": "qDDvAnwOMT0Tg5ITkziK8VNPVk8kle61ZrI24Af3KOU="
         }
       },
       "is_incremental": false,
@@ -1857,7 +1905,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.Grpc.Client.GrpcClientManaged.html",
-          "hash": "gSvIe10Lr4q4buKfFtm6JHDnPnciYqd3UXQ6INZpa4k="
+          "hash": "ZZWhcJlPaz0WLw3LtCxKFdiWAJnnbdjoIHOaw2iVYWs="
         }
       },
       "is_incremental": false,
@@ -1869,7 +1917,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.Grpc.Client.GrpcClientManagedOptions.html",
-          "hash": "g9UqkCrX0exgijAHgnO6E6kYT+80qr0PMyLFFSSsQZw="
+          "hash": "Da+cOnga7P5jxVauDpevORGVPwzRwg1x+KGOuu19UL0="
         }
       },
       "is_incremental": false,
@@ -1881,7 +1929,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.Grpc.Client.html",
-          "hash": "E4OzPlJhwWni/CYvUyVxW2VPILCvX7ibjL4Y+Sa6VRo="
+          "hash": "pwiRq/7Uipv/59tift8ucISuoHpRS2wDwRya4LhR2qA="
         }
       },
       "is_incremental": false,
@@ -2193,7 +2241,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.html",
-          "hash": "zMxGXCNw2UOXJaXhuboy5vR9Q5NsCbCTx3nqkJpvCvo="
+          "hash": "9lZOsUg2t1qFTNRDMQfRxVjnVkqLChQV4BFQJOvQUyo="
         }
       },
       "is_incremental": false,
@@ -2205,7 +2253,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.Grpc.Services.html",
-          "hash": "jXB05TPA99mxg97vx8XkIgBB1U9FNMWUH7z44t+xZj4="
+          "hash": "a2ts6MzuRPe9FJkzTo8TPZRfabbBbZ7SM/W8OrMIVkY="
         }
       },
       "is_incremental": false,
@@ -2273,35 +2321,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/STAIExtensions.Host.SignalR.AuthTokenRequirement.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/STAIExtensions.Host.SignalR.AuthTokenRequirement.html",
-          "hash": "Exemf2BGZy6ReWm+FVhAb+y6gSqPwUZedE9Nok+Fu0c="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.html",
-          "hash": "U8ODVybc7nS/vEP6z5Y94DkSp0Qbr4OCD6uLSl1bW/4="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/STAIExtensions.Host.SignalR.Client.Common.OnDataSetUpdatedHandler.yml",
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.SignalR.Client.Common.OnDataSetUpdatedHandler.html",
-          "hash": "gl46YHfE4WOwy3B/8wVWPctpe7LFuIidfF8TRjxzuI8="
+          "hash": "h7DsLAtGSdUK+Hg0axevVLxbAkxXqPmlMdX1x5HosvQ="
         }
       },
       "is_incremental": false,
@@ -2313,7 +2337,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.SignalR.Client.Common.OnDataSetViewUpdatedHandler.html",
-          "hash": "HfWOzL+MXsC/elpSjQb1dHAmt2LRe8+evunCThHA1WQ="
+          "hash": "6+tEK3yraKeD9Q1HIQjszDsTeug/rWQ4ZYuaheeggvY="
         }
       },
       "is_incremental": false,
@@ -2325,7 +2349,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.SignalR.Client.Common.OnDataViewUpdatedHandler.html",
-          "hash": "9bLqbDQGowSKtrE9iU9vF16/96i3XZ3rV+IWwhiiNEY="
+          "hash": "nXSaMQWrYBLj9oxZeRE3FEXkI+pguezI1dGdP/6DIR0="
         }
       },
       "is_incremental": false,
@@ -2337,7 +2361,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.SignalR.Client.Common.ViewBase.html",
-          "hash": "zoTLO5zm4/CSq8DQQxuiCh20UFdfXf4UDTQCgj9DLI0="
+          "hash": "ETzErBLxgyOt6+WWmfDNs6WZ70lpXdrHt/Bv1zqvD7Q="
         }
       },
       "is_incremental": false,
@@ -2349,7 +2373,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.SignalR.Client.Common.ViewDetail.html",
-          "hash": "iwmxkJSUKlTd6wj1EnvfytR79s8Ud2jPJnpff+0W5Rw="
+          "hash": "bslg7Nfy3Z5KK2glOFvtCpmRt6OZbVhthG6vlStPwhI="
         }
       },
       "is_incremental": false,
@@ -2361,7 +2385,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.SignalR.Client.Common.html",
-          "hash": "/wnhnnEMcvmzDxMulzrXvPi3m55Zt4p8KCWaKmRigpg="
+          "hash": "xVQcnhdWPjQrHfQh8mnvk0DN2I9DFrcRGASPY3pHrBg="
         }
       },
       "is_incremental": false,
@@ -2373,7 +2397,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.SignalR.Client.SignalRClientManaged.html",
-          "hash": "ypKn1LgHV8FKSK1rnjd6NuZHpyEVeGhevLsi/rDZXQw="
+          "hash": "vJ4jC5TlPUOpbATuzbAOFK9qeerqN086C4tqaxCQG8g="
         }
       },
       "is_incremental": false,
@@ -2385,7 +2409,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.SignalR.Client.SignalRClientManagedOptions.html",
-          "hash": "PkzAkirgd/cMJzR7nfJTb2urON7bm5O6N4hu7Rnv+DY="
+          "hash": "QsQyUVaVeypvn/jOaOGPVSGsTskwnhc6CPPKvvv5T9U="
         }
       },
       "is_incremental": false,
@@ -2397,7 +2421,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.SignalR.Client.html",
-          "hash": "u+1Ec2L8eR7uBnvNt5PXuYix+/X5HeZFVaeUlfh4iXo="
+          "hash": "W3EezjiblAsrxRiX9jpO/D6/moIid8kYoXqQsy/PCwQ="
         }
       },
       "is_incremental": false,
@@ -2409,7 +2433,19 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.SignalR.Hubs.ISTAIExtensionsHubClient.html",
-          "hash": "FW8iOmdurBEXpPmilTNFd74NqqkgM/J7ODRmY+t9z0U="
+          "hash": "/y8/jylz1lJYK9QZCzVJzl517Eugr7xzhOA2zDxFFt0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html",
+          "hash": "sVbOT8Xs74OhV+SeOLjE93IFD48/qIRzzbNcudFBHqU="
         }
       },
       "is_incremental": false,
@@ -2421,7 +2457,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.SignalR.Hubs.html",
-          "hash": "a729T/lfKXTLDuCqUsgQjxHh9gz0CuDKamexTexPIX0="
+          "hash": "oHFS4WJqN6OLPoDpYOwiMMLACstLqr0GdH8j4fqiEd4="
         }
       },
       "is_incremental": false,
@@ -2433,7 +2469,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.SignalR.Identity.ISignalRUserGroups.html",
-          "hash": "k7Xd6pwKg9BHVm3Fd9auX51vK+vYWniWDplbd3mVtqA="
+          "hash": "YivqRNQK7BQ5NSKCrG39U+oMA7WOYbK4LRaEACuB6dY="
         }
       },
       "is_incremental": false,
@@ -2445,7 +2481,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.SignalR.Identity.SignalRUserGroups.html",
-          "hash": "FXZLu6JfdkJ6Ak+iylbyQYLmd34UmUKqLCMNMw8xgo4="
+          "hash": "n0XRCsvCDDQtkOwBmqn8WeS0gTU8QYzHgoTCLkBxdf4="
         }
       },
       "is_incremental": false,
@@ -2457,7 +2493,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.SignalR.Identity.html",
-          "hash": "p8wy7mX3Gc3bmsE/7sII8Pn3fDLqt0yAUuLxrMjjM9I="
+          "hash": "Iz8Fz9jYNQNHvHza4TfjTEpNJhScJhYNTij3DsZJODk="
         }
       },
       "is_incremental": false,
@@ -2469,7 +2505,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.SignalR.SignalRHostOptions.html",
-          "hash": "b5MvAmzctqCyuZMap3z8EOoGq7jo1yD/kjtWWFZf83I="
+          "hash": "Ls/MqIh1aX6oLsWPMmYeOixyfJceWWJsBPiP5cwEXao="
         }
       },
       "is_incremental": false,
@@ -2481,7 +2517,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.SignalR.StartupExtensions.html",
-          "hash": "wVitt2kQNCz6GKW0g3ji8vAvu74D0dKsC4DgFrO3vbw="
+          "hash": "YjuiXVbBS68+u2aG3CL4Pg7ukXyyu5FaAJOOKd9iVC8="
         }
       },
       "is_incremental": false,
@@ -2493,7 +2529,7 @@
       "output": {
         ".html": {
           "relative_path": "api/STAIExtensions.Host.SignalR.html",
-          "hash": "qXxjforpcthLviFnqqvzSS3/0NCW1f4LkW34QMABGIA="
+          "hash": "QZgqY+KQQGmX8a1oREUo+M8eDMc/RfWLz7Fe6I/Tk0c="
         }
       },
       "is_incremental": false,
@@ -2505,7 +2541,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "JWh5/RJF/OYemR3ngPSMDl5KnkCQwtaJs67SejxsZQA="
+          "hash": "bsvvCSJgpdG6QP0/ST2iJ06egjp8aPDKmXuff119B5A="
         }
       },
       "is_incremental": false,
@@ -2542,8 +2578,8 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 208,
-          "skipped_file_count": 155
+          "total_file_count": 211,
+          "skipped_file_count": 35
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

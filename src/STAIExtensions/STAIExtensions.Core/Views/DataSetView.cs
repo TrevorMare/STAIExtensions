@@ -71,7 +71,7 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     /// <summary>
     /// Gets the view parameters that were set via the <see cref="SetViewParameters"/> method
     /// </summary>
-    protected Dictionary<string, object>? ViewParameters { get; private set; } = null;
+    protected Dictionary<string, object?>? ViewParameters { get; private set; } = null;
     #endregion
 
     #region Events
