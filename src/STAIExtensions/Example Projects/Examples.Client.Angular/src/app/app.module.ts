@@ -20,10 +20,10 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
-import { TelemetryOverviewComponent } from './components/telemetry-overview/telemetry-overview.component';
+
 
 @NgModule({
-  declarations: [AppComponent, TelemetryOverviewComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

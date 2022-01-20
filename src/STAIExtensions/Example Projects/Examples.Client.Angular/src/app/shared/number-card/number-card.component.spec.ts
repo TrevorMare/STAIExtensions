@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TelemetryOverviewComponent } from './telemetry-overview.component';
+import { NumberCardComponent } from './number-card.component';
 
-describe('TelemetryOverviewComponent', () => {
-  let component: TelemetryOverviewComponent;
-  let fixture: ComponentFixture<TelemetryOverviewComponent>;
+describe('NumberCardComponent', () => {
+  let component: NumberCardComponent;
+  let fixture: ComponentFixture<NumberCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TelemetryOverviewComponent ]
+      declarations: [ NumberCardComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TelemetryOverviewComponent);
+    fixture = TestBed.createComponent(NumberCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

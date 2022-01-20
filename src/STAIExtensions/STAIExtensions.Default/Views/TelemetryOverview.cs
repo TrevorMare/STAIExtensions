@@ -27,6 +27,7 @@ public class TelemetryOverview : DataSetView
     private List<CustomEvent> _customEventsFiltered;
     private List<CustomMetric> _customMetricsFiltered;
     private List<Dependency> _dependenciesFiltered;
+    private List<AIException> _exceptionsFiltered;
     private List<PageView> _pageViewsFiltered;
     private List<PerformanceCounter> _performanceCountersFiltered;
     private List<Request> _requestsFiltered;
@@ -48,6 +49,8 @@ public class TelemetryOverview : DataSetView
     public int? CustomMetricsCount { get; private set; }
     
     public int? DependenciesCount { get; private set; }
+    
+    public int? ExceptionsCount { get; private set; }
     
     public int? PageViewsCount { get; private set; }
     
@@ -173,6 +176,9 @@ public class TelemetryOverview : DataSetView
         this._tracesFiltered = dataContractDataSet.Traces
             .FilterCloudRoleInstance(_filterCloudInstanceName)
             .FilterCloudRoleName(_filterCloudRoleName).ToList();
+        this._exceptionsFiltered = dataContractDataSet.Exceptions
+            .FilterCloudRoleInstance(_filterCloudInstanceName)
+            .FilterCloudRoleName(_filterCloudRoleName).ToList();
     }
 
     /// <summary>
@@ -189,6 +195,7 @@ public class TelemetryOverview : DataSetView
         this.PerformanceCountersCount = _performanceCountersFiltered.Count;
         this.RequestsCount = _requestsFiltered.Count;
         this.TracesCount = _tracesFiltered.Count;
+        this.ExceptionsCount = _exceptionsFiltered.Count;
     }
     #endregion
     

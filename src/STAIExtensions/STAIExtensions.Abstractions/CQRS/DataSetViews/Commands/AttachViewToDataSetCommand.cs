@@ -65,11 +65,19 @@ public class AttachViewToDataSetCommandHandler : IRequestHandler<AttachViewToDat
     #endregion
 
     #region Methods
-    public Task<bool> Handle(AttachViewToDataSetCommand request, CancellationToken cancellationToken)
+    public async Task<bool> Handle(AttachViewToDataSetCommand request, CancellationToken cancellationToken)
     {
         using var operation = _telemetryClient?.StartOperation<DependencyTelemetry>($"{this.GetType().Name} - {nameof(Handle)}");
         var view = _viewCollection.GetView(request.ViewId, request.OwnerId);
-        return Task.FromResult(view != null && _dataSetCollection.AttachViewToDataSet(request.DataSetId, view));
+
+        var result = false;
+        if (view != null)
+        {
+            result = _dataSetCollection.AttachViewToDataSet(request.DataSetId, view);
+            var dataSet = _dataSetCollection.FindDataSetById(request.DataSetId)!;
+            await view.UpdateViewFromDataSet(dataSet);
+        }
+        return result;
     }
     #endregion
 

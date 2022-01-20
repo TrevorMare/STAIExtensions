@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import * as uuid from 'uuid';
 import { environment } from '../../../environments/environment'
-import { of, Subject, interval, BehaviorSubject, pipe } from 'rxjs';
+import { Subject, BehaviorSubject } from 'rxjs';
 import { DataSetInformation } from '../data/dataset-information'
 import { ViewInformation } from '../data/view-information';
 import { View } from '../data/view';
-import { switchMap, first } from 'rxjs/operators';
-import { filter } from 'rxjs-compat/operator/filter';
 
 declare var STAIExtensionsHub: any;
 
@@ -34,7 +32,8 @@ export class STAIExtensionsService {
       this.ownerId,
       environment.signalRHost,
       environment.signalRAuthKey,
-      this.OnDataSetUpdated, this.OnDataSetViewUpdated
+      (dsId) => this.OnDataSetUpdated(dsId), 
+      (viewId) => this.OnDataSetViewUpdated(viewId)
     );
 
     // Set up the default data set and views
@@ -56,7 +55,7 @@ export class STAIExtensionsService {
 
     setTimeout(() => {
       this.Initializing$.next(true);
-    }, 500);
+    }, 1000);
 
   }
  
@@ -67,10 +66,6 @@ export class STAIExtensionsService {
       if (this.Ready$.value === false) throw `Service not ready`;
 
       this.managedClientHub.CreateView(viewTypeName, (_: any, view: View) => {
-
-        console.log(view);
-        console.log(this.DataSet$.value.dataSetId);
-
         this.managedClientHub.AttachViewToDataset(view.id, this.DataSet$.value.dataSetId, (_: any, success: boolean) => {
           if (success === true) {
             this.ownedViewIds.push(view.id);
@@ -88,11 +83,24 @@ export class STAIExtensionsService {
     });
   }
 
-  public async LoadView(viewId: string): Promise<View> {
-    console.log(`Reading view from host`);
+  public async LoadView(viewId: string): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.managedClientHub.GetView(viewId, (_: any, view: View) => {
+      this.managedClientHub.GetView(viewId, (_: any, view: any) => {
         resolve(view);
+      }, (err) => {
+          reject(err);
+      });
+    });
+  }
+
+  public async RemoveView(viewId: string): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      this.managedClientHub.RemoveView(viewId, (_: any, result: boolean) => {
+        var ownedIx = this.ownedViewIds.indexOf(viewId);
+        if (ownedIx >= 0) {
+          this.ownedViewIds.splice(ownedIx);
+        }
+        resolve(result);
       }, (err) => {
           reject(err);
       });
@@ -102,7 +110,8 @@ export class STAIExtensionsService {
   protected OnDataSetUpdated(dataSetId: string): void {}
 
   protected OnDataSetViewUpdated(viewId: string): void {
-    if (this.ownedViewIds.indexOf(viewId) > 0) {
+    
+    if (this.ownedViewIds.indexOf(viewId) >= 0) {
       this.LoadView(viewId).then((view) => {
         this.ViewUpdated$.next(view);
       })

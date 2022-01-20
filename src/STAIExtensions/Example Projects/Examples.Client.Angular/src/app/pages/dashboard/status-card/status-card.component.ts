@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'ngx-status-card',
-  styleUrls: ['./status-card.component.scss'],
+  styleUrls: ['./status-card.component.scss'], 
   template: `
     <nb-card matRipple (click)="on = !on" [ngClass]="{'off': !on}">
       <div class="icon-container">

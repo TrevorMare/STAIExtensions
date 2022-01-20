@@ -4,14 +4,15 @@ import { View } from './view';
 
 
 export interface TelemetryOverviewView extends View {
-    CloudNames?: CloudNames[],
-    AvailabilityCount?: number,
-    BrowserTimingsCount?: number,
-    CustomEventsCount?: number,
-    CustomMetricsCount?: number,
-    DependenciesCount?: number,
-    PageViewsCount?: number,
-    PerformanceCountersCount?: number,
-    RequestsCount?: number,
-    TracesCount?: number
+    cloudNames?: CloudNames[],
+    availabilityCount?: number,
+    browserTimingsCount?: number,
+    customEventsCount?: number,
+    customMetricsCount?: number,
+    dependenciesCount?: number,
+    pageViewsCount?: number,
+    performanceCountersCount?: number,
+    requestsCount?: number,
+    tracesCount?: number,
+    exceptionsCount?: number
 }

@@ -1,0 +1,33 @@
+nb-card {
+    height: auto;
+    nb-card-body {
+        display: flex;
+    
+        .icon-container {
+            height: 6rem;
+            width: 6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        
+            nb-icon {
+                font-size: 4rem;
+            }
+        }
+        
+        .detail {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .total-text {
+                font-size: 1.8rem;
+            }
+            .label-text {
+                text-transform: uppercase;
+                font-size: 0.9rem;
+            }
+        }
+    }
+    
+    
+}

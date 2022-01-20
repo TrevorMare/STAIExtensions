@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { TelemetryOverviewView } from '../../@core/data/telemetry-overview';
-import { View } from '../../@core/data/view';
 import { STAIExtensionsService } from '../../@core/utils';
 
 @Component({
@@ -8,37 +8,47 @@ import { STAIExtensionsService } from '../../@core/utils';
   templateUrl: './ai-extensions-dashboard.component.html',
   styleUrls: ['./ai-extensions-dashboard.component.scss']
 })
-export class AiExtensionsDashboardComponent implements OnInit {
+export class AiExtensionsDashboardComponent implements OnInit, OnDestroy {
 
-  public telemetryOverviewView?: TelemetryOverviewView = null;
-  private extensionsService?: STAIExtensionsService = null;
+  public telemetryOverviewView$ = new BehaviorSubject<TelemetryOverviewView>(null);
+  
 
-  constructor(staiextensionsService: STAIExtensionsService) { 
-    this.extensionsService = staiextensionsService;
-
-    this.extensionsService.Ready$.subscribe((b) => {
+  constructor(private zone: NgZone, 
+              private staiextensionsService: STAIExtensionsService) { 
+    
+    this.staiextensionsService.Ready$.subscribe((b) => {
       if (b === true) {
         this.CreateViews();
       }
     });
     
-    this.extensionsService.ViewUpdated$.subscribe((view) => {
+    this.staiextensionsService.ViewUpdated$.subscribe((view) => {
       this.UpdateViews(view);
     });
   }
 
-  ngOnInit(): void {
+
+  ngOnDestroy(): void {
+    if (!!this.telemetryOverviewView$?.value) {
+      this.staiextensionsService.RemoveView(this.telemetryOverviewView$.value.id);
+    }
   }
 
+  ngOnInit(): void {
+    
+  }
 
-  private UpdateViews(view: View) {
-    this.telemetryOverviewView = {...view};
+  private UpdateViews(view: any) {
+    
+    this.zone.run(() => {
+      this.telemetryOverviewView$.next(view);
+    })
   }
 
   private CreateViews(): void {
-    this.extensionsService.CreateView("STAIExtensions.Default.Views.TelemetryOverview, STAIExtensions.Default, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+    this.staiextensionsService.CreateView("STAIExtensions.Default.Views.TelemetryOverview, STAIExtensions.Default, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
     .then((view) => {
-      this.telemetryOverviewView = view;
+      this.telemetryOverviewView$.next(view);
     }).catch((err) => {
       console.log(`An error occured ${err}`);
     });
