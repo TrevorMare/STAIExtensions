@@ -130,8 +130,6 @@ class STAIExtensionsHub {
         if (success !== undefined && success !== null) {
             this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId : callbackId, CallbackName: "CreateView"})
         }
-        // @ts-ignore
-        console.log('CreateView');
         this._connection.invoke("CreateView", viewType, this._ownerId, callbackId).catch(function (err: any) {
             instance._callbackHandler.RemoveCallback(callbackId);
             if (error !== undefined && error !== null) {

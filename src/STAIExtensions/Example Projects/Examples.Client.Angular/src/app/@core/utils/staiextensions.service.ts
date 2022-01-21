@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import * as uuid from 'uuid';
 import { environment } from '../../../environments/environment'
 import { Subject, BehaviorSubject } from 'rxjs';
@@ -11,7 +11,7 @@ declare var STAIExtensionsHub: any;
 @Injectable({
   providedIn: 'root'
 })
-export class STAIExtensionsService {
+export class STAIExtensionsService implements OnDestroy  {
   
   private ownerId: string = uuid.v4();
   private managedClientHub: any;
@@ -19,15 +19,17 @@ export class STAIExtensionsService {
   
   public Initializing$ = new BehaviorSubject<boolean>(false);
   public Ready$ = new BehaviorSubject<boolean>(false);
-  public DataSet$ = new BehaviorSubject<DataSetInformation>(null);
-  public HostViews$ = new BehaviorSubject<ViewInformation[]>(null);
+  public DataContractDataSet$ = new BehaviorSubject<DataSetInformation>(null);
+  public RegisteredViewTypes$ = new BehaviorSubject<ViewInformation[]>(null);
   public ViewUpdated$ = new Subject<View>();
+  public DataSetUpdated$ = new Subject<string>();
 
   constructor(
   ) { 
     // Workaround for zone.js that overrides the Web Socket open number to a method
     Object.defineProperty(WebSocket, 'OPEN', { value: 1, });
 
+    // Setup the managed client hub
     this.managedClientHub = new STAIExtensionsHub(
       this.ownerId,
       environment.signalRHost,
@@ -40,9 +42,9 @@ export class STAIExtensionsService {
     this.Initializing$.subscribe(isInitializing => {
       if (isInitializing === true) {
         this.SetupServiceDataSet().then((dataSet) => {
-          this.DataSet$.next(dataSet);
+          this.DataContractDataSet$.next(dataSet);
           this.SetupHostViews().then((views) => {
-            this.HostViews$.next(views);
+            this.RegisteredViewTypes$.next(views);
             this.Ready$.next(true);
           }).catch((err) => {
             console.log(err);
@@ -53,37 +55,42 @@ export class STAIExtensionsService {
       }
     })
 
+    // Wait for the connection to establish and initialise the service
     setTimeout(() => {
       this.Initializing$.next(true);
     }, 1000);
 
   }
  
-  public async CreateView(viewTypeName: string): Promise<View> {
+  ngOnDestroy() {
+    this.Ready$.next(false);
+  }
+
+  public async CreateView$(viewTypeName: string): Promise<View> {
 
     return new Promise((resolve, reject) => {
 
       if (this.Ready$.value === false) throw `Service not ready`;
-
+      // Create the view
       this.managedClientHub.CreateView(viewTypeName, (_: any, view: View) => {
-        this.managedClientHub.AttachViewToDataset(view.id, this.DataSet$.value.dataSetId, (_: any, success: boolean) => {
+        // Attach the view to the data set
+        this.managedClientHub.AttachViewToDataset(view.id, this.DataContractDataSet$.value.dataSetId, (_: any, success: boolean) => {
           if (success === true) {
+
             this.ownedViewIds.push(view.id);
             resolve(view);
           } else {
             reject('Could not create view');
-          }             
-          }, (err: any) => {
+          }}, (err: any) => {
               reject(err);
           });          
       }, (err: any) => {
-        console.log(err);
         reject(err);
       })
     });
   }
 
-  public async LoadView(viewId: string): Promise<any> {
+  public async LoadView$(viewId: string): Promise<any> {
     return new Promise((resolve, reject) => {
       this.managedClientHub.GetView(viewId, (_: any, view: any) => {
         resolve(view);
@@ -93,7 +100,7 @@ export class STAIExtensionsService {
     });
   }
 
-  public async RemoveView(viewId: string): Promise<boolean> {
+  public async RemoveView$(viewId: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
       this.managedClientHub.RemoveView(viewId, (_: any, result: boolean) => {
         var ownedIx = this.ownedViewIds.indexOf(viewId);
@@ -107,12 +114,24 @@ export class STAIExtensionsService {
     });
   }
 
-  protected OnDataSetUpdated(dataSetId: string): void {}
+  public async SetViewParameters(viewId: string, parameters: any): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      this.managedClientHub.SetViewParameters(viewId, parameters, (_: any, result: boolean) => {
+        resolve(result);
+      }, (err) => {
+          reject(err);
+      });
+    });
+  }
 
-  protected OnDataSetViewUpdated(viewId: string): void {
+  private OnDataSetUpdated(dataSetId: string): void {
+    this.DataSetUpdated$.next(dataSetId);
+  }
+
+  private OnDataSetViewUpdated(viewId: string): void {
     
     if (this.ownedViewIds.indexOf(viewId) >= 0) {
-      this.LoadView(viewId).then((view) => {
+      this.LoadView$(viewId).then((view) => {
         this.ViewUpdated$.next(view);
       })
     }

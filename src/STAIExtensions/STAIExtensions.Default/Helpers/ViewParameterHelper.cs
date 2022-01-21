@@ -36,15 +36,34 @@ public static class ViewParameterHelper
         // Convert the object by using a Json Serialize / De-Serialize method
         try
         {
-            var jsonValue = System.Text.Json.JsonSerializer.Serialize(parameterValue);
-            
-            result = System.Text.Json.JsonSerializer.Deserialize<T>(jsonValue, new JsonSerializerOptions()
+
+            if (parameterValue is JsonElement jElement)
+            {
+                if (jElement.ValueKind == JsonValueKind.Array)
+                {
+                    var jsonValue = jElement.GetRawText();
+                    if (jsonValue.StartsWith("[["))
+                        jsonValue = jsonValue.Substring(1).Substring(0, jsonValue.Length - 2);
+                    result = System.Text.Json.JsonSerializer.Deserialize<T>(jsonValue, new JsonSerializerOptions()
+                    {
+                        AllowTrailingCommas = true,
+                        PropertyNameCaseInsensitive = true
+                    });
+                    return result;
+                }
+                
+                return  System.Text.Json.JsonSerializer.Deserialize<T>(jElement.GetRawText(), new JsonSerializerOptions()
+                {
+                    AllowTrailingCommas = true,
+                    PropertyNameCaseInsensitive = true
+                });
+            }
+           
+            return System.Text.Json.JsonSerializer.Deserialize<T>(JsonSerializer.Serialize(parameterValue), new JsonSerializerOptions()
             {
                 AllowTrailingCommas = true,
                 PropertyNameCaseInsensitive = true
             });
-
-            return result;
         }
         catch (Exception e)
         {

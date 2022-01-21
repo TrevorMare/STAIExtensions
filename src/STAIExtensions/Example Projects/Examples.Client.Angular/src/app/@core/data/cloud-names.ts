@@ -1,5 +1,5 @@
 
 export interface CloudNames {
-    Instance: string,
-    Roles: string[]
+    instance: string,
+    roles: string[]
 }

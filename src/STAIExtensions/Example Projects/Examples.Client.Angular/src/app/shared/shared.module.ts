@@ -12,12 +12,18 @@ import {
   NbSelectModule,
   NbListModule,
   NbIconModule,
+  NbSelectComponent,
+  NbOptionComponent,
 } from '@nebular/theme';
+import { TelemetryOverviewComponent } from './telemetry-overview/telemetry-overview.component';
+import { CloudFilterSelectComponent } from './cloud-filter-select/cloud-filter-select.component';
 
 
 @NgModule({
   declarations: [
-    NumberCardComponent
+    NumberCardComponent,
+    TelemetryOverviewComponent,
+    CloudFilterSelectComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +40,10 @@ import {
     NbButtonModule,
   ],
   exports: [
-    NumberCardComponent
+    NumberCardComponent,
+    TelemetryOverviewComponent,
+    NbSelectComponent,
+    NbOptionComponent
   ]
 })
 export class SharedModule { }

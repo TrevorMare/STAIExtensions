@@ -12,6 +12,7 @@ import {
   PlayerService,
   SeoService,
   StateService,
+  STAIExtensionsService,
 } from './utils';
 import { UserData } from './data/users';
 import { ElectricityData } from './data/electricity';
@@ -146,6 +147,7 @@ export const NB_CORE_PROVIDERS = [
   PlayerService,
   SeoService,
   StateService,
+  STAIExtensionsService,
 ];
 
 @NgModule({

@@ -1,0 +1,41 @@
+<nb-card>
+    <nb-card-header>
+        Telemetry Overview
+      <ts-cloud-filter-select [cloudNames]="(telemetryOverviewView$ | async)?.cloudNames" (filterChanged)="ApplyViewFilter($event)"></ts-cloud-filter-select>
+    </nb-card-header>
+
+    <nb-card-body>
+        <div *ngIf="(telemetryOverviewView$ | async)" class="row">
+            <div class="col-md-6 col-lg-3">
+                <st-number-card total="{{ (telemetryOverviewView$ | async).availabilityCount ?? 0 }}" cardLabel="Availibility" cardIcon='heart-outline' ></st-number-card>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <st-number-card total="{{ (telemetryOverviewView$ | async).browserTimingsCount ?? 0 }}" cardLabel="Browser Timings" cardIcon='clock-outline' ></st-number-card>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <st-number-card total="{{ (telemetryOverviewView$ | async).customEventsCount ?? 0 }}" cardLabel="Custom Events" cardIcon='clipboard-outline' ></st-number-card>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <st-number-card total="{{ (telemetryOverviewView$ | async).customMetricsCount ?? 0 }}" cardLabel="Custom Metrics" cardIcon='trending-up-outline' ></st-number-card>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <st-number-card total="{{ (telemetryOverviewView$ | async).dependenciesCount ?? 0 }}" cardLabel="Dependencies" cardIcon='star' ></st-number-card>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <st-number-card total="{{ (telemetryOverviewView$ | async).exceptionsCount ?? 0 }}" cardLabel="Exceptions" cardIcon='alert-circle-outline' ></st-number-card>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <st-number-card total="{{ (telemetryOverviewView$ | async).pageViewsCount ?? 0 }}" cardLabel="Page Views" cardIcon='eye-outline' ></st-number-card>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <st-number-card total="{{ (telemetryOverviewView$ | async).performanceCountersCount ?? 0 }}" cardLabel="Performance Counters" cardIcon='activity-outline' ></st-number-card>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <st-number-card total="{{ (telemetryOverviewView$ | async).requestsCount ?? 0 }}" cardLabel="Requests" cardIcon='flash-outline' ></st-number-card>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <st-number-card total="{{ (telemetryOverviewView$ | async).tracesCount ?? 0 }}" cardLabel="Traces" cardIcon='edit-outline' ></st-number-card>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>
