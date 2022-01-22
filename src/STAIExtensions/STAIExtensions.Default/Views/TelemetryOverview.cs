@@ -14,13 +14,14 @@ public class TelemetryOverview : DataSetView
 
     private const string PARAM_CLOUDROLENAME = "CloudRoleName";
     private const string PARAM_CLOUDROLEINSTANCE = "CloudRoleInstance";
-
+    private const string PARAM_LASTRECORDCOUNT = "LastRecordCount";
     #endregion
 
     #region Members
 
     private List<string>? _filterCloudRoleName = null;
     private List<string>? _filterCloudInstanceName = null;
+    private int _lastRecordCount = 10; 
 
     private List<Availability> _availabilityFiltered;
     private List<BrowserTiming> _browserTimingsFiltered;
@@ -32,8 +33,6 @@ public class TelemetryOverview : DataSetView
     private List<PerformanceCounter> _performanceCountersFiltered;
     private List<Request> _requestsFiltered;
     private List<Trace> _tracesFiltered;
-
-
     #endregion
     
     #region Properties
@@ -59,15 +58,36 @@ public class TelemetryOverview : DataSetView
     public int? RequestsCount { get; private set; }
     
     public int? TracesCount { get; private set; }
+    
+    public IEnumerable<Availability>? LastAvailability { get; private set; }
+    
+    public IEnumerable<BrowserTiming>? LastBrowserTimings { get; private set; }
+    
+    public IEnumerable<CustomEvent>? LastCustomEvents { get; private set; }
+    
+    public IEnumerable<CustomMetric>? LastCustomMetrics { get; private set; }
+    
+    public IEnumerable<Dependency>? LastDependenciesCount { get; private set; }
+    
+    public IEnumerable<AIException>? LastExceptions { get; private set; }
+    
+    public IEnumerable<PageView>? LastPageViews { get; private set; }
+    
+    public IEnumerable<PerformanceCounter>? LastPerformanceCounters { get; private set; }
+    
+    public IEnumerable<Request>? LastRequests { get; private set; }
+    
+    public IEnumerable<Trace>? LastTraces { get; private set; }
     #endregion
-
+    
     #region Overrides
 
     public override IEnumerable<DataSetViewParameterDescriptor>? ViewParameterDescriptors =>
         new List<DataSetViewParameterDescriptor>()
         {
             new DataSetViewParameterDescriptor(PARAM_CLOUDROLEINSTANCE, "string[]", false, "Filter values for the cloud role instance"),
-            new DataSetViewParameterDescriptor(PARAM_CLOUDROLENAME, "string[]", false, "Filter values for the cloud role name")
+            new DataSetViewParameterDescriptor(PARAM_CLOUDROLENAME, "string[]", false, "Filter values for the cloud role name"),
+            new DataSetViewParameterDescriptor(PARAM_LASTRECORDCOUNT, "int", false, "Number of records to load for the last entities")
         };
 
     protected override Task BuildViewData(IDataSet dataSet)
@@ -83,6 +103,8 @@ public class TelemetryOverview : DataSetView
                 this.BuildLocalListItems(dataContractDataSet);
             
                 this.LoadTotals();
+
+                this.LoadLastEntries();
             }
         }
         catch (Exception e)
@@ -108,6 +130,14 @@ public class TelemetryOverview : DataSetView
                 Helpers.ViewParameterHelper.ExtractParameter<List<string>>(this.ViewParameters, PARAM_CLOUDROLENAME);
             this._filterCloudInstanceName =
                 Helpers.ViewParameterHelper.ExtractParameter<List<string>>(this.ViewParameters, PARAM_CLOUDROLEINSTANCE);
+
+            var lastRecordCount =
+                Helpers.ViewParameterHelper.ExtractParameter<int?>(this.ViewParameters, PARAM_LASTRECORDCOUNT);
+            
+            if (lastRecordCount.HasValue && lastRecordCount >= 0)
+            {
+                this._lastRecordCount = lastRecordCount.Value;
+            }
         }
         catch (Exception ex)
         {
@@ -204,6 +234,30 @@ public class TelemetryOverview : DataSetView
         this.RequestsCount = _requestsFiltered.Count;
         this.TracesCount = _tracesFiltered.Count;
         this.ExceptionsCount = _exceptionsFiltered.Count;
+    }
+    
+    private void LoadLastEntries()
+    {
+        this.LastAvailability = 
+           (_lastRecordCount == 0) ? new List<Availability>() : _availabilityFiltered.OrderByDescending(r => r.TimeStamp).Take(_lastRecordCount);
+        this.LastBrowserTimings = 
+            (_lastRecordCount == 0) ? new List<BrowserTiming>() : _browserTimingsFiltered.OrderByDescending(r => r.TimeStamp).Take(_lastRecordCount);
+        this.LastCustomEvents = 
+            (_lastRecordCount == 0) ? new List<CustomEvent>() : _customEventsFiltered.OrderByDescending(r => r.TimeStamp).Take(_lastRecordCount);
+        this.LastCustomMetrics = 
+            (_lastRecordCount == 0) ? new List<CustomMetric>() : _customMetricsFiltered.OrderByDescending(r => r.TimeStamp).Take(_lastRecordCount);
+        this.LastDependenciesCount = 
+            (_lastRecordCount == 0) ? new List<Dependency>() : _dependenciesFiltered.OrderByDescending(r => r.TimeStamp).Take(_lastRecordCount);
+        this.LastExceptions = 
+            (_lastRecordCount == 0) ? new List<AIException>() : _exceptionsFiltered.OrderByDescending(r => r.TimeStamp).Take(_lastRecordCount);
+        this.LastPageViews = 
+            (_lastRecordCount == 0) ? new List<PageView>() : _pageViewsFiltered.OrderByDescending(r => r.TimeStamp).Take(_lastRecordCount);
+        this.LastPerformanceCounters = 
+            (_lastRecordCount == 0) ? new List<PerformanceCounter>() : _performanceCountersFiltered.OrderByDescending(r => r.TimeStamp).Take(_lastRecordCount);
+        this.LastRequests = 
+            (_lastRecordCount == 0) ? new List<Request>() : _requestsFiltered.OrderByDescending(r => r.TimeStamp).Take(_lastRecordCount);
+        this.LastTraces = 
+            (_lastRecordCount == 0) ? new List<Trace>() : _tracesFiltered.OrderByDescending(r => r.TimeStamp).Take(_lastRecordCount);
     }
     #endregion
     

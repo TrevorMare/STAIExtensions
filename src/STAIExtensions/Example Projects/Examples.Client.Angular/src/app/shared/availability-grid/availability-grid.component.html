@@ -1,0 +1,11 @@
+<nb-card>
+    <nb-card-header>
+        Availability
+    </nb-card-header>
+  
+    <nb-card-body>
+      <ng2-smart-table [source]="source"  [settings]="settings" (custom)="onViewSourceClick($event)" class="order-table">
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>
+  

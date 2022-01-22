@@ -46,7 +46,6 @@ export class TelemetryOverviewService implements base.TelemetryOverviewService {
 
   private OnServiceViewUpdated(view: any) {
     const id = view?.id;
-    console.log(`On Service View Updated`);
     if (id !== null && id === this.ViewId$.value) {
       this.View$.next(view);
     }

@@ -1,0 +1,23 @@
+@import '../../@theme/styles/themes';
+
+@include nb-install-component() {
+  nb-card {
+    max-width: 70vw;
+    max-height: 80vh;
+  }
+
+}
+ngx-json-viewer > .segment > .segment-main > .segment-key {
+  color: whitesmoke !important;
+}
+
+
+.segment-type-boolean > .segment-main > .segment-value {
+  color: yellow !important;
+}
+.segment-type-string > .segment-main > .segment-value {
+  color: yellow !important;
+}
+.segment-type-number > .segment-main > .segment-value {
+  color:  yellow !important;
+}

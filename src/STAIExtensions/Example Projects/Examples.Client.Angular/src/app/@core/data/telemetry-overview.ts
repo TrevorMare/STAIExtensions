@@ -1,4 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
+import { AIException, Availability, BrowserTiming, CustomEvent, CustomMetric, Dependency, PageView, PerformanceCounter, Request, Trace } from './data-contracts';
 import { View } from './view';
 
 export interface TelemetryOverviewView extends View {
@@ -12,7 +13,17 @@ export interface TelemetryOverviewView extends View {
     performanceCountersCount?: number,
     requestsCount?: number,
     tracesCount?: number,
-    exceptionsCount?: number
+    exceptionsCount?: number,
+    lastAvailability?: Availability[],
+    lastBrowserTimings?: BrowserTiming[],
+    lastCustomEvents?: CustomEvent[],
+    lastCustomMetrics?: CustomMetric[],
+    lastDependenciesCount?: Dependency[],
+    lastExceptions?: AIException[],
+    lastPageViews?: PageView[],
+    lastPerformanceCounters?: PerformanceCounter[],
+    lastRequests?: Request[],
+    lastTraces?: Trace[],
 }
 
 export abstract class TelemetryOverviewService {

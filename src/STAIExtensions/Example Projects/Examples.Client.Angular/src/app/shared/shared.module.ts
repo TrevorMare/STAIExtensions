@@ -15,15 +15,21 @@ import {
   NbSelectComponent,
   NbOptionComponent,
 } from '@nebular/theme';
+import { Ng2SmartTableComponent, Ng2SmartTableModule }  from 'ng2-smart-table'; 
 import { TelemetryOverviewComponent } from './telemetry-overview/telemetry-overview.component';
 import { CloudFilterSelectComponent } from './cloud-filter-select/cloud-filter-select.component';
+import { AvailabilityGridComponent } from './availability-grid/availability-grid.component';
+import { ViewSourceModalComponent } from './view-source-modal/view-source-modal.component';
+import { NgxJsonViewerModule } from 'ngx-json-viewer';
 
 
 @NgModule({
   declarations: [
     NumberCardComponent,
     TelemetryOverviewComponent,
-    CloudFilterSelectComponent
+    CloudFilterSelectComponent,
+    AvailabilityGridComponent,
+    ViewSourceModalComponent
   ],
   imports: [
     CommonModule,
@@ -38,12 +44,17 @@ import { CloudFilterSelectComponent } from './cloud-filter-select/cloud-filter-s
     NbListModule,
     NbIconModule,
     NbButtonModule,
+    Ng2SmartTableModule,
+    NgxJsonViewerModule ,
   ],
   exports: [
     NumberCardComponent,
     TelemetryOverviewComponent,
+    AvailabilityGridComponent,
+    ViewSourceModalComponent,
     NbSelectComponent,
-    NbOptionComponent
+    NbOptionComponent,
+    Ng2SmartTableComponent
   ]
 })
 export class SharedModule { }
