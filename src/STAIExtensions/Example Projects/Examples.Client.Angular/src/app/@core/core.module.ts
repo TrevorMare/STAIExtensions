@@ -55,6 +55,7 @@ import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { RippleService } from './utils/ripple.service';
 import { MockDataModule } from './mock/mock-data.module';
+import { TelemetryOverviewService } from './utils/telemetry-overview.service';
 
 const socialLinks = [
   {
@@ -148,6 +149,7 @@ export const NB_CORE_PROVIDERS = [
   SeoService,
   StateService,
   STAIExtensionsService,
+  TelemetryOverviewService,
 ];
 
 @NgModule({

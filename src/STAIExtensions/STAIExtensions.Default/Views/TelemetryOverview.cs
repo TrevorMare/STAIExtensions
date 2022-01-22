@@ -102,10 +102,18 @@ public class TelemetryOverview : DataSetView
     /// </summary>
     private void SetupParameters()
     {
-        this._filterCloudRoleName =
-            Helpers.ViewParameterHelper.ExtractParameter<List<string>>(this.ViewParameters, PARAM_CLOUDROLENAME);
-        this._filterCloudInstanceName =
-            Helpers.ViewParameterHelper.ExtractParameter<List<string>>(this.ViewParameters, PARAM_CLOUDROLEINSTANCE);
+        try
+        {
+            this._filterCloudRoleName =
+                Helpers.ViewParameterHelper.ExtractParameter<List<string>>(this.ViewParameters, PARAM_CLOUDROLENAME);
+            this._filterCloudInstanceName =
+                Helpers.ViewParameterHelper.ExtractParameter<List<string>>(this.ViewParameters, PARAM_CLOUDROLEINSTANCE);
+        }
+        catch (Exception ex)
+        {
+            Abstractions.Common.ErrorLoggingFactory.LogError(base.TelemetryClient, base.Logger, ex,
+                "An error occured deserializing the view parameters: {ErrorMessage}", ex.Message);
+        }
     }
     
     /// <summary>

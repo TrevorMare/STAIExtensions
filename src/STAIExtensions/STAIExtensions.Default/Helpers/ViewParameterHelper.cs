@@ -9,6 +9,9 @@ namespace STAIExtensions.Default.Helpers;
 /// </summary>
 public static class ViewParameterHelper
 {
+
+    #region Methods
+
     /// <summary>
     /// Extracts a parameter from the parameters and converts the object to the type required
     /// </summary>
@@ -18,7 +21,7 @@ public static class ViewParameterHelper
     /// <param name="logger">The optional logger component to log exceptions on</param>
     /// <typeparam name="T">The expected output type</typeparam>
     /// <returns></returns>
-    public static T? ExtractParameter<T>(Dictionary<string, object?>? viewParameters, string key, 
+    public static T? ExtractParameter<T>(Dictionary<string, object?>? viewParameters, string key,
         TelemetryClient? telemetryClient = default, ILogger? logger = default)
     {
         var result = default(T);
@@ -32,38 +35,22 @@ public static class ViewParameterHelper
         object? parameterValue = viewParameters[key];
         if (parameterValue == null)
             return result;
-        
+
         // Convert the object by using a Json Serialize / De-Serialize method
         try
         {
 
             if (parameterValue is JsonElement jElement)
             {
-                if (jElement.ValueKind == JsonValueKind.Array)
-                {
-                    var jsonValue = jElement.GetRawText();
-                    if (jsonValue.StartsWith("[["))
-                        jsonValue = jsonValue.Substring(1).Substring(0, jsonValue.Length - 2);
-                    result = System.Text.Json.JsonSerializer.Deserialize<T>(jsonValue, new JsonSerializerOptions()
-                    {
-                        AllowTrailingCommas = true,
-                        PropertyNameCaseInsensitive = true
-                    });
-                    return result;
-                }
-                
-                return  System.Text.Json.JsonSerializer.Deserialize<T>(jElement.GetRawText(), new JsonSerializerOptions()
+                return ExtractParameterJsonElement<T>(jElement);
+            }
+
+            return System.Text.Json.JsonSerializer.Deserialize<T>(JsonSerializer.Serialize(parameterValue),
+                new JsonSerializerOptions()
                 {
                     AllowTrailingCommas = true,
                     PropertyNameCaseInsensitive = true
                 });
-            }
-           
-            return System.Text.Json.JsonSerializer.Deserialize<T>(JsonSerializer.Serialize(parameterValue), new JsonSerializerOptions()
-            {
-                AllowTrailingCommas = true,
-                PropertyNameCaseInsensitive = true
-            });
         }
         catch (Exception e)
         {
@@ -72,5 +59,31 @@ public static class ViewParameterHelper
             return result;
         }
     }
-    
+
+    private static T? ExtractParameterJsonElement<T>(JsonElement jElement)
+    {
+        if (jElement.ValueKind == JsonValueKind.Array)
+        {
+            var jsonValue = jElement.GetRawText();
+            
+            if (jsonValue.StartsWith("[["))
+                jsonValue = jsonValue.Substring(1).Substring(0, jsonValue.Length - 2);
+
+            return System.Text.Json.JsonSerializer.Deserialize<T>(jsonValue, new JsonSerializerOptions()
+            {
+                AllowTrailingCommas = true,
+                PropertyNameCaseInsensitive = true
+            });
+        }
+
+        return System.Text.Json.JsonSerializer.Deserialize<T>(jElement.GetRawText(), new JsonSerializerOptions()
+        {
+            AllowTrailingCommas = true,
+            PropertyNameCaseInsensitive = true
+        });
+    }
+
+    #endregion
+
+
 }

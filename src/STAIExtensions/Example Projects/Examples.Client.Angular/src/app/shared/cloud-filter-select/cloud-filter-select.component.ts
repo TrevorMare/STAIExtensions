@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { CloudNames } from '../../@core/data/cloud-names';
 
 @Component({
   selector: 'ts-cloud-filter-select',
@@ -10,12 +9,14 @@ import { CloudNames } from '../../@core/data/cloud-names';
 export class CloudFilterSelectComponent implements OnInit, OnChanges  {
 
   @Output() filterChanged: EventEmitter<any> = new EventEmitter();
-  @Input() cloudNames: any;
+  @Output() selectedFilterChanged: EventEmitter<string[]> = new EventEmitter();
+  @Input() cloudNames: Record<string, string[]>;
   @Input() debounceTime: number = 2000;
+  @Input() selectedItems: string[] = [ '-1' ];
 
   availableCloudFilters$ = new BehaviorSubject<string[]>(null);
   selectedFilterDebounce$ = new Subject<any>();
-  selectedFilterItems: string[] = [ '-1' ];
+  
 
   constructor() { 
     this.selectedFilterDebounce$.debounceTime(this.debounceTime).subscribe(() => {
@@ -32,7 +33,7 @@ export class CloudFilterSelectComponent implements OnInit, OnChanges  {
   }
 
   onCloudFilterOptionSelectChanged(event$: any) {
-    this.selectedFilterDebounce$.next(this.selectedFilterItems);
+    this.selectedFilterDebounce$.next(this.selectedItems);
   }
   
   private BuildFilterNames(): void {
@@ -56,14 +57,15 @@ export class CloudFilterSelectComponent implements OnInit, OnChanges  {
   }
 
   private BuildApplyFilterObject(): void {
-    if (this.selectedFilterItems.length === 0 || this.selectedFilterItems.indexOf('-1') >= 0) {
+    if (this.selectedItems.length === 0 || this.selectedItems.indexOf('-1') >= 0) {
       this.filterChanged.emit(null);
+      this.selectedFilterChanged.emit(["-1"])
     } else {
 
       var roleInstances: string[] = new Array();
       var roleNames: string[] = new Array();
 
-      this.selectedFilterItems.forEach(item => {
+      this.selectedItems.forEach(item => {
         const index = parseInt(item);
         const selectedItem = this.availableCloudFilters$.value[index];
 
@@ -90,6 +92,7 @@ export class CloudFilterSelectComponent implements OnInit, OnChanges  {
         ]
       };
       this.filterChanged.emit(parameters);
+      this.selectedFilterChanged.emit(this.selectedItems)
     }
   }
 

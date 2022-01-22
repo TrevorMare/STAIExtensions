@@ -1,7 +1,10 @@
 <nb-card>
     <nb-card-header>
         Telemetry Overview
-      <ts-cloud-filter-select [cloudNames]="(telemetryOverviewView$ | async)?.cloudNames" (filterChanged)="ApplyViewFilter($event)"></ts-cloud-filter-select>
+      <ts-cloud-filter-select [selectedItems]="telemetryOverviewService.SelectedCloudFilters" 
+                              [cloudNames]="(telemetryOverviewView$ | async)?.cloudNames" 
+                              (filterChanged)="telemetryOverviewService.ApplyViewFilter($event)"
+                              (selectedFilterChanged)="telemetryOverviewService.SelectedCloudFilters = $event"></ts-cloud-filter-select>
     </nb-card-header>
 
     <nb-card-body>

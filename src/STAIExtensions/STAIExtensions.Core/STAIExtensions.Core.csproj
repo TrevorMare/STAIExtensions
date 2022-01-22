@@ -10,7 +10,7 @@
         <NoWarn>$(NoWarn);1591</NoWarn>
         <FileVersion>1.0.0</FileVersion>
         <TargetFrameworks>net5.0;net6.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
-        <PackageVersion>1.0.8</PackageVersion>
+        <PackageVersion>1.0.9</PackageVersion>
         <Title>STAIExtensions Core</Title>
         <Authors>Trevor Maré</Authors>
         <Description>Core library with the default implementations of the fixed size lists and collections</Description>
@@ -19,7 +19,8 @@
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>application-insights;custom-views;grpc;signalr;STAIExtensions;trevor;mare;staiextensions-core;dotnet</PackageTags>
-        <PackageReleaseNotes>v1.0.8 - Added XML Documentation
+        <PackageReleaseNotes>v1.0.9 - Updated View Parameter Signature
+v1.0.8 - Added XML Documentation
 v1.0.7 - Added abstraction method for View Update
 v1.0.6 - Telemetry Cleanup
 v1.0.5 - Fixed Nuget References
