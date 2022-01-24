@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TelemetryOverviewService } from '../../@core/utils/telemetry-overview.service';
+
 
 @Component({
   selector: 'ngx-ai-extensions-dashboard',
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class AiExtensionsDashboardComponent implements OnInit {
 
 
-  constructor() { 
+  constructor(public telemetryOverviewService: TelemetryOverviewService) { 
     
   }
 

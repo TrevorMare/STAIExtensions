@@ -1,9 +1,56 @@
 <st-telemetry-overview></st-telemetry-overview>
 
-<st-availability-grid></st-availability-grid>
+<div class="row">
+
+<div class="col-md-12">
+
+
+    <nb-tabset fullWidth>
+        <nb-tab tabTitle="Availability" tabIcon="person-outline" responsive>
+            <stgrid-datacontract-availability
+            [dataContractItems]="(telemetryOverviewService?.View$ | async)?.lastAvailability"></stgrid-datacontract-availability>
+            
+        </nb-tab>
+        <nb-tab tabTitle="Browser Timings" tabIcon="person-outline" responsive>
+            <stgrid-datacontract-browser-timings></stgrid-datacontract-browser-timings>
+        </nb-tab>
+        <nb-tab tabTitle="Custom Events" tabIcon="person-outline" responsive>
+            <stgrid-datacontract-custom-events></stgrid-datacontract-custom-events>
+        </nb-tab>
+        <nb-tab tabTitle="Custom Metrics" tabIcon="person-outline" responsive>
+            <stgrid-datacontract-custom-metrics></stgrid-datacontract-custom-metrics>
+        </nb-tab>
+        <nb-tab tabTitle="Dependencies" tabIcon="person-outline" responsive>
+            
+        </nb-tab>
+        <nb-tab tabTitle="Exceptions" tabIcon="person-outline" responsive>
+            Tab content 2
+        </nb-tab>
+        <nb-tab tabTitle="Page Views" tabIcon="person-outline" responsive>
+            Tab content 2
+        </nb-tab>
+        <nb-tab tabTitle="Performance Counters" tabIcon="person-outline" responsive>
+            Tab content 2
+        </nb-tab>
+        <nb-tab tabTitle="Requests" tabIcon="person-outline" responsive>
+            Tab content 2
+        </nb-tab>
+        <nb-tab tabTitle="Traces" tabIcon="person-outline" responsive>
+            Tab content 2
+        </nb-tab>
+    </nb-tabset>
+
+</div>
+
+
+</div>
+
+
+
+<!-- <st-availability-grid></st-availability-grid>
 
 <st-browser-timings-grid></st-browser-timings-grid>
 
 <st-custom-events-grid></st-custom-events-grid>
 
-<st-custom-metrics-grid></st-custom-metrics-grid>
+<st-custom-metrics-grid></st-custom-metrics-grid> -->

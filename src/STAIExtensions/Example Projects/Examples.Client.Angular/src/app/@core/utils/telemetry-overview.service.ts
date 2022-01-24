@@ -20,7 +20,6 @@ export class TelemetryOverviewService implements base.TelemetryOverviewService {
         this.CreateView();
       }
     });
-
     this.stAIService.ViewUpdated$.subscribe((view) => {
         this.OnServiceViewUpdated(view);
     });

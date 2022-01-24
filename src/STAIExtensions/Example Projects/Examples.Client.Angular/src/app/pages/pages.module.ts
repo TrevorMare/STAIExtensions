@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbCardModule, NbMenuModule } from '@nebular/theme';
+import { NbCardModule, NbMenuModule, NbTabsetComponent, NbTabsetModule } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
@@ -20,11 +20,14 @@ import { AiExtensionsDashboardComponent } from './ai-extensions-dashboard/ai-ext
     DashboardModule,
     ECommerceModule,
     MiscellaneousModule,
-    SharedModule
+    SharedModule,
+    NbTabsetModule
+
   ],
   declarations: [
     PagesComponent,
-    AiExtensionsDashboardComponent
+    AiExtensionsDashboardComponent,
+   
   ],
 })
 export class PagesModule {
