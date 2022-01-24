@@ -84,7 +84,7 @@ export interface BrowserTiming extends DataContract {
     name: string | null;
     networkDuration: number | null;
     performanceBucket: string | null;
-    processingDuration: number | null;
+    processingDuration: number | null; 
     receiveDuration: number | null;
     sendDuration: number | null;
     totalDuration: number | null;

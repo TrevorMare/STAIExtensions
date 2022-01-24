@@ -5,12 +5,14 @@ import { TelemetryOverviewService } from '../../@core/utils/telemetry-overview.s
 import { ViewSourceModalComponent } from '../view-source-modal/view-source-modal.component';
 import { JsonColumnComponent } from '../json-column/json-column.component';
 
+
+
 @Component({
-  selector: 'st-availability-grid',
-  templateUrl: './availability-grid.component.html',
-  styleUrls: ['./availability-grid.component.scss']
+  selector: 'st-custom-metrics-grid',
+  templateUrl: './custom-metrics-grid.component.html',
+  styleUrls: ['./custom-metrics-grid.component.scss']
 })
-export class AvailabilityGridComponent implements OnInit {
+export class CustomMetricsGridComponent implements OnInit {
 
   settings = {
     hideSubHeader: true,
@@ -49,16 +51,24 @@ export class AvailabilityGridComponent implements OnInit {
         title: 'Timestamp',
         type: 'string',
       },
-      performanceBucket: {
-        title: 'Performance Bucket',
+      name: {
+        title: 'Name',
         type: 'string',
       },
-      success: {
-        title: 'Success',
-        type: 'string',
+      value: {
+        title: 'Value',
+        type: 'number',
       },
-      size: {
-        title: 'Size',
+      valueCount: {
+        title: 'Value Count',
+        type: 'number',
+      },
+      valueMax: {
+        title: 'Value Max',
+        type: 'number',
+      },
+      valueMin: {
+        title: 'Value Min',
         type: 'number',
       }
     }
@@ -74,13 +84,13 @@ export class AvailabilityGridComponent implements OnInit {
 
   ngOnInit(): void {
     this.telemetryOverviewService.View$.subscribe(value => { 
-      if (value === null || value.lastAvailability === null) return;
+      if (value === null || value.lastCustomMetrics === null) return;
       if (this.dialogOpen === true) return;
 
       this.zone.run(() => {
 
-        if (value?.lastAvailability !== null) {
-          this.source.load(value.lastAvailability)
+        if (value?.lastCustomMetrics !== null) {
+          this.source.load(value.lastCustomMetrics)
         }
       })
     });
@@ -102,4 +112,4 @@ export class AvailabilityGridComponent implements OnInit {
     }
   }
 
-} 
+}

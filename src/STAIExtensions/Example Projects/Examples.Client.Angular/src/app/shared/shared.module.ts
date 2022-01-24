@@ -21,6 +21,11 @@ import { CloudFilterSelectComponent } from './cloud-filter-select/cloud-filter-s
 import { AvailabilityGridComponent } from './availability-grid/availability-grid.component';
 import { ViewSourceModalComponent } from './view-source-modal/view-source-modal.component';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
+import { JsonColumnComponent } from './json-column/json-column.component';
+import { ToggleCardComponent } from './toggle-card/toggle-card.component';
+import { BrowserTimingsGridComponent } from './browser-timings-grid/browser-timings-grid.component';
+import { CustomEventsGridComponent } from './custom-events-grid/custom-events-grid.component';
+import { CustomMetricsGridComponent } from './custom-metrics-grid/custom-metrics-grid.component';
 
 
 @NgModule({
@@ -29,7 +34,12 @@ import { NgxJsonViewerModule } from 'ngx-json-viewer';
     TelemetryOverviewComponent,
     CloudFilterSelectComponent,
     AvailabilityGridComponent,
-    ViewSourceModalComponent
+    ViewSourceModalComponent,
+    JsonColumnComponent,
+    ToggleCardComponent,
+    BrowserTimingsGridComponent,
+    CustomEventsGridComponent,
+    CustomMetricsGridComponent
   ],
   imports: [
     CommonModule,
@@ -51,6 +61,9 @@ import { NgxJsonViewerModule } from 'ngx-json-viewer';
     NumberCardComponent,
     TelemetryOverviewComponent,
     AvailabilityGridComponent,
+    BrowserTimingsGridComponent,
+    CustomEventsGridComponent,
+    CustomMetricsGridComponent,
     ViewSourceModalComponent,
     NbSelectComponent,
     NbOptionComponent,

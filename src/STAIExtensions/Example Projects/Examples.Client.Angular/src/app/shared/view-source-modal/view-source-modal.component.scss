@@ -7,17 +7,7 @@
   }
 
 }
-ngx-json-viewer > .segment > .segment-main > .segment-key {
+
+::ng-deep .ngx-json-viewer .segment .segment-key {
   color: whitesmoke !important;
-}
-
-
-.segment-type-boolean > .segment-main > .segment-value {
-  color: yellow !important;
-}
-.segment-type-string > .segment-main > .segment-value {
-  color: yellow !important;
-}
-.segment-type-number > .segment-main > .segment-value {
-  color:  yellow !important;
 }

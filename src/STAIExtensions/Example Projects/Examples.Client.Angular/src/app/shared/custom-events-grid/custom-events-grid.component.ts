@@ -6,11 +6,11 @@ import { ViewSourceModalComponent } from '../view-source-modal/view-source-modal
 import { JsonColumnComponent } from '../json-column/json-column.component';
 
 @Component({
-  selector: 'st-availability-grid',
-  templateUrl: './availability-grid.component.html',
-  styleUrls: ['./availability-grid.component.scss']
+  selector: 'st-custom-events-grid',
+  templateUrl: './custom-events-grid.component.html',
+  styleUrls: ['./custom-events-grid.component.scss']
 })
-export class AvailabilityGridComponent implements OnInit {
+export class CustomEventsGridComponent implements OnInit {
 
   settings = {
     hideSubHeader: true,
@@ -49,17 +49,9 @@ export class AvailabilityGridComponent implements OnInit {
         title: 'Timestamp',
         type: 'string',
       },
-      performanceBucket: {
-        title: 'Performance Bucket',
+      name: {
+        title: 'Name',
         type: 'string',
-      },
-      success: {
-        title: 'Success',
-        type: 'string',
-      },
-      size: {
-        title: 'Size',
-        type: 'number',
       }
     }
   };
@@ -74,13 +66,13 @@ export class AvailabilityGridComponent implements OnInit {
 
   ngOnInit(): void {
     this.telemetryOverviewService.View$.subscribe(value => { 
-      if (value === null || value.lastAvailability === null) return;
+      if (value === null || value.lastCustomEvents === null) return;
       if (this.dialogOpen === true) return;
 
       this.zone.run(() => {
 
-        if (value?.lastAvailability !== null) {
-          this.source.load(value.lastAvailability)
+        if (value?.lastCustomEvents !== null) {
+          this.source.load(value.lastCustomEvents)
         }
       })
     });
@@ -102,4 +94,4 @@ export class AvailabilityGridComponent implements OnInit {
     }
   }
 
-} 
+}

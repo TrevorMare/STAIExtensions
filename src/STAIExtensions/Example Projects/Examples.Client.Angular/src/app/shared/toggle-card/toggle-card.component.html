@@ -1,0 +1,13 @@
+<nb-card>
+    <nb-card-header (click)="(isOpen = !isOpen)">
+        <div class="header-content">
+        <span class="header-label">{{ title }}</span>
+        <div class="toggle-container">
+            <nb-icon icon="arrow-up-outline" pack="eva" class="expand-icon" [ngClass]="{'open': isOpen}" (click)="(isOpen = !isOpen)"></nb-icon>
+        </div>
+        </div>
+    </nb-card-header>
+    <nb-card-body *ngIf="isOpen">
+        <ng-content></ng-content>
+    </nb-card-body>
+</nb-card>

@@ -6,11 +6,11 @@ import { ViewSourceModalComponent } from '../view-source-modal/view-source-modal
 import { JsonColumnComponent } from '../json-column/json-column.component';
 
 @Component({
-  selector: 'st-availability-grid',
-  templateUrl: './availability-grid.component.html',
-  styleUrls: ['./availability-grid.component.scss']
+  selector: 'st-browser-timings-grid',
+  templateUrl: './browser-timings-grid.component.html',
+  styleUrls: ['./browser-timings-grid.component.scss']
 })
-export class AvailabilityGridComponent implements OnInit {
+export class BrowserTimingsGridComponent implements OnInit {
 
   settings = {
     hideSubHeader: true,
@@ -37,14 +37,6 @@ export class AvailabilityGridComponent implements OnInit {
         title: 'Payload',
         renderComponent: JsonColumnComponent,
       },
-      cloudRoleInstance: {
-        title: 'Cloud Role Instance',
-        type: 'string',
-      },
-      cloudRoleName: {
-        title: 'Cloud Role Name',
-        type: 'string',
-      },
       timeStamp: {
         title: 'Timestamp',
         type: 'string',
@@ -53,13 +45,9 @@ export class AvailabilityGridComponent implements OnInit {
         title: 'Performance Bucket',
         type: 'string',
       },
-      success: {
-        title: 'Success',
+      url: {
+        title: 'Url',
         type: 'string',
-      },
-      size: {
-        title: 'Size',
-        type: 'number',
       }
     }
   };
@@ -69,18 +57,17 @@ export class AvailabilityGridComponent implements OnInit {
 
   constructor(private zone: NgZone,
               public telemetryOverviewService: TelemetryOverviewService,
-              private dialogService: NbDialogService) { 
-  }
+              private dialogService: NbDialogService) { }
 
   ngOnInit(): void {
     this.telemetryOverviewService.View$.subscribe(value => { 
-      if (value === null || value.lastAvailability === null) return;
+      if (value === null || value.lastBrowserTimings === null) return;
       if (this.dialogOpen === true) return;
 
       this.zone.run(() => {
 
-        if (value?.lastAvailability !== null) {
-          this.source.load(value.lastAvailability)
+        if (value?.lastBrowserTimings !== null) {
+          this.source.load(value.lastBrowserTimings)
         }
       })
     });
@@ -102,4 +89,4 @@ export class AvailabilityGridComponent implements OnInit {
     }
   }
 
-} 
+}
