@@ -1,0 +1,551 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DataContractDataSet
+   | STAIExtensions </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DataContractDataSet
+   | STAIExtensions ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../resources/st_icon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo_st.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet">
+  
+  
+  <h1 id="STAIExtensions_Default_DataSets_DataContractDataSet" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet" class="text-break">Class DataContractDataSet
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html">DataSet</a></div>
+    <div class="level2"><span class="xref">DataContractDataSet</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="STAIExtensions.Abstractions.Data.IDataSet.html">IDataSet</a></div>
+    <div><span class="xref">System.IDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_TelemetryClient">DataSet.TelemetryClient</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_TelemetryLoader">DataSet.TelemetryLoader</a>
+    </div>
+    <div>
+      <span class="xref">STAIExtensions.Core.DataSets.DataSet.StartAutoRefresh(System.TimeSpan, System.Nullable&lt;System.Threading.CancellationToken&gt;)</span>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_StopAutoRefresh">DataSet.StopAutoRefresh()</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_ExecuteDataQuery__1_STAIExtensions_Abstractions_Queries_DataContractQuery___0__">DataSet.ExecuteDataQuery&lt;T&gt;(DataContractQuery&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_UpdateDataSet">DataSet.UpdateDataSet()</a>
+    </div>
+    <div>
+      <span class="xref">STAIExtensions.Core.DataSets.DataSet.ProcessQueryRecords&lt;T&gt;(STAIExtensions.Abstractions.Queries.DataContractQuery&lt;T&gt;, System.Collections.Generic.IEnumerable&lt;T&gt;)</span>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_Dispose_System_Boolean_">DataSet.Dispose(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_Dispose">DataSet.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_DataSetName">DataSet.DataSetName</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_DataSetId">DataSet.DataSetId</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_DataSetType">DataSet.DataSetType</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_FriendlyDataSetType">DataSet.FriendlyDataSetType</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_AutoRefreshEnabled">DataSet.AutoRefreshEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_CancellationToken">DataSet.CancellationToken</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_Logger">DataSet.Logger</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_AutoRefreshInterval">DataSet.AutoRefreshInterval</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_OnDataSetUpdated">DataSet.OnDataSetUpdated</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="STAIExtensions.Default.DataSets.html">STAIExtensions.Default.DataSets</a></h6>
+  <h6><strong>Assembly</strong>: STAIExtensions.Default.dll</h6>
+  <h5 id="STAIExtensions_Default_DataSets_DataContractDataSet_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DataContractDataSet : DataSet, IDataSet, IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="STAIExtensions_Default_DataSets_DataContractDataSet__ctor_" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.#ctor*"></a>
+  <h4 id="STAIExtensions_Default_DataSets_DataContractDataSet__ctor_STAIExtensions_Abstractions_Data_ITelemetryLoader_DataContractDataSetOptions_System_String_" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.#ctor(STAIExtensions.Abstractions.Data.ITelemetryLoader,DataContractDataSetOptions,System.String)">DataContractDataSet(ITelemetryLoader, DataContractDataSetOptions, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataContractDataSet(ITelemetryLoader telemetryLoader, DataContractDataSetOptions options, string dataSetName = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Data.ITelemetryLoader.html">ITelemetryLoader</a></td>
+        <td><span class="parametername">telemetryLoader</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DataContractDataSetOptions</span></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">dataSetName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="STAIExtensions_Default_DataSets_DataContractDataSet_Availability_" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.Availability*"></a>
+  <h4 id="STAIExtensions_Default_DataSets_DataContractDataSet_Availability" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.Availability">Availability</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SizedList&lt;Availability&gt; Availability { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Core.Collections.SizedList-1.html">SizedList</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Availability.html">Availability</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_DataSets_DataContractDataSet_BrowserTiming_" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.BrowserTiming*"></a>
+  <h4 id="STAIExtensions_Default_DataSets_DataContractDataSet_BrowserTiming" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.BrowserTiming">BrowserTiming</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SizedList&lt;BrowserTiming&gt; BrowserTiming { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Core.Collections.SizedList-1.html">SizedList</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.BrowserTiming.html">BrowserTiming</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_DataSets_DataContractDataSet_CustomEvents_" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.CustomEvents*"></a>
+  <h4 id="STAIExtensions_Default_DataSets_DataContractDataSet_CustomEvents" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.CustomEvents">CustomEvents</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SizedList&lt;CustomEvent&gt; CustomEvents { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Core.Collections.SizedList-1.html">SizedList</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.CustomEvent.html">CustomEvent</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_DataSets_DataContractDataSet_CustomMetrics_" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.CustomMetrics*"></a>
+  <h4 id="STAIExtensions_Default_DataSets_DataContractDataSet_CustomMetrics" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.CustomMetrics">CustomMetrics</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SizedList&lt;CustomMetric&gt; CustomMetrics { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Core.Collections.SizedList-1.html">SizedList</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.CustomMetric.html">CustomMetric</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_DataSets_DataContractDataSet_Dependencies_" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.Dependencies*"></a>
+  <h4 id="STAIExtensions_Default_DataSets_DataContractDataSet_Dependencies" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.Dependencies">Dependencies</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SizedList&lt;Dependency&gt; Dependencies { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Core.Collections.SizedList-1.html">SizedList</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Dependency.html">Dependency</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_DataSets_DataContractDataSet_Exceptions_" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.Exceptions*"></a>
+  <h4 id="STAIExtensions_Default_DataSets_DataContractDataSet_Exceptions" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.Exceptions">Exceptions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SizedList&lt;AIException&gt; Exceptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Core.Collections.SizedList-1.html">SizedList</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.AIException.html">AIException</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_DataSets_DataContractDataSet_PageViews_" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.PageViews*"></a>
+  <h4 id="STAIExtensions_Default_DataSets_DataContractDataSet_PageViews" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.PageViews">PageViews</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SizedList&lt;PageView&gt; PageViews { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Core.Collections.SizedList-1.html">SizedList</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.PageView.html">PageView</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_DataSets_DataContractDataSet_PerformanceCounters_" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.PerformanceCounters*"></a>
+  <h4 id="STAIExtensions_Default_DataSets_DataContractDataSet_PerformanceCounters" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.PerformanceCounters">PerformanceCounters</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SizedList&lt;PerformanceCounter&gt; PerformanceCounters { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Core.Collections.SizedList-1.html">SizedList</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.PerformanceCounter.html">PerformanceCounter</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_DataSets_DataContractDataSet_Requests_" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.Requests*"></a>
+  <h4 id="STAIExtensions_Default_DataSets_DataContractDataSet_Requests" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.Requests">Requests</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SizedList&lt;Request&gt; Requests { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Core.Collections.SizedList-1.html">SizedList</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Request.html">Request</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_DataSets_DataContractDataSet_Traces_" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.Traces*"></a>
+  <h4 id="STAIExtensions_Default_DataSets_DataContractDataSet_Traces" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.Traces">Traces</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SizedList&lt;Trace&gt; Traces { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Core.Collections.SizedList-1.html">SizedList</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Trace.html">Trace</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="STAIExtensions_Default_DataSets_DataContractDataSet_ExecuteQueries_" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.ExecuteQueries*"></a>
+  <h4 id="STAIExtensions_Default_DataSets_DataContractDataSet_ExecuteQueries" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.ExecuteQueries">ExecuteQueries()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override async Task ExecuteQueries()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_ExecuteQueries">DataSet.ExecuteQueries()</a></div>
+  <a id="STAIExtensions_Default_DataSets_DataContractDataSet_ProcessQueryRecords_" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.ProcessQueryRecords*"></a>
+  <h4 id="STAIExtensions_Default_DataSets_DataContractDataSet_ProcessQueryRecords__1_STAIExtensions_Abstractions_Queries_DataContractQuery___0__IEnumerable___0__" data-uid="STAIExtensions.Default.DataSets.DataContractDataSet.ProcessQueryRecords``1(STAIExtensions.Abstractions.Queries.DataContractQuery{``0},IEnumerable{``0})">ProcessQueryRecords&lt;T&gt;(DataContractQuery&lt;T&gt;, IEnumerable&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task ProcessQueryRecords&lt;T&gt;(DataContractQuery&lt;T&gt; query, IEnumerable&lt;T&gt; records)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;T&gt;</td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">records</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="STAIExtensions.Abstractions.Data.IDataSet.html">IDataSet</a>
+  </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+</article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2022 Trevor Mare
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

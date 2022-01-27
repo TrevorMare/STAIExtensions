@@ -1,0 +1,560 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IDataSetCollection
+   | STAIExtensions </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IDataSetCollection
+   | STAIExtensions ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../resources/st_icon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo_st.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection">
+  
+  
+  <h1 id="STAIExtensions_Abstractions_Collections_IDataSetCollection" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection" class="text-break">Interface IDataSetCollection
+  </h1>
+  <div class="markdown level0 summary"><p>Interface component that will keep track of the all the registered DataSets
+and Register/DeRegister the DataSets when required. It also keeps track
+of user instance views that are linked to a DataSet</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="STAIExtensions.Abstractions.Collections.html">STAIExtensions.Abstractions.Collections</a></h6>
+  <h6><strong>Assembly</strong>: STAIExtensions.Abstractions.dll</h6>
+  <h5 id="STAIExtensions_Abstractions_Collections_IDataSetCollection_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IDataSetCollection</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="STAIExtensions_Abstractions_Collections_IDataSetCollection_MaximumDataSets_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.MaximumDataSets*"></a>
+  <h4 id="STAIExtensions_Abstractions_Collections_IDataSetCollection_MaximumDataSets" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.MaximumDataSets">MaximumDataSets</h4>
+  <div class="markdown level1 summary"><p>Exposes the maximum number of allowed DataSets from the options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? MaximumDataSets { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Collections_IDataSetCollection_MaximumViewsPerDataSet_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.MaximumViewsPerDataSet*"></a>
+  <h4 id="STAIExtensions_Abstractions_Collections_IDataSetCollection_MaximumViewsPerDataSet" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.MaximumViewsPerDataSet">MaximumViewsPerDataSet</h4>
+  <div class="markdown level1 summary"><p>Exposes the maximum number of views allowed per DataSet from the options</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? MaximumViewsPerDataSet { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Collections_IDataSetCollection_NumberOfDataSets_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.NumberOfDataSets*"></a>
+  <h4 id="STAIExtensions_Abstractions_Collections_IDataSetCollection_NumberOfDataSets" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.NumberOfDataSets">NumberOfDataSets</h4>
+  <div class="markdown level1 summary"><p>The current number of registered DataSets</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int NumberOfDataSets { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="STAIExtensions_Abstractions_Collections_IDataSetCollection_AttachDataSet_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.AttachDataSet*"></a>
+  <h4 id="STAIExtensions_Abstractions_Collections_IDataSetCollection_AttachDataSet_STAIExtensions_Abstractions_Data_IDataSet_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.AttachDataSet(STAIExtensions.Abstractions.Data.IDataSet)">AttachDataSet(IDataSet)</h4>
+  <div class="markdown level1 summary"><p>Attaches a DataSet to the collection and attaches to the DataSet events</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool AttachDataSet(IDataSet dataSet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Data.IDataSet.html">IDataSet</a></td>
+        <td><span class="parametername">dataSet</span></td>
+        <td><p>The DataSet to attach to the collection</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Collections_IDataSetCollection_AttachViewToDataSet_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.AttachViewToDataSet*"></a>
+  <h4 id="STAIExtensions_Abstractions_Collections_IDataSetCollection_AttachViewToDataSet_System_String_STAIExtensions_Abstractions_Views_IDataSetView_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.AttachViewToDataSet(System.String,STAIExtensions.Abstractions.Views.IDataSetView)">AttachViewToDataSet(String, IDataSetView)</h4>
+  <div class="markdown level1 summary"><p>Attaches a View Instance to a DataSet for updates</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool AttachViewToDataSet(string dataSetId, IDataSetView view)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">dataSetId</span></td>
+        <td><p>The unique Id of the DataSet</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Views.IDataSetView.html">IDataSetView</a></td>
+        <td><span class="parametername">view</span></td>
+        <td><p>The view to link for updates</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Collections_IDataSetCollection_DetachDataSet_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.DetachDataSet*"></a>
+  <h4 id="STAIExtensions_Abstractions_Collections_IDataSetCollection_DetachDataSet_STAIExtensions_Abstractions_Data_IDataSet_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.DetachDataSet(STAIExtensions.Abstractions.Data.IDataSet)">DetachDataSet(IDataSet)</h4>
+  <div class="markdown level1 summary"><p>Detaches a DataSet from the collection and removes all view links from this DataSet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool DetachDataSet(IDataSet dataSet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Data.IDataSet.html">IDataSet</a></td>
+        <td><span class="parametername">dataSet</span></td>
+        <td><p>The DataSet to detach from the collection</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Collections_IDataSetCollection_DetachViewFromDataSet_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.DetachViewFromDataSet*"></a>
+  <h4 id="STAIExtensions_Abstractions_Collections_IDataSetCollection_DetachViewFromDataSet_System_String_STAIExtensions_Abstractions_Views_IDataSetView_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.DetachViewFromDataSet(System.String,STAIExtensions.Abstractions.Views.IDataSetView)">DetachViewFromDataSet(String, IDataSetView)</h4>
+  <div class="markdown level1 summary"><p>Detaches a View Instance from a DataSet to remove updates</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool DetachViewFromDataSet(string dataSetId, IDataSetView view)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">dataSetId</span></td>
+        <td><p>The unique Id of the DataSet</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Views.IDataSetView.html">IDataSetView</a></td>
+        <td><span class="parametername">view</span></td>
+        <td><p>The view to link for updates</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Collections_IDataSetCollection_FindDataSetById_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.FindDataSetById*"></a>
+  <h4 id="STAIExtensions_Abstractions_Collections_IDataSetCollection_FindDataSetById_System_String_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.FindDataSetById(System.String)">FindDataSetById(String)</h4>
+  <div class="markdown level1 summary"><p>Finds an attached DataSet by Id</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IDataSet FindDataSetById(string dataSetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">dataSetId</span></td>
+        <td><p>The unique Id of the DataSet</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Data.IDataSet.html">IDataSet</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Collections_IDataSetCollection_FindDataSetByName_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.FindDataSetByName*"></a>
+  <h4 id="STAIExtensions_Abstractions_Collections_IDataSetCollection_FindDataSetByName_System_String_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.FindDataSetByName(System.String)">FindDataSetByName(String)</h4>
+  <div class="markdown level1 summary"><p>Finds an attached DataSet by name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IDataSet FindDataSetByName(string datasetName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">datasetName</span></td>
+        <td><p>The unique name of the dataset</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Data.IDataSet.html">IDataSet</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Collections_IDataSetCollection_FindDataSetsByViewId_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.FindDataSetsByViewId*"></a>
+  <h4 id="STAIExtensions_Abstractions_Collections_IDataSetCollection_FindDataSetsByViewId_System_String_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.FindDataSetsByViewId(System.String)">FindDataSetsByViewId(String)</h4>
+  <div class="markdown level1 summary"><p>Finds all the DataSets that are linked to the view</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;IDataSet&gt;? FindDataSetsByViewId(string requestViewId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">requestViewId</span></td>
+        <td><p>The unique Id of the view to find the links with</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="STAIExtensions.Abstractions.Data.IDataSet.html">IDataSet</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Collections_IDataSetCollection_ListDataSets_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.ListDataSets*"></a>
+  <h4 id="STAIExtensions_Abstractions_Collections_IDataSetCollection_ListDataSets" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.ListDataSets">ListDataSets()</h4>
+  <div class="markdown level1 summary"><p>Gets a list of attached DataSets from the collection</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;DataSetInformation&gt; ListDataSets()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="STAIExtensions.Abstractions.Common.DataSetInformation.html">DataSetInformation</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Collections_IDataSetCollection_RemoveViewFromDataSets_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.RemoveViewFromDataSets*"></a>
+  <h4 id="STAIExtensions_Abstractions_Collections_IDataSetCollection_RemoveViewFromDataSets_System_String_" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.RemoveViewFromDataSets(System.String)">RemoveViewFromDataSets(String)</h4>
+  <div class="markdown level1 summary"><p>Removes a View link from all DataSets in the collection</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void RemoveViewFromDataSets(string expiredViewId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">expiredViewId</span></td>
+        <td><p>The view Id to find and remove from updates</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+  </h3>
+  <h4 id="STAIExtensions_Abstractions_Collections_IDataSetCollection_OnDataSetUpdated" data-uid="STAIExtensions.Abstractions.Collections.IDataSetCollection.OnDataSetUpdated">OnDataSetUpdated</h4>
+  <div class="markdown level1 summary"><p>An event that gets raised when a DataSet is updated</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event IDataSetCollection.OnDataSetUpdatedHandler OnDataSetUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Collections.IDataSetCollection.OnDataSetUpdatedHandler.html">IDataSetCollection.OnDataSetUpdatedHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2022 Trevor Mare
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

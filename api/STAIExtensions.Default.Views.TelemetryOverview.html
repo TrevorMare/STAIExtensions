@@ -1,0 +1,755 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class TelemetryOverview
+   | STAIExtensions </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class TelemetryOverview
+   | STAIExtensions ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../resources/st_icon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo_st.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="STAIExtensions.Default.Views.TelemetryOverview">
+  
+  
+  <h1 id="STAIExtensions_Default_Views_TelemetryOverview" data-uid="STAIExtensions.Default.Views.TelemetryOverview" class="text-break">Class TelemetryOverview
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="STAIExtensions.Core.Views.DataSetView.html">DataSetView</a></div>
+    <div class="level2"><span class="xref">TelemetryOverview</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="STAIExtensions.Abstractions.Views.IDataSetView.html">IDataSetView</a></div>
+    <div><span class="xref">System.IDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_Logger">DataSetView.Logger</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_TelemetryClient">DataSetView.TelemetryClient</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_UpdateViewFromDataSet_STAIExtensions_Abstractions_Data_IDataSet_">DataSetView.UpdateViewFromDataSet(IDataSet)</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_SetExpiryDate">DataSetView.SetExpiryDate()</a>
+    </div>
+    <div>
+      <span class="xref">STAIExtensions.Core.Views.DataSetView.SetExpiryDate(System.DateTime)</span>
+    </div>
+    <div>
+      <span class="xref">STAIExtensions.Core.Views.DataSetView.SetViewParameters(System.Collections.Generic.Dictionary&lt;System.String, System.Object&gt;)</span>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_SetViewRefreshEnabled">DataSetView.SetViewRefreshEnabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_SetViewRefreshDisabled">DataSetView.SetViewRefreshDisabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_Dispose_System_Boolean_">DataSetView.Dispose(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_Dispose">DataSetView.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_ViewTypeName">DataSetView.ViewTypeName</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_FriendlyViewTypeName">DataSetView.FriendlyViewTypeName</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_RefreshEnabled">DataSetView.RefreshEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_Id">DataSetView.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_OwnerId">DataSetView.OwnerId</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_ExpiryDate">DataSetView.ExpiryDate</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_LastUpdate">DataSetView.LastUpdate</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_SlidingExpiration">DataSetView.SlidingExpiration</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_ViewParameters">DataSetView.ViewParameters</a>
+    </div>
+    <div>
+      <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_OnViewUpdated">DataSetView.OnViewUpdated</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="STAIExtensions.Default.Views.html">STAIExtensions.Default.Views</a></h6>
+  <h6><strong>Assembly</strong>: STAIExtensions.Default.dll</h6>
+  <h5 id="STAIExtensions_Default_Views_TelemetryOverview_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TelemetryOverview : DataSetView, IDataSetView, IDisposable</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_AvailabilityCount_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.AvailabilityCount*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_AvailabilityCount" data-uid="STAIExtensions.Default.Views.TelemetryOverview.AvailabilityCount">AvailabilityCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? AvailabilityCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_BrowserTimingsCount_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.BrowserTimingsCount*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_BrowserTimingsCount" data-uid="STAIExtensions.Default.Views.TelemetryOverview.BrowserTimingsCount">BrowserTimingsCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? BrowserTimingsCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_CloudNames_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.CloudNames*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_CloudNames" data-uid="STAIExtensions.Default.Views.TelemetryOverview.CloudNames">CloudNames</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, List&lt;string&gt;&gt; CloudNames { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">List</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_CustomEventsCount_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.CustomEventsCount*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_CustomEventsCount" data-uid="STAIExtensions.Default.Views.TelemetryOverview.CustomEventsCount">CustomEventsCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? CustomEventsCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_CustomMetricsCount_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.CustomMetricsCount*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_CustomMetricsCount" data-uid="STAIExtensions.Default.Views.TelemetryOverview.CustomMetricsCount">CustomMetricsCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? CustomMetricsCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_DependenciesCount_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.DependenciesCount*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_DependenciesCount" data-uid="STAIExtensions.Default.Views.TelemetryOverview.DependenciesCount">DependenciesCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? DependenciesCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_ExceptionsCount_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.ExceptionsCount*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_ExceptionsCount" data-uid="STAIExtensions.Default.Views.TelemetryOverview.ExceptionsCount">ExceptionsCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? ExceptionsCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_LastAvailability_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastAvailability*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_LastAvailability" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastAvailability">LastAvailability</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Availability&gt;? LastAvailability { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Availability.html">Availability</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_LastBrowserTimings_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastBrowserTimings*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_LastBrowserTimings" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastBrowserTimings">LastBrowserTimings</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;BrowserTiming&gt;? LastBrowserTimings { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.BrowserTiming.html">BrowserTiming</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_LastCustomEvents_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastCustomEvents*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_LastCustomEvents" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastCustomEvents">LastCustomEvents</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;CustomEvent&gt;? LastCustomEvents { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.CustomEvent.html">CustomEvent</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_LastCustomMetrics_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastCustomMetrics*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_LastCustomMetrics" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastCustomMetrics">LastCustomMetrics</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;CustomMetric&gt;? LastCustomMetrics { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.CustomMetric.html">CustomMetric</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_LastDependencies_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastDependencies*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_LastDependencies" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastDependencies">LastDependencies</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Dependency&gt;? LastDependencies { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Dependency.html">Dependency</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_LastExceptions_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastExceptions*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_LastExceptions" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastExceptions">LastExceptions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;AIException&gt;? LastExceptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.AIException.html">AIException</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_LastPageViews_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastPageViews*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_LastPageViews" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastPageViews">LastPageViews</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;PageView&gt;? LastPageViews { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.PageView.html">PageView</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_LastPerformanceCounters_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastPerformanceCounters*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_LastPerformanceCounters" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastPerformanceCounters">LastPerformanceCounters</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;PerformanceCounter&gt;? LastPerformanceCounters { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.PerformanceCounter.html">PerformanceCounter</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_LastRequests_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastRequests*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_LastRequests" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastRequests">LastRequests</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Request&gt;? LastRequests { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Request.html">Request</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_LastTraces_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastTraces*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_LastTraces" data-uid="STAIExtensions.Default.Views.TelemetryOverview.LastTraces">LastTraces</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Trace&gt;? LastTraces { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Trace.html">Trace</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_PageViewsCount_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.PageViewsCount*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_PageViewsCount" data-uid="STAIExtensions.Default.Views.TelemetryOverview.PageViewsCount">PageViewsCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? PageViewsCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_PerformanceCountersCount_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.PerformanceCountersCount*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_PerformanceCountersCount" data-uid="STAIExtensions.Default.Views.TelemetryOverview.PerformanceCountersCount">PerformanceCountersCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? PerformanceCountersCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_RequestsCount_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.RequestsCount*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_RequestsCount" data-uid="STAIExtensions.Default.Views.TelemetryOverview.RequestsCount">RequestsCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? RequestsCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_TracesCount_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.TracesCount*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_TracesCount" data-uid="STAIExtensions.Default.Views.TelemetryOverview.TracesCount">TracesCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? TracesCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_ViewParameterDescriptors_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.ViewParameterDescriptors*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_ViewParameterDescriptors" data-uid="STAIExtensions.Default.Views.TelemetryOverview.ViewParameterDescriptors">ViewParameterDescriptors</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;DataSetViewParameterDescriptor&gt;? ViewParameterDescriptors { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="STAIExtensions.Abstractions.Views.DataSetViewParameterDescriptor.html">DataSetViewParameterDescriptor</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_ViewParameterDescriptors">DataSetView.ViewParameterDescriptors</a></div>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="STAIExtensions_Default_Views_TelemetryOverview_BuildViewData_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.BuildViewData*"></a>
+  <h4 id="STAIExtensions_Default_Views_TelemetryOverview_BuildViewData_STAIExtensions_Abstractions_Data_IDataSet_" data-uid="STAIExtensions.Default.Views.TelemetryOverview.BuildViewData(STAIExtensions.Abstractions.Data.IDataSet)">BuildViewData(IDataSet)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task BuildViewData(IDataSet dataSet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Data.IDataSet.html">IDataSet</a></td>
+        <td><span class="parametername">dataSet</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_BuildViewData_STAIExtensions_Abstractions_Data_IDataSet_">DataSetView.BuildViewData(IDataSet)</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="STAIExtensions.Abstractions.Views.IDataSetView.html">IDataSetView</a>
+  </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+</article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2022 Trevor Mare
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

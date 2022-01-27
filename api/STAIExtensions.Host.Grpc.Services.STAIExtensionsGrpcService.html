@@ -1,0 +1,883 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class STAIExtensionsGrpcService
+   | STAIExtensions </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class STAIExtensionsGrpcService
+   | STAIExtensions ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../resources/st_icon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo_st.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService">
+  
+  
+  <h1 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService" class="text-break">Class STAIExtensionsGrpcService
+  </h1>
+  <div class="markdown level0 summary"><p>STAIExtension Grpc Host Service that interacts with the collections of Data Sets and Views.
+This host exposes streams that will notify the client on connection state and updates that occured
+in the Data Sets and Views</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.html">STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase</a></div>
+    <div class="level2"><span class="xref">STAIExtensionsGrpcService</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="STAIExtensions.Host.Grpc.Services.html">STAIExtensions.Host.Grpc.Services</a></h6>
+  <h6><strong>Assembly</strong>: STAIExtensions.Host.Grpc.dll</h6>
+  <h5 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class STAIExtensionsGrpcService : STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService__ctor_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.#ctor*"></a>
+  <h4 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService__ctor" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.#ctor">STAIExtensionsGrpcService()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public STAIExtensionsGrpcService()</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_AttachViewToDataset_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.AttachViewToDataset*"></a>
+  <h4 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_AttachViewToDataset_STAIExtensions_Host_Grpc_AttachViewToDatasetRequest_Grpc_Core_ServerCallContext_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.AttachViewToDataset(STAIExtensions.Host.Grpc.AttachViewToDatasetRequest,Grpc.Core.ServerCallContext)">AttachViewToDataset(AttachViewToDatasetRequest, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>Attaches a view to a Data Set for updates</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override async Task&lt;BoolResponse&gt; AttachViewToDataset(AttachViewToDatasetRequest request, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Host.Grpc.AttachViewToDatasetRequest.html">AttachViewToDatasetRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.ServerCallContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="STAIExtensions.Host.Grpc.BoolResponse.html">BoolResponse</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.html#STAIExtensions_Host_Grpc_STAIExtensionsGrpcService_STAIExtensionsGrpcServiceBase_AttachViewToDataset_STAIExtensions_Host_Grpc_AttachViewToDatasetRequest_Grpc_Core_ServerCallContext_">STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.AttachViewToDataset(AttachViewToDatasetRequest, ServerCallContext)</a></div>
+  <a id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_CreateView_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.CreateView*"></a>
+  <h4 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_CreateView_STAIExtensions_Host_Grpc_CreateViewRequest_Grpc_Core_ServerCallContext_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.CreateView(STAIExtensions.Host.Grpc.CreateViewRequest,Grpc.Core.ServerCallContext)">CreateView(CreateViewRequest, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>Creates a new view and assigns it to the owner</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override async Task&lt;IDataSetView&gt; CreateView(CreateViewRequest request, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Host.Grpc.CreateViewRequest.html">CreateViewRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.ServerCallContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="STAIExtensions.Host.Grpc.IDataSetView.html">IDataSetView</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.html#STAIExtensions_Host_Grpc_STAIExtensionsGrpcService_STAIExtensionsGrpcServiceBase_CreateView_STAIExtensions_Host_Grpc_CreateViewRequest_Grpc_Core_ServerCallContext_">STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.CreateView(CreateViewRequest, ServerCallContext)</a></div>
+  <a id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_DetachViewFromDataset_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.DetachViewFromDataset*"></a>
+  <h4 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_DetachViewFromDataset_STAIExtensions_Host_Grpc_DetachViewFromDatasetRequest_Grpc_Core_ServerCallContext_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.DetachViewFromDataset(STAIExtensions.Host.Grpc.DetachViewFromDatasetRequest,Grpc.Core.ServerCallContext)">DetachViewFromDataset(DetachViewFromDatasetRequest, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>Detaches a view from a Data Set</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override async Task&lt;BoolResponse&gt; DetachViewFromDataset(DetachViewFromDatasetRequest request, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Host.Grpc.DetachViewFromDatasetRequest.html">DetachViewFromDatasetRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.ServerCallContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="STAIExtensions.Host.Grpc.BoolResponse.html">BoolResponse</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.html#STAIExtensions_Host_Grpc_STAIExtensionsGrpcService_STAIExtensionsGrpcServiceBase_DetachViewFromDataset_STAIExtensions_Host_Grpc_DetachViewFromDatasetRequest_Grpc_Core_ServerCallContext_">STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.DetachViewFromDataset(DetachViewFromDatasetRequest, ServerCallContext)</a></div>
+  <a id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_GetMyViews_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.GetMyViews*"></a>
+  <h4 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_GetMyViews_STAIExtensions_Host_Grpc_GetMyViewsRequest_Grpc_Core_ServerCallContext_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.GetMyViews(STAIExtensions.Host.Grpc.GetMyViewsRequest,Grpc.Core.ServerCallContext)">GetMyViews(GetMyViewsRequest, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>Gets a list of the owners currently active views</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override async Task&lt;MyViewResponse&gt; GetMyViews(GetMyViewsRequest request, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Host.Grpc.GetMyViewsRequest.html">GetMyViewsRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.ServerCallContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="STAIExtensions.Host.Grpc.MyViewResponse.html">MyViewResponse</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.html#STAIExtensions_Host_Grpc_STAIExtensionsGrpcService_STAIExtensionsGrpcServiceBase_GetMyViews_STAIExtensions_Host_Grpc_GetMyViewsRequest_Grpc_Core_ServerCallContext_">STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.GetMyViews(GetMyViewsRequest, ServerCallContext)</a></div>
+  <a id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_GetRegisteredViews_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.GetRegisteredViews*"></a>
+  <h4 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_GetRegisteredViews_STAIExtensions_Host_Grpc_NoParameters_Grpc_Core_ServerCallContext_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.GetRegisteredViews(STAIExtensions.Host.Grpc.NoParameters,Grpc.Core.ServerCallContext)">GetRegisteredViews(NoParameters, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>Gets a list of registered views that can be used to create a client instance of</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override async Task&lt;GetRegisteredViewsResponse&gt; GetRegisteredViews(NoParameters request, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Host.Grpc.NoParameters.html">NoParameters</a></td>
+        <td><span class="parametername">request</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.ServerCallContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="STAIExtensions.Host.Grpc.GetRegisteredViewsResponse.html">GetRegisteredViewsResponse</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.html#STAIExtensions_Host_Grpc_STAIExtensionsGrpcService_STAIExtensionsGrpcServiceBase_GetRegisteredViews_STAIExtensions_Host_Grpc_NoParameters_Grpc_Core_ServerCallContext_">STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.GetRegisteredViews(NoParameters, ServerCallContext)</a></div>
+  <a id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_GetView_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.GetView*"></a>
+  <h4 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_GetView_STAIExtensions_Host_Grpc_GetViewRequest_Grpc_Core_ServerCallContext_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.GetView(STAIExtensions.Host.Grpc.GetViewRequest,Grpc.Core.ServerCallContext)">GetView(GetViewRequest, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>Gets the interface exposed properties of the View. It does not return the full view, to retrieve
+the full view data use the <a class="xref" href="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.html#STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_GetViewJson_STAIExtensions_Host_Grpc_GetViewRequest_Grpc_Core_ServerCallContext_">GetViewJson(GetViewRequest, ServerCallContext)</a> method</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override async Task&lt;IDataSetView&gt; GetView(GetViewRequest request, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Host.Grpc.GetViewRequest.html">GetViewRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.ServerCallContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="STAIExtensions.Host.Grpc.IDataSetView.html">IDataSetView</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.html#STAIExtensions_Host_Grpc_STAIExtensionsGrpcService_STAIExtensionsGrpcServiceBase_GetView_STAIExtensions_Host_Grpc_GetViewRequest_Grpc_Core_ServerCallContext_">STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.GetView(GetViewRequest, ServerCallContext)</a></div>
+  <a id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_GetViewJson_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.GetViewJson*"></a>
+  <h4 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_GetViewJson_STAIExtensions_Host_Grpc_GetViewRequest_Grpc_Core_ServerCallContext_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.GetViewJson(STAIExtensions.Host.Grpc.GetViewRequest,Grpc.Core.ServerCallContext)">GetViewJson(GetViewRequest, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>Returns the View Json data to be deserialized on the client. This return object contains
+the type to assist with this</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override async Task&lt;IDataSetViewJson&gt; GetViewJson(GetViewRequest request, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Host.Grpc.GetViewRequest.html">GetViewRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.ServerCallContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="STAIExtensions.Host.Grpc.IDataSetViewJson.html">IDataSetViewJson</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.html#STAIExtensions_Host_Grpc_STAIExtensionsGrpcService_STAIExtensionsGrpcServiceBase_GetViewJson_STAIExtensions_Host_Grpc_GetViewRequest_Grpc_Core_ServerCallContext_">STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.GetViewJson(GetViewRequest, ServerCallContext)</a></div>
+  <a id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_ListDataSets_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.ListDataSets*"></a>
+  <h4 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_ListDataSets_STAIExtensions_Host_Grpc_NoParameters_Grpc_Core_ServerCallContext_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.ListDataSets(STAIExtensions.Host.Grpc.NoParameters,Grpc.Core.ServerCallContext)">ListDataSets(NoParameters, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>Lists all the data sets registered that can be attached to</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override async Task&lt;ListDataSetsResponse&gt; ListDataSets(NoParameters request, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Host.Grpc.NoParameters.html">NoParameters</a></td>
+        <td><span class="parametername">request</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.ServerCallContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="STAIExtensions.Host.Grpc.ListDataSetsResponse.html">ListDataSetsResponse</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.html#STAIExtensions_Host_Grpc_STAIExtensionsGrpcService_STAIExtensionsGrpcServiceBase_ListDataSets_STAIExtensions_Host_Grpc_NoParameters_Grpc_Core_ServerCallContext_">STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.ListDataSets(NoParameters, ServerCallContext)</a></div>
+  <a id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_OnDataSetUpdated_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.OnDataSetUpdated*"></a>
+  <h4 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_OnDataSetUpdated_STAIExtensions_Host_Grpc_NoParameters_Grpc_Core_IServerStreamWriter_STAIExtensions_Host_Grpc_OnDataSetUpdatedResponse__Grpc_Core_ServerCallContext_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.OnDataSetUpdated(STAIExtensions.Host.Grpc.NoParameters,Grpc.Core.IServerStreamWriter{STAIExtensions.Host.Grpc.OnDataSetUpdatedResponse},Grpc.Core.ServerCallContext)">OnDataSetUpdated(NoParameters, IServerStreamWriter&lt;OnDataSetUpdatedResponse&gt;, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>Connects a stream to client that will notify it that a Data Set has been updated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override async Task OnDataSetUpdated(NoParameters request, IServerStreamWriter&lt;OnDataSetUpdatedResponse&gt; responseStream, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Host.Grpc.NoParameters.html">NoParameters</a></td>
+        <td><span class="parametername">request</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.IServerStreamWriter</span>&lt;<a class="xref" href="STAIExtensions.Host.Grpc.OnDataSetUpdatedResponse.html">OnDataSetUpdatedResponse</a>&gt;</td>
+        <td><span class="parametername">responseStream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.ServerCallContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.html#STAIExtensions_Host_Grpc_STAIExtensionsGrpcService_STAIExtensionsGrpcServiceBase_OnDataSetUpdated_STAIExtensions_Host_Grpc_NoParameters_Grpc_Core_IServerStreamWriter_STAIExtensions_Host_Grpc_OnDataSetUpdatedResponse__Grpc_Core_ServerCallContext_">STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.OnDataSetUpdated(NoParameters, IServerStreamWriter&lt;OnDataSetUpdatedResponse&gt;, ServerCallContext)</a></div>
+  <a id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_OnDataViewUpdated_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.OnDataViewUpdated*"></a>
+  <h4 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_OnDataViewUpdated_STAIExtensions_Host_Grpc_OnDataSetViewUpdatedRequest_Grpc_Core_IServerStreamWriter_STAIExtensions_Host_Grpc_OnDataSetViewUpdatedResponse__Grpc_Core_ServerCallContext_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.OnDataViewUpdated(STAIExtensions.Host.Grpc.OnDataSetViewUpdatedRequest,Grpc.Core.IServerStreamWriter{STAIExtensions.Host.Grpc.OnDataSetViewUpdatedResponse},Grpc.Core.ServerCallContext)">OnDataViewUpdated(OnDataSetViewUpdatedRequest, IServerStreamWriter&lt;OnDataSetViewUpdatedResponse&gt;, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>Connects a stream to client that will notify it that a Data View has been updated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override async Task OnDataViewUpdated(OnDataSetViewUpdatedRequest request, IServerStreamWriter&lt;OnDataSetViewUpdatedResponse&gt; responseStream, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Host.Grpc.OnDataSetViewUpdatedRequest.html">OnDataSetViewUpdatedRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.IServerStreamWriter</span>&lt;<a class="xref" href="STAIExtensions.Host.Grpc.OnDataSetViewUpdatedResponse.html">OnDataSetViewUpdatedResponse</a>&gt;</td>
+        <td><span class="parametername">responseStream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.ServerCallContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.html#STAIExtensions_Host_Grpc_STAIExtensionsGrpcService_STAIExtensionsGrpcServiceBase_OnDataViewUpdated_STAIExtensions_Host_Grpc_OnDataSetViewUpdatedRequest_Grpc_Core_IServerStreamWriter_STAIExtensions_Host_Grpc_OnDataSetViewUpdatedResponse__Grpc_Core_ServerCallContext_">STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.OnDataViewUpdated(OnDataSetViewUpdatedRequest, IServerStreamWriter&lt;OnDataSetViewUpdatedResponse&gt;, ServerCallContext)</a></div>
+  <a id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_RegisterConnectionState_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.RegisterConnectionState*"></a>
+  <h4 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_RegisterConnectionState_STAIExtensions_Host_Grpc_NoParameters_Grpc_Core_IServerStreamWriter_STAIExtensions_Host_Grpc_ConnectionStateResponse__Grpc_Core_ServerCallContext_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.RegisterConnectionState(STAIExtensions.Host.Grpc.NoParameters,Grpc.Core.IServerStreamWriter{STAIExtensions.Host.Grpc.ConnectionStateResponse},Grpc.Core.ServerCallContext)">RegisterConnectionState(NoParameters, IServerStreamWriter&lt;ConnectionStateResponse&gt;, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>Connects to a stream that enables the connection to be monitored by the client, this
+method wil periodically send the server UTC Date time to the client. This allows
+the client to monitor if the Grpc Connection is still alive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override async Task RegisterConnectionState(NoParameters request, IServerStreamWriter&lt;ConnectionStateResponse&gt; responseStream, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Host.Grpc.NoParameters.html">NoParameters</a></td>
+        <td><span class="parametername">request</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.IServerStreamWriter</span>&lt;<a class="xref" href="STAIExtensions.Host.Grpc.ConnectionStateResponse.html">ConnectionStateResponse</a>&gt;</td>
+        <td><span class="parametername">responseStream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.ServerCallContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.html#STAIExtensions_Host_Grpc_STAIExtensionsGrpcService_STAIExtensionsGrpcServiceBase_RegisterConnectionState_STAIExtensions_Host_Grpc_NoParameters_Grpc_Core_IServerStreamWriter_STAIExtensions_Host_Grpc_ConnectionStateResponse__Grpc_Core_ServerCallContext_">STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.RegisterConnectionState(NoParameters, IServerStreamWriter&lt;ConnectionStateResponse&gt;, ServerCallContext)</a></div>
+  <a id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_RemoveView_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.RemoveView*"></a>
+  <h4 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_RemoveView_STAIExtensions_Host_Grpc_RemoveViewRequest_Grpc_Core_ServerCallContext_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.RemoveView(STAIExtensions.Host.Grpc.RemoveViewRequest,Grpc.Core.ServerCallContext)">RemoveView(RemoveViewRequest, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>Removes a view and all linking from the collection managers</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override async Task&lt;BoolResponse&gt; RemoveView(RemoveViewRequest request, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Host.Grpc.RemoveViewRequest.html">RemoveViewRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.ServerCallContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="STAIExtensions.Host.Grpc.BoolResponse.html">BoolResponse</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.html#STAIExtensions_Host_Grpc_STAIExtensionsGrpcService_STAIExtensionsGrpcServiceBase_RemoveView_STAIExtensions_Host_Grpc_RemoveViewRequest_Grpc_Core_ServerCallContext_">STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.RemoveView(RemoveViewRequest, ServerCallContext)</a></div>
+  <a id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_SetViewAutoRefreshDisabled_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.SetViewAutoRefreshDisabled*"></a>
+  <h4 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_SetViewAutoRefreshDisabled_STAIExtensions_Host_Grpc_SetViewAutoRefreshDisabledRequest_Grpc_Core_ServerCallContext_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.SetViewAutoRefreshDisabled(STAIExtensions.Host.Grpc.SetViewAutoRefreshDisabledRequest,Grpc.Core.ServerCallContext)">SetViewAutoRefreshDisabled(SetViewAutoRefreshDisabledRequest, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>Freezes updates from data sets on a View</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override async Task&lt;BoolResponse&gt; SetViewAutoRefreshDisabled(SetViewAutoRefreshDisabledRequest request, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Host.Grpc.SetViewAutoRefreshDisabledRequest.html">SetViewAutoRefreshDisabledRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.ServerCallContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="STAIExtensions.Host.Grpc.BoolResponse.html">BoolResponse</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.html#STAIExtensions_Host_Grpc_STAIExtensionsGrpcService_STAIExtensionsGrpcServiceBase_SetViewAutoRefreshDisabled_STAIExtensions_Host_Grpc_SetViewAutoRefreshDisabledRequest_Grpc_Core_ServerCallContext_">STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.SetViewAutoRefreshDisabled(SetViewAutoRefreshDisabledRequest, ServerCallContext)</a></div>
+  <a id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_SetViewAutoRefreshEnabled_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.SetViewAutoRefreshEnabled*"></a>
+  <h4 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_SetViewAutoRefreshEnabled_STAIExtensions_Host_Grpc_SetViewAutoRefreshEnabledRequest_Grpc_Core_ServerCallContext_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.SetViewAutoRefreshEnabled(STAIExtensions.Host.Grpc.SetViewAutoRefreshEnabledRequest,Grpc.Core.ServerCallContext)">SetViewAutoRefreshEnabled(SetViewAutoRefreshEnabledRequest, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>Un-Freezes updates from data sets on a View</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override async Task&lt;BoolResponse&gt; SetViewAutoRefreshEnabled(SetViewAutoRefreshEnabledRequest request, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Host.Grpc.SetViewAutoRefreshEnabledRequest.html">SetViewAutoRefreshEnabledRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.ServerCallContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="STAIExtensions.Host.Grpc.BoolResponse.html">BoolResponse</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.html#STAIExtensions_Host_Grpc_STAIExtensionsGrpcService_STAIExtensionsGrpcServiceBase_SetViewAutoRefreshEnabled_STAIExtensions_Host_Grpc_SetViewAutoRefreshEnabledRequest_Grpc_Core_ServerCallContext_">STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.SetViewAutoRefreshEnabled(SetViewAutoRefreshEnabledRequest, ServerCallContext)</a></div>
+  <a id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_SetViewParameters_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.SetViewParameters*"></a>
+  <h4 id="STAIExtensions_Host_Grpc_Services_STAIExtensionsGrpcService_SetViewParameters_STAIExtensions_Host_Grpc_SetViewParametersRequest_Grpc_Core_ServerCallContext_" data-uid="STAIExtensions.Host.Grpc.Services.STAIExtensionsGrpcService.SetViewParameters(STAIExtensions.Host.Grpc.SetViewParametersRequest,Grpc.Core.ServerCallContext)">SetViewParameters(SetViewParametersRequest, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>Sets the View Parameters on a owner view instance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override async Task&lt;BoolResponse&gt; SetViewParameters(SetViewParametersRequest request, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Host.Grpc.SetViewParametersRequest.html">SetViewParametersRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Grpc.Core.ServerCallContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="STAIExtensions.Host.Grpc.BoolResponse.html">BoolResponse</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="STAIExtensions.Host.Grpc.STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.html#STAIExtensions_Host_Grpc_STAIExtensionsGrpcService_STAIExtensionsGrpcServiceBase_SetViewParameters_STAIExtensions_Host_Grpc_SetViewParametersRequest_Grpc_Core_ServerCallContext_">STAIExtensionsGrpcService.STAIExtensionsGrpcServiceBase.SetViewParameters(SetViewParametersRequest, ServerCallContext)</a></div>
+</article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2022 Trevor Mare
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

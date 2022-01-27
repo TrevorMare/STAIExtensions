@@ -1,0 +1,666 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DataSetView
+   | STAIExtensions </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DataSetView
+   | STAIExtensions ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../resources/st_icon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo_st.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="STAIExtensions.Core.Views.DataSetView">
+  
+  
+  <h1 id="STAIExtensions_Core_Views_DataSetView" data-uid="STAIExtensions.Core.Views.DataSetView" class="text-break">Class DataSetView
+  </h1>
+  <div class="markdown level0 summary"><p>Abstract implementation of the Data Set View.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">DataSetView</span></div>
+      <div class="level2"><a class="xref" href="STAIExtensions.Default.Views.BrowserTimingsView.html">BrowserTimingsView</a></div>
+      <div class="level2"><a class="xref" href="STAIExtensions.Default.Views.MyErrorsView.html">MyErrorsView</a></div>
+      <div class="level2"><a class="xref" href="STAIExtensions.Default.Views.TelemetryOverview.html">TelemetryOverview</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="STAIExtensions.Abstractions.Views.IDataSetView.html">IDataSetView</a></div>
+    <div><span class="xref">System.IDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="STAIExtensions.Core.Views.html">STAIExtensions.Core.Views</a></h6>
+  <h6><strong>Assembly</strong>: STAIExtensions.Core.dll</h6>
+  <h5 id="STAIExtensions_Core_Views_DataSetView_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class DataSetView : IDataSetView, IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="STAIExtensions_Core_Views_DataSetView__ctor_" data-uid="STAIExtensions.Core.Views.DataSetView.#ctor*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView__ctor" data-uid="STAIExtensions.Core.Views.DataSetView.#ctor">DataSetView()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DataSetView()</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_Logger" data-uid="STAIExtensions.Core.Views.DataSetView.Logger">Logger</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly ILogger&lt;DataSetView&gt; Logger</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.Logging.ILogger</span>&lt;<a class="xref" href="STAIExtensions.Core.Views.DataSetView.html">DataSetView</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_TelemetryClient" data-uid="STAIExtensions.Core.Views.DataSetView.TelemetryClient">TelemetryClient</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly TelemetryClient TelemetryClient</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.ApplicationInsights.TelemetryClient</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="STAIExtensions_Core_Views_DataSetView_ExpiryDate_" data-uid="STAIExtensions.Core.Views.DataSetView.ExpiryDate*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_ExpiryDate" data-uid="STAIExtensions.Core.Views.DataSetView.ExpiryDate">ExpiryDate</h4>
+  <div class="markdown level1 summary"><p>Gets the calculated Expiry date of the view</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? ExpiryDate { get; protected set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Views_DataSetView_FriendlyViewTypeName_" data-uid="STAIExtensions.Core.Views.DataSetView.FriendlyViewTypeName*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_FriendlyViewTypeName" data-uid="STAIExtensions.Core.Views.DataSetView.FriendlyViewTypeName">FriendlyViewTypeName</h4>
+  <div class="markdown level1 summary"><p>Gets the view type short name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string FriendlyViewTypeName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Views_DataSetView_Id_" data-uid="STAIExtensions.Core.Views.DataSetView.Id*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_Id" data-uid="STAIExtensions.Core.Views.DataSetView.Id">Id</h4>
+  <div class="markdown level1 summary"><p>Gets the Auto Generated Id of the View</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Id { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Views_DataSetView_LastUpdate_" data-uid="STAIExtensions.Core.Views.DataSetView.LastUpdate*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_LastUpdate" data-uid="STAIExtensions.Core.Views.DataSetView.LastUpdate">LastUpdate</h4>
+  <div class="markdown level1 summary"><p>Gets the last time the View was updated</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? LastUpdate { get; protected set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DateTime</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Views_DataSetView_OwnerId_" data-uid="STAIExtensions.Core.Views.DataSetView.OwnerId*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_OwnerId" data-uid="STAIExtensions.Core.Views.DataSetView.OwnerId">OwnerId</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the Owner Id of the View</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string OwnerId { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Views_DataSetView_RefreshEnabled_" data-uid="STAIExtensions.Core.Views.DataSetView.RefreshEnabled*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_RefreshEnabled" data-uid="STAIExtensions.Core.Views.DataSetView.RefreshEnabled">RefreshEnabled</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating if the auto refresh is enabled</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RefreshEnabled { get; protected set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Views_DataSetView_SlidingExpiration_" data-uid="STAIExtensions.Core.Views.DataSetView.SlidingExpiration*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_SlidingExpiration" data-uid="STAIExtensions.Core.Views.DataSetView.SlidingExpiration">SlidingExpiration</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the Sliding Expiration of the view for expiry</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan SlidingExpiration { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Views_DataSetView_ViewParameterDescriptors_" data-uid="STAIExtensions.Core.Views.DataSetView.ViewParameterDescriptors*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_ViewParameterDescriptors" data-uid="STAIExtensions.Core.Views.DataSetView.ViewParameterDescriptors">ViewParameterDescriptors</h4>
+  <div class="markdown level1 summary"><p>Gets the supported view parameters</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IEnumerable&lt;DataSetViewParameterDescriptor&gt;? ViewParameterDescriptors { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="STAIExtensions.Abstractions.Views.DataSetViewParameterDescriptor.html">DataSetViewParameterDescriptor</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Views_DataSetView_ViewParameters_" data-uid="STAIExtensions.Core.Views.DataSetView.ViewParameters*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_ViewParameters" data-uid="STAIExtensions.Core.Views.DataSetView.ViewParameters">ViewParameters</h4>
+  <div class="markdown level1 summary"><p>Gets the view parameters that were set via the <a class="xref" href="STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_SetViewParameters_System_Nullable_Dictionary_System_String_System_Object___">SetViewParameters(Nullable&lt;Dictionary&lt;String, Object&gt;&gt;)</a> method</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Dictionary&lt;string, object&gt;? ViewParameters { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Views_DataSetView_ViewTypeName_" data-uid="STAIExtensions.Core.Views.DataSetView.ViewTypeName*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_ViewTypeName" data-uid="STAIExtensions.Core.Views.DataSetView.ViewTypeName">ViewTypeName</h4>
+  <div class="markdown level1 summary"><p>Gets the view Type fully qualified name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ViewTypeName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="STAIExtensions_Core_Views_DataSetView_BuildViewData_" data-uid="STAIExtensions.Core.Views.DataSetView.BuildViewData*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_BuildViewData_STAIExtensions_Abstractions_Data_IDataSet_" data-uid="STAIExtensions.Core.Views.DataSetView.BuildViewData(STAIExtensions.Abstractions.Data.IDataSet)">BuildViewData(IDataSet)</h4>
+  <div class="markdown level1 summary"><p>Override this method to process the data set information</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract Task BuildViewData(IDataSet dataSet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Data.IDataSet.html">IDataSet</a></td>
+        <td><span class="parametername">dataSet</span></td>
+        <td><p>The data set that updated</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Views_DataSetView_Dispose_" data-uid="STAIExtensions.Core.Views.DataSetView.Dispose*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_Dispose" data-uid="STAIExtensions.Core.Views.DataSetView.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  <a id="STAIExtensions_Core_Views_DataSetView_Dispose_" data-uid="STAIExtensions.Core.Views.DataSetView.Dispose*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_Dispose_System_Boolean_" data-uid="STAIExtensions.Core.Views.DataSetView.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">disposing</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Views_DataSetView_SetExpiryDate_" data-uid="STAIExtensions.Core.Views.DataSetView.SetExpiryDate*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_SetExpiryDate" data-uid="STAIExtensions.Core.Views.DataSetView.SetExpiryDate">SetExpiryDate()</h4>
+  <div class="markdown level1 summary"><p>Calculates the Next expiry time from the sliding expiry time span</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetExpiryDate()</code></pre>
+  </div>
+  <a id="STAIExtensions_Core_Views_DataSetView_SetExpiryDate_" data-uid="STAIExtensions.Core.Views.DataSetView.SetExpiryDate*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_SetExpiryDate_DateTime_" data-uid="STAIExtensions.Core.Views.DataSetView.SetExpiryDate(DateTime)">SetExpiryDate(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Explicitly set the expiry date of the view</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetExpiryDate(DateTime value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Views_DataSetView_SetViewParameters_" data-uid="STAIExtensions.Core.Views.DataSetView.SetViewParameters*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_SetViewParameters_System_Nullable_Dictionary_System_String_System_Object___" data-uid="STAIExtensions.Core.Views.DataSetView.SetViewParameters(System.Nullable{Dictionary{System.String,System.Object}})">SetViewParameters(Nullable&lt;Dictionary&lt;String, Object&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Sets the view parameters</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetViewParameters(Dictionary&lt;string, object&gt;? parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;&gt;</td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Views_DataSetView_SetViewRefreshDisabled_" data-uid="STAIExtensions.Core.Views.DataSetView.SetViewRefreshDisabled*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_SetViewRefreshDisabled" data-uid="STAIExtensions.Core.Views.DataSetView.SetViewRefreshDisabled">SetViewRefreshDisabled()</h4>
+  <div class="markdown level1 summary"><p>Freezes the view for further updates</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetViewRefreshDisabled()</code></pre>
+  </div>
+  <a id="STAIExtensions_Core_Views_DataSetView_SetViewRefreshEnabled_" data-uid="STAIExtensions.Core.Views.DataSetView.SetViewRefreshEnabled*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_SetViewRefreshEnabled" data-uid="STAIExtensions.Core.Views.DataSetView.SetViewRefreshEnabled">SetViewRefreshEnabled()</h4>
+  <div class="markdown level1 summary"><p>Un-Freezes the view for further updates</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetViewRefreshEnabled()</code></pre>
+  </div>
+  <a id="STAIExtensions_Core_Views_DataSetView_UpdateViewFromDataSet_" data-uid="STAIExtensions.Core.Views.DataSetView.UpdateViewFromDataSet*"></a>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_UpdateViewFromDataSet_STAIExtensions_Abstractions_Data_IDataSet_" data-uid="STAIExtensions.Core.Views.DataSetView.UpdateViewFromDataSet(STAIExtensions.Abstractions.Data.IDataSet)">UpdateViewFromDataSet(IDataSet)</h4>
+  <div class="markdown level1 summary"><p>Updates the View from a DataSet. When overriding this method, call the base.UpdateViewFromDataSet()
+method to continue the standard logic of notifications</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task UpdateViewFromDataSet(IDataSet dataset)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Data.IDataSet.html">IDataSet</a></td>
+        <td><span class="parametername">dataset</span></td>
+        <td><p>The DataSet to use as a source to update the view from</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+  </h3>
+  <h4 id="STAIExtensions_Core_Views_DataSetView_OnViewUpdated" data-uid="STAIExtensions.Core.Views.DataSetView.OnViewUpdated">OnViewUpdated</h4>
+  <div class="markdown level1 summary"><p>Callback event when a view has been updated by DataSets</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler? OnViewUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">EventHandler</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="STAIExtensions.Abstractions.Views.IDataSetView.html">IDataSetView</a>
+  </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+</article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2022 Trevor Mare
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

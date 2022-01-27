@@ -1,0 +1,53 @@
+body {
+
+    backdrop-filter: blur(2px);
+    background-image: url("../resources/background-image.jpg");
+    background-size: cover;
+    overflow: hidden;
+}
+
+#autocollapse > div {
+    width: 100%;
+}
+
+.body-content{
+    width: 96vw;
+}
+
+.sidefilter {
+    top: 60px;
+    width: 20vw;
+    background: rgba(245,249,255,0.69);
+    border-radius: 0.6rem;
+}
+
+.sidetoc {
+    top: 130px;
+    width: 20vw;
+    height: calc(100vh - 160px);
+    background: rgba(245,249,255,0.69);
+    border-radius: 0.6rem;
+}
+
+#toc {
+    background-color: transparent;
+}
+
+#wrapper > div > div.article.row.grid-right {
+    width: 75vw;
+    margin-left: 20vw;
+    margin-top: 60px;
+}
+
+.decalaration, .fieldValue, .parameters, .returns {
+    color:#363535;
+}
+
+#_content {
+    overflow: auto;
+    max-height: calc(100vh - 86px);
+    padding-right: 1.8rem;
+    padding-left: 1.8rem;
+    background: rgba(245,249,255,0.85);
+    border-radius: 0.6rem;
+}

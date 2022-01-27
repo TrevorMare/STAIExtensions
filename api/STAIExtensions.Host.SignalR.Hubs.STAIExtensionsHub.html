@@ -1,0 +1,768 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class STAIExtensionsHub
+   | STAIExtensions </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class STAIExtensionsHub
+   | STAIExtensions ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../resources/st_icon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo_st.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub">
+  
+  
+  <h1 id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub" class="text-break">Class STAIExtensionsHub
+  </h1>
+  <div class="markdown level0 summary"><p>The STAIExtensions SignalR hub. Because SignalR is implemented on a send message based protocol
+and does not allow for a return value on methods, each function exposed here has a response function
+to notify the attached client of the result.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Microsoft.AspNetCore.SignalR.Hub</span></div>
+    <div class="level2"><span class="xref">Microsoft.AspNetCore.SignalR.Hub</span>&lt;<a class="xref" href="STAIExtensions.Host.SignalR.Hubs.ISTAIExtensionsHubClient.html">ISTAIExtensionsHubClient</a>&gt;</div>
+    <div class="level3"><span class="xref">STAIExtensionsHub</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.SignalR.Hub&lt;STAIExtensions.Host.SignalR.Hubs.ISTAIExtensionsHubClient&gt;.Clients</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.SignalR.Hub.Dispose(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.SignalR.Hub.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.SignalR.Hub.Context</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.SignalR.Hub.Groups</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="STAIExtensions.Host.SignalR.Hubs.html">STAIExtensions.Host.SignalR.Hubs</a></h6>
+  <h6><strong>Assembly</strong>: STAIExtensions.Host.SignalR.dll</h6>
+  <h5 id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Authorize(&quot;AuthTokenRequired&quot;)]
+public class STAIExtensionsHub : Hub&lt;ISTAIExtensionsHubClient&gt;, IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub__ctor_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.#ctor*"></a>
+  <h4 id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub__ctor_STAIExtensions_Host_SignalR_Identity_ISignalRUserGroups_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.#ctor(STAIExtensions.Host.SignalR.Identity.ISignalRUserGroups)">STAIExtensionsHub(ISignalRUserGroups)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public STAIExtensionsHub(ISignalRUserGroups signalRUserGroups)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Host.SignalR.Identity.ISignalRUserGroups.html">ISignalRUserGroups</a></td>
+        <td><span class="parametername">signalRUserGroups</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_AttachViewToDataset_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.AttachViewToDataset*"></a>
+  <h4 id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_AttachViewToDataset_System_String_System_String_System_String_System_String_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.AttachViewToDataset(System.String,System.String,System.String,System.String)">AttachViewToDataset(String, String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Attaches a view to a data set</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task AttachViewToDataset(string viewId, string dataSetId, string ownerId, string callBackId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">viewId</span></td>
+        <td><p>The View Id to attach</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">dataSetId</span></td>
+        <td><p>The data set Id to attach to</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ownerId</span></td>
+        <td><p>The owner Id of the view</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">callBackId</span></td>
+        <td><p>The callback Id for the response to be sent on</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_CreateView_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.CreateView*"></a>
+  <h4 id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_CreateView_System_String_System_String_System_String_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.CreateView(System.String,System.String,System.String)">CreateView(String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Creates a new view for the Owner</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task CreateView(string viewType, string ownerId, string callBackId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">viewType</span></td>
+        <td><p>The fully qualified type name</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ownerId</span></td>
+        <td><p>The owner that the view belongs to</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">callBackId</span></td>
+        <td><p>The callback Id for the response to be sent on</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_DetachViewFromDataset_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.DetachViewFromDataset*"></a>
+  <h4 id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_DetachViewFromDataset_System_String_System_String_System_String_System_String_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.DetachViewFromDataset(System.String,System.String,System.String,System.String)">DetachViewFromDataset(String, String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Detaches a view from a data set</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task DetachViewFromDataset(string viewId, string dataSetId, string ownerId, string callBackId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">viewId</span></td>
+        <td><p>The view Id to detach</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">dataSetId</span></td>
+        <td><p>The data set to detach from</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ownerId</span></td>
+        <td><p>The owner of the view</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">callBackId</span></td>
+        <td><p>The callback Id for the response to be sent on</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_GetMyViews_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetMyViews*"></a>
+  <h4 id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_GetMyViews_System_String_System_String_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetMyViews(System.String,System.String)">GetMyViews(String, String)</h4>
+  <div class="markdown level1 summary"><p>Gets a list of active views registered for the owner</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task GetMyViews(string ownerId, string callBackId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ownerId</span></td>
+        <td><p>The owner Id of the views</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">callBackId</span></td>
+        <td><p>The callback Id for the response to be sent on</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_GetRegisteredViews_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetRegisteredViews*"></a>
+  <h4 id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_GetRegisteredViews_System_String_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetRegisteredViews(System.String)">GetRegisteredViews(String)</h4>
+  <div class="markdown level1 summary"><p>Gets all the view types registered in the system</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task GetRegisteredViews(string callBackId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">callBackId</span></td>
+        <td><p>The callback Id for the response to be sent on</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_GetView_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetView*"></a>
+  <h4 id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_GetView_System_String_System_String_System_String_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetView(System.String,System.String,System.String)">GetView(String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Gets a view in it's current state from the collections</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task GetView(string viewId, string ownerId, string callBackId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">viewId</span></td>
+        <td><p>The view Id to retrieve</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ownerId</span></td>
+        <td><p>The owner of the view</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">callBackId</span></td>
+        <td><p>The callback Id for the response to be sent on</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_ListDataSets_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.ListDataSets*"></a>
+  <h4 id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_ListDataSets_System_String_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.ListDataSets(System.String)">ListDataSets(String)</h4>
+  <div class="markdown level1 summary"><p>Lists all the registered data sets in the system</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task ListDataSets(string callBackId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">callBackId</span></td>
+        <td><p>The callback Id for the response to be sent on</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_RemoveView_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.RemoveView*"></a>
+  <h4 id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_RemoveView_System_String_System_String_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.RemoveView(System.String,System.String)">RemoveView(String, String)</h4>
+  <div class="markdown level1 summary"><p>Removes a view and all links from the host</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task RemoveView(string viewId, string callBackId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">viewId</span></td>
+        <td><p>The view Id to remove</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">callBackId</span></td>
+        <td><p>The callback Id for the response to be sent on</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_SetViewAutoRefreshDisabled_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewAutoRefreshDisabled*"></a>
+  <h4 id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_SetViewAutoRefreshDisabled_System_String_System_String_System_String_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewAutoRefreshDisabled(System.String,System.String,System.String)">SetViewAutoRefreshDisabled(String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Freezes a view from updates</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task SetViewAutoRefreshDisabled(string viewId, string ownerId, string callBackId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">viewId</span></td>
+        <td><p>The view Id</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ownerId</span></td>
+        <td><p>The owner of the view</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">callBackId</span></td>
+        <td><p>The callback Id for the response to be sent on</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_SetViewAutoRefreshEnabled_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewAutoRefreshEnabled*"></a>
+  <h4 id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_SetViewAutoRefreshEnabled_System_String_System_String_System_String_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewAutoRefreshEnabled(System.String,System.String,System.String)">SetViewAutoRefreshEnabled(String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Un-Freezes a view from updates</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task SetViewAutoRefreshEnabled(string viewId, string ownerId, string callBackId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">viewId</span></td>
+        <td><p>The view Id</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ownerId</span></td>
+        <td><p>The owner of the view</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">callBackId</span></td>
+        <td><p>The callback Id for the response to be sent on</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_SetViewParameters_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewParameters*"></a>
+  <h4 id="STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_SetViewParameters_System_String_System_String_Dictionary_System_String_System_Object__System_String_" data-uid="STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewParameters(System.String,System.String,Dictionary{System.String,System.Object},System.String)">SetViewParameters(String, String, Dictionary&lt;String, Object&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Sets a view's parameters</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task SetViewParameters(string viewId, string ownerId, Dictionary&lt;string, object&gt; viewParameters, string callBackId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">viewId</span></td>
+        <td><p>The view Id to set the parameters on</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ownerId</span></td>
+        <td><p>The owner of the view</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">viewParameters</span></td>
+        <td><p>The parameter values to set</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">callBackId</span></td>
+        <td><p>The callback Id for the response to be sent on</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+</article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2022 Trevor Mare
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

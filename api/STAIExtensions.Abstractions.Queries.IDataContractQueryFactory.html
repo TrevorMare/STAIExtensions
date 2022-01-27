@@ -1,0 +1,2406 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IDataContractQueryFactory
+   | STAIExtensions </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IDataContractQueryFactory
+   | STAIExtensions ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../resources/st_icon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo_st.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory">
+  
+  
+  <h1 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory" class="text-break">Interface IDataContractQueryFactory
+  </h1>
+  <div class="markdown level0 summary"><p>Interface that defines a factory to build the various default queries with.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="STAIExtensions.Abstractions.Queries.html">STAIExtensions.Abstractions.Queries</a></h6>
+  <h6><strong>Assembly</strong>: STAIExtensions.Abstractions.dll</h6>
+  <h5 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IDataContractQueryFactory</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildAvailabilityQuery_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildAvailabilityQuery*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildAvailabilityQuery_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildAvailabilityQuery(System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildAvailabilityQuery(Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;Availability&gt; BuildAvailabilityQuery(int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Availability.html">Availability</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildAvailabilityQueryWithCustomDate_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildAvailabilityQueryWithCustomDate*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildAvailabilityQueryWithCustomDate_DateTimeOffset_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildAvailabilityQueryWithCustomDate(DateTimeOffset,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildAvailabilityQueryWithCustomDate(DateTimeOffset, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;Availability&gt; BuildAvailabilityQueryWithCustomDate(DateTimeOffset dateTimeOffset, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">dateTimeOffset</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Availability.html">Availability</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildAvailabilityQueryWithTimeSpan_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildAvailabilityQueryWithTimeSpan*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildAvailabilityQueryWithTimeSpan_TimeSpan_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildAvailabilityQueryWithTimeSpan(TimeSpan,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildAvailabilityQueryWithTimeSpan(TimeSpan, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;Availability&gt; BuildAvailabilityQueryWithTimeSpan(TimeSpan agoTimespan, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">agoTimespan</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Availability.html">Availability</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildAvailabilityWithInterval_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildAvailabilityWithInterval*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildAvailabilityWithInterval_System_Int32_STAIExtensions_Abstractions_Common_AgoPeriod_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildAvailabilityWithInterval(System.Int32,STAIExtensions.Abstractions.Common.AgoPeriod,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildAvailabilityWithInterval(Int32, AgoPeriod, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;Availability&gt; BuildAvailabilityWithInterval(int interval, AgoPeriod agoPeriod, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">interval</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Common.AgoPeriod.html">AgoPeriod</a></td>
+        <td><span class="parametername">agoPeriod</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Availability.html">Availability</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildBrowserTimingQuery_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildBrowserTimingQuery*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildBrowserTimingQuery_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildBrowserTimingQuery(System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildBrowserTimingQuery(Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;BrowserTiming&gt; BuildBrowserTimingQuery(int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.BrowserTiming.html">BrowserTiming</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildBrowserTimingQueryWithCustomDate_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildBrowserTimingQueryWithCustomDate*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildBrowserTimingQueryWithCustomDate_DateTimeOffset_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildBrowserTimingQueryWithCustomDate(DateTimeOffset,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildBrowserTimingQueryWithCustomDate(DateTimeOffset, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;BrowserTiming&gt; BuildBrowserTimingQueryWithCustomDate(DateTimeOffset dateTimeOffset, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">dateTimeOffset</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.BrowserTiming.html">BrowserTiming</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildBrowserTimingQueryWithTimeSpan_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildBrowserTimingQueryWithTimeSpan*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildBrowserTimingQueryWithTimeSpan_TimeSpan_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildBrowserTimingQueryWithTimeSpan(TimeSpan,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildBrowserTimingQueryWithTimeSpan(TimeSpan, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;BrowserTiming&gt; BuildBrowserTimingQueryWithTimeSpan(TimeSpan agoTimespan, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">agoTimespan</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.BrowserTiming.html">BrowserTiming</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildBrowserTimingWithInterval_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildBrowserTimingWithInterval*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildBrowserTimingWithInterval_System_Int32_STAIExtensions_Abstractions_Common_AgoPeriod_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildBrowserTimingWithInterval(System.Int32,STAIExtensions.Abstractions.Common.AgoPeriod,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildBrowserTimingWithInterval(Int32, AgoPeriod, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;BrowserTiming&gt; BuildBrowserTimingWithInterval(int interval, AgoPeriod agoPeriod, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">interval</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Common.AgoPeriod.html">AgoPeriod</a></td>
+        <td><span class="parametername">agoPeriod</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.BrowserTiming.html">BrowserTiming</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomEventQuery_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomEventQuery*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomEventQuery_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomEventQuery(System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildCustomEventQuery(Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;CustomEvent&gt; BuildCustomEventQuery(int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.CustomEvent.html">CustomEvent</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomEventQueryWithCustomDate_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomEventQueryWithCustomDate*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomEventQueryWithCustomDate_DateTimeOffset_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomEventQueryWithCustomDate(DateTimeOffset,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildCustomEventQueryWithCustomDate(DateTimeOffset, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;CustomEvent&gt; BuildCustomEventQueryWithCustomDate(DateTimeOffset dateTimeOffset, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">dateTimeOffset</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.CustomEvent.html">CustomEvent</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomEventQueryWithTimeSpan_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomEventQueryWithTimeSpan*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomEventQueryWithTimeSpan_TimeSpan_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomEventQueryWithTimeSpan(TimeSpan,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildCustomEventQueryWithTimeSpan(TimeSpan, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;CustomEvent&gt; BuildCustomEventQueryWithTimeSpan(TimeSpan agoTimespan, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">agoTimespan</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.CustomEvent.html">CustomEvent</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomEventWithInterval_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomEventWithInterval*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomEventWithInterval_System_Int32_STAIExtensions_Abstractions_Common_AgoPeriod_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomEventWithInterval(System.Int32,STAIExtensions.Abstractions.Common.AgoPeriod,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildCustomEventWithInterval(Int32, AgoPeriod, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;CustomEvent&gt; BuildCustomEventWithInterval(int interval, AgoPeriod agoPeriod, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">interval</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Common.AgoPeriod.html">AgoPeriod</a></td>
+        <td><span class="parametername">agoPeriod</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.CustomEvent.html">CustomEvent</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomMetricQuery_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomMetricQuery*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomMetricQuery_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomMetricQuery(System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildCustomMetricQuery(Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;CustomMetric&gt; BuildCustomMetricQuery(int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.CustomMetric.html">CustomMetric</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomMetricQueryWithCustomDate_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomMetricQueryWithCustomDate*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomMetricQueryWithCustomDate_DateTimeOffset_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomMetricQueryWithCustomDate(DateTimeOffset,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildCustomMetricQueryWithCustomDate(DateTimeOffset, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;CustomMetric&gt; BuildCustomMetricQueryWithCustomDate(DateTimeOffset dateTimeOffset, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">dateTimeOffset</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.CustomMetric.html">CustomMetric</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomMetricQueryWithTimeSpan_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomMetricQueryWithTimeSpan*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomMetricQueryWithTimeSpan_TimeSpan_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomMetricQueryWithTimeSpan(TimeSpan,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildCustomMetricQueryWithTimeSpan(TimeSpan, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;CustomMetric&gt; BuildCustomMetricQueryWithTimeSpan(TimeSpan agoTimespan, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">agoTimespan</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.CustomMetric.html">CustomMetric</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomMetricWithInterval_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomMetricWithInterval*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomMetricWithInterval_System_Int32_STAIExtensions_Abstractions_Common_AgoPeriod_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomMetricWithInterval(System.Int32,STAIExtensions.Abstractions.Common.AgoPeriod,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildCustomMetricWithInterval(Int32, AgoPeriod, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;CustomMetric&gt; BuildCustomMetricWithInterval(int interval, AgoPeriod agoPeriod, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">interval</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Common.AgoPeriod.html">AgoPeriod</a></td>
+        <td><span class="parametername">agoPeriod</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.CustomMetric.html">CustomMetric</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomQuery_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomQuery*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomQuery__1_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomQuery``1(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildCustomQuery&lt;T&gt;(String, String, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;T&gt; BuildCustomQuery&lt;T&gt;(string tableName, string alias, int? topRows = null, bool? orderByTimestampDesc = null)
+    where T : DataContract</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tableName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">alias</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomQueryWithCustomDate_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomQueryWithCustomDate*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomQueryWithCustomDate__1_System_String_System_String_DateTimeOffset_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomQueryWithCustomDate``1(System.String,System.String,DateTimeOffset,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildCustomQueryWithCustomDate&lt;T&gt;(String, String, DateTimeOffset, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;T&gt; BuildCustomQueryWithCustomDate&lt;T&gt;(string tableName, string alias, DateTimeOffset dateTimeOffset, int? topRows = null, bool? orderByTimestampDesc = null)
+    where T : DataContract</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tableName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">alias</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">dateTimeOffset</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomQueryWithInterval_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomQueryWithInterval*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomQueryWithInterval__1_System_String_System_String_System_Int32_STAIExtensions_Abstractions_Common_AgoPeriod_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomQueryWithInterval``1(System.String,System.String,System.Int32,STAIExtensions.Abstractions.Common.AgoPeriod,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildCustomQueryWithInterval&lt;T&gt;(String, String, Int32, AgoPeriod, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;T&gt; BuildCustomQueryWithInterval&lt;T&gt;(string tableName, string alias, int interval, AgoPeriod agoPeriod, int? topRows = null, bool? orderByTimestampDesc = null)
+    where T : DataContract</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tableName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">alias</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">interval</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Common.AgoPeriod.html">AgoPeriod</a></td>
+        <td><span class="parametername">agoPeriod</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomQueryWithTimeSpan_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomQueryWithTimeSpan*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildCustomQueryWithTimeSpan__1_System_String_System_String_TimeSpan_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildCustomQueryWithTimeSpan``1(System.String,System.String,TimeSpan,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildCustomQueryWithTimeSpan&lt;T&gt;(String, String, TimeSpan, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;T&gt; BuildCustomQueryWithTimeSpan&lt;T&gt;(string tableName, string alias, TimeSpan agoTimespan, int? topRows = null, bool? orderByTimestampDesc = null)
+    where T : DataContract</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tableName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">alias</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">agoTimespan</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildDependencyQuery_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildDependencyQuery*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildDependencyQuery_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildDependencyQuery(System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildDependencyQuery(Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;Dependency&gt; BuildDependencyQuery(int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Dependency.html">Dependency</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildDependencyQueryWithCustomDate_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildDependencyQueryWithCustomDate*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildDependencyQueryWithCustomDate_DateTimeOffset_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildDependencyQueryWithCustomDate(DateTimeOffset,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildDependencyQueryWithCustomDate(DateTimeOffset, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;Dependency&gt; BuildDependencyQueryWithCustomDate(DateTimeOffset dateTimeOffset, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">dateTimeOffset</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Dependency.html">Dependency</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildDependencyQueryWithTimeSpan_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildDependencyQueryWithTimeSpan*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildDependencyQueryWithTimeSpan_TimeSpan_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildDependencyQueryWithTimeSpan(TimeSpan,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildDependencyQueryWithTimeSpan(TimeSpan, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;Dependency&gt; BuildDependencyQueryWithTimeSpan(TimeSpan agoTimespan, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">agoTimespan</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Dependency.html">Dependency</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildDependencyWithInterval_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildDependencyWithInterval*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildDependencyWithInterval_System_Int32_STAIExtensions_Abstractions_Common_AgoPeriod_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildDependencyWithInterval(System.Int32,STAIExtensions.Abstractions.Common.AgoPeriod,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildDependencyWithInterval(Int32, AgoPeriod, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;Dependency&gt; BuildDependencyWithInterval(int interval, AgoPeriod agoPeriod, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">interval</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Common.AgoPeriod.html">AgoPeriod</a></td>
+        <td><span class="parametername">agoPeriod</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Dependency.html">Dependency</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildExceptionQuery_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildExceptionQuery*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildExceptionQuery_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildExceptionQuery(System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildExceptionQuery(Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;AIException&gt; BuildExceptionQuery(int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.AIException.html">AIException</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildExceptionQueryWithCustomDate_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildExceptionQueryWithCustomDate*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildExceptionQueryWithCustomDate_DateTimeOffset_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildExceptionQueryWithCustomDate(DateTimeOffset,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildExceptionQueryWithCustomDate(DateTimeOffset, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;AIException&gt; BuildExceptionQueryWithCustomDate(DateTimeOffset dateTimeOffset, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">dateTimeOffset</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.AIException.html">AIException</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildExceptionQueryWithTimeSpan_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildExceptionQueryWithTimeSpan*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildExceptionQueryWithTimeSpan_TimeSpan_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildExceptionQueryWithTimeSpan(TimeSpan,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildExceptionQueryWithTimeSpan(TimeSpan, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;AIException&gt; BuildExceptionQueryWithTimeSpan(TimeSpan agoTimespan, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">agoTimespan</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.AIException.html">AIException</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildExceptionWithInterval_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildExceptionWithInterval*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildExceptionWithInterval_System_Int32_STAIExtensions_Abstractions_Common_AgoPeriod_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildExceptionWithInterval(System.Int32,STAIExtensions.Abstractions.Common.AgoPeriod,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildExceptionWithInterval(Int32, AgoPeriod, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;AIException&gt; BuildExceptionWithInterval(int interval, AgoPeriod agoPeriod, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">interval</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Common.AgoPeriod.html">AgoPeriod</a></td>
+        <td><span class="parametername">agoPeriod</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.AIException.html">AIException</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildPageViewQuery_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildPageViewQuery*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildPageViewQuery_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildPageViewQuery(System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildPageViewQuery(Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;PageView&gt; BuildPageViewQuery(int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.PageView.html">PageView</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildPageViewQueryWithCustomDate_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildPageViewQueryWithCustomDate*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildPageViewQueryWithCustomDate_DateTimeOffset_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildPageViewQueryWithCustomDate(DateTimeOffset,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildPageViewQueryWithCustomDate(DateTimeOffset, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;PageView&gt; BuildPageViewQueryWithCustomDate(DateTimeOffset dateTimeOffset, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">dateTimeOffset</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.PageView.html">PageView</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildPageViewQueryWithTimeSpan_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildPageViewQueryWithTimeSpan*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildPageViewQueryWithTimeSpan_TimeSpan_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildPageViewQueryWithTimeSpan(TimeSpan,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildPageViewQueryWithTimeSpan(TimeSpan, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;PageView&gt; BuildPageViewQueryWithTimeSpan(TimeSpan agoTimespan, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">agoTimespan</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.PageView.html">PageView</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildPageViewWithInterval_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildPageViewWithInterval*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildPageViewWithInterval_System_Int32_STAIExtensions_Abstractions_Common_AgoPeriod_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildPageViewWithInterval(System.Int32,STAIExtensions.Abstractions.Common.AgoPeriod,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildPageViewWithInterval(Int32, AgoPeriod, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;PageView&gt; BuildPageViewWithInterval(int interval, AgoPeriod agoPeriod, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">interval</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Common.AgoPeriod.html">AgoPeriod</a></td>
+        <td><span class="parametername">agoPeriod</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.PageView.html">PageView</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildPerformanceCounterQuery_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildPerformanceCounterQuery*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildPerformanceCounterQuery_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildPerformanceCounterQuery(System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildPerformanceCounterQuery(Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;PerformanceCounter&gt; BuildPerformanceCounterQuery(int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.PerformanceCounter.html">PerformanceCounter</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildPerformanceCounterQueryWithCustomDate_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildPerformanceCounterQueryWithCustomDate*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildPerformanceCounterQueryWithCustomDate_DateTimeOffset_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildPerformanceCounterQueryWithCustomDate(DateTimeOffset,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildPerformanceCounterQueryWithCustomDate(DateTimeOffset, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;PerformanceCounter&gt; BuildPerformanceCounterQueryWithCustomDate(DateTimeOffset dateTimeOffset, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">dateTimeOffset</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.PerformanceCounter.html">PerformanceCounter</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildPerformanceCounterQueryWithTimeSpan_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildPerformanceCounterQueryWithTimeSpan*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildPerformanceCounterQueryWithTimeSpan_TimeSpan_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildPerformanceCounterQueryWithTimeSpan(TimeSpan,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildPerformanceCounterQueryWithTimeSpan(TimeSpan, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;PerformanceCounter&gt; BuildPerformanceCounterQueryWithTimeSpan(TimeSpan agoTimespan, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">agoTimespan</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.PerformanceCounter.html">PerformanceCounter</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildPerformanceCounterWithInterval_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildPerformanceCounterWithInterval*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildPerformanceCounterWithInterval_System_Int32_STAIExtensions_Abstractions_Common_AgoPeriod_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildPerformanceCounterWithInterval(System.Int32,STAIExtensions.Abstractions.Common.AgoPeriod,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildPerformanceCounterWithInterval(Int32, AgoPeriod, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;PerformanceCounter&gt; BuildPerformanceCounterWithInterval(int interval, AgoPeriod agoPeriod, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">interval</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Common.AgoPeriod.html">AgoPeriod</a></td>
+        <td><span class="parametername">agoPeriod</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.PerformanceCounter.html">PerformanceCounter</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildRequestQuery_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildRequestQuery*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildRequestQuery_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildRequestQuery(System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildRequestQuery(Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;Request&gt; BuildRequestQuery(int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Request.html">Request</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildRequestQueryWithCustomDate_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildRequestQueryWithCustomDate*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildRequestQueryWithCustomDate_DateTimeOffset_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildRequestQueryWithCustomDate(DateTimeOffset,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildRequestQueryWithCustomDate(DateTimeOffset, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;Request&gt; BuildRequestQueryWithCustomDate(DateTimeOffset dateTimeOffset, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">dateTimeOffset</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Request.html">Request</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildRequestQueryWithTimeSpan_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildRequestQueryWithTimeSpan*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildRequestQueryWithTimeSpan_TimeSpan_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildRequestQueryWithTimeSpan(TimeSpan,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildRequestQueryWithTimeSpan(TimeSpan, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;Request&gt; BuildRequestQueryWithTimeSpan(TimeSpan agoTimespan, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">agoTimespan</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Request.html">Request</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildRequestWithInterval_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildRequestWithInterval*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildRequestWithInterval_System_Int32_STAIExtensions_Abstractions_Common_AgoPeriod_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildRequestWithInterval(System.Int32,STAIExtensions.Abstractions.Common.AgoPeriod,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildRequestWithInterval(Int32, AgoPeriod, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;Request&gt; BuildRequestWithInterval(int interval, AgoPeriod agoPeriod, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">interval</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Common.AgoPeriod.html">AgoPeriod</a></td>
+        <td><span class="parametername">agoPeriod</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Request.html">Request</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildTraceQuery_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildTraceQuery*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildTraceQuery_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildTraceQuery(System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildTraceQuery(Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;Trace&gt; BuildTraceQuery(int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Trace.html">Trace</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildTraceQueryWithCustomDate_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildTraceQueryWithCustomDate*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildTraceQueryWithCustomDate_DateTimeOffset_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildTraceQueryWithCustomDate(DateTimeOffset,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildTraceQueryWithCustomDate(DateTimeOffset, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;Trace&gt; BuildTraceQueryWithCustomDate(DateTimeOffset dateTimeOffset, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTimeOffset</span></td>
+        <td><span class="parametername">dateTimeOffset</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Trace.html">Trace</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildTraceQueryWithTimeSpan_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildTraceQueryWithTimeSpan*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildTraceQueryWithTimeSpan_TimeSpan_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildTraceQueryWithTimeSpan(TimeSpan,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildTraceQueryWithTimeSpan(TimeSpan, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;Trace&gt; BuildTraceQueryWithTimeSpan(TimeSpan agoTimespan, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td><span class="parametername">agoTimespan</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Trace.html">Trace</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildTraceWithInterval_" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildTraceWithInterval*"></a>
+  <h4 id="STAIExtensions_Abstractions_Queries_IDataContractQueryFactory_BuildTraceWithInterval_System_Int32_STAIExtensions_Abstractions_Common_AgoPeriod_System_Nullable_System_Int32__System_Nullable_System_Boolean__" data-uid="STAIExtensions.Abstractions.Queries.IDataContractQueryFactory.BuildTraceWithInterval(System.Int32,STAIExtensions.Abstractions.Common.AgoPeriod,System.Nullable{System.Int32},System.Nullable{System.Boolean})">BuildTraceWithInterval(Int32, AgoPeriod, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DataContractQuery&lt;Trace&gt; BuildTraceWithInterval(int interval, AgoPeriod agoPeriod, int? topRows = null, bool? orderByTimestampDesc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">interval</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Common.AgoPeriod.html">AgoPeriod</a></td>
+        <td><span class="parametername">agoPeriod</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">topRows</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">orderByTimestampDesc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Queries.DataContractQuery-1.html">DataContractQuery</a>&lt;<a class="xref" href="STAIExtensions.Abstractions.DataContracts.Models.Trace.html">Trace</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2022 Trevor Mare
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

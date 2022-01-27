@@ -1,0 +1,616 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ViewCollection
+   | STAIExtensions </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ViewCollection
+   | STAIExtensions ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../resources/st_icon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo_st.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-12">
+            <article class="content wrap" id="_content" data-uid="STAIExtensions.Core.Collections.ViewCollection">
+  
+  
+  <h1 id="STAIExtensions_Core_Collections_ViewCollection" data-uid="STAIExtensions.Core.Collections.ViewCollection" class="text-break">Class ViewCollection
+  </h1>
+  <div class="markdown level0 summary"><p>Default implementation of the View Collection. This class manages all the views
+that are created within the system</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ViewCollection</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="STAIExtensions.Abstractions.Collections.IViewCollection.html">IViewCollection</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="STAIExtensions.Core.Collections.html">STAIExtensions.Core.Collections</a></h6>
+  <h6><strong>Assembly</strong>: STAIExtensions.Core.dll</h6>
+  <h5 id="STAIExtensions_Core_Collections_ViewCollection_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ViewCollection : IViewCollection</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="STAIExtensions_Core_Collections_ViewCollection__ctor_" data-uid="STAIExtensions.Core.Collections.ViewCollection.#ctor*"></a>
+  <h4 id="STAIExtensions_Core_Collections_ViewCollection__ctor_STAIExtensions_Abstractions_Collections_ViewCollectionOptions_" data-uid="STAIExtensions.Core.Collections.ViewCollection.#ctor(STAIExtensions.Abstractions.Collections.ViewCollectionOptions)">ViewCollection(ViewCollectionOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ViewCollection(ViewCollectionOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Collections.ViewCollectionOptions.html">ViewCollectionOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="STAIExtensions_Core_Collections_ViewCollection_DefaultSlidingExpiryTimeSpan_" data-uid="STAIExtensions.Core.Collections.ViewCollection.DefaultSlidingExpiryTimeSpan*"></a>
+  <h4 id="STAIExtensions_Core_Collections_ViewCollection_DefaultSlidingExpiryTimeSpan" data-uid="STAIExtensions.Core.Collections.ViewCollection.DefaultSlidingExpiryTimeSpan">DefaultSlidingExpiryTimeSpan</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the sliding expiration timespan on the View that will be added on each View Retrieval <a class="xref" href="STAIExtensions.Core.Collections.ViewCollection.html#STAIExtensions_Core_Collections_ViewCollection_GetView_System_String_System_String_">GetView(String, String)</a>
+The view is initialised with from the value passed in the options.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? DefaultSlidingExpiryTimeSpan { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Collections_ViewCollection_MaximumViews_" data-uid="STAIExtensions.Core.Collections.ViewCollection.MaximumViews*"></a>
+  <h4 id="STAIExtensions_Core_Collections_ViewCollection_MaximumViews" data-uid="STAIExtensions.Core.Collections.ViewCollection.MaximumViews">MaximumViews</h4>
+  <div class="markdown level1 summary"><p>Gets a value from the options indicating the total number of allowed views that can be created globally</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? MaximumViews { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Collections_ViewCollection_UseStrictViews_" data-uid="STAIExtensions.Core.Collections.ViewCollection.UseStrictViews*"></a>
+  <h4 id="STAIExtensions_Core_Collections_ViewCollection_UseStrictViews" data-uid="STAIExtensions.Core.Collections.ViewCollection.UseStrictViews">UseStrictViews</h4>
+  <div class="markdown level1 summary"><p>Gets a value from the options indicating if the owner Id of a view can be blank or empty. This will allow
+for shared views between users but might have some complications when shared parameters are set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UseStrictViews { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Collections_ViewCollection_ViewCount_" data-uid="STAIExtensions.Core.Collections.ViewCollection.ViewCount*"></a>
+  <h4 id="STAIExtensions_Core_Collections_ViewCollection_ViewCount" data-uid="STAIExtensions.Core.Collections.ViewCollection.ViewCount">ViewCount</h4>
+  <div class="markdown level1 summary"><p>Gets the current number of active views in the collection</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ViewCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Collections_ViewCollection_ViewsExpire_" data-uid="STAIExtensions.Core.Collections.ViewCollection.ViewsExpire*"></a>
+  <h4 id="STAIExtensions_Core_Collections_ViewCollection_ViewsExpire" data-uid="STAIExtensions.Core.Collections.ViewCollection.ViewsExpire">ViewsExpire</h4>
+  <div class="markdown level1 summary"><p>Gets a value from the options indicating if Views should expire after a period. The expiration of
+a view is reset each time the GetView <a class="xref" href="STAIExtensions.Core.Collections.ViewCollection.html#STAIExtensions_Core_Collections_ViewCollection_GetView_System_String_System_String_">GetView(String, String)</a> is called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ViewsExpire { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="STAIExtensions_Core_Collections_ViewCollection_CreateView_" data-uid="STAIExtensions.Core.Collections.ViewCollection.CreateView*"></a>
+  <h4 id="STAIExtensions_Core_Collections_ViewCollection_CreateView_System_String_System_String_" data-uid="STAIExtensions.Core.Collections.ViewCollection.CreateView(System.String,System.String)">CreateView(String, String)</h4>
+  <div class="markdown level1 summary"><p>Creates a new user instance view of the specified type</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDataSetView CreateView(string viewTypeName, string ownerId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">viewTypeName</span></td>
+        <td><p>The fully qualified type name of of the view to create an instance of</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ownerId</span></td>
+        <td><p>The optional user/owner Id of this view</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Views.IDataSetView.html">IDataSetView</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Collections_ViewCollection_GetExpiredViews_" data-uid="STAIExtensions.Core.Collections.ViewCollection.GetExpiredViews*"></a>
+  <h4 id="STAIExtensions_Core_Collections_ViewCollection_GetExpiredViews" data-uid="STAIExtensions.Core.Collections.ViewCollection.GetExpiredViews">GetExpiredViews()</h4>
+  <div class="markdown level1 summary"><p>Gets a list of views that has expired and needs to be removed from the collection</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IDataSetView&gt; GetExpiredViews()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="STAIExtensions.Abstractions.Views.IDataSetView.html">IDataSetView</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Collections_ViewCollection_GetMyViews_" data-uid="STAIExtensions.Core.Collections.ViewCollection.GetMyViews*"></a>
+  <h4 id="STAIExtensions_Core_Collections_ViewCollection_GetMyViews_System_String_" data-uid="STAIExtensions.Core.Collections.ViewCollection.GetMyViews(System.String)">GetMyViews(String)</h4>
+  <div class="markdown level1 summary"><p>Gets a list of views from the internal collection by Owner id</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;MyViewInformation&gt; GetMyViews(string ownerId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ownerId</span></td>
+        <td><p>The owner Id to find the views for</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">STAIExtensions.Abstractions.Common.MyViewInformation</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Collections_ViewCollection_GetView_" data-uid="STAIExtensions.Core.Collections.ViewCollection.GetView*"></a>
+  <h4 id="STAIExtensions_Core_Collections_ViewCollection_GetView_System_String_System_String_" data-uid="STAIExtensions.Core.Collections.ViewCollection.GetView(System.String,System.String)">GetView(String, String)</h4>
+  <div class="markdown level1 summary"><p>Retrieves an active view in it's current state. This method will reset the expiration date and will have to be called
+within the time frame specified to keep the view alive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDataSetView GetView(string id, string ownerId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The unique Id of the View</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ownerId</span></td>
+        <td><p>The optional owner identifier that created the view</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Views.IDataSetView.html">IDataSetView</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Collections_ViewCollection_GetViewForUpdate_" data-uid="STAIExtensions.Core.Collections.ViewCollection.GetViewForUpdate*"></a>
+  <h4 id="STAIExtensions_Core_Collections_ViewCollection_GetViewForUpdate_System_String_" data-uid="STAIExtensions.Core.Collections.ViewCollection.GetViewForUpdate(System.String)">GetViewForUpdate(String)</h4>
+  <div class="markdown level1 summary"><p>Internal method that will retrieve a view without the Owner id specified. This
+should only be used to retrieve a view from the collection for update logic</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDataSetView GetViewForUpdate(string id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The View Id that requires an update</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Views.IDataSetView.html">IDataSetView</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Collections_ViewCollection_RemoveView_" data-uid="STAIExtensions.Core.Collections.ViewCollection.RemoveView*"></a>
+  <h4 id="STAIExtensions_Core_Collections_ViewCollection_RemoveView_STAIExtensions_Abstractions_Views_IDataSetView_" data-uid="STAIExtensions.Core.Collections.ViewCollection.RemoveView(STAIExtensions.Abstractions.Views.IDataSetView)">RemoveView(IDataSetView)</h4>
+  <div class="markdown level1 summary"><p>Removes a view from the collection</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveView(IDataSetView expiredView)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Views.IDataSetView.html">IDataSetView</a></td>
+        <td><span class="parametername">expiredView</span></td>
+        <td><p>The view to remove</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Collections_ViewCollection_RemoveView_" data-uid="STAIExtensions.Core.Collections.ViewCollection.RemoveView*"></a>
+  <h4 id="STAIExtensions_Core_Collections_ViewCollection_RemoveView_System_String_" data-uid="STAIExtensions.Core.Collections.ViewCollection.RemoveView(System.String)">RemoveView(String)</h4>
+  <div class="markdown level1 summary"><p>Removes a view from the collection</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveView(string viewId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">viewId</span></td>
+        <td><p>The unique view Id to remove</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="STAIExtensions_Core_Collections_ViewCollection_SetViewParameters_" data-uid="STAIExtensions.Core.Collections.ViewCollection.SetViewParameters*"></a>
+  <h4 id="STAIExtensions_Core_Collections_ViewCollection_SetViewParameters_System_String_System_String_System_Nullable_Dictionary_System_String_System_Object___" data-uid="STAIExtensions.Core.Collections.ViewCollection.SetViewParameters(System.String,System.String,System.Nullable{Dictionary{System.String,System.Object}})">SetViewParameters(String, String, Nullable&lt;Dictionary&lt;String, Object&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Sets the View Parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetViewParameters(string viewId, string ownerId, Dictionary&lt;string, object&gt;? viewParameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">viewId</span></td>
+        <td><p>The unique View Id to set the parameters on</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ownerId</span></td>
+        <td><p>The owner of the view</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Dictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;&gt;</td>
+        <td><span class="parametername">viewParameters</span></td>
+        <td><p>The parameter values to set on the view</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+  </h3>
+  <h4 id="STAIExtensions_Core_Collections_ViewCollection_OnDataSetViewUpdated" data-uid="STAIExtensions.Core.Collections.ViewCollection.OnDataSetViewUpdated">OnDataSetViewUpdated</h4>
+  <div class="markdown level1 summary"><p>Event that is fired when a DataSetView object is updated</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event IViewCollection.OnDataSetViewUpdatedHandler OnDataSetViewUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="STAIExtensions.Abstractions.Collections.IViewCollection.OnDataSetViewUpdatedHandler.html">IViewCollection.OnDataSetViewUpdatedHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="STAIExtensions.Abstractions.Collections.IViewCollection.html">IViewCollection</a>
+  </div>
+</article>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2022 Trevor Mare
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
