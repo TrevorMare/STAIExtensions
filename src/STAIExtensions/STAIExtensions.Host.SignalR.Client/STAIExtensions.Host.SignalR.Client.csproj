@@ -10,7 +10,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <NoWarn>$(NoWarn);1591</NoWarn>
-        <PackageVersion>1.0.1</PackageVersion>
+        <PackageVersion>1.0.2</PackageVersion>
         <Title>STAIExtensions Host SignalR Client</Title>
         <Authors>Trevor Maré</Authors>
         <Description>STAIExtensions SignalR Client</Description>
@@ -19,7 +19,8 @@
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>application-insights;custom-views;grpc;signalr;STAIExtensions;trevor;mare;staiextensions-data-azuredataexplorer;azuredataexplorer;dotnet</PackageTags>
-        <PackageReleaseNotes>v1.0.1 - Added XML Documentation and package updates
+        <PackageReleaseNotes>v1.0.2 - Updated packages to include friendly names
+v1.0.1 - Added XML Documentation and package updates
 v1.0.0 - Initial Release
         </PackageReleaseNotes>
         <PackageIcon>content\st_icon.png</PackageIcon>
@@ -38,7 +39,7 @@ v1.0.0 - Initial Release
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="6.0.1" />
-        <PackageReference Include="STAIExtensions.Abstractions" Version="1.0.7" />
+        <PackageReference Include="STAIExtensions.Abstractions" Version="1.0.9" />
     </ItemGroup>
 
     <ItemGroup>

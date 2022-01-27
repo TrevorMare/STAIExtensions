@@ -1,4 +1,5 @@
-﻿using STAIExtensions.Abstractions.Data;
+﻿using Microsoft.ApplicationInsights;
+using STAIExtensions.Abstractions.Data;
 using STAIExtensions.Data.AzureDataExplorer;
 using STAIExtensions.Default.DataSets.Options;
 
@@ -10,11 +11,13 @@ public class ServiceRunner : IHostedService
     private IDataSet _ds;
     private readonly string _apiKey;
     private readonly string _appId;
+    private readonly TelemetryClient? _telemetryClient;
 
     public ServiceRunner(IConfiguration configuration)
     {
         _apiKey = configuration["ReadTelemetryApiKey"];
         _appId = configuration["ReadTelemetryAppId"];
+        _telemetryClient = STAIExtensions.Abstractions.DependencyExtensions.TelemetryClient;
     }
     
     public Task StartAsync(CancellationToken cancellationToken)
@@ -29,7 +32,18 @@ public class ServiceRunner : IHostedService
         
         // 3) Start the auto refresh on the dataset.
         _ds.StartAutoRefresh(TimeSpan.FromSeconds(30), cancellationToken);
-        
+
+
+        Task.Run(async () =>
+        {
+            while (cancellationToken.IsCancellationRequested == false)
+            {
+                _telemetryClient?.TrackAvailability(nameof(ServiceRunner), DateTimeOffset.Now,
+                    TimeSpan.FromMilliseconds(1), "localhost", true);
+                await Task.Delay(5000);
+            }
+        });
+
         return Task.CompletedTask;
     }
 

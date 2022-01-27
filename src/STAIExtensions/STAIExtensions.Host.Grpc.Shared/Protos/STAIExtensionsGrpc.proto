@@ -99,6 +99,7 @@ message IDataSetView {
   repeated DataSetViewParameterDescriptor ViewParameterDescriptors = 6;
   google.protobuf.Duration SlidingExpiration = 7;
   string ViewTypeName = 8;
+  string FriendlyViewTypeName = 9;
 }
 
 message IDataSetViewJson {
@@ -109,6 +110,7 @@ message MyViewResponse {
   message MyView {
     string ViewId = 1;
     string ViewTypeName = 2;
+    string FriendlyViewTypeName = 3;
   }
   repeated MyView Items = 1;
 }
@@ -136,12 +138,14 @@ message DataSetInformation {
   string DataSetName = 1;
   string DataSetId = 2;
   string DataSetType = 3;
+  string FriendlyDataSetType = 4;
 }
 
 message DataSetViewInformation {
   string ViewName = 1;
   string ViewTypeName = 2;
-  repeated DataSetViewParameterDescriptor DataSetViewParameterDescriptors = 3;
+  string FriendlyViewTypeName = 3;
+  repeated DataSetViewParameterDescriptor DataSetViewParameterDescriptors = 4;
 }
 
 // Shared

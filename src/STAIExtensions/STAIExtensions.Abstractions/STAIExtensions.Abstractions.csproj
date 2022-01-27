@@ -9,7 +9,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <NoWarn>$(NoWarn);1591</NoWarn>
-        <PackageVersion>1.0.7</PackageVersion>
+        <PackageVersion>1.0.9</PackageVersion>
         <Title>STAIExtensions Abstractions</Title>
         <Authors>Trevor Maré</Authors>
         <Description>General abstractions for the ST Application Insights Extensions</Description>
@@ -19,7 +19,9 @@
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>application-insights;custom-views;grpc;signalr;STAIExtensions;trevor;mare;staiextensions-abstractions;dotnet</PackageTags>
-        <PackageReleaseNotes>v1.0.7 - Include XML Documentation files
+        <PackageReleaseNotes>v1.0.9 - Added friendly type names
+v1.0.8 - Update view on attach to dataset
+v1.0.7 - Include XML Documentation files
 v1.0.6 - Removed Exists Deep from Sized List
 v1.0.5 - Project cleanup
 v1.0.4 - Removed hard dependency on TelemetryClient

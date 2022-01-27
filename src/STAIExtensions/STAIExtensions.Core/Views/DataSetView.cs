@@ -28,10 +28,24 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     
     #region Properties
 
+    /// <summary>
+    /// Gets the view Type fully qualified name
+    /// </summary>
     public string ViewTypeName => this.GetType().AssemblyQualifiedName;
+
+    /// <summary>
+    /// Gets the view type short name 
+    /// </summary>
+    public string FriendlyViewTypeName => this.GetType().Name;
     
+    /// <summary>
+    /// Gets a value indicating if the auto refresh is enabled
+    /// </summary>
     public bool RefreshEnabled { get; protected set; } = true;
     
+    /// <summary>
+    /// Gets the supported view parameters
+    /// </summary>
     public virtual IEnumerable<DataSetViewParameterDescriptor>? ViewParameterDescriptors { get; } = null;
     
     /// <summary>
@@ -71,7 +85,7 @@ public abstract class DataSetView : Abstractions.Views.IDataSetView
     /// <summary>
     /// Gets the view parameters that were set via the <see cref="SetViewParameters"/> method
     /// </summary>
-    protected Dictionary<string, object>? ViewParameters { get; private set; } = null;
+    protected Dictionary<string, object?>? ViewParameters { get; private set; } = null;
     #endregion
 
     #region Events

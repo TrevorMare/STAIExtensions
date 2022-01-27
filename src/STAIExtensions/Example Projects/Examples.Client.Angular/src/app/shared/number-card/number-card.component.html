@@ -1,0 +1,13 @@
+<nb-card accent="primary">
+    <nb-card-body>
+        <div class="card-body-container" [ngClass]="{'selected': selected}">
+            <div class="icon-container">
+                <nb-icon icon="{{ cardIcon }}"  status="info"></nb-icon>
+            </div>
+            <div class="detail">
+                <label class="label-text">{{ cardLabel }}</label>
+                <label class="total-text">{{ total }}</label>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

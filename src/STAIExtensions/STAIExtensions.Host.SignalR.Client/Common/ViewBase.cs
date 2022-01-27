@@ -34,6 +34,11 @@ public class ViewBase
     public string ViewTypeName { get; set;}
     
     /// <summary>
+    /// Gets the fully qualified view type name 
+    /// </summary>
+    public string FriendlyViewTypeName { get; set;}
+    
+    /// <summary>
     /// Gets a value indicating if the view is enabled
     /// </summary>
     public bool RefreshEnabled { get; set;}

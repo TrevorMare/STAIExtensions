@@ -666,12 +666,12 @@ references:
   commentId: T:STAIExtensions.Abstractions.Common.DataSetInformation
   fullName: STAIExtensions.Abstractions.Common.DataSetInformation
   nameWithType: DataSetInformation
-- uid: STAIExtensions.Abstractions.Common.DataSetInformation.#ctor(System.String,System.String,System.String)
-  name: DataSetInformation(String, String, String)
-  href: api/STAIExtensions.Abstractions.Common.DataSetInformation.html#STAIExtensions_Abstractions_Common_DataSetInformation__ctor_System_String_System_String_System_String_
-  commentId: M:STAIExtensions.Abstractions.Common.DataSetInformation.#ctor(System.String,System.String,System.String)
-  fullName: STAIExtensions.Abstractions.Common.DataSetInformation.DataSetInformation(System.String, System.String, System.String)
-  nameWithType: DataSetInformation.DataSetInformation(String, String, String)
+- uid: STAIExtensions.Abstractions.Common.DataSetInformation.#ctor(System.String,System.String,System.String,System.String)
+  name: DataSetInformation(String, String, String, String)
+  href: api/STAIExtensions.Abstractions.Common.DataSetInformation.html#STAIExtensions_Abstractions_Common_DataSetInformation__ctor_System_String_System_String_System_String_System_String_
+  commentId: M:STAIExtensions.Abstractions.Common.DataSetInformation.#ctor(System.String,System.String,System.String,System.String)
+  fullName: STAIExtensions.Abstractions.Common.DataSetInformation.DataSetInformation(System.String, System.String, System.String, System.String)
+  nameWithType: DataSetInformation.DataSetInformation(String, String, String, String)
 - uid: STAIExtensions.Abstractions.Common.DataSetInformation.#ctor*
   name: DataSetInformation
   href: api/STAIExtensions.Abstractions.Common.DataSetInformation.html#STAIExtensions_Abstractions_Common_DataSetInformation__ctor_
@@ -718,6 +718,19 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Abstractions.Common.DataSetInformation.DataSetType
   nameWithType: DataSetInformation.DataSetType
+- uid: STAIExtensions.Abstractions.Common.DataSetInformation.FriendlyDataSetType
+  name: FriendlyDataSetType
+  href: api/STAIExtensions.Abstractions.Common.DataSetInformation.html#STAIExtensions_Abstractions_Common_DataSetInformation_FriendlyDataSetType
+  commentId: P:STAIExtensions.Abstractions.Common.DataSetInformation.FriendlyDataSetType
+  fullName: STAIExtensions.Abstractions.Common.DataSetInformation.FriendlyDataSetType
+  nameWithType: DataSetInformation.FriendlyDataSetType
+- uid: STAIExtensions.Abstractions.Common.DataSetInformation.FriendlyDataSetType*
+  name: FriendlyDataSetType
+  href: api/STAIExtensions.Abstractions.Common.DataSetInformation.html#STAIExtensions_Abstractions_Common_DataSetInformation_FriendlyDataSetType_
+  commentId: Overload:STAIExtensions.Abstractions.Common.DataSetInformation.FriendlyDataSetType
+  isSpec: "True"
+  fullName: STAIExtensions.Abstractions.Common.DataSetInformation.FriendlyDataSetType
+  nameWithType: DataSetInformation.FriendlyDataSetType
 - uid: STAIExtensions.Abstractions.Common.EnumExtensions
   name: EnumExtensions
   href: api/STAIExtensions.Abstractions.Common.EnumExtensions.html
@@ -1962,6 +1975,19 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Abstractions.Data.IDataSet.DataSetType
   nameWithType: IDataSet.DataSetType
+- uid: STAIExtensions.Abstractions.Data.IDataSet.FriendlyDataSetType
+  name: FriendlyDataSetType
+  href: api/STAIExtensions.Abstractions.Data.IDataSet.html#STAIExtensions_Abstractions_Data_IDataSet_FriendlyDataSetType
+  commentId: P:STAIExtensions.Abstractions.Data.IDataSet.FriendlyDataSetType
+  fullName: STAIExtensions.Abstractions.Data.IDataSet.FriendlyDataSetType
+  nameWithType: IDataSet.FriendlyDataSetType
+- uid: STAIExtensions.Abstractions.Data.IDataSet.FriendlyDataSetType*
+  name: FriendlyDataSetType
+  href: api/STAIExtensions.Abstractions.Data.IDataSet.html#STAIExtensions_Abstractions_Data_IDataSet_FriendlyDataSetType_
+  commentId: Overload:STAIExtensions.Abstractions.Data.IDataSet.FriendlyDataSetType
+  isSpec: "True"
+  fullName: STAIExtensions.Abstractions.Data.IDataSet.FriendlyDataSetType
+  nameWithType: IDataSet.FriendlyDataSetType
 - uid: STAIExtensions.Abstractions.Data.IDataSet.OnDataSetUpdated
   name: OnDataSetUpdated
   href: api/STAIExtensions.Abstractions.Data.IDataSet.html#STAIExtensions_Abstractions_Data_IDataSet_OnDataSetUpdated
@@ -4817,6 +4843,19 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Abstractions.Views.IDataSetView.ExpiryDate
   nameWithType: IDataSetView.ExpiryDate
+- uid: STAIExtensions.Abstractions.Views.IDataSetView.FriendlyViewTypeName
+  name: FriendlyViewTypeName
+  href: api/STAIExtensions.Abstractions.Views.IDataSetView.html#STAIExtensions_Abstractions_Views_IDataSetView_FriendlyViewTypeName
+  commentId: P:STAIExtensions.Abstractions.Views.IDataSetView.FriendlyViewTypeName
+  fullName: STAIExtensions.Abstractions.Views.IDataSetView.FriendlyViewTypeName
+  nameWithType: IDataSetView.FriendlyViewTypeName
+- uid: STAIExtensions.Abstractions.Views.IDataSetView.FriendlyViewTypeName*
+  name: FriendlyViewTypeName
+  href: api/STAIExtensions.Abstractions.Views.IDataSetView.html#STAIExtensions_Abstractions_Views_IDataSetView_FriendlyViewTypeName_
+  commentId: Overload:STAIExtensions.Abstractions.Views.IDataSetView.FriendlyViewTypeName
+  isSpec: "True"
+  fullName: STAIExtensions.Abstractions.Views.IDataSetView.FriendlyViewTypeName
+  nameWithType: IDataSetView.FriendlyViewTypeName
 - uid: STAIExtensions.Abstractions.Views.IDataSetView.Id
   name: Id
   href: api/STAIExtensions.Abstractions.Views.IDataSetView.html#STAIExtensions_Abstractions_Views_IDataSetView_Id
@@ -5895,6 +5934,19 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Core.DataSets.DataSet.ExecuteQueries
   nameWithType: DataSet.ExecuteQueries
+- uid: STAIExtensions.Core.DataSets.DataSet.FriendlyDataSetType
+  name: FriendlyDataSetType
+  href: api/STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_FriendlyDataSetType
+  commentId: P:STAIExtensions.Core.DataSets.DataSet.FriendlyDataSetType
+  fullName: STAIExtensions.Core.DataSets.DataSet.FriendlyDataSetType
+  nameWithType: DataSet.FriendlyDataSetType
+- uid: STAIExtensions.Core.DataSets.DataSet.FriendlyDataSetType*
+  name: FriendlyDataSetType
+  href: api/STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_FriendlyDataSetType_
+  commentId: Overload:STAIExtensions.Core.DataSets.DataSet.FriendlyDataSetType
+  isSpec: "True"
+  fullName: STAIExtensions.Core.DataSets.DataSet.FriendlyDataSetType
+  nameWithType: DataSet.FriendlyDataSetType
 - uid: STAIExtensions.Core.DataSets.DataSet.Logger
   name: Logger
   href: api/STAIExtensions.Core.DataSets.DataSet.html#STAIExtensions_Core_DataSets_DataSet_Logger
@@ -6076,6 +6128,19 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Core.Views.DataSetView.ExpiryDate
   nameWithType: DataSetView.ExpiryDate
+- uid: STAIExtensions.Core.Views.DataSetView.FriendlyViewTypeName
+  name: FriendlyViewTypeName
+  href: api/STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_FriendlyViewTypeName
+  commentId: P:STAIExtensions.Core.Views.DataSetView.FriendlyViewTypeName
+  fullName: STAIExtensions.Core.Views.DataSetView.FriendlyViewTypeName
+  nameWithType: DataSetView.FriendlyViewTypeName
+- uid: STAIExtensions.Core.Views.DataSetView.FriendlyViewTypeName*
+  name: FriendlyViewTypeName
+  href: api/STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_FriendlyViewTypeName_
+  commentId: Overload:STAIExtensions.Core.Views.DataSetView.FriendlyViewTypeName
+  isSpec: "True"
+  fullName: STAIExtensions.Core.Views.DataSetView.FriendlyViewTypeName
+  nameWithType: DataSetView.FriendlyViewTypeName
 - uid: STAIExtensions.Core.Views.DataSetView.Id
   name: Id
   href: api/STAIExtensions.Core.Views.DataSetView.html#STAIExtensions_Core_Views_DataSetView_Id
@@ -7353,19 +7418,6 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Data.AzureDataExplorer.Queries.AzureDataExplorerQueryFactory.BuildTraceWithInterval
   nameWithType: AzureDataExplorerQueryFactory.BuildTraceWithInterval
-- uid: STAIExtensions.Data.AzureDataExplorer.Queries.AzureDataExplorerQueryFactory.GetDataContractSourceTableName(STAIExtensions.Abstractions.Common.DataContractSource)
-  name: GetDataContractSourceTableName(DataContractSource)
-  href: api/STAIExtensions.Data.AzureDataExplorer.Queries.AzureDataExplorerQueryFactory.html#STAIExtensions_Data_AzureDataExplorer_Queries_AzureDataExplorerQueryFactory_GetDataContractSourceTableName_STAIExtensions_Abstractions_Common_DataContractSource_
-  commentId: M:STAIExtensions.Data.AzureDataExplorer.Queries.AzureDataExplorerQueryFactory.GetDataContractSourceTableName(STAIExtensions.Abstractions.Common.DataContractSource)
-  fullName: STAIExtensions.Data.AzureDataExplorer.Queries.AzureDataExplorerQueryFactory.GetDataContractSourceTableName(STAIExtensions.Abstractions.Common.DataContractSource)
-  nameWithType: AzureDataExplorerQueryFactory.GetDataContractSourceTableName(DataContractSource)
-- uid: STAIExtensions.Data.AzureDataExplorer.Queries.AzureDataExplorerQueryFactory.GetDataContractSourceTableName*
-  name: GetDataContractSourceTableName
-  href: api/STAIExtensions.Data.AzureDataExplorer.Queries.AzureDataExplorerQueryFactory.html#STAIExtensions_Data_AzureDataExplorer_Queries_AzureDataExplorerQueryFactory_GetDataContractSourceTableName_
-  commentId: Overload:STAIExtensions.Data.AzureDataExplorer.Queries.AzureDataExplorerQueryFactory.GetDataContractSourceTableName
-  isSpec: "True"
-  fullName: STAIExtensions.Data.AzureDataExplorer.Queries.AzureDataExplorerQueryFactory.GetDataContractSourceTableName
-  nameWithType: AzureDataExplorerQueryFactory.GetDataContractSourceTableName
 - uid: STAIExtensions.Data.AzureDataExplorer.Queries.AzureDataExplorerQueryParameter
   name: AzureDataExplorerQueryParameter
   href: api/STAIExtensions.Data.AzureDataExplorer.Queries.AzureDataExplorerQueryParameter.html
@@ -7929,6 +7981,72 @@ references:
   href: api/STAIExtensions.Default.DataSets.Options..html
   commentId: T:STAIExtensions.Default.DataSets.Options.
   fullName: STAIExtensions.Default.DataSets.Options.
+- uid: STAIExtensions.Default.Helpers
+  name: STAIExtensions.Default.Helpers
+  href: api/STAIExtensions.Default.Helpers.html
+  commentId: N:STAIExtensions.Default.Helpers
+  fullName: STAIExtensions.Default.Helpers
+  nameWithType: STAIExtensions.Default.Helpers
+- uid: STAIExtensions.Default.Helpers.DataContractFullFilterHelper
+  name: DataContractFullFilterHelper
+  href: api/STAIExtensions.Default.Helpers.DataContractFullFilterHelper.html
+  commentId: T:STAIExtensions.Default.Helpers.DataContractFullFilterHelper
+  fullName: STAIExtensions.Default.Helpers.DataContractFullFilterHelper
+  nameWithType: DataContractFullFilterHelper
+- uid: STAIExtensions.Default.Helpers.DataContractFullFilterHelper.FilterCloudRoleInstance*
+  name: FilterCloudRoleInstance
+  href: api/STAIExtensions.Default.Helpers.DataContractFullFilterHelper.html#STAIExtensions_Default_Helpers_DataContractFullFilterHelper_FilterCloudRoleInstance_
+  commentId: Overload:STAIExtensions.Default.Helpers.DataContractFullFilterHelper.FilterCloudRoleInstance
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Helpers.DataContractFullFilterHelper.FilterCloudRoleInstance
+  nameWithType: DataContractFullFilterHelper.FilterCloudRoleInstance
+- uid: STAIExtensions.Default.Helpers.DataContractFullFilterHelper.FilterCloudRoleInstance``1(System.Collections.IEnumerable{``0},System.Nullable{List{System.String}})
+  name: FilterCloudRoleInstance<T>(IEnumerable<T>, Nullable<List<String>>)
+  href: api/STAIExtensions.Default.Helpers.DataContractFullFilterHelper.html#STAIExtensions_Default_Helpers_DataContractFullFilterHelper_FilterCloudRoleInstance__1_System_Collections_IEnumerable___0__System_Nullable_List_System_String___
+  commentId: M:STAIExtensions.Default.Helpers.DataContractFullFilterHelper.FilterCloudRoleInstance``1(System.Collections.IEnumerable{``0},System.Nullable{List{System.String}})
+  name.vb: FilterCloudRoleInstance(Of T)(IEnumerable(Of T), Nullable(Of List(Of String)))
+  fullName: STAIExtensions.Default.Helpers.DataContractFullFilterHelper.FilterCloudRoleInstance<T>(System.Collections.IEnumerable<T>, System.Nullable<List<System.String>>)
+  fullName.vb: STAIExtensions.Default.Helpers.DataContractFullFilterHelper.FilterCloudRoleInstance(Of T)(System.Collections.IEnumerable(Of T), System.Nullable(Of List(Of System.String)))
+  nameWithType: DataContractFullFilterHelper.FilterCloudRoleInstance<T>(IEnumerable<T>, Nullable<List<String>>)
+  nameWithType.vb: DataContractFullFilterHelper.FilterCloudRoleInstance(Of T)(IEnumerable(Of T), Nullable(Of List(Of String)))
+- uid: STAIExtensions.Default.Helpers.DataContractFullFilterHelper.FilterCloudRoleName*
+  name: FilterCloudRoleName
+  href: api/STAIExtensions.Default.Helpers.DataContractFullFilterHelper.html#STAIExtensions_Default_Helpers_DataContractFullFilterHelper_FilterCloudRoleName_
+  commentId: Overload:STAIExtensions.Default.Helpers.DataContractFullFilterHelper.FilterCloudRoleName
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Helpers.DataContractFullFilterHelper.FilterCloudRoleName
+  nameWithType: DataContractFullFilterHelper.FilterCloudRoleName
+- uid: STAIExtensions.Default.Helpers.DataContractFullFilterHelper.FilterCloudRoleName``1(System.Collections.IEnumerable{``0},System.Nullable{List{System.String}})
+  name: FilterCloudRoleName<T>(IEnumerable<T>, Nullable<List<String>>)
+  href: api/STAIExtensions.Default.Helpers.DataContractFullFilterHelper.html#STAIExtensions_Default_Helpers_DataContractFullFilterHelper_FilterCloudRoleName__1_System_Collections_IEnumerable___0__System_Nullable_List_System_String___
+  commentId: M:STAIExtensions.Default.Helpers.DataContractFullFilterHelper.FilterCloudRoleName``1(System.Collections.IEnumerable{``0},System.Nullable{List{System.String}})
+  name.vb: FilterCloudRoleName(Of T)(IEnumerable(Of T), Nullable(Of List(Of String)))
+  fullName: STAIExtensions.Default.Helpers.DataContractFullFilterHelper.FilterCloudRoleName<T>(System.Collections.IEnumerable<T>, System.Nullable<List<System.String>>)
+  fullName.vb: STAIExtensions.Default.Helpers.DataContractFullFilterHelper.FilterCloudRoleName(Of T)(System.Collections.IEnumerable(Of T), System.Nullable(Of List(Of System.String)))
+  nameWithType: DataContractFullFilterHelper.FilterCloudRoleName<T>(IEnumerable<T>, Nullable<List<String>>)
+  nameWithType.vb: DataContractFullFilterHelper.FilterCloudRoleName(Of T)(IEnumerable(Of T), Nullable(Of List(Of String)))
+- uid: STAIExtensions.Default.Helpers.ViewParameterHelper
+  name: ViewParameterHelper
+  href: api/STAIExtensions.Default.Helpers.ViewParameterHelper.html
+  commentId: T:STAIExtensions.Default.Helpers.ViewParameterHelper
+  fullName: STAIExtensions.Default.Helpers.ViewParameterHelper
+  nameWithType: ViewParameterHelper
+- uid: STAIExtensions.Default.Helpers.ViewParameterHelper.ExtractParameter*
+  name: ExtractParameter
+  href: api/STAIExtensions.Default.Helpers.ViewParameterHelper.html#STAIExtensions_Default_Helpers_ViewParameterHelper_ExtractParameter_
+  commentId: Overload:STAIExtensions.Default.Helpers.ViewParameterHelper.ExtractParameter
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Helpers.ViewParameterHelper.ExtractParameter
+  nameWithType: ViewParameterHelper.ExtractParameter
+- uid: STAIExtensions.Default.Helpers.ViewParameterHelper.ExtractParameter``1(System.Nullable{Dictionary{System.String,System.Object}},System.String,Microsoft.ApplicationInsights.TelemetryClient,Microsoft.Extensions.Logging.ILogger)
+  name: ExtractParameter<T>(Nullable<Dictionary<String, Object>>, String, TelemetryClient, ILogger)
+  href: api/STAIExtensions.Default.Helpers.ViewParameterHelper.html#STAIExtensions_Default_Helpers_ViewParameterHelper_ExtractParameter__1_System_Nullable_Dictionary_System_String_System_Object___System_String_Microsoft_ApplicationInsights_TelemetryClient_Microsoft_Extensions_Logging_ILogger_
+  commentId: M:STAIExtensions.Default.Helpers.ViewParameterHelper.ExtractParameter``1(System.Nullable{Dictionary{System.String,System.Object}},System.String,Microsoft.ApplicationInsights.TelemetryClient,Microsoft.Extensions.Logging.ILogger)
+  name.vb: ExtractParameter(Of T)(Nullable(Of Dictionary(Of String, Object)), String, TelemetryClient, ILogger)
+  fullName: STAIExtensions.Default.Helpers.ViewParameterHelper.ExtractParameter<T>(System.Nullable<Dictionary<System.String, System.Object>>, System.String, Microsoft.ApplicationInsights.TelemetryClient, Microsoft.Extensions.Logging.ILogger)
+  fullName.vb: STAIExtensions.Default.Helpers.ViewParameterHelper.ExtractParameter(Of T)(System.Nullable(Of Dictionary(Of System.String, System.Object)), System.String, Microsoft.ApplicationInsights.TelemetryClient, Microsoft.Extensions.Logging.ILogger)
+  nameWithType: ViewParameterHelper.ExtractParameter<T>(Nullable<Dictionary<String, Object>>, String, TelemetryClient, ILogger)
+  nameWithType.vb: ViewParameterHelper.ExtractParameter(Of T)(Nullable(Of Dictionary(Of String, Object)), String, TelemetryClient, ILogger)
 - uid: STAIExtensions.Default.Views
   name: STAIExtensions.Default.Views
   href: api/STAIExtensions.Default.Views.html
@@ -7941,6 +8059,19 @@ references:
   commentId: T:STAIExtensions.Default.Views.BrowserTimingsView
   fullName: STAIExtensions.Default.Views.BrowserTimingsView
   nameWithType: BrowserTimingsView
+- uid: STAIExtensions.Default.Views.BrowserTimingsView.BuildViewData(STAIExtensions.Abstractions.Data.IDataSet)
+  name: BuildViewData(IDataSet)
+  href: api/STAIExtensions.Default.Views.BrowserTimingsView.html#STAIExtensions_Default_Views_BrowserTimingsView_BuildViewData_STAIExtensions_Abstractions_Data_IDataSet_
+  commentId: M:STAIExtensions.Default.Views.BrowserTimingsView.BuildViewData(STAIExtensions.Abstractions.Data.IDataSet)
+  fullName: STAIExtensions.Default.Views.BrowserTimingsView.BuildViewData(STAIExtensions.Abstractions.Data.IDataSet)
+  nameWithType: BrowserTimingsView.BuildViewData(IDataSet)
+- uid: STAIExtensions.Default.Views.BrowserTimingsView.BuildViewData*
+  name: BuildViewData
+  href: api/STAIExtensions.Default.Views.BrowserTimingsView.html#STAIExtensions_Default_Views_BrowserTimingsView_BuildViewData_
+  commentId: Overload:STAIExtensions.Default.Views.BrowserTimingsView.BuildViewData
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.BrowserTimingsView.BuildViewData
+  nameWithType: BrowserTimingsView.BuildViewData
 - uid: STAIExtensions.Default.Views.BrowserTimingsView.NumberOfItems
   name: NumberOfItems
   href: api/STAIExtensions.Default.Views.BrowserTimingsView.html#STAIExtensions_Default_Views_BrowserTimingsView_NumberOfItems
@@ -7967,25 +8098,25 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Default.Views.BrowserTimingsView.TopItems
   nameWithType: BrowserTimingsView.TopItems
-- uid: STAIExtensions.Default.Views.BrowserTimingsView.UpdateViewFromDataSet(STAIExtensions.Abstractions.Data.IDataSet)
-  name: UpdateViewFromDataSet(IDataSet)
-  href: api/STAIExtensions.Default.Views.BrowserTimingsView.html#STAIExtensions_Default_Views_BrowserTimingsView_UpdateViewFromDataSet_STAIExtensions_Abstractions_Data_IDataSet_
-  commentId: M:STAIExtensions.Default.Views.BrowserTimingsView.UpdateViewFromDataSet(STAIExtensions.Abstractions.Data.IDataSet)
-  fullName: STAIExtensions.Default.Views.BrowserTimingsView.UpdateViewFromDataSet(STAIExtensions.Abstractions.Data.IDataSet)
-  nameWithType: BrowserTimingsView.UpdateViewFromDataSet(IDataSet)
-- uid: STAIExtensions.Default.Views.BrowserTimingsView.UpdateViewFromDataSet*
-  name: UpdateViewFromDataSet
-  href: api/STAIExtensions.Default.Views.BrowserTimingsView.html#STAIExtensions_Default_Views_BrowserTimingsView_UpdateViewFromDataSet_
-  commentId: Overload:STAIExtensions.Default.Views.BrowserTimingsView.UpdateViewFromDataSet
-  isSpec: "True"
-  fullName: STAIExtensions.Default.Views.BrowserTimingsView.UpdateViewFromDataSet
-  nameWithType: BrowserTimingsView.UpdateViewFromDataSet
 - uid: STAIExtensions.Default.Views.MyErrorsView
   name: MyErrorsView
   href: api/STAIExtensions.Default.Views.MyErrorsView.html
   commentId: T:STAIExtensions.Default.Views.MyErrorsView
   fullName: STAIExtensions.Default.Views.MyErrorsView
   nameWithType: MyErrorsView
+- uid: STAIExtensions.Default.Views.MyErrorsView.BuildViewData(STAIExtensions.Abstractions.Data.IDataSet)
+  name: BuildViewData(IDataSet)
+  href: api/STAIExtensions.Default.Views.MyErrorsView.html#STAIExtensions_Default_Views_MyErrorsView_BuildViewData_STAIExtensions_Abstractions_Data_IDataSet_
+  commentId: M:STAIExtensions.Default.Views.MyErrorsView.BuildViewData(STAIExtensions.Abstractions.Data.IDataSet)
+  fullName: STAIExtensions.Default.Views.MyErrorsView.BuildViewData(STAIExtensions.Abstractions.Data.IDataSet)
+  nameWithType: MyErrorsView.BuildViewData(IDataSet)
+- uid: STAIExtensions.Default.Views.MyErrorsView.BuildViewData*
+  name: BuildViewData
+  href: api/STAIExtensions.Default.Views.MyErrorsView.html#STAIExtensions_Default_Views_MyErrorsView_BuildViewData_
+  commentId: Overload:STAIExtensions.Default.Views.MyErrorsView.BuildViewData
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.MyErrorsView.BuildViewData
+  nameWithType: MyErrorsView.BuildViewData
 - uid: STAIExtensions.Default.Views.MyErrorsView.LastErrors
   name: LastErrors
   href: api/STAIExtensions.Default.Views.MyErrorsView.html#STAIExtensions_Default_Views_MyErrorsView_LastErrors
@@ -8012,19 +8143,6 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Default.Views.MyErrorsView.TotalErrorCount
   nameWithType: MyErrorsView.TotalErrorCount
-- uid: STAIExtensions.Default.Views.MyErrorsView.UpdateViewFromDataSet(STAIExtensions.Abstractions.Data.IDataSet)
-  name: UpdateViewFromDataSet(IDataSet)
-  href: api/STAIExtensions.Default.Views.MyErrorsView.html#STAIExtensions_Default_Views_MyErrorsView_UpdateViewFromDataSet_STAIExtensions_Abstractions_Data_IDataSet_
-  commentId: M:STAIExtensions.Default.Views.MyErrorsView.UpdateViewFromDataSet(STAIExtensions.Abstractions.Data.IDataSet)
-  fullName: STAIExtensions.Default.Views.MyErrorsView.UpdateViewFromDataSet(STAIExtensions.Abstractions.Data.IDataSet)
-  nameWithType: MyErrorsView.UpdateViewFromDataSet(IDataSet)
-- uid: STAIExtensions.Default.Views.MyErrorsView.UpdateViewFromDataSet*
-  name: UpdateViewFromDataSet
-  href: api/STAIExtensions.Default.Views.MyErrorsView.html#STAIExtensions_Default_Views_MyErrorsView_UpdateViewFromDataSet_
-  commentId: Overload:STAIExtensions.Default.Views.MyErrorsView.UpdateViewFromDataSet
-  isSpec: "True"
-  fullName: STAIExtensions.Default.Views.MyErrorsView.UpdateViewFromDataSet
-  nameWithType: MyErrorsView.UpdateViewFromDataSet
 - uid: STAIExtensions.Default.Views.MyErrorsView.ViewParameterDescriptors
   name: ViewParameterDescriptors
   href: api/STAIExtensions.Default.Views.MyErrorsView.html#STAIExtensions_Default_Views_MyErrorsView_ViewParameterDescriptors
@@ -8038,6 +8156,311 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Default.Views.MyErrorsView.ViewParameterDescriptors
   nameWithType: MyErrorsView.ViewParameterDescriptors
+- uid: STAIExtensions.Default.Views.TelemetryOverview
+  name: TelemetryOverview
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html
+  commentId: T:STAIExtensions.Default.Views.TelemetryOverview
+  fullName: STAIExtensions.Default.Views.TelemetryOverview
+  nameWithType: TelemetryOverview
+- uid: STAIExtensions.Default.Views.TelemetryOverview.AvailabilityCount
+  name: AvailabilityCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_AvailabilityCount
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.AvailabilityCount
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.AvailabilityCount
+  nameWithType: TelemetryOverview.AvailabilityCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.AvailabilityCount*
+  name: AvailabilityCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_AvailabilityCount_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.AvailabilityCount
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.AvailabilityCount
+  nameWithType: TelemetryOverview.AvailabilityCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.BrowserTimingsCount
+  name: BrowserTimingsCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_BrowserTimingsCount
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.BrowserTimingsCount
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.BrowserTimingsCount
+  nameWithType: TelemetryOverview.BrowserTimingsCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.BrowserTimingsCount*
+  name: BrowserTimingsCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_BrowserTimingsCount_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.BrowserTimingsCount
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.BrowserTimingsCount
+  nameWithType: TelemetryOverview.BrowserTimingsCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.BuildViewData(STAIExtensions.Abstractions.Data.IDataSet)
+  name: BuildViewData(IDataSet)
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_BuildViewData_STAIExtensions_Abstractions_Data_IDataSet_
+  commentId: M:STAIExtensions.Default.Views.TelemetryOverview.BuildViewData(STAIExtensions.Abstractions.Data.IDataSet)
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.BuildViewData(STAIExtensions.Abstractions.Data.IDataSet)
+  nameWithType: TelemetryOverview.BuildViewData(IDataSet)
+- uid: STAIExtensions.Default.Views.TelemetryOverview.BuildViewData*
+  name: BuildViewData
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_BuildViewData_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.BuildViewData
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.BuildViewData
+  nameWithType: TelemetryOverview.BuildViewData
+- uid: STAIExtensions.Default.Views.TelemetryOverview.CloudNames
+  name: CloudNames
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_CloudNames
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.CloudNames
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.CloudNames
+  nameWithType: TelemetryOverview.CloudNames
+- uid: STAIExtensions.Default.Views.TelemetryOverview.CloudNames*
+  name: CloudNames
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_CloudNames_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.CloudNames
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.CloudNames
+  nameWithType: TelemetryOverview.CloudNames
+- uid: STAIExtensions.Default.Views.TelemetryOverview.CustomEventsCount
+  name: CustomEventsCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_CustomEventsCount
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.CustomEventsCount
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.CustomEventsCount
+  nameWithType: TelemetryOverview.CustomEventsCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.CustomEventsCount*
+  name: CustomEventsCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_CustomEventsCount_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.CustomEventsCount
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.CustomEventsCount
+  nameWithType: TelemetryOverview.CustomEventsCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.CustomMetricsCount
+  name: CustomMetricsCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_CustomMetricsCount
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.CustomMetricsCount
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.CustomMetricsCount
+  nameWithType: TelemetryOverview.CustomMetricsCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.CustomMetricsCount*
+  name: CustomMetricsCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_CustomMetricsCount_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.CustomMetricsCount
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.CustomMetricsCount
+  nameWithType: TelemetryOverview.CustomMetricsCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.DependenciesCount
+  name: DependenciesCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_DependenciesCount
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.DependenciesCount
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.DependenciesCount
+  nameWithType: TelemetryOverview.DependenciesCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.DependenciesCount*
+  name: DependenciesCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_DependenciesCount_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.DependenciesCount
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.DependenciesCount
+  nameWithType: TelemetryOverview.DependenciesCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.ExceptionsCount
+  name: ExceptionsCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_ExceptionsCount
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.ExceptionsCount
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.ExceptionsCount
+  nameWithType: TelemetryOverview.ExceptionsCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.ExceptionsCount*
+  name: ExceptionsCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_ExceptionsCount_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.ExceptionsCount
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.ExceptionsCount
+  nameWithType: TelemetryOverview.ExceptionsCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastAvailability
+  name: LastAvailability
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastAvailability
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.LastAvailability
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastAvailability
+  nameWithType: TelemetryOverview.LastAvailability
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastAvailability*
+  name: LastAvailability
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastAvailability_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.LastAvailability
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastAvailability
+  nameWithType: TelemetryOverview.LastAvailability
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastBrowserTimings
+  name: LastBrowserTimings
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastBrowserTimings
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.LastBrowserTimings
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastBrowserTimings
+  nameWithType: TelemetryOverview.LastBrowserTimings
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastBrowserTimings*
+  name: LastBrowserTimings
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastBrowserTimings_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.LastBrowserTimings
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastBrowserTimings
+  nameWithType: TelemetryOverview.LastBrowserTimings
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastCustomEvents
+  name: LastCustomEvents
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastCustomEvents
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.LastCustomEvents
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastCustomEvents
+  nameWithType: TelemetryOverview.LastCustomEvents
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastCustomEvents*
+  name: LastCustomEvents
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastCustomEvents_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.LastCustomEvents
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastCustomEvents
+  nameWithType: TelemetryOverview.LastCustomEvents
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastCustomMetrics
+  name: LastCustomMetrics
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastCustomMetrics
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.LastCustomMetrics
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastCustomMetrics
+  nameWithType: TelemetryOverview.LastCustomMetrics
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastCustomMetrics*
+  name: LastCustomMetrics
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastCustomMetrics_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.LastCustomMetrics
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastCustomMetrics
+  nameWithType: TelemetryOverview.LastCustomMetrics
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastDependenciesCount
+  name: LastDependenciesCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastDependenciesCount
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.LastDependenciesCount
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastDependenciesCount
+  nameWithType: TelemetryOverview.LastDependenciesCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastDependenciesCount*
+  name: LastDependenciesCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastDependenciesCount_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.LastDependenciesCount
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastDependenciesCount
+  nameWithType: TelemetryOverview.LastDependenciesCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastExceptions
+  name: LastExceptions
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastExceptions
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.LastExceptions
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastExceptions
+  nameWithType: TelemetryOverview.LastExceptions
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastExceptions*
+  name: LastExceptions
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastExceptions_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.LastExceptions
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastExceptions
+  nameWithType: TelemetryOverview.LastExceptions
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastPageViews
+  name: LastPageViews
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastPageViews
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.LastPageViews
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastPageViews
+  nameWithType: TelemetryOverview.LastPageViews
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastPageViews*
+  name: LastPageViews
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastPageViews_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.LastPageViews
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastPageViews
+  nameWithType: TelemetryOverview.LastPageViews
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastPerformanceCounters
+  name: LastPerformanceCounters
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastPerformanceCounters
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.LastPerformanceCounters
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastPerformanceCounters
+  nameWithType: TelemetryOverview.LastPerformanceCounters
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastPerformanceCounters*
+  name: LastPerformanceCounters
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastPerformanceCounters_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.LastPerformanceCounters
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastPerformanceCounters
+  nameWithType: TelemetryOverview.LastPerformanceCounters
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastRequests
+  name: LastRequests
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastRequests
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.LastRequests
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastRequests
+  nameWithType: TelemetryOverview.LastRequests
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastRequests*
+  name: LastRequests
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastRequests_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.LastRequests
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastRequests
+  nameWithType: TelemetryOverview.LastRequests
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastTraces
+  name: LastTraces
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastTraces
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.LastTraces
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastTraces
+  nameWithType: TelemetryOverview.LastTraces
+- uid: STAIExtensions.Default.Views.TelemetryOverview.LastTraces*
+  name: LastTraces
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_LastTraces_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.LastTraces
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.LastTraces
+  nameWithType: TelemetryOverview.LastTraces
+- uid: STAIExtensions.Default.Views.TelemetryOverview.PageViewsCount
+  name: PageViewsCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_PageViewsCount
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.PageViewsCount
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.PageViewsCount
+  nameWithType: TelemetryOverview.PageViewsCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.PageViewsCount*
+  name: PageViewsCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_PageViewsCount_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.PageViewsCount
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.PageViewsCount
+  nameWithType: TelemetryOverview.PageViewsCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.PerformanceCountersCount
+  name: PerformanceCountersCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_PerformanceCountersCount
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.PerformanceCountersCount
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.PerformanceCountersCount
+  nameWithType: TelemetryOverview.PerformanceCountersCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.PerformanceCountersCount*
+  name: PerformanceCountersCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_PerformanceCountersCount_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.PerformanceCountersCount
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.PerformanceCountersCount
+  nameWithType: TelemetryOverview.PerformanceCountersCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.RequestsCount
+  name: RequestsCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_RequestsCount
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.RequestsCount
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.RequestsCount
+  nameWithType: TelemetryOverview.RequestsCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.RequestsCount*
+  name: RequestsCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_RequestsCount_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.RequestsCount
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.RequestsCount
+  nameWithType: TelemetryOverview.RequestsCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.TracesCount
+  name: TracesCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_TracesCount
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.TracesCount
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.TracesCount
+  nameWithType: TelemetryOverview.TracesCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.TracesCount*
+  name: TracesCount
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_TracesCount_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.TracesCount
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.TracesCount
+  nameWithType: TelemetryOverview.TracesCount
+- uid: STAIExtensions.Default.Views.TelemetryOverview.ViewParameterDescriptors
+  name: ViewParameterDescriptors
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_ViewParameterDescriptors
+  commentId: P:STAIExtensions.Default.Views.TelemetryOverview.ViewParameterDescriptors
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.ViewParameterDescriptors
+  nameWithType: TelemetryOverview.ViewParameterDescriptors
+- uid: STAIExtensions.Default.Views.TelemetryOverview.ViewParameterDescriptors*
+  name: ViewParameterDescriptors
+  href: api/STAIExtensions.Default.Views.TelemetryOverview.html#STAIExtensions_Default_Views_TelemetryOverview_ViewParameterDescriptors_
+  commentId: Overload:STAIExtensions.Default.Views.TelemetryOverview.ViewParameterDescriptors
+  isSpec: "True"
+  fullName: STAIExtensions.Default.Views.TelemetryOverview.ViewParameterDescriptors
+  nameWithType: TelemetryOverview.ViewParameterDescriptors
 - uid: STAIExtensions.Host.Api
   name: STAIExtensions.Host.Api
   href: api/STAIExtensions.Host.Api.html
@@ -10281,6 +10704,25 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Host.Grpc.DataSetInformation.Equals
   nameWithType: DataSetInformation.Equals
+- uid: STAIExtensions.Host.Grpc.DataSetInformation.FriendlyDataSetType
+  name: FriendlyDataSetType
+  href: api/STAIExtensions.Host.Grpc.DataSetInformation.html#STAIExtensions_Host_Grpc_DataSetInformation_FriendlyDataSetType
+  commentId: P:STAIExtensions.Host.Grpc.DataSetInformation.FriendlyDataSetType
+  fullName: STAIExtensions.Host.Grpc.DataSetInformation.FriendlyDataSetType
+  nameWithType: DataSetInformation.FriendlyDataSetType
+- uid: STAIExtensions.Host.Grpc.DataSetInformation.FriendlyDataSetType*
+  name: FriendlyDataSetType
+  href: api/STAIExtensions.Host.Grpc.DataSetInformation.html#STAIExtensions_Host_Grpc_DataSetInformation_FriendlyDataSetType_
+  commentId: Overload:STAIExtensions.Host.Grpc.DataSetInformation.FriendlyDataSetType
+  isSpec: "True"
+  fullName: STAIExtensions.Host.Grpc.DataSetInformation.FriendlyDataSetType
+  nameWithType: DataSetInformation.FriendlyDataSetType
+- uid: STAIExtensions.Host.Grpc.DataSetInformation.FriendlyDataSetTypeFieldNumber
+  name: FriendlyDataSetTypeFieldNumber
+  href: api/STAIExtensions.Host.Grpc.DataSetInformation.html#STAIExtensions_Host_Grpc_DataSetInformation_FriendlyDataSetTypeFieldNumber
+  commentId: F:STAIExtensions.Host.Grpc.DataSetInformation.FriendlyDataSetTypeFieldNumber
+  fullName: STAIExtensions.Host.Grpc.DataSetInformation.FriendlyDataSetTypeFieldNumber
+  nameWithType: DataSetInformation.FriendlyDataSetTypeFieldNumber
 - uid: STAIExtensions.Host.Grpc.DataSetInformation.GetHashCode
   name: GetHashCode()
   href: api/STAIExtensions.Host.Grpc.DataSetInformation.html#STAIExtensions_Host_Grpc_DataSetInformation_GetHashCode
@@ -10511,6 +10953,25 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Host.Grpc.DataSetViewInformation.Equals
   nameWithType: DataSetViewInformation.Equals
+- uid: STAIExtensions.Host.Grpc.DataSetViewInformation.FriendlyViewTypeName
+  name: FriendlyViewTypeName
+  href: api/STAIExtensions.Host.Grpc.DataSetViewInformation.html#STAIExtensions_Host_Grpc_DataSetViewInformation_FriendlyViewTypeName
+  commentId: P:STAIExtensions.Host.Grpc.DataSetViewInformation.FriendlyViewTypeName
+  fullName: STAIExtensions.Host.Grpc.DataSetViewInformation.FriendlyViewTypeName
+  nameWithType: DataSetViewInformation.FriendlyViewTypeName
+- uid: STAIExtensions.Host.Grpc.DataSetViewInformation.FriendlyViewTypeName*
+  name: FriendlyViewTypeName
+  href: api/STAIExtensions.Host.Grpc.DataSetViewInformation.html#STAIExtensions_Host_Grpc_DataSetViewInformation_FriendlyViewTypeName_
+  commentId: Overload:STAIExtensions.Host.Grpc.DataSetViewInformation.FriendlyViewTypeName
+  isSpec: "True"
+  fullName: STAIExtensions.Host.Grpc.DataSetViewInformation.FriendlyViewTypeName
+  nameWithType: DataSetViewInformation.FriendlyViewTypeName
+- uid: STAIExtensions.Host.Grpc.DataSetViewInformation.FriendlyViewTypeNameFieldNumber
+  name: FriendlyViewTypeNameFieldNumber
+  href: api/STAIExtensions.Host.Grpc.DataSetViewInformation.html#STAIExtensions_Host_Grpc_DataSetViewInformation_FriendlyViewTypeNameFieldNumber
+  commentId: F:STAIExtensions.Host.Grpc.DataSetViewInformation.FriendlyViewTypeNameFieldNumber
+  fullName: STAIExtensions.Host.Grpc.DataSetViewInformation.FriendlyViewTypeNameFieldNumber
+  nameWithType: DataSetViewInformation.FriendlyViewTypeNameFieldNumber
 - uid: STAIExtensions.Host.Grpc.DataSetViewInformation.GetHashCode
   name: GetHashCode()
   href: api/STAIExtensions.Host.Grpc.DataSetViewInformation.html#STAIExtensions_Host_Grpc_DataSetViewInformation_GetHashCode
@@ -12088,6 +12549,25 @@ references:
   commentId: F:STAIExtensions.Host.Grpc.IDataSetView.ExpiryDateFieldNumber
   fullName: STAIExtensions.Host.Grpc.IDataSetView.ExpiryDateFieldNumber
   nameWithType: IDataSetView.ExpiryDateFieldNumber
+- uid: STAIExtensions.Host.Grpc.IDataSetView.FriendlyViewTypeName
+  name: FriendlyViewTypeName
+  href: api/STAIExtensions.Host.Grpc.IDataSetView.html#STAIExtensions_Host_Grpc_IDataSetView_FriendlyViewTypeName
+  commentId: P:STAIExtensions.Host.Grpc.IDataSetView.FriendlyViewTypeName
+  fullName: STAIExtensions.Host.Grpc.IDataSetView.FriendlyViewTypeName
+  nameWithType: IDataSetView.FriendlyViewTypeName
+- uid: STAIExtensions.Host.Grpc.IDataSetView.FriendlyViewTypeName*
+  name: FriendlyViewTypeName
+  href: api/STAIExtensions.Host.Grpc.IDataSetView.html#STAIExtensions_Host_Grpc_IDataSetView_FriendlyViewTypeName_
+  commentId: Overload:STAIExtensions.Host.Grpc.IDataSetView.FriendlyViewTypeName
+  isSpec: "True"
+  fullName: STAIExtensions.Host.Grpc.IDataSetView.FriendlyViewTypeName
+  nameWithType: IDataSetView.FriendlyViewTypeName
+- uid: STAIExtensions.Host.Grpc.IDataSetView.FriendlyViewTypeNameFieldNumber
+  name: FriendlyViewTypeNameFieldNumber
+  href: api/STAIExtensions.Host.Grpc.IDataSetView.html#STAIExtensions_Host_Grpc_IDataSetView_FriendlyViewTypeNameFieldNumber
+  commentId: F:STAIExtensions.Host.Grpc.IDataSetView.FriendlyViewTypeNameFieldNumber
+  fullName: STAIExtensions.Host.Grpc.IDataSetView.FriendlyViewTypeNameFieldNumber
+  nameWithType: IDataSetView.FriendlyViewTypeNameFieldNumber
 - uid: STAIExtensions.Host.Grpc.IDataSetView.GetHashCode
   name: GetHashCode()
   href: api/STAIExtensions.Host.Grpc.IDataSetView.html#STAIExtensions_Host_Grpc_IDataSetView_GetHashCode
@@ -13115,6 +13595,25 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Host.Grpc.MyViewResponse.Types.MyView.Equals
   nameWithType: MyViewResponse.Types.MyView.Equals
+- uid: STAIExtensions.Host.Grpc.MyViewResponse.Types.MyView.FriendlyViewTypeName
+  name: FriendlyViewTypeName
+  href: api/STAIExtensions.Host.Grpc.MyViewResponse.Types.MyView.html#STAIExtensions_Host_Grpc_MyViewResponse_Types_MyView_FriendlyViewTypeName
+  commentId: P:STAIExtensions.Host.Grpc.MyViewResponse.Types.MyView.FriendlyViewTypeName
+  fullName: STAIExtensions.Host.Grpc.MyViewResponse.Types.MyView.FriendlyViewTypeName
+  nameWithType: MyViewResponse.Types.MyView.FriendlyViewTypeName
+- uid: STAIExtensions.Host.Grpc.MyViewResponse.Types.MyView.FriendlyViewTypeName*
+  name: FriendlyViewTypeName
+  href: api/STAIExtensions.Host.Grpc.MyViewResponse.Types.MyView.html#STAIExtensions_Host_Grpc_MyViewResponse_Types_MyView_FriendlyViewTypeName_
+  commentId: Overload:STAIExtensions.Host.Grpc.MyViewResponse.Types.MyView.FriendlyViewTypeName
+  isSpec: "True"
+  fullName: STAIExtensions.Host.Grpc.MyViewResponse.Types.MyView.FriendlyViewTypeName
+  nameWithType: MyViewResponse.Types.MyView.FriendlyViewTypeName
+- uid: STAIExtensions.Host.Grpc.MyViewResponse.Types.MyView.FriendlyViewTypeNameFieldNumber
+  name: FriendlyViewTypeNameFieldNumber
+  href: api/STAIExtensions.Host.Grpc.MyViewResponse.Types.MyView.html#STAIExtensions_Host_Grpc_MyViewResponse_Types_MyView_FriendlyViewTypeNameFieldNumber
+  commentId: F:STAIExtensions.Host.Grpc.MyViewResponse.Types.MyView.FriendlyViewTypeNameFieldNumber
+  fullName: STAIExtensions.Host.Grpc.MyViewResponse.Types.MyView.FriendlyViewTypeNameFieldNumber
+  nameWithType: MyViewResponse.Types.MyView.FriendlyViewTypeNameFieldNumber
 - uid: STAIExtensions.Host.Grpc.MyViewResponse.Types.MyView.GetHashCode
   name: GetHashCode()
   href: api/STAIExtensions.Host.Grpc.MyViewResponse.Types.MyView.html#STAIExtensions_Host_Grpc_MyViewResponse_Types_MyView_GetHashCode
@@ -16388,44 +16887,6 @@ references:
   commentId: N:STAIExtensions.Host.SignalR
   fullName: STAIExtensions.Host.SignalR
   nameWithType: STAIExtensions.Host.SignalR
-- uid: STAIExtensions.Host.SignalR.AuthTokenRequirement
-  name: AuthTokenRequirement
-  href: api/STAIExtensions.Host.SignalR.AuthTokenRequirement.html
-  commentId: T:STAIExtensions.Host.SignalR.AuthTokenRequirement
-  fullName: STAIExtensions.Host.SignalR.AuthTokenRequirement
-  nameWithType: AuthTokenRequirement
-- uid: STAIExtensions.Host.SignalR.AuthTokenRequirementHandler
-  name: AuthTokenRequirementHandler
-  href: api/STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.html
-  commentId: T:STAIExtensions.Host.SignalR.AuthTokenRequirementHandler
-  fullName: STAIExtensions.Host.SignalR.AuthTokenRequirementHandler
-  nameWithType: AuthTokenRequirementHandler
-- uid: STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,STAIExtensions.Host.SignalR.SignalRHostOptions)
-  name: AuthTokenRequirementHandler(IHttpContextAccessor, SignalRHostOptions)
-  href: api/STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.html#STAIExtensions_Host_SignalR_AuthTokenRequirementHandler__ctor_Microsoft_AspNetCore_Http_IHttpContextAccessor_STAIExtensions_Host_SignalR_SignalRHostOptions_
-  commentId: M:STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,STAIExtensions.Host.SignalR.SignalRHostOptions)
-  fullName: STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.AuthTokenRequirementHandler(Microsoft.AspNetCore.Http.IHttpContextAccessor, STAIExtensions.Host.SignalR.SignalRHostOptions)
-  nameWithType: AuthTokenRequirementHandler.AuthTokenRequirementHandler(IHttpContextAccessor, SignalRHostOptions)
-- uid: STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.#ctor*
-  name: AuthTokenRequirementHandler
-  href: api/STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.html#STAIExtensions_Host_SignalR_AuthTokenRequirementHandler__ctor_
-  commentId: Overload:STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.#ctor
-  isSpec: "True"
-  fullName: STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.AuthTokenRequirementHandler
-  nameWithType: AuthTokenRequirementHandler.AuthTokenRequirementHandler
-- uid: STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext,STAIExtensions.Host.SignalR.AuthTokenRequirement)
-  name: HandleRequirementAsync(AuthorizationHandlerContext, AuthTokenRequirement)
-  href: api/STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.html#STAIExtensions_Host_SignalR_AuthTokenRequirementHandler_HandleRequirementAsync_Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_STAIExtensions_Host_SignalR_AuthTokenRequirement_
-  commentId: M:STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext,STAIExtensions.Host.SignalR.AuthTokenRequirement)
-  fullName: STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext, STAIExtensions.Host.SignalR.AuthTokenRequirement)
-  nameWithType: AuthTokenRequirementHandler.HandleRequirementAsync(AuthorizationHandlerContext, AuthTokenRequirement)
-- uid: STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.HandleRequirementAsync*
-  name: HandleRequirementAsync
-  href: api/STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.html#STAIExtensions_Host_SignalR_AuthTokenRequirementHandler_HandleRequirementAsync_
-  commentId: Overload:STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.HandleRequirementAsync
-  isSpec: "True"
-  fullName: STAIExtensions.Host.SignalR.AuthTokenRequirementHandler.HandleRequirementAsync
-  nameWithType: AuthTokenRequirementHandler.HandleRequirementAsync
 - uid: STAIExtensions.Host.SignalR.Client
   name: STAIExtensions.Host.SignalR.Client
   href: api/STAIExtensions.Host.SignalR.Client.html
@@ -16475,6 +16936,19 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Host.SignalR.Client.Common.ViewBase.ExpiryDate
   nameWithType: ViewBase.ExpiryDate
+- uid: STAIExtensions.Host.SignalR.Client.Common.ViewBase.FriendlyViewTypeName
+  name: FriendlyViewTypeName
+  href: api/STAIExtensions.Host.SignalR.Client.Common.ViewBase.html#STAIExtensions_Host_SignalR_Client_Common_ViewBase_FriendlyViewTypeName
+  commentId: P:STAIExtensions.Host.SignalR.Client.Common.ViewBase.FriendlyViewTypeName
+  fullName: STAIExtensions.Host.SignalR.Client.Common.ViewBase.FriendlyViewTypeName
+  nameWithType: ViewBase.FriendlyViewTypeName
+- uid: STAIExtensions.Host.SignalR.Client.Common.ViewBase.FriendlyViewTypeName*
+  name: FriendlyViewTypeName
+  href: api/STAIExtensions.Host.SignalR.Client.Common.ViewBase.html#STAIExtensions_Host_SignalR_Client_Common_ViewBase_FriendlyViewTypeName_
+  commentId: Overload:STAIExtensions.Host.SignalR.Client.Common.ViewBase.FriendlyViewTypeName
+  isSpec: "True"
+  fullName: STAIExtensions.Host.SignalR.Client.Common.ViewBase.FriendlyViewTypeName
+  nameWithType: ViewBase.FriendlyViewTypeName
 - uid: STAIExtensions.Host.SignalR.Client.Common.ViewBase.Id
   name: Id
   href: api/STAIExtensions.Host.SignalR.Client.Common.ViewBase.html#STAIExtensions_Host_SignalR_Client_Common_ViewBase_Id
@@ -17253,6 +17727,171 @@ references:
   isSpec: "True"
   fullName: STAIExtensions.Host.SignalR.Hubs.ISTAIExtensionsHubClient.OnSetViewParametersResponse
   nameWithType: ISTAIExtensionsHubClient.OnSetViewParametersResponse
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub
+  name: STAIExtensionsHub
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html
+  commentId: T:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub
+  nameWithType: STAIExtensionsHub
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.#ctor(STAIExtensions.Host.SignalR.Identity.ISignalRUserGroups)
+  name: STAIExtensionsHub(ISignalRUserGroups)
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub__ctor_STAIExtensions_Host_SignalR_Identity_ISignalRUserGroups_
+  commentId: M:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.#ctor(STAIExtensions.Host.SignalR.Identity.ISignalRUserGroups)
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.STAIExtensionsHub(STAIExtensions.Host.SignalR.Identity.ISignalRUserGroups)
+  nameWithType: STAIExtensionsHub.STAIExtensionsHub(ISignalRUserGroups)
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.#ctor*
+  name: STAIExtensionsHub
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub__ctor_
+  commentId: Overload:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.#ctor
+  isSpec: "True"
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.STAIExtensionsHub
+  nameWithType: STAIExtensionsHub.STAIExtensionsHub
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.AttachViewToDataset(System.String,System.String,System.String,System.String)
+  name: AttachViewToDataset(String, String, String, String)
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_AttachViewToDataset_System_String_System_String_System_String_System_String_
+  commentId: M:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.AttachViewToDataset(System.String,System.String,System.String,System.String)
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.AttachViewToDataset(System.String, System.String, System.String, System.String)
+  nameWithType: STAIExtensionsHub.AttachViewToDataset(String, String, String, String)
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.AttachViewToDataset*
+  name: AttachViewToDataset
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_AttachViewToDataset_
+  commentId: Overload:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.AttachViewToDataset
+  isSpec: "True"
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.AttachViewToDataset
+  nameWithType: STAIExtensionsHub.AttachViewToDataset
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.CreateView(System.String,System.String,System.String)
+  name: CreateView(String, String, String)
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_CreateView_System_String_System_String_System_String_
+  commentId: M:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.CreateView(System.String,System.String,System.String)
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.CreateView(System.String, System.String, System.String)
+  nameWithType: STAIExtensionsHub.CreateView(String, String, String)
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.CreateView*
+  name: CreateView
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_CreateView_
+  commentId: Overload:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.CreateView
+  isSpec: "True"
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.CreateView
+  nameWithType: STAIExtensionsHub.CreateView
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.DetachViewFromDataset(System.String,System.String,System.String,System.String)
+  name: DetachViewFromDataset(String, String, String, String)
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_DetachViewFromDataset_System_String_System_String_System_String_System_String_
+  commentId: M:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.DetachViewFromDataset(System.String,System.String,System.String,System.String)
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.DetachViewFromDataset(System.String, System.String, System.String, System.String)
+  nameWithType: STAIExtensionsHub.DetachViewFromDataset(String, String, String, String)
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.DetachViewFromDataset*
+  name: DetachViewFromDataset
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_DetachViewFromDataset_
+  commentId: Overload:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.DetachViewFromDataset
+  isSpec: "True"
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.DetachViewFromDataset
+  nameWithType: STAIExtensionsHub.DetachViewFromDataset
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetMyViews(System.String,System.String)
+  name: GetMyViews(String, String)
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_GetMyViews_System_String_System_String_
+  commentId: M:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetMyViews(System.String,System.String)
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetMyViews(System.String, System.String)
+  nameWithType: STAIExtensionsHub.GetMyViews(String, String)
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetMyViews*
+  name: GetMyViews
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_GetMyViews_
+  commentId: Overload:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetMyViews
+  isSpec: "True"
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetMyViews
+  nameWithType: STAIExtensionsHub.GetMyViews
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetRegisteredViews(System.String)
+  name: GetRegisteredViews(String)
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_GetRegisteredViews_System_String_
+  commentId: M:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetRegisteredViews(System.String)
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetRegisteredViews(System.String)
+  nameWithType: STAIExtensionsHub.GetRegisteredViews(String)
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetRegisteredViews*
+  name: GetRegisteredViews
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_GetRegisteredViews_
+  commentId: Overload:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetRegisteredViews
+  isSpec: "True"
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetRegisteredViews
+  nameWithType: STAIExtensionsHub.GetRegisteredViews
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetView(System.String,System.String,System.String)
+  name: GetView(String, String, String)
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_GetView_System_String_System_String_System_String_
+  commentId: M:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetView(System.String,System.String,System.String)
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetView(System.String, System.String, System.String)
+  nameWithType: STAIExtensionsHub.GetView(String, String, String)
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetView*
+  name: GetView
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_GetView_
+  commentId: Overload:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetView
+  isSpec: "True"
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.GetView
+  nameWithType: STAIExtensionsHub.GetView
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.ListDataSets(System.String)
+  name: ListDataSets(String)
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_ListDataSets_System_String_
+  commentId: M:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.ListDataSets(System.String)
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.ListDataSets(System.String)
+  nameWithType: STAIExtensionsHub.ListDataSets(String)
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.ListDataSets*
+  name: ListDataSets
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_ListDataSets_
+  commentId: Overload:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.ListDataSets
+  isSpec: "True"
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.ListDataSets
+  nameWithType: STAIExtensionsHub.ListDataSets
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.RemoveView(System.String,System.String)
+  name: RemoveView(String, String)
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_RemoveView_System_String_System_String_
+  commentId: M:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.RemoveView(System.String,System.String)
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.RemoveView(System.String, System.String)
+  nameWithType: STAIExtensionsHub.RemoveView(String, String)
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.RemoveView*
+  name: RemoveView
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_RemoveView_
+  commentId: Overload:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.RemoveView
+  isSpec: "True"
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.RemoveView
+  nameWithType: STAIExtensionsHub.RemoveView
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewAutoRefreshDisabled(System.String,System.String,System.String)
+  name: SetViewAutoRefreshDisabled(String, String, String)
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_SetViewAutoRefreshDisabled_System_String_System_String_System_String_
+  commentId: M:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewAutoRefreshDisabled(System.String,System.String,System.String)
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewAutoRefreshDisabled(System.String, System.String, System.String)
+  nameWithType: STAIExtensionsHub.SetViewAutoRefreshDisabled(String, String, String)
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewAutoRefreshDisabled*
+  name: SetViewAutoRefreshDisabled
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_SetViewAutoRefreshDisabled_
+  commentId: Overload:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewAutoRefreshDisabled
+  isSpec: "True"
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewAutoRefreshDisabled
+  nameWithType: STAIExtensionsHub.SetViewAutoRefreshDisabled
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewAutoRefreshEnabled(System.String,System.String,System.String)
+  name: SetViewAutoRefreshEnabled(String, String, String)
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_SetViewAutoRefreshEnabled_System_String_System_String_System_String_
+  commentId: M:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewAutoRefreshEnabled(System.String,System.String,System.String)
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewAutoRefreshEnabled(System.String, System.String, System.String)
+  nameWithType: STAIExtensionsHub.SetViewAutoRefreshEnabled(String, String, String)
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewAutoRefreshEnabled*
+  name: SetViewAutoRefreshEnabled
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_SetViewAutoRefreshEnabled_
+  commentId: Overload:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewAutoRefreshEnabled
+  isSpec: "True"
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewAutoRefreshEnabled
+  nameWithType: STAIExtensionsHub.SetViewAutoRefreshEnabled
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewParameters(System.String,System.String,Dictionary{System.String,System.Object},System.String)
+  name: SetViewParameters(String, String, Dictionary<String, Object>, String)
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_SetViewParameters_System_String_System_String_Dictionary_System_String_System_Object__System_String_
+  commentId: M:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewParameters(System.String,System.String,Dictionary{System.String,System.Object},System.String)
+  name.vb: SetViewParameters(String, String, Dictionary(Of String, Object), String)
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewParameters(System.String, System.String, Dictionary<System.String, System.Object>, System.String)
+  fullName.vb: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewParameters(System.String, System.String, Dictionary(Of System.String, System.Object), System.String)
+  nameWithType: STAIExtensionsHub.SetViewParameters(String, String, Dictionary<String, Object>, String)
+  nameWithType.vb: STAIExtensionsHub.SetViewParameters(String, String, Dictionary(Of String, Object), String)
+- uid: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewParameters*
+  name: SetViewParameters
+  href: api/STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.html#STAIExtensions_Host_SignalR_Hubs_STAIExtensionsHub_SetViewParameters_
+  commentId: Overload:STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewParameters
+  isSpec: "True"
+  fullName: STAIExtensions.Host.SignalR.Hubs.STAIExtensionsHub.SetViewParameters
+  nameWithType: STAIExtensionsHub.SetViewParameters
 - uid: STAIExtensions.Host.SignalR.Identity
   name: STAIExtensions.Host.SignalR.Identity
   href: api/STAIExtensions.Host.SignalR.Identity.html

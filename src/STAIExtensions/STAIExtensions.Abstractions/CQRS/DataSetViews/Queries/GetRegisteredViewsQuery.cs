@@ -43,7 +43,7 @@ public class GetRegisteredViewsQueryHandler : IRequestHandler<GetRegisteredViews
         var result = (from registeredType in registeredTypes
             let instance = (IDataSetView) Activator.CreateInstance(registeredType)
             select new ViewInformation(registeredType.Name, registeredType.AssemblyQualifiedName,
-                instance?.ViewParameterDescriptors)).ToList();
+                registeredType.Name, instance?.ViewParameterDescriptors)).ToList();
 
         return Task.FromResult<IEnumerable<ViewInformation>>(result);
     }

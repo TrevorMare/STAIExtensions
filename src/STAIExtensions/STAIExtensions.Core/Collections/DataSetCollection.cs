@@ -162,7 +162,8 @@ public class DataSetCollection : Abstractions.Collections.IDataSetCollection
     /// <returns></returns>
     public IEnumerable<DataSetInformation> ListDataSets()
     {
-        return _dataSetCollection.Select(dataSet => new DataSetInformation(dataSet.DataSetName, dataSet.DataSetId, dataSet.DataSetType));
+        return _dataSetCollection.Select(dataSet => new DataSetInformation(dataSet.DataSetName, dataSet.DataSetId,
+            dataSet.DataSetType, dataSet.FriendlyDataSetType));
     }
 
     /// <summary>

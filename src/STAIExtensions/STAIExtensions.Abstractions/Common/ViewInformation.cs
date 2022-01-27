@@ -8,7 +8,7 @@ namespace STAIExtensions.Abstractions.Common;
 /// <param name="ViewName">The name of the view</param>
 /// <param name="ViewTypeName">The fully qualified type name</param>
 /// <param name="DataSetViewParameterDescriptors">A definition of the allowed parameters that the view accepts</param>
-public record class ViewInformation(string ViewName, string ViewTypeName, IEnumerable<DataSetViewParameterDescriptor>? DataSetViewParameterDescriptors)
+public record class ViewInformation(string ViewName, string ViewTypeName, string FriendlyViewTypeName, IEnumerable<DataSetViewParameterDescriptor>? DataSetViewParameterDescriptors)
 {
     /// <summary>
     /// The name of the view
@@ -19,6 +19,11 @@ public record class ViewInformation(string ViewName, string ViewTypeName, IEnume
     /// The fully qualified type name
     /// </summary>
     public string ViewTypeName { get; } = ViewTypeName;
+    
+    /// <summary>
+    /// Gets or sets the friendly view type name
+    /// </summary>
+    public string FriendlyViewTypeName { get; } = FriendlyViewTypeName;
     
     /// <summary>
     /// A definition of the allowed parameters that the view accepts

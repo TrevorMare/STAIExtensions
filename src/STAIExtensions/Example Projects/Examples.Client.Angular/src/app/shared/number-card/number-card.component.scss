@@ -1,0 +1,53 @@
+@import '../../@theme/styles/themes';
+@include nb-install-component() {
+    nb-card {
+        height: auto;
+        nb-card-body {
+            .card-body-container {
+                display: flex;
+                border-top-style: solid;
+                border-top-width: 3px;
+                border-top-color: transparent;
+    
+                &.selected {
+                    border-top-color: nb-theme(color-primary-500);
+                }
+            }
+        
+            .icon-container {
+                height: 6rem;
+                width: 6rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            
+                nb-icon {
+                    font-size: 4rem;
+                }
+            }
+            
+            .detail {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .total-text {
+                    font-size: 1.8rem;
+                }
+                .label-text {
+                    text-transform: uppercase;
+                    font-size: 0.9rem;
+                }
+            }
+        }
+        
+        
+    }
+    
+}
+
+
+
+   
+
+
+

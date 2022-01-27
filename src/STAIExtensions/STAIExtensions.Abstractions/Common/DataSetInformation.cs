@@ -6,7 +6,7 @@
 /// <param name="DataSetName">The name of the DataSet</param>
 /// <param name="DataSetId">The unique Id of the DataSet</param>
 /// <param name="DataSetType">The fully qualified type name of the DataSet</param>
-public record DataSetInformation(string DataSetName, string DataSetId, string DataSetType)
+public record DataSetInformation(string DataSetName, string DataSetId, string DataSetType, string FriendlyDataSetType)
 {
     /// <summary>
     /// Gets the name of the DataSet
@@ -22,4 +22,9 @@ public record DataSetInformation(string DataSetName, string DataSetId, string Da
     /// The fully qualified type name of the DataSet
     /// </summary>
     public string DataSetType { get; } = DataSetType;
+    
+    /// <summary>
+    /// The fully qualified type name of the DataSet
+    /// </summary>
+    public string FriendlyDataSetType { get; } = FriendlyDataSetType;
 }

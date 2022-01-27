@@ -23,6 +23,11 @@ public interface IDataSet : IDisposable
     /// Gets the fully qualified type name of the DataSet
     /// </summary>
     string DataSetType { get; }
+    
+    /// <summary>
+    /// Gets the fully qualified type name of the DataSet
+    /// </summary>
+    string FriendlyDataSetType { get; }
 
     /// <summary>
     /// An Event that occurs once all queries has run and the dataset has updated

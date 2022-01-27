@@ -1,0 +1,10 @@
+<nb-card>
+    <nb-card-header>View Source</nb-card-header>
+    <nb-card-body>
+        <ngx-json-viewer [json]="source" [expanded]="false"></ngx-json-viewer>
+    </nb-card-body>
+    <nb-card-footer>
+      <button nbButton matRipple hero status="primary" (click)="dismiss()">Close</button>
+    </nb-card-footer>
+  </nb-card>
+  

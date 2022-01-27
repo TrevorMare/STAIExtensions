@@ -34,6 +34,11 @@ public interface IDataSetView : IDisposable
     string ViewTypeName { get; }
 
     /// <summary>
+    /// Gets the fully qualified type name of the view 
+    /// </summary>
+    string FriendlyViewTypeName { get; }
+    
+    /// <summary>
     /// Gets a value indicating if the View is frozen for updates
     /// </summary>
     bool RefreshEnabled { get; }
