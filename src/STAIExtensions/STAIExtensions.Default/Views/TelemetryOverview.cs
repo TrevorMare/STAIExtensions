@@ -67,7 +67,7 @@ public class TelemetryOverview : DataSetView
     
     public IEnumerable<CustomMetric>? LastCustomMetrics { get; private set; }
     
-    public IEnumerable<Dependency>? LastDependenciesCount { get; private set; }
+    public IEnumerable<Dependency>? LastDependencies { get; private set; }
     
     public IEnumerable<AIException>? LastExceptions { get; private set; }
     
@@ -246,7 +246,7 @@ public class TelemetryOverview : DataSetView
             (_lastRecordCount == 0) ? new List<CustomEvent>() : _customEventsFiltered.OrderByDescending(r => r.TimeStamp).Take(_lastRecordCount);
         this.LastCustomMetrics = 
             (_lastRecordCount == 0) ? new List<CustomMetric>() : _customMetricsFiltered.OrderByDescending(r => r.TimeStamp).Take(_lastRecordCount);
-        this.LastDependenciesCount = 
+        this.LastDependencies = 
             (_lastRecordCount == 0) ? new List<Dependency>() : _dependenciesFiltered.OrderByDescending(r => r.TimeStamp).Take(_lastRecordCount);
         this.LastExceptions = 
             (_lastRecordCount == 0) ? new List<AIException>() : _exceptionsFiltered.OrderByDescending(r => r.TimeStamp).Take(_lastRecordCount);

@@ -8,7 +8,9 @@ import { ECommerceModule } from './e-commerce/e-commerce.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { SharedModule } from '../shared/shared.module';
-import { AiExtensionsDashboardComponent } from './ai-extensions-dashboard/ai-extensions-dashboard.component';
+
+import { StaiDashboardsModule } from './stai-dashboards/stai-dashboards.module';
+import { StaiDashboardTelemetryOverviewComponent } from './stai-dashboards/stai-dashboard-telemetry-overview/stai-dashboard-telemetry-overview.component';
 
 
 @NgModule({
@@ -21,12 +23,12 @@ import { AiExtensionsDashboardComponent } from './ai-extensions-dashboard/ai-ext
     ECommerceModule,
     MiscellaneousModule,
     SharedModule,
-    NbTabsetModule
+    NbTabsetModule,
+    StaiDashboardsModule 
 
   ],
   declarations: [
     PagesComponent,
-    AiExtensionsDashboardComponent,
    
   ],
 })

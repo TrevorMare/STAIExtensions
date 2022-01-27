@@ -43,6 +43,14 @@ export class DataContractGridDependenciesComponent extends DataContractGridCompo
         title: 'Cloud Role Name',
         type: 'string',
       },
+      name: {
+        title: 'Name',
+        type: 'string',
+      },
+      duration: {
+        title: 'Duration (ms)',
+        type: 'number',
+      },
       timeStamp: {
         title: 'Timestamp',
         type: 'string',

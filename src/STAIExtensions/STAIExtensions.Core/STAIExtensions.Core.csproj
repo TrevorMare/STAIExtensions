@@ -19,7 +19,7 @@
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>application-insights;custom-views;grpc;signalr;STAIExtensions;trevor;mare;staiextensions-core;dotnet</PackageTags>
-        <PackageReleaseNotes>v1.0.9 - Updated View Parameter Signature
+        <PackageReleaseNotes>v1.0.9 - Friendly type names and Auto update on register
 v1.0.8 - Added XML Documentation
 v1.0.7 - Added abstraction method for View Update
 v1.0.6 - Telemetry Cleanup
@@ -47,7 +47,7 @@ v0.0.1 - Initial Release
         </PackageReference>
         <!-- Additional packages required by this component -->
         <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
-        <PackageReference Include="STAIExtensions.Abstractions" Version="1.0.7" />
+        <PackageReference Include="STAIExtensions.Abstractions" Version="1.0.9" />
     </ItemGroup>
     <ItemGroup>
         <None Include="..\Resources\st_icon.png" Pack="true" PackagePath="content" />

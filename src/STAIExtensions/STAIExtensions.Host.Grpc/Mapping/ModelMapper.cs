@@ -24,7 +24,8 @@ internal static class ModelMapper
             RefreshEnabled = view.RefreshEnabled,
             SlidingExpiration = Duration.FromTimeSpan(view.SlidingExpiration),
             ViewParameterDescriptors = { ConvertViewParameters(view.ViewParameterDescriptors) },
-            ViewTypeName = view.ViewTypeName
+            ViewTypeName = view.ViewTypeName,
+            FriendlyViewTypeName = view.FriendlyViewTypeName
         };
         
         if (view.ExpiryDate.HasValue)
@@ -49,6 +50,7 @@ internal static class ModelMapper
                 {
                     ViewName = x.ViewName,
                     ViewTypeName = x.ViewTypeName,
+                    FriendlyViewTypeName = x.FriendlyViewTypeName,
                     DataSetViewParameterDescriptors = { ConvertViewParameters(x.DataSetViewParameterDescriptors) }
                 })
             }
@@ -85,7 +87,8 @@ internal static class ModelMapper
                 {
                     DataSetId = x.DataSetId,
                     DataSetName = x.DataSetName,
-                    DataSetType = x.DataSetType
+                    DataSetType = x.DataSetType,
+                    FriendlyDataSetType = x.FriendlyDataSetType
                 })
             }
         };

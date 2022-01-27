@@ -43,6 +43,14 @@ export class DataContractGridTracesComponent extends DataContractGridComponent i
         title: 'Cloud Role Name',
         type: 'string',
       },
+      message: {
+        title: 'Message',
+        type: 'string',
+      },
+      severityLevel: {
+        title: 'Severity Level',
+        type: 'number',
+      },
       timeStamp: {
         title: 'Timestamp',
         type: 'string',

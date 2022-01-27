@@ -1,18 +1,21 @@
 interface IDataSetInformation {
     dataSetName: string, 
     dataSetId: string, 
-    dataSetType: string
+    dataSetType: string,
+    friendlyDataSetType: string
 }
 
 interface IViewInformation {
     viewName: string, 
     viewTypeName: string,
+    friendlyViewTypeName: string,
     dataSetViewParameterDescriptors?: IDataSetViewParameterDescriptor[]
 }
 
 interface IMyView {
     viewId: string,
-    viewTypeName: string
+    viewTypeName: string,
+    friendlyViewTypeName: string,
 }
 
 interface IDataSetViewParameterDescriptor {
@@ -25,6 +28,7 @@ interface IDataSetViewParameterDescriptor {
 interface IView {
     id: string,
     viewTypeName: string,
+    friendlyViewTypeName: string,
     ownerId: string,
     expiryDate?: Date,
     lastUpdate?: Date,

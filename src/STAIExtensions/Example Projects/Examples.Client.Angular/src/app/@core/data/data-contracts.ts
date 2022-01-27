@@ -1,5 +1,19 @@
 export interface CustomDimension extends Record<string, string> {}
 export interface CustomMeasurement extends Record<string, number> {}
+export enum TelemetryType {
+    DataContract = 0, 
+    Availability = 1,
+    BrowserTiming = 2,
+    CustomEvent = 3,
+    CustomMetric = 4,
+    Dependency = 5,
+    Exceptions = 6,
+    PageView = 7,
+    PerformanceCounter = 8,
+    Request = 9,
+    Trace = 10,
+}
+
 
 export interface ExceptionParsedStack {
     id: string | null;

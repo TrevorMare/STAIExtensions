@@ -38,6 +38,7 @@ import { DataContractGridTracesComponent } from './datacontract-grid/datacontrac
 
 
 
+
 @NgModule({
   declarations: [
     NumberCardComponent,

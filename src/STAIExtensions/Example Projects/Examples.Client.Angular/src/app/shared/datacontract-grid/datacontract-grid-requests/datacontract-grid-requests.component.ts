@@ -43,6 +43,14 @@ export class DataContractGridRequestsComponent extends DataContractGridComponent
         title: 'Cloud Role Name',
         type: 'string',
       },
+      name: {
+        title: 'Name',
+        type: 'string',
+      },
+      performanceBucket: {
+        title: 'Performance Bucket',
+        type: 'string',
+      },
       timeStamp: {
         title: 'Timestamp',
         type: 'string',

@@ -43,6 +43,14 @@ export class DataContractGridPerformanceCountersComponent extends DataContractGr
         title: 'Cloud Role Name',
         type: 'string',
       },
+      counter: {
+        title: 'Counter',
+        type: 'string',
+      },
+      value: {
+        title: 'Value',
+        type: 'number',
+      },
       timeStamp: {
         title: 'Timestamp',
         type: 'string',

@@ -5,7 +5,7 @@
 /// </summary>
 /// <param name="ViewId">The unique View Id</param>
 /// <param name="ViewTypeName">The fully qualified view type</param>
-public record class MyViewInformation(string ViewId, string ViewTypeName)
+public record class MyViewInformation(string ViewId, string ViewTypeName, string FriendlyViewTypeName)
 {
     /// <summary>
     /// The unique View Id
@@ -16,4 +16,9 @@ public record class MyViewInformation(string ViewId, string ViewTypeName)
     /// The fully qualified view type
     /// </summary>
     public string ViewTypeName { get; } = ViewTypeName;
+    
+    /// <summary>
+    /// Gets or sets the friendly view type name
+    /// </summary>
+    public string FriendlyViewTypeName { get; } = FriendlyViewTypeName;
 }

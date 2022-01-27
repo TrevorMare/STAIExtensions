@@ -18,7 +18,7 @@ export interface TelemetryOverviewView extends View {
     lastBrowserTimings?: BrowserTiming[],
     lastCustomEvents?: CustomEvent[],
     lastCustomMetrics?: CustomMetric[],
-    lastDependenciesCount?: Dependency[],
+    lastDependencies?: Dependency[],
     lastExceptions?: AIException[],
     lastPageViews?: PageView[],
     lastPerformanceCounters?: PerformanceCounter[],

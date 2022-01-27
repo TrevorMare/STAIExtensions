@@ -90,6 +90,19 @@ export class STAIExtensionsService implements OnDestroy  {
     });
   }
 
+  public async GetView$(viewId: string): Promise<View> {
+    return new Promise((resolve, reject) => {
+
+      if (this.Ready$.value === false) throw `Service not ready`;
+      // Create the view
+      this.managedClientHub.GetView(viewId, (_: any, view: View) => {
+        resolve(view);
+      }, (err: any) => {
+        reject(err);
+      })
+    });
+  }
+
   public async LoadView$(viewId: string): Promise<any> {
     return new Promise((resolve, reject) => {
       this.managedClientHub.GetView(viewId, (_: any, view: any) => {

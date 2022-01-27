@@ -43,6 +43,10 @@ export class DataContractGridExceptionsComponent extends DataContractGridCompone
         title: 'Cloud Role Name',
         type: 'string',
       },
+      method: {
+        title: 'Method',
+        type: 'string',
+      },
       timeStamp: {
         title: 'Timestamp',
         type: 'string',

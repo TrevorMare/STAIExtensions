@@ -5,15 +5,15 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
-import { AiExtensionsDashboardComponent } from './ai-extensions-dashboard/ai-extensions-dashboard.component';
+import { StaiDashboardTelemetryOverviewComponent } from './stai-dashboards/stai-dashboard-telemetry-overview/stai-dashboard-telemetry-overview.component';
 
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
     {
-      path: 'ai-extensions-dashboard',
-      component: AiExtensionsDashboardComponent,
+      path: 'stai-dashboards/stai-dashboard-telemetry-overview',
+      component: StaiDashboardTelemetryOverviewComponent,
     },
     {
       path: 'dashboard',

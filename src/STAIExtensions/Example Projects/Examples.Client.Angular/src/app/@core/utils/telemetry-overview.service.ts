@@ -35,8 +35,15 @@ export class TelemetryOverviewService implements base.TelemetryOverviewService {
   private CreateView(): void {
     if (this.ViewId$.value === null) {
       this.stAIService.CreateView$(this.ViewTypeName).then((view) => {
-        this.View$.next(view);
-        this.ViewId$.next(this.View$.value.id);
+        // Once the view is created, get the view
+        this.stAIService.GetView$(view.id).then((getViewResponse) => {
+          this.View$.next(getViewResponse);
+          this.ViewId$.next(this.View$.value.id);
+
+        }).catch((err) => {
+          console.log(`An error occured ${err}`);
+        });
+      
       }).catch((err) => {
         console.log(`An error occured ${err}`);
       });

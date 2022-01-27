@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System.Reflection;
+using Microsoft.Extensions.Logging;
 using STAIExtensions.Abstractions;
 using STAIExtensions.Abstractions.Collections;
 using STAIExtensions.Abstractions.Common;
@@ -140,7 +141,22 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
             var type = Type.GetType(viewTypeName);
 
             if (type == null)
-                throw new Exception($"Unable to create view from type {viewTypeName}, View type not found");
+            {
+                _logger?.LogInformation("View type {ViewType} not found in fully qualified namespace. Attempting to resolve with find", 
+                    viewTypeName, ownerId);
+
+                var assemblyTypes = AppDomain.CurrentDomain.GetAssemblies()
+                    .Where(a => !a.IsDynamic)
+                    .SelectMany(a => a.GetTypes())
+                    .Where(t => string.Equals(t.Name, viewTypeName, StringComparison.OrdinalIgnoreCase)).ToArray();
+                
+                if (!assemblyTypes.Any())
+                    throw new Exception($"Unable to create view from type {viewTypeName}, View type not found");
+                if (assemblyTypes.Count() > 1)
+                    throw new Exception($"Multiple types found for type {viewTypeName}, please use fully qualified name");
+                
+                type = assemblyTypes[0];
+            }
 
             var resolvedInstance = Abstractions.DependencyExtensions.ServiceProvider?.GetService(type);
             if (resolvedInstance == null)
@@ -273,7 +289,7 @@ public class ViewCollection : Abstractions.Collections.IViewCollection
     {
         return this._dataSetViewCollection
             .Where(vw => string.Equals(ownerId.Trim(), vw.Id.Trim(), StringComparison.OrdinalIgnoreCase))
-            .Select(x => new MyViewInformation(x.Id, x.ViewTypeName));
+            .Select(x => new MyViewInformation(x.Id, x.ViewTypeName, x.FriendlyViewTypeName));
     }
     #endregion
 

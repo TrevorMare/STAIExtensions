@@ -105,6 +105,17 @@ public class ViewCollectionsTest
     }
     
     [Fact]
+    public void CreateView_WhenShortNameViewTypeFound_ShouldReturnView()
+    {
+        var t = typeof(Fixtures.DataSetViewFixture);
+        
+        var options = new ViewCollectionOptions(1000, true, true, null);
+        var sut = new ViewCollection(options);
+        var actual = sut.CreateView(t.Name, "123");
+        Assert.NotNull(actual);
+    }
+    
+    [Fact]
     public void CreateView_WhenViewTypeFound_ShouldViewIdShouldBeSet()
     {
         var t = typeof(Fixtures.DataSetViewFixture);

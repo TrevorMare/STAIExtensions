@@ -11,7 +11,10 @@ export class NumberCardComponent implements OnInit {
   @Input() total: number = 0;
   @Input() cardLabel: string = '';
   @Input() cardIcon: string = '';
+  @Input() selected: boolean = false;
 
+
+  
   constructor() { }
 
   ngOnInit(): void {

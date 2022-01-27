@@ -34,8 +34,13 @@ public abstract class DataSet : Abstractions.Data.IDataSet
     /// <summary>
     /// Gets the fully qualified type name of the DataSet
     /// </summary>
-    public string DataSetType => this.GetType().Name;
+    public string DataSetType => this.GetType().AssemblyQualifiedName;
     
+    /// <summary>
+    /// Gets the fully qualified type name of the DataSet
+    /// </summary>
+    public string FriendlyDataSetType => this.GetType().Name;
+
     /// <summary>
     /// An Event that occurs once all queries has run and the dataset has updated
     /// </summary>

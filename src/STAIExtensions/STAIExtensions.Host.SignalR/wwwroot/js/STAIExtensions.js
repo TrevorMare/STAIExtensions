@@ -124,7 +124,6 @@ var STAIExtensionsHub = (function () {
         if (success !== undefined && success !== null) {
             this._callbackHandler.PushAwaitCallback({ CallbackFunc: success, CallbackId: callbackId, CallbackName: "CreateView" });
         }
-        console.log('CreateView');
         this._connection.invoke("CreateView", viewType, this._ownerId, callbackId)["catch"](function (err) {
             instance._callbackHandler.RemoveCallback(callbackId);
             if (error !== undefined && error !== null) {

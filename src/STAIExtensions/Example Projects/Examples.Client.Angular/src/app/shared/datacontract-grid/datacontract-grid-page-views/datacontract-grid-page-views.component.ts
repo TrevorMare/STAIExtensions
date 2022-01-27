@@ -35,12 +35,16 @@ export class DataContractGridPageViewsComponent extends DataContractGridComponen
         title: 'Payload',
         renderComponent: JsonColumnComponent,
       },
-      cloudRoleInstance: {
-        title: 'Cloud Role Instance',
+      name: {
+        title: 'Name',
         type: 'string',
       },
-      cloudRoleName: {
-        title: 'Cloud Role Name',
+      clientBrowser: {
+        title: 'Client Browser',
+        type: 'string',
+      },
+      clientCity: {
+        title: 'Client City',
         type: 'string',
       },
       timeStamp: {
