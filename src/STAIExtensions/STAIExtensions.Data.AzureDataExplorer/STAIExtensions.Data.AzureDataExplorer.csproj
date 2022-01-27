@@ -10,7 +10,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <NoWarn>$(NoWarn);1591</NoWarn>
-        <PackageVersion>1.0.3</PackageVersion>
+        <PackageVersion>1.0.4</PackageVersion>
         <Title>STAIExtensions Data AzureDataExplorer</Title>
         <Authors>Trevor Maré</Authors>
         <Description>Azure Data Explorer Telemetry Loader for STAIExtensions.</Description>
@@ -19,7 +19,8 @@
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>application-insights;custom-views;grpc;signalr;STAIExtensions;trevor;mare;staiextensions-data-azuredataexplorer;azuredataexplorer;dotnet</PackageTags>
-        <PackageReleaseNotes>v1.0.3 - Documentation and XML Comments
+        <PackageReleaseNotes>v1.0.4 - Updated packages
+v1.0.3 - Documentation and XML Comments
 v1.0.2 - Telemetry Error Logging
 v1.0.1 - Telemetry Name Refinement
 v1.0.0 - Initial Public Release            

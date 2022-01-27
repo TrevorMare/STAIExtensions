@@ -6,7 +6,7 @@
         <LangVersion>latestmajor</LangVersion>
         <TargetFrameworks>net5.0;net6.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>1.0.3</PackageVersion>
+        <PackageVersion>1.0.4</PackageVersion>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <NoWarn>$(NoWarn);1591</NoWarn>
         <Title>STAIExtensions Grpc Client</Title>
@@ -17,7 +17,8 @@
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>STAIExtensions, Application Insights, Grpc, Client</PackageTags>
-        <PackageReleaseNotes>v1.0.3 - Added Xml documentation and package updates
+        <PackageReleaseNotes>v1.0.4 - Added Friendly Type Names
+v1.0.3 - Added Xml documentation and package updates
 v1.0.2 - Added package Readme
 v1.0.1 - Added package Icon
 v1.0.0 - Initial Release

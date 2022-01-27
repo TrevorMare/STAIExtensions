@@ -10,7 +10,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <NoWarn>$(NoWarn);1591</NoWarn>
-        <PackageVersion>1.0.4</PackageVersion>
+        <PackageVersion>1.0.5</PackageVersion>
         <Title>STAIExtensions Host Grpc</Title>
         <Authors>Trevor Maré</Authors>
         <Description>STAIExtension Grpc Host service used to push events and retrieve data</Description>
@@ -19,7 +19,8 @@
         <RepositoryUrl>https://github.com/TrevorMare/STAIExtensions</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>application-insights;custom-views;grpc;signalr;STAIExtensions;trevor;mare;staiextensions-data-azuredataexplorer;azuredataexplorer;dotnet</PackageTags>
-        <PackageReleaseNotes>v1.0.4 - Xml Documentation and package updates
+        <PackageReleaseNotes>v1.0.4 - Added Friendly type names
+v1.0.4 - Xml Documentation and package updates
 v1.0.3 - Update package references
 v1.0.2 - Update package references
 v1.0.1 - Telemetry Name Refinement
