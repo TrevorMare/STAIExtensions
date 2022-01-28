@@ -69,3 +69,9 @@ public enum AgoPeriod
     
     Time = 99
 }
+
+public enum RecordState
+{
+    New = 1,
+    Existing = 2
+}

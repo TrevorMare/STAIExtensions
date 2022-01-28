@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddHealthChecks();
 
 // Inject the Controllers and the options to expose the Api 
 var controllerApiOptions = new ApiOptions()
@@ -61,6 +62,8 @@ builder.Services.UseSTAIGrpc(grpcOptions);
 builder.Services.AddHostedService<ServiceRunner>();
 
 var app = builder.Build();
+
+app.MapHealthChecks("/health");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

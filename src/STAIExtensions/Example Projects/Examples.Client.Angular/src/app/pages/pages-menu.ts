@@ -8,6 +8,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
+    title: 'Availability Overview',
+    icon: 'shopping-cart-outline',
+    link: '/pages/stai-dashboards/stai-dashboard-availability-overview',
+    home: true,
+  },
+  {
     title: 'E-commerce',
     icon: 'shopping-cart-outline',
     link: '/pages/dashboard',

@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { StaiDashboardTelemetryOverviewComponent } from './stai-dashboards/stai-dashboard-telemetry-overview/stai-dashboard-telemetry-overview.component';
+import { StaiDashboardAvailabilityOverviewComponent } from './stai-dashboards/stai-dashboard-availability-overview/stai-dashboard-availability-overview.component';
 
 const routes: Routes = [{
   path: '',
@@ -14,6 +15,10 @@ const routes: Routes = [{
     {
       path: 'stai-dashboards/stai-dashboard-telemetry-overview',
       component: StaiDashboardTelemetryOverviewComponent,
+    },
+    {
+      path: 'stai-dashboards/stai-dashboard-availability-overview',
+      component: StaiDashboardAvailabilityOverviewComponent,
     },
     {
       path: 'dashboard',

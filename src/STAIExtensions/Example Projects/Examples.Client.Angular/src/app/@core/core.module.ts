@@ -56,6 +56,7 @@ import { SecurityCamerasService } from './mock/security-cameras.service';
 import { RippleService } from './utils/ripple.service';
 import { MockDataModule } from './mock/mock-data.module';
 import { TelemetryOverviewService } from './utils/telemetry-overview.service';
+import { AvailabilityOverviewService } from './utils/availability-overview.service';
 
 const socialLinks = [
   {
@@ -150,6 +151,7 @@ export const NB_CORE_PROVIDERS = [
   StateService,
   STAIExtensionsService,
   TelemetryOverviewService,
+  AvailabilityOverviewService,
 ];
 
 @NgModule({

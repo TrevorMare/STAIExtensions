@@ -1,0 +1,7 @@
+<nb-card>
+    <nb-card-body>
+        <st-availability-nested-table
+        [dataSource]="(availibilityOverviewService.View$ | async)?.aggregateGroup"></st-availability-nested-table>
+    </nb-card-body>
+  </nb-card>
+  

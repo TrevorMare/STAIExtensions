@@ -18,5 +18,18 @@ public static class DataContractFullFilterHelper
         return input.Where(record => filterValues.Contains(record.CloudRoleName ?? ""));
     }
     
+    public static IEnumerable<T> FilterTimeStamp<T>(this IEnumerable<T> input, DateTime? startDateTime, DateTime? endDateTime) where T : DataContractFull
+    {
+        if (startDateTime == null && endDateTime == null) return input;
+        
+        if (startDateTime != null && endDateTime != null)
+            return input.Where(record => record.TimeStamp >= startDateTime.Value && record.TimeStamp <= endDateTime.Value);
+        
+        if (startDateTime != null)
+            return input.Where(record => record.TimeStamp >= startDateTime.Value);
+        
+        return endDateTime != null ? input.Where(record => record.TimeStamp <= endDateTime.Value) : input;
+    }
+    
 
 }
