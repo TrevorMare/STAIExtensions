@@ -1,0 +1,17 @@
+.animated-header-container {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+}
+::ng-deep .char {
+    color: white;
+    transition: color ease-out .3s, text-shadow ease-out .3s;
+    text-shadow: 0 0 4rem #fff;
+
+    &.fade-in {
+        color: var(--color-secondary);
+        transition: color ease-out .3s, text-shadow ease-out .3s;
+        text-shadow: 0 0 1rem var(--primary-color);
+    }
+}
+  

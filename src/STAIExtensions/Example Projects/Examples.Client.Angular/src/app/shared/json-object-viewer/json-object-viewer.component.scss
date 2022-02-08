@@ -1,0 +1,16 @@
+::ng-deep {
+    .json-view-output {
+        background-color: transparent !important;
+        .json-container {
+            background-color: transparent !important;
+            font-family: var(--font-family);
+
+            .json-key, .json-separator {
+                color: var(--white-color);
+            }
+        }
+    }
+    
+    
+}
+

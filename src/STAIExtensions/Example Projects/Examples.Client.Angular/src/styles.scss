@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+
+:root {
+    --font-family: 'Orbitron', sans-serif;
+    --header-height: 3rem;
+    --header-background: #1E2936;
+    --navigation-collapsed-width: 68px;
+    --navigation-full-width: 250px;
+    --normal-font-size: 1rem;
+    --popup-background: #1e27468a;
+
+    --primary-color: #00ebff;
+    --secondary-color: #ffae00;
+    --secondary-color2: #9c6b01;
+    --white-color: #F7F6FB;
+    --glitch-color:#ff00c1;
+    --accent-color: deeppink;
+    --accent-color2: rgb(172, 16, 99);
+    --hover-background: rgba(79, 214, 255, 0.13);
+
+    --progress-background: rgba(65, 65, 65, 0.267);
+    --progress-green: #155e15;
+    --progress-red: #871111;
+    --progress-orange: #78581c;
+    --line-color: #0a5688;
+
+    --color-light-100: #E5E6E8;
+    --color-light-500: #787F86;  
+    --body-color: #89b1c4;
+    --price-color: #0f0;
+    --light-color: rgba(22, 104, 159, 0.2);
+    --blue-color: rgba(10, 24, 34, 0.8);
+    --green-color: #677a0a;
+   
+    --dark-black-color: #182027;
+    --light-black-color: #1a252d;
+    --shadow-color: #0074c2;
+    --transparent-color: transparent;  
+
+    
+    --first-color: #4723D9;
+    --first-color-light: #AFA5D9;
+}
+
+html, body {
+    font-family: var(--font-family) !important;
+    color: white !important;
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+body {
+    transition: 0.5s;
+    background: url(assets/img/grid-glow.png), url(assets/img/background.jpg);
+    background-repeat: repeat, no-repeat;
+    background-size: auto, auto;
+    position: relative;
+    font-family: var(--font-family);
+    font-size: var(--normal-font-size);
+    overflow: hidden;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: var(--white-color);
+}
+  
+::-webkit-scrollbar {
+    width: 4px;
+    background-color: var(--white-color);
+}
+  
+::-webkit-scrollbar-thumb {
+    background-color: var(--line-color);
+}
+
+@mixin glitchCopy { 
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch {
+    position: relative;
+}
+
+.glitch-animation {
+    animation: glitch-skew 1s infinite linear alternate-reverse;
+    &::before{
+        @include glitchCopy;
+        left: 2px;
+        text-shadow: -2px 0 var(--glitch-color);
+        clip: rect(44px, 450px, 56px, 0);
+        animation: glitch-anim 5s infinite linear alternate-reverse;
+    }
+    &::after {
+        @include glitchCopy;
+        left: -2px;
+        text-shadow: -2px 0 var(--primary-color), 2px 2px var(--glitch-color);
+        animation: glitch-anim2 1s infinite linear alternate-reverse;
+    }
+}
+@keyframes glitch-anim {
+    $steps: 20;
+    @for $i from 0 through $steps {
+        #{percentage($i*(1/$steps))} {
+            clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+            transform: skew((random(100) / 100) + deg);
+        }
+    }
+}
+
+@keyframes glitch-anim2 {
+    $steps: 20;
+    @for $i from 0 through $steps {
+        #{percentage($i*(1/$steps))} {
+            clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+            transform: skew((random(100) / 100) + deg);
+        }
+    }
+}
+
+@keyframes glitch-skew {
+    $steps: 10;
+    @for $i from 0 through $steps {
+        #{percentage($i*(1/$steps))} {
+            transform: skew((random(10) - 5) + deg);
+        }
+    }
+}  
+
+

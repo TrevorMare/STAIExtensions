@@ -1,0 +1,12 @@
+::ng-deep {
+    .footer-content {
+        display: flex;
+        justify-content: right;
+        margin-bottom: .4rem;
+        margin-right: .4rem;
+    }
+    .body-content {
+        overflow: auto;
+        max-height: 45vh;
+    }
+}

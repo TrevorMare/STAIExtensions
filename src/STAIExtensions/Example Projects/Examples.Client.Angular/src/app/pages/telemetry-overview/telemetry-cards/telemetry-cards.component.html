@@ -1,0 +1,102 @@
+ <div class="overview-panel">
+    <st-augmented-card [selected]="selectedCard == 'Availability'" (click)="selectedCard = 'Availability'">
+        <div aug-card-header>Availability</div>
+        <div aug-card-body>
+            <div class="info-panel ">
+                <st-glitch-text class="counter-text" text="{{ ((telemetryOverviewView$ | async)?.availabilityCount ?? 0).toString() }}"></st-glitch-text>
+                <st-icon iconSet="font-awesome" iconClass="fas fa-heartbeat" addClass="info-panel-icon"></st-icon>
+            </div>
+        </div>
+    </st-augmented-card>
+
+    <st-augmented-card [selected]="selectedCard == 'BrowserTimings'" (click)="selectedCard = 'BrowserTimings'">
+        <div aug-card-header>Browser Timings</div>
+        <div aug-card-body>
+            <div class="info-panel ">
+                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-icon iconSet="font-awesome" iconClass="far fa-clock" addClass="info-panel-icon"></st-icon>
+            </div>
+        </div>
+    </st-augmented-card>
+
+    <st-augmented-card [selected]="selectedCard == 'CustomEvents'" (click)="selectedCard = 'CustomEvents'">
+        <div aug-card-header>Custom Events</div>
+        <div aug-card-body>
+            <div class="info-panel ">
+                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-icon iconSet="material-icons" iconClass="playlist_add" addClass="info-panel-icon"></st-icon>
+            </div>
+        </div>
+    </st-augmented-card>
+
+    <st-augmented-card [selected]="selectedCard == 'CustomMetrics'" (click)="selectedCard = 'CustomMetrics'">
+        <div aug-card-header>Custom Metrics</div>
+        <div aug-card-body>
+            <div class="info-panel ">
+                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-icon iconSet="material-icons" iconClass="assessment" addClass="info-panel-icon"></st-icon>
+            </div>
+        </div>
+    </st-augmented-card>
+
+    <st-augmented-card [selected]="selectedCard == 'Dependencies'" (click)="selectedCard = 'Dependencies'">
+        <div aug-card-header>Dependencies</div>
+        <div aug-card-body>
+            <div class="info-panel ">
+                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-icon iconSet="material-icons" iconClass="merge_type" addClass="info-panel-icon"></st-icon>
+            </div>
+        </div>
+    </st-augmented-card>
+
+    <st-augmented-card [selected]="selectedCard == 'Exceptions'" (click)="selectedCard = 'Exceptions'">
+        <div aug-card-header>Exceptions</div>
+        <div aug-card-body>
+            <div class="info-panel ">
+                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-icon iconSet="material-icons" iconClass="error_outline" addClass="info-panel-icon"></st-icon>
+            </div>
+        </div>
+    </st-augmented-card>
+
+    <st-augmented-card [selected]="selectedCard == 'PageViews'" (click)="selectedCard = 'PageViews'">
+        <div aug-card-header>Page Views</div>
+        <div aug-card-body>
+            <div class="info-panel ">
+                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-icon iconSet="font-awesome" iconClass="far fa-eye" addClass="info-panel-icon"></st-icon>
+            </div>
+        </div>
+    </st-augmented-card>
+
+    <st-augmented-card [selected]="selectedCard == 'PerformanceCounters'" (click)="selectedCard = 'PerformanceCounters'">
+        <div aug-card-header>Performance Counters</div>
+        <div aug-card-body>
+            <div class="info-panel ">
+                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-icon iconSet="font-awesome" iconClass="fas fa-chart-bar" addClass="info-panel-icon"></st-icon>
+            </div>
+        </div>
+    </st-augmented-card>
+
+    <st-augmented-card [selected]="selectedCard == 'Requests'" (click)="selectedCard = 'Requests'">
+        <div aug-card-header>Requests</div>
+        <div aug-card-body>
+            <div class="info-panel ">
+                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-icon iconSet="material-icons" iconClass="devices" addClass="info-panel-icon"></st-icon>
+            </div>
+        </div>
+    </st-augmented-card>
+
+    <st-augmented-card [selected]="selectedCard == 'Traces'" (click)="selectedCard = 'Traces'">
+        <div aug-card-header>Traces</div>
+        <div aug-card-body>
+            <div class="info-panel ">
+                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-icon iconSet="material-icons" iconClass="text_fields" addClass="info-panel-icon"></st-icon>
+            </div>
+        </div>
+    </st-augmented-card>
+    
+</div>

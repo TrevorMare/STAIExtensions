@@ -1,0 +1,30 @@
+::ng-deep {
+    .overview-panel {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 1rem;
+        margin: 0 auto;
+        cursor: pointer;
+        .info-panel {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            
+            st-icon {
+               margin-left: auto;
+            }
+            .info-panel-icon {
+                font-size: 3.2rem;
+                margin-right: 0.8rem;
+                color: var(--secondary-color);
+            }
+
+            .counter-text {
+                margin-left: 0.4rem;
+                font-size: 3rem;
+                align-self: flex-end;
+            }
+    
+        }
+    }
+}

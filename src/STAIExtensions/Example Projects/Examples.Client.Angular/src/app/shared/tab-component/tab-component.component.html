@@ -1,0 +1,6 @@
+<ul class="tab-items">
+    <li *ngFor="let tab of tabs" (click)="selectTab(tab)" class="tab-item" [class.active]="tab.active">
+      <a class="tab-item-button" type="button">{{tab.title}}</a>
+    </li>
+</ul>
+<ng-content></ng-content>

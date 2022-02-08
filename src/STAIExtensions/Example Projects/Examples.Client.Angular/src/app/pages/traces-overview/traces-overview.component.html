@@ -1,0 +1,15 @@
+<st-animated-header text="Traces Overview"></st-animated-header>
+
+<h1 class="cyberpunk glitched">Traces</h1>
+
+<div class="traces-container" >
+    <st-augmented-card [showOver]="false" [colorStyle]="1"  >
+        <div aug-card-body>
+            <div class="console" #console (scroll)="scrolled($event)">
+                <div *ngFor="let item of items" class="console-item" #item>
+                    <span #consoleitem [class]="item.itemType">{{ item.itemMessage }}</span>
+                </div>
+            </div>
+        </div>
+    </st-augmented-card>
+</div>
