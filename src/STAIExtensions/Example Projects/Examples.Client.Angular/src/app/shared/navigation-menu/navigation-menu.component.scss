@@ -1,0 +1,42 @@
+.side-menu {
+  height: 100vh;
+  width: var(--navigation-full-width);
+  transition: 0.5s;
+  .side-menu-header {
+    background-color: var(--header-background);
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    .header-text {
+      margin-left: 2rem;
+      color: var(--primary-color);
+    }
+  }
+
+  .side-menu-content {
+    height: calc(100vh - var(--header-height) - 1rem);
+    padding-top: 1.4rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+.collapsed-menu {
+  width: var(--navigation-collapsed-width);
+}
+
+::ng-deep .app-icon {
+  color: var(--primary-color);
+  justify-self: center;
+  align-self: center;
+  margin-left: 1.2rem;
+  font-size: 1.25rem;
+}
+  
+@media screen and (max-width: 768px) {
+  .side-menu {
+    width: var(--navigation-collapsed-width);
+  }
+}
+   
+  

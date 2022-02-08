@@ -1,7 +1,4 @@
-@import '../@theme/styles/themes';
-
-@include nb-install-component() {
-  ::ng-deep router-outlet + * {
+::ng-deep router-outlet + * {
     display: block;
     animation: fade 1s;
 
@@ -15,4 +12,11 @@
       }
     }
   }
+::ng-deep   st-pages { 
+  height: 100%; 
 }
+  
+  .display-content {
+    height: calc(100vh - var(--header-height) - 1rem);
+    overflow: auto;
+  }

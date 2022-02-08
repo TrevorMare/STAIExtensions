@@ -1,0 +1,292 @@
+.app-content-container {
+    display: flex;
+    overflow: hidden;
+    .content-right-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .top-bar {
+            background-color: var(--header-background);
+            height: var(--header-height);
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .page-router-outlet {
+            width: 100%;
+            overflow: auto;
+            height: calc(100vh - var(--header-height) - 1rem);
+            padding-top: 1.0rem;
+            padding-right: 1.0rem;
+        }
+    }
+}
+
+.loading-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10000 !important;
+    background-color: rgba(0,0,0,0.6) !important;
+    visibility: visible !important;
+    transition: visibility 0s, opacity 0.4s linear !important;
+    cursor: wait;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+::ng-deep .toggle-icon {
+    color: var(--primary-color);
+    cursor: pointer;
+    margin-left: 1.4rem;
+    font-size: 1.4rem;
+}
+
+@media screen and (max-width: 768px) {
+  ::ng-deep .toggle-icon {
+     display: none;
+  }
+}
+
+:host ::ng-deep #table {
+    font-family: var(--font-family) !important;
+}
+:host ::ng-deep .ngx-table__header-title {
+    color: var(--white-color);
+}
+:host ::ng-deep .ngx-pagination-range-dropdown-button {
+    color: var(--secondary-color);
+}
+:host ::ng-deep #table > tbody > tr:hover {
+    background-color: var(--hover-background);
+}
+:host ::ng-deep #table > tbody > tr > td {
+    color: var(--primary-color);
+    border-bottom-color: var(--line-color);
+}
+:host ::ng-deep #pagination-controls > pagination-template > ul > li.current > span {
+    color: var(--primary-color);
+}
+:host ::ng-deep #pagination-controls > pagination-template > ul > li > a > span {
+    color: var(--primary-color);
+}
+:host ::ng-deep .ngx-pagination .current {
+    background: var(--line-color);
+}
+
+::ng-deep {
+    .modal-backdrop {
+        &.show {
+            opacity: 0.9;
+        }
+    }
+    .modal-content {
+        background-color: transparent;
+    }
+}
+
+::ng-deep {
+    h1.cyberpunk {
+        position: relative;
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 2rem;
+      }
+      h1.cyberpunk:before {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -1.4rem;
+        left: 2px;
+        width: 100%;
+        height: 10px;
+        background-color: var(--line-color);
+        clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+      }
+      h1.cyberpunk.glitched {
+        animation-name: glitched;
+        animation-duration: calc(.9s * 1.4);
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+      @keyframes glitched {
+        0% { left: -4px; transform: skew(-20deg); }
+        11% { left: 2px; transform: skew(0deg); }
+        50% { transform: skew(0deg); }
+        51% { transform: skew(10deg); }
+        60% { transform: skew(0deg); }
+        100% { transform: skew(0deg); }
+      }
+      h1.cyberpunk.glitched:before {
+        animation-name: beforeglitched;
+        animation-duration: calc(.9s * 2);
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+      @keyframes beforeglitched {
+        0% {
+          left: -4px;
+          transform: skew(-20deg);
+          clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+        }
+        11% {
+          left: 2px;
+          transform: skew(0deg);
+          clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+        }
+        50% {
+          transform: skew(0deg);
+          clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+        }
+        51% {
+          transform: skew(0deg);
+          clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 40% 5px, calc(40% - 30px) 0px, calc(40% + 30px) 0px, calc(45% - 15px) 5px, 100% 5px, 100% 6px, calc(45% - 14px) 6px, calc(40% + 29px) 1px, calc(40% - 29px) 1px, calc(40% + 1px) 6px, 85px 6px, 80px 10px, 0px 10px);
+        }
+        60% {
+          transform: skew(0deg);
+          clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+        }
+        100% {
+          transform: skew(0deg);
+          clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+        }
+      }
+}
+
+::ng-deep {
+    .apexcharts-tooltip, .apexcharts-menu {
+        color: var(--blue-color);
+    }
+    .apexcharts-menu {
+        white-space: nowrap;
+    }
+}
+
+
+::ng-deep {
+    .glow-progress {
+        border-radius: 1.0rem; 
+        width: 100%;
+        box-shadow: 1px 1px 4px rgba( 0, 0, 0, 0.2 );
+        &::-webkit-progress-bar {
+            background-color: var(--progress-background);
+            border-radius: 1.0rem; 
+        }
+        &::-webkit-progress-value {
+            background-color: var(--white-color);
+            border-radius: 1.0rem;
+            box-shadow: inset 
+            0 0 .3rem .3rem  var(--primary-color),
+            0 0 .3rem 0  var(--primary-color),
+            0 0 1rem .0625rem  var(--primary-color);
+        }
+        &.secondary {
+            &::-webkit-progress-value {
+                box-shadow: inset 
+                0 0 .3rem .3rem  var(--secondary-color),
+                0 0 .3rem 0  var(--secondary-color),
+                0 0 1rem .0625rem  var(--secondary-color);
+            }
+        }
+        &.accent {
+            &::-webkit-progress-value {
+                box-shadow: inset 
+                0 0 .3rem .3rem  var(--accent-color),
+                0 0 .3rem 0  var(--accent-color),
+                0 0 1rem .0625rem  var(--accent-color);
+            }
+        }
+        &.green {
+            &::-webkit-progress-value {
+                box-shadow: inset 
+                0 0 .3rem .3rem  var(--progress-green),
+                0 0 .3rem 0  var(--progress-green),
+                0 0 1rem .0625rem  var(--progress-green);
+            }
+        }
+        &.red {
+            &::-webkit-progress-value {
+                box-shadow: inset 
+                0 0 .3rem .3rem  var(--progress-red),
+                0 0 .3rem 0  var(--progress-red),
+                0 0 1rem .0625rem  var(--progress-red);
+            }
+        }
+        &.orange {
+            &::-webkit-progress-value {
+                box-shadow: inset 
+                0 0 .3rem .3rem  var(--progress-orange),
+                0 0 .3rem 0  var(--progress-orange),
+                0 0 1rem .0625rem  var(--progress-orange);
+            }
+        }
+    }
+}
+
+::ng-deep {
+    .button {
+        background-color:var(--light-color);
+        background-image: url(https://robertsspaceindustries.com/rsi/static/images/content-page/horizontal-lined-bg.png);
+        padding: 0.4rem 0.8rem;
+        color:var(--primary-color);
+        text-decoration:none;
+        margin:.3rem;
+        display:inline-block;
+        border-left: .2rem solid var(--primary-color);
+        position:relative;
+        overflow:hidden;
+        text-indent:0;
+    }
+      
+    .button-2 {
+        background-color:var(--light-color);
+        background-image: url(https://robertsspaceindustries.com/rsi/static/images/content-page/horizontal-lined-bg.png);
+        padding:1rem 2rem;
+        color:var(--white-color);  
+        border:.1rem solid var(--light-color);
+        text-indent:0;
+    }
+      
+    .button-2:hover{
+        color:var(--primary-color);
+        border-color: var(--primary-color);
+    }
+    
+    
+    
+    .button span {
+        position:relative;
+        display:inline-block;
+        z-index:2;
+    }
+    
+    .button:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0;
+        z-index: 1;
+        -webkit-transition: all .6s;
+        -moz-transition: all .6s;
+        transition: all .6s;
+        background: var(--blue-color);
+    }
+    
+    .button:hover:before {
+        width: 100%;
+        z-index:0;
+    }
+    
+    .button:hover {
+        color:var(--secondary-color);
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+    }
+      
+}

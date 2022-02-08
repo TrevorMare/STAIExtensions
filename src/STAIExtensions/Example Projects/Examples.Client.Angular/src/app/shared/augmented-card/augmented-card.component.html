@@ -1,0 +1,13 @@
+<div class="augmented-glow" [ngClass]="{'selected': selected}" >
+    <div class="augmented-card" [attr.data-augmented-ui]="GetBorderStyle()" [ngClass]="{'color2': colorStyle == 2, 'color3': colorStyle == 3, 'show-over': showOver}">
+        <div class="augmented-card-header">
+            <ng-content select="[aug-card-header]"></ng-content>
+        </div>
+        <div class="augmented-card-body">
+            <ng-content select="[aug-card-body]"></ng-content>
+        </div>
+        <div class="augmented-card-footer">
+            <ng-content select="[aug-card-footer]"></ng-content>
+        </div>
+    </div>
+</div>

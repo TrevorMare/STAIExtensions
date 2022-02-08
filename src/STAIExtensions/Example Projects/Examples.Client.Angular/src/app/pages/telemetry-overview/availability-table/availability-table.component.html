@@ -1,0 +1,55 @@
+<ngx-table [configuration]="configuration"
+           [data]="data"
+           [columns]="columns">
+  <ng-template let-row let-index="index">
+    <td>
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <st-icon iconClass="far fa-eye" 
+          iconSet="font-awesome" 
+          addClass="view-json-icon"
+          (click)="onViewJsonItemClick($event, index)"></st-icon>
+      </div>
+    </td>
+    <td>
+      <span>Age: {{ row.age }}</span>
+      <div class="bar bar-sm">
+        <div
+          class="bar-item"
+          role="progressbar"
+          [style.width]="row.age + '%'"
+          aria-valuenow="row.age"
+          aria-valuemin="0"
+          aria-valuemax="70"
+        ></div>
+      </div>
+    </td>
+    <td>
+      <div>Company: {{ row.company }}</div>
+    </td>
+    <td>
+      <span class="mb-2">Supervisor: </span>
+      <strong>{{ row.name }}</strong>
+    </td>
+    <td>
+      <span>Phone: {{ row.phone }}</span>
+    </td>
+    <td>
+      <!-- <div>{{ row.address.street }}</div> -->
+    </td>
+    <td>
+      <!-- <button
+        class="btn btn-primary"
+        id="expandButton-{{ index }}"
+        (click)="onRowClickEvent($event, index)"
+      >
+        <i class="icon icon-arrow-left" *ngIf="!toggledRows.has(index)"></i>
+        <i class="icon icon-arrow-down" *ngIf="toggledRows.has(index)"></i>
+        Expand
+      </button> -->
+    </td>
+  </ng-template>           
+</ngx-table>
+
+
+
+

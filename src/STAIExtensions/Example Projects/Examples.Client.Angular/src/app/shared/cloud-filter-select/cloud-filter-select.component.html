@@ -1,4 +1,0 @@
-<nb-select multiple placeholder="Filter" [(selected)]="selectedItems" (selectedChange)="onCloudFilterOptionSelectChanged($event)">
-    <nb-option value="-1">All</nb-option>
-    <nb-option *ngFor="let item of (availableCloudFilters$ | async); let i = index" value="{{ i }}">{{ item }}</nb-option>
-</nb-select>

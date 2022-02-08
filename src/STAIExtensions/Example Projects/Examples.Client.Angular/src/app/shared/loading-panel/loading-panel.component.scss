@@ -1,0 +1,62 @@
+$primary-arc-color: #00ebff;
+$secondary-arc-color: #F7F6FB;
+$primary-shadow: drop-shadow(1px 1px 8px $primary-arc-color);
+$secondary-shadow: drop-shadow(1px 1px 8px $secondary-arc-color);
+::ng-deep {
+    .arc-container {
+        position: relative;
+        height: 300px;
+        width: 300px;
+        background-color: transparent;
+        .arc-svg {
+            position: absolute;
+            .arc-svg-path {
+                fill: none;
+                transform-origin: center;
+            }
+            .arc-svg-path:nth-child(1) {
+                stroke: darken($primary-arc-color, 10%);
+                -webkit-filter: $primary-shadow;
+                filter: $primary-shadow;
+            }
+            .arc-svg-path:nth-child(2) {
+                stroke: darken($secondary-arc-color, 5%);
+            }
+            .arc-svg-path:nth-child(3) {
+                stroke: lighten($primary-arc-color, 8%);
+                -webkit-filter: $primary-shadow;
+                filter: $primary-shadow;
+            }
+            .arc-svg-path:nth-child(4) {
+                stroke: $primary-arc-color;
+                -webkit-filter: $primary-shadow;
+                filter: $primary-shadow;
+            }
+            .arc-svg-path:nth-child(5) {
+                stroke: $secondary-arc-color;
+            }
+            .arc-svg-path:nth-child(6) {
+                stroke: darken($primary-arc-color, 10%);
+                -webkit-filter: d$primary-shadow;
+                filter: $primary-shadow;
+            }
+            .arc-svg-path:nth-child(7) {
+                stroke: darken($secondary-arc-color, 15%);
+            }
+            .arc-svg-path:nth-child(8) {
+                stroke: lighten($primary-arc-color, 4%);
+                -webkit-filter: $primary-shadow;
+                filter: $primary-shadow;
+            }
+            .arc-svg-path:nth-child(9) {
+                stroke: $secondary-arc-color;
+            }
+            .inner {
+                fill: darken($secondary-arc-color, 10%);
+                -webkit-filter: $secondary-shadow;
+                filter: $secondary-shadow;
+            }
+        }
+    }
+}
+

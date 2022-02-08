@@ -1,0 +1,101 @@
+$console-background: #0a0a0aad;
+$trace-background: var(--white-color);
+$info-background: #155e15;
+$warning-background: #78581c;
+$error-background: #871111;
+
+.traces-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+}
+
+::ng-deep {
+    .augmented-card {
+        background-color: $console-background;
+        .console {
+            margin-top: 1.8rem;
+            padding-left: 1.8rem;
+            padding-bottom: 1.8rem;
+            height: calc(100vh - 300px);
+            margin-right: 1.8rem;
+            padding-right: 1.8rem;
+            overflow: auto;
+            &:after {
+                content: '';
+                position: absolute;
+                top:0px;
+                left:0px;
+                right:0px;
+                bottom:0px;
+                z-index:1000;
+                background: repeating-linear-gradient(0deg, #111 0px, #111 1px, transparent 2px, transparent 5px);
+                background-size:100% 5px;
+                animation: lines 2s ease-out infinite;
+                opacity:0.3;
+                mix-blend-mode: color-burn;
+                pointer-events: none;
+             }
+            span {
+                display: block;
+                margin-top: 0.6rem;
+                margin-bottom: 0.6rem;
+                color: var(--white-color);
+                &::before {
+                    color: black;
+                    content: '';
+                    display: inline-block;
+                    background-color: var(--white-color);
+                    padding-left: 0.6rem;
+                    padding-right: 0.6rem;
+                    margin-right: 0.6rem;
+                    text-transform: uppercase;
+                    font-style: italic;
+                    width: 6rem;
+                    text-align: center;
+                    font-weight: bold;
+                }
+            }
+
+            .info {
+                &::before {
+                    color: var(--white-color);
+                    content: 'info';
+                    background-color: $info-background;
+                }
+            } 
+            .warning {
+                &::before {
+                    color: var(--white-color);
+                    content: 'warning';
+                    background-color: $warning-background;
+                }
+            } 
+            .error {
+                &::before {
+                    color: var(--white-color);
+                    content: 'error';
+                    background-color: $error-background;
+                }
+
+            } 
+            .trace {
+                &::before {
+                    color: black;
+                    content: 'trace';
+                    background-color: $trace-background;
+                }
+            }
+        }
+    }
+}
+
+@keyframes lines {
+    0% {
+       background-position:0px 0px;
+    }
+    100% {
+       background-position:0px 25px;
+    }
+ }

@@ -1,0 +1,25 @@
+<st-augmented-card [colorStyle]="1" [borderStyle]="2" [showOver]="false" class="popup-container">
+    <div aug-card-header>
+        <div #refHeader><ng-content select="[popup-header]"></ng-content></div>
+        <ng-container *ngIf="!refHeader.hasChildNodes()">
+            <span class="modal-title">{{my_modal_title}}</span>
+            <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </ng-container>
+    </div>
+    <div aug-card-body>
+        <div #refBody><ng-content select="[popup-body]"></ng-content></div>
+        <ng-container *ngIf="!refBody.hasChildNodes()">
+            <div class="info-panel ">
+                <p> {{ my_modal_content }}</p>
+            </div>
+        </ng-container>
+    </div>
+    <div aug-card-footer>
+        <div #refFooter> <ng-content select="[popup-footer]"></ng-content></div>
+        <ng-container *ngIf="!refFooter.hasChildNodes()">
+            <button type="button" (click)="activeModal.close('Close click')">Close</button>
+        </ng-container>
+    </div>
+</st-augmented-card>

@@ -1,91 +1,56 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NumberCardComponent } from './number-card/number-card.component';
-import { ThemeModule } from '../@theme/theme.module';
-
-import {
-  NbActionsModule,
-  NbButtonModule,
-  NbCardModule,
-  NbTabsetModule,
-  NbUserModule,
-  NbRadioModule,
-  NbSelectModule,
-  NbListModule,
-  NbIconModule,
-  NbSelectComponent,
-  NbOptionComponent,
-} from '@nebular/theme';
-import { Ng2SmartTableComponent, Ng2SmartTableModule }  from 'ng2-smart-table'; 
-import { NgxJsonViewerModule } from 'ngx-json-viewer';
-
-import { CloudFilterSelectComponent } from './cloud-filter-select/cloud-filter-select.component';
-import { TelemetryOverviewComponent } from './telemetry-overview/telemetry-overview.component';
-import { ViewSourceModalComponent } from './view-source-modal/view-source-modal.component';
-import { JsonColumnComponent } from './json-column/json-column.component';
-import { ToggleCardComponent } from './toggle-card/toggle-card.component';
-import { DatacontractGridModule } from './datacontract-grid/datacontract-grid.module';
-import { DataContractGridAvailabilityComponent } from './datacontract-grid/datacontract-grid-availability/datacontract-grid-availability.component';
-import { DataContractGridBrowserTimingsComponent } from './datacontract-grid/datacontract-grid-browser-timings/datacontract-grid-browser-timings.component';
-import { DataContractGridCustomEventsComponent } from './datacontract-grid/datacontract-grid-custom-events/datacontract-grid-custom-events.component';
-import { DataContractGridCustomMetricsComponent } from './datacontract-grid/datacontract-grid-custom-metrics/datacontract-grid-custom-metrics.component';
-import { DataContractGridDependenciesComponent } from './datacontract-grid/datacontract-grid-dependencies/datacontract-grid-dependencies.component';
-import { DataContractGridExceptionsComponent } from './datacontract-grid/datacontract-grid-exceptions/datacontract-grid-exceptions.component';
-import { DataContractGridPageViewsComponent } from './datacontract-grid/datacontract-grid-page-views/datacontract-grid-page-views.component';
-import { DataContractGridPerformanceCountersComponent } from './datacontract-grid/datacontract-grid-performance-counters/datacontract-grid-performance-counters.component';
-import { DataContractGridRequestsComponent } from './datacontract-grid/datacontract-grid-requests/datacontract-grid-requests.component';
-import { DataContractGridTracesComponent } from './datacontract-grid/datacontract-grid-traces/datacontract-grid-traces.component';
-
+import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
+import { NavigationMenuItemComponent } from './navigation-menu/navigation-menu-item/navigation-menu-item.component';
+import { IconComponent } from './icon/icon.component';
+import { RouterLink, RouterModule } from '@angular/router';
+import { AugmentedCardComponent } from './augmented-card/augmented-card.component';
+import { AnimatedHeaderComponent } from './animated-header/animated-header.component';
+import { LoadingPanelComponent } from './loading-panel/loading-panel.component';
+import { GlitchTextComponent } from './glitch-text/glitch-text.component';
+import { JsonObjectViewerComponent } from './json-object-viewer/json-object-viewer.component';
+import { PopupModalComponent } from './popup-modal/popup-modal.component';
+import { JsonObjectViewerModalComponent } from './json-object-viewer/json-object-viewer-modal/json-object-viewer-modal.component';
+import { ListComponentComponent } from './list-component/list-component.component';
+import { TabComponentComponent } from './tab-component/tab-component.component';
+import { TabItemComponent } from './tab-component/tab-item/tab-item.component';
 
 
 
 @NgModule({
   declarations: [
-    NumberCardComponent,
-    TelemetryOverviewComponent,
-    ViewSourceModalComponent,
-    JsonColumnComponent,
-    ToggleCardComponent,
-    CloudFilterSelectComponent,
+    NavigationMenuComponent,
+    NavigationMenuItemComponent,
+    IconComponent,
+    AugmentedCardComponent,
+    AnimatedHeaderComponent,
+    LoadingPanelComponent,
+    GlitchTextComponent,
+    JsonObjectViewerComponent,
+    PopupModalComponent,
+    JsonObjectViewerModalComponent,
+    ListComponentComponent,
+    TabComponentComponent,
+    TabItemComponent,
   ],
   imports: [
     CommonModule,
-    ThemeModule,
-    NbCardModule,
-    NbUserModule,
-    NbButtonModule,
-    NbTabsetModule,
-    NbActionsModule,
-    NbRadioModule,
-    NbSelectModule,
-    NbListModule,
-    NbIconModule,
-    NbButtonModule,
-    Ng2SmartTableModule,
-    NgxJsonViewerModule,
-    DatacontractGridModule,
+    RouterModule,
+  ],
+  entryComponents: [
+    PopupModalComponent
   ],
   exports: [
-    NbSelectComponent,
-    NbOptionComponent,
-    Ng2SmartTableComponent,
-
-    NumberCardComponent,
-    TelemetryOverviewComponent,
-    ViewSourceModalComponent,
-
-    CloudFilterSelectComponent,
-    DataContractGridAvailabilityComponent,
-    DataContractGridBrowserTimingsComponent,
-    DataContractGridCustomEventsComponent,
-    DataContractGridCustomMetricsComponent,
-    DataContractGridDependenciesComponent,
-    DataContractGridExceptionsComponent,
-    DataContractGridPageViewsComponent,
-    DataContractGridPerformanceCountersComponent,
-    DataContractGridRequestsComponent,
-    DataContractGridTracesComponent
-  
+    NavigationMenuComponent,
+    IconComponent,
+    AugmentedCardComponent,
+    AnimatedHeaderComponent,
+    LoadingPanelComponent,
+    GlitchTextComponent,
+    JsonObjectViewerComponent,
+    ListComponentComponent,
+    TabComponentComponent,
+    TabItemComponent
   ]
 })
 export class SharedModule { }

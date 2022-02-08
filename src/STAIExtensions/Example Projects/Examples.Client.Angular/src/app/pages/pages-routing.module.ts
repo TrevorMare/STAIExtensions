@@ -1,94 +1,40 @@
-import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-
+import { RouterModule, Routes } from '@angular/router';
+import { AvailabilityOverviewComponent } from './availability-overview/availability-overview.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { PagesComponent } from './pages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ECommerceComponent } from './e-commerce/e-commerce.component';
-import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
-import { StaiDashboardTelemetryOverviewComponent } from './stai-dashboards/stai-dashboard-telemetry-overview/stai-dashboard-telemetry-overview.component';
-import { StaiDashboardAvailabilityOverviewComponent } from './stai-dashboards/stai-dashboard-availability-overview/stai-dashboard-availability-overview.component';
+import { TelemetryOverviewComponent } from './telemetry-overview/telemetry-overview.component';
+import { TracesOverviewComponent } from './traces-overview/traces-overview.component';
 
-const routes: Routes = [{
-  path: '',
-  component: PagesComponent,
-  children: [
-    {
-      path: 'stai-dashboards/stai-dashboard-telemetry-overview',
-      component: StaiDashboardTelemetryOverviewComponent,
-    },
-    {
-      path: 'stai-dashboards/stai-dashboard-availability-overview',
-      component: StaiDashboardAvailabilityOverviewComponent,
-    },
-    {
-      path: 'dashboard',
-      component: ECommerceComponent,
-    },
-    {
-      path: 'iot-dashboard',
-      component: DashboardComponent,
-    },
-    {
-      path: 'layout',
-      loadChildren: () => import('./layout/layout.module')
-        .then(m => m.LayoutModule),
-    },
-    {
-      path: 'forms',
-      loadChildren: () => import('./forms/forms.module')
-        .then(m => m.FormsModule),
-    },
-    {
-      path: 'ui-features',
-      loadChildren: () => import('./ui-features/ui-features.module')
-        .then(m => m.UiFeaturesModule),
-    },
-    {
-      path: 'modal-overlays',
-      loadChildren: () => import('./modal-overlays/modal-overlays.module')
-        .then(m => m.ModalOverlaysModule),
-    },
-    {
-      path: 'extra-components',
-      loadChildren: () => import('./extra-components/extra-components.module')
-        .then(m => m.ExtraComponentsModule),
-    },
-    {
-      path: 'maps',
-      loadChildren: () => import('./maps/maps.module')
-        .then(m => m.MapsModule),
-    },
-    {
-      path: 'charts',
-      loadChildren: () => import('./charts/charts.module')
-        .then(m => m.ChartsModule),
-    },
-    {
-      path: 'editors',
-      loadChildren: () => import('./editors/editors.module')
-        .then(m => m.EditorsModule),
-    },
-    {
-      path: 'tables',
-      loadChildren: () => import('./tables/tables.module')
-        .then(m => m.TablesModule),
-    },
-    {
-      path: 'miscellaneous',
-      loadChildren: () => import('./miscellaneous/miscellaneous.module')
-        .then(m => m.MiscellaneousModule),
-    },
-    {
-      path: '',
-      redirectTo: 'dashboard',
-      pathMatch: 'full',
-    },
-    {
-      path: '**',
-      component: NotFoundComponent,
-    },
-  ],
-}];
+const routes: Routes = [
+  {
+    path: '',
+    component: PagesComponent,
+    children: [
+      {
+        path: 'home-page',
+        component: HomePageComponent,
+      },
+      {
+        path: 'telemetry-overview',
+        component: TelemetryOverviewComponent,
+      },
+      {
+        path: 'traces-overview',
+        component: TracesOverviewComponent,
+      },
+      {
+        path: 'availability-overview',
+        component: AvailabilityOverviewComponent,
+      },
+      {
+        path: '**',
+        component: NotFoundComponent,
+      },
+    ],
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
@@ -96,3 +42,4 @@ const routes: Routes = [{
 })
 export class PagesRoutingModule {
 }
+

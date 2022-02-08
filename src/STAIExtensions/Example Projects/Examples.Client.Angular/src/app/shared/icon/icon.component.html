@@ -1,0 +1,12 @@
+<ng-container *ngIf="iconSet === 'font-awesome'">
+    <i [class]="getClassList()"></i>
+</ng-container>
+<ng-container *ngIf="iconSet === 'boxicons'">
+    <i [class]="getClassList()"></i>
+</ng-container>
+<ng-container *ngIf="iconSet === 'material-icons'">
+    <i [class]="getClassList()">{{ iconClass }}</i>
+</ng-container>
+
+
+
