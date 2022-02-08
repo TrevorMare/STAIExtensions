@@ -287,7 +287,7 @@ public class AvailabilityView : DataSetView
 
         public List<ViewAggregate> Items { get; private set; } = new();
 
-        public ViewAggregate LastItem => Items.Last();
+        public ViewAggregate? LastItem => Items?.Last();
         public List<ViewAggregateGroup> Children { get; private set; } = new();
         #endregion
 
