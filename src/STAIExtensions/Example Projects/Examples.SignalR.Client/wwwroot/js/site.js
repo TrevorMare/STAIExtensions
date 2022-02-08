@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-const createViewName = "STAIExtensions.Default.Views.BrowserTimingsView, STAIExtensions.Default, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null";
+const createViewName = "AvailabilityView";
 let hub = STAIExtensionsHub;
 let datasetId = "";
 let datasetViewId = "";

@@ -1,4 +1,5 @@
-﻿using STAIExtensions.Abstractions.Data;
+﻿using STAIExtensions.Abstractions.Common;
+using STAIExtensions.Abstractions.Data;
 using STAIExtensions.Abstractions.DataContracts.Models;
 using STAIExtensions.Abstractions.Queries;
 using STAIExtensions.Core.Collections;
@@ -55,6 +56,20 @@ public class DataContractDataSet : DataSet
     #endregion
 
     #region Methods
+
+    public override void SetDataContractEntryState()
+    {
+        SetRecordState(Availability);
+        SetRecordState(BrowserTiming);
+        SetRecordState(CustomEvents);
+        SetRecordState(CustomMetrics);
+        SetRecordState(Dependencies);
+        SetRecordState(Exceptions);
+        SetRecordState(PageViews);
+        SetRecordState(PerformanceCounters);
+        SetRecordState(Requests);
+        SetRecordState(Traces);
+    }
 
     protected override async Task ExecuteQueries()
     {
@@ -372,6 +387,15 @@ public class DataContractDataSet : DataSet
         }
 
         return Task.CompletedTask;
+    }
+    
+    private void SetRecordState<T>(SizedList<T> items) where T : DataContractFull
+    {
+        items.Any(s =>
+        {
+            s.RecordState = RecordState.Existing;
+            return true;
+        });
     }
 
     #endregion

@@ -176,6 +176,8 @@ public abstract class DataSet : Abstractions.Data.IDataSet
             this.CancellationToken?.ThrowIfCancellationRequested();
          
             this.Logger?.LogTrace("Starting update of data set {DataSetName}", DataSetName);
+
+            this.SetDataContractEntryState();
             
             this.TelemetryClient?.TrackEvent(new EventTelemetry()
             {
@@ -189,7 +191,8 @@ public abstract class DataSet : Abstractions.Data.IDataSet
             });
             
             await ExecuteQueries();
-                        
+            
+            // Call the data set updated method, this will in turn call the applicable view updates
             this.OnDataSetUpdated?.Invoke(this, EventArgs.Empty);
         }
         catch (Exception ex)
@@ -209,6 +212,14 @@ public abstract class DataSet : Abstractions.Data.IDataSet
             }
         }
     }
+    
+    /// <summary>
+    /// A method to reset the current state of the persisted data contract entities. This method
+    /// is called before adding executing the queries to add new items
+    /// </summary>
+    public virtual void SetDataContractEntryState()
+    {}
+    
    
     /// <summary>
     /// Process and persist the data returned by the query 

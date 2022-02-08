@@ -14,6 +14,11 @@ export enum TelemetryType {
     Trace = 10,
 }
 
+export enum RecordState {
+    New = 1,
+    Existing = 2
+}
+
 
 export interface ExceptionParsedStack {
     id: string | null;
@@ -29,6 +34,7 @@ export interface ExceptionParsedStack {
 }
 
 export interface DataContract {
+    recordState: RecordState;
     timeStamp: string;
     customDimensions: CustomDimension | null;
     appId: string | null;

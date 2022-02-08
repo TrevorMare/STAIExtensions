@@ -1,0 +1,34 @@
+<!-- <table *ngIf="dataSource">
+
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Max Duration (ms)</th>
+            <th>Min Duration (ms)</th>
+            <th>Success Percentage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr st-row-detail [dataSource]="dataSource"></tr>
+    </tbody>
+  </table> -->
+
+<div class="column-container">
+
+    <div class="column-groupName">
+        <span>Name</span>
+    </div>
+    <div class="column-minDuration">
+        <span>Max Duration (ms)</span>
+    </div>
+    <div class="column-maxDuration">
+        <span>Min Duration (ms)</span>
+    </div>
+    <div class="column-success">
+        <span>Success (%)</span>
+    </div>
+
+    <st-row-detail [dataSource]="dataSource"></st-row-detail>
+
+</div>  
