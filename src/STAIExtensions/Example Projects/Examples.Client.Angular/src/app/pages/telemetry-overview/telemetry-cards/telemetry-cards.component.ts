@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, NgZone, OnInit, Output } from '@angular/core';
 import { BehaviorSubject, interval } from 'rxjs';
-import { TelemetryOverviewView } from 'src/app/data/telemetry-overview';
-import { AvailabilityOverviewService } from 'src/app/services/service-availability-overview';
-import { TelemetryOverviewService } from 'src/app/services/service-telemetry-overview';
+import { TelemetryOverviewView } from 'src/app/data/view.telemetry-overview';
+import { AvailabilityOverviewService } from 'src/app/services/service.availability-overview';
+import { TelemetryOverviewService } from 'src/app/services/service.telemetry-overview';
 
 
 @Component({
@@ -13,7 +13,8 @@ import { TelemetryOverviewService } from 'src/app/services/service-telemetry-ove
 export class TelemetryCardsComponent implements OnInit {
 
   _selectedCard: string = "";
- 
+  telemetryOverviewView$ = new BehaviorSubject<TelemetryOverviewView>(null!); 
+
   get selectedCard(): string { return this._selectedCard; }
   @Input() set selectedCard(value: string) {
     if (this._selectedCard !== value) {
@@ -33,17 +34,8 @@ export class TelemetryCardsComponent implements OnInit {
       })
     });
   }
-
-  telemetryOverviewView$ = new BehaviorSubject<TelemetryOverviewView>(null!); 
-
-  source = interval(5000);
-  counter$ = new BehaviorSubject<number>(9999); 
   
   ngOnInit(): void {
-    this.source.subscribe(val => {
-
-      this.counter$.next(this.counter$.value + 1);
-    });
   }
 
 }

@@ -21,160 +21,160 @@ export enum RecordState {
 
 
 export interface ExceptionParsedStack {
-    id: string | null;
-    message: string | null;
-    outerId: string | null;
+    id: string;
+    message: string;
+    outerId: string;
     parsedStack: ExceptionParsedStack[];
-    type: string | null;
-    assembly: string | null;
-    method: string | null;
-    fileName: string | null;
-    level: number | null;
-    line: number | null;
+    type: string;
+    assembly: string;
+    method: string;
+    fileName: string;
+    level: number;
+    line: number;
 }
 
 export interface DataContract {
     recordState: RecordState;
     timeStamp: string;
-    customDimensions: CustomDimension | null;
-    appId: string | null;
-    applicationVersion: string | null;
-    appName: string | null;
-    clientBrowser: string | null;
-    clientCity: string | null;
-    clientCountryOrRegion: string | null;
-    clientIP: string | null;
-    clientModel: string | null;
-    clientOS: string | null;
-    clientStateOrProvince: string | null;
-    clientType: string | null;
-    cloudRoleInstance: string | null;
-    cloudRoleName: string | null;
-    iKey: string | null;
-    itemId: string | null;
-    itemType: string | null;
-    operationId: string | null;
-    operationName: string | null;
-    operationParentId: string | null;
-    operationSyntheticSource: string | null;
-    sDKVersion: string | null;
-    sessionId: string | null;
-    userAccountId: string | null;
-    userAuthenticatedId: string | null;
-    userId: string | null;
+    customDimensions: CustomDimension;
+    appId: string;
+    applicationVersion: string;
+    appName: string;
+    clientBrowser: string;
+    clientCity: string;
+    clientCountryOrRegion: string;
+    clientIP: string;
+    clientModel: string;
+    clientOS: string;
+    clientStateOrProvince: string;
+    clientType: string;
+    cloudRoleInstance: string;
+    cloudRoleName: string;
+    iKey: string;
+    itemId: string;
+    itemType: string;
+    operationId: string;
+    operationName: string;
+    operationParentId: string;
+    operationSyntheticSource: string;
+    sDKVersion: string;
+    sessionId: string;
+    userAccountId: string;
+    userAuthenticatedId: string;
+    userId: string;
 }
 
 export interface AIException extends DataContract {
-    customMeasurements: CustomMeasurement | null;
-    assembly: string | null;
-    details: ExceptionParsedStack[] | null;
-    handledAt: string | null;
-    innermostAssembly: string | null;
-    innermostMessage: string | null;
-    innermostMethod: string | null;
-    innermostType: string | null;
-    itemCount: number | null;
-    message: string | null;
-    method: string | null;
-    outerAssembly: string | null;
-    outerMessage: string | null;
-    outerMethod: string | null;
-    outerType: string | null;
-    problemId: string | null;
-    severityLevel: number | null;
-    type: string | null;
+    customMeasurements: CustomMeasurement;
+    assembly: string;
+    details: ExceptionParsedStack[];
+    handledAt: string;
+    innermostAssembly: string;
+    innermostMessage: string;
+    innermostMethod: string;
+    innermostType: string;
+    itemCount: number;
+    message: string;
+    method: string;
+    outerAssembly: string;
+    outerMessage: string;
+    outerMethod: string;
+    outerType: string;
+    problemId: string;
+    severityLevel: number;
+    type: string;
 }
 
 export interface Availability extends DataContract {
-    customMeasurements: CustomMeasurement | null;
-    duration: number | null;
-    id: string | null;
-    itemCount: number | null;
-    location: string | null;
-    message: string | null;
-    name: string | null;
-    performanceBucket: string | null;
-    size: number | null;
-    success: string | null;
+    customMeasurements: CustomMeasurement;
+    duration: number;
+    id: string;
+    itemCount: number;
+    location: string;
+    message: string;
+    name: string;
+    performanceBucket: string;
+    size: number;
+    success: string;
 }
 
 export interface BrowserTiming extends DataContract {
-    customMeasurements: CustomMeasurement | null;
-    itemCount: number | null;
-    name: string | null;
-    networkDuration: number | null;
-    performanceBucket: string | null;
-    processingDuration: number | null; 
-    receiveDuration: number | null;
-    sendDuration: number | null;
-    totalDuration: number | null;
-    url: string | null;
+    customMeasurements: CustomMeasurement;
+    itemCount: number;
+    name: string;
+    networkDuration: number;
+    performanceBucket: string;
+    processingDuration: number; 
+    receiveDuration: number;
+    sendDuration: number;
+    totalDuration: number;
+    url: string;
 }
 
 export interface CustomEvent extends DataContract {
-    customMeasurements: CustomMeasurement | null;
-    itemCount: number | null;
-    name: string | null;
+    customMeasurements: CustomMeasurement;
+    itemCount: number;
+    name: string;
 }
 
 export interface CustomMetric extends DataContract {
-    name: string | null;
-    value: number | null;
-    valueCount: number | null;
-    valueMax: number | null;
-    valueMin: number | null;
-    valueStdDev: number | null;
-    valueSum: number | null;
+    name: string;
+    value: number;
+    valueCount: number;
+    valueMax: number;
+    valueMin: number;
+    valueStdDev: number;
+    valueSum: number;
 }
 
 export interface Dependency extends DataContract {
-    customMeasurements: CustomMeasurement | null;
-    data: string | null;
-    duration: number | null;
-    id: string | null;
-    itemCount: number | null;
-    name: string | null;
-    performanceBucket: string | null;
-    resultCode: string | null;
-    success: string | null;
-    target: string | null;
-    type: string | null;
+    customMeasurements: CustomMeasurement;
+    data: string;
+    duration: number;
+    id: string;
+    itemCount: number;
+    name: string;
+    performanceBucket: string;
+    resultCode: string;
+    success: string;
+    target: string;
+    type: string;
 }
 
 export interface PageView extends DataContract {
-    customMeasurements: CustomMeasurement | null;
-    duration: number | null;
-    id: string | null;
-    itemCount: number | null;
-    name: string | null;
-    performanceBucket: string | null;
-    url: string | null;
+    customMeasurements: CustomMeasurement;
+    duration: number;
+    id: string;
+    itemCount: number;
+    name: string;
+    performanceBucket: string;
+    url: string;
 }
 
 export interface PerformanceCounter extends DataContract {
-    category: string | null;
-    counter: string | null;
-    instance: string | null;
-    name: string | null;
-    value: number | null;
+    category: string;
+    counter: string;
+    instance: string;
+    name: string;
+    value: number;
 }
 
 export interface Request extends DataContract {
-    customMeasurements: CustomMeasurement | null;
-    duration: number | null;
-    id: string | null;
-    itemCount: number | null;
-    name: string | null;
-    performanceBucket: string | null;
-    resultCode: string | null;
-    source: string | null;
-    success: string | null;
-    url: string | null;
+    customMeasurements: CustomMeasurement;
+    duration: number;
+    id: string;
+    itemCount: number;
+    name: string;
+    performanceBucket: string;
+    resultCode: string;
+    source: string;
+    success: string;
+    url: string;
 }
 
 export interface Trace extends DataContract {
-    customMeasurements: CustomMeasurement | null;
-    itemCount: number | null;
-    message: string | null;
-    severityLevel: number | null;
+    customMeasurements: CustomMeasurement;
+    itemCount: number;
+    message: string;
+    severityLevel: number;
 }

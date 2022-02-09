@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import * as base from '../data/telemetry-overview'
+import { BaseTelemetryOverviewService, TelemetryOverviewView } from '../data/view.telemetry-overview';
 import { STAIExtensionsService } from './staiextensions-data-service';
-  
-
 
 @Injectable({
   providedIn: 'root'
 })
-export class TelemetryOverviewService implements base.TelemetryOverviewService {
-  public View$ = new BehaviorSubject<base.TelemetryOverviewView>(null!);
+export class TelemetryOverviewService implements BaseTelemetryOverviewService {
+  public View$ = new BehaviorSubject<TelemetryOverviewView>(null!);
   public ViewId$ = new BehaviorSubject<string>(null!);
   public SelectedCloudFilters: string[]  = [ '-1' ];
 
-  private ViewTypeName: string = "STAIExtensions.Default.Views.TelemetryOverview, STAIExtensions.Default, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null";
+  private ViewTypeName: string = "TelemetryOverview";
 
   constructor(private stAIService: STAIExtensionsService) {
     this.stAIService.Ready$.subscribe((isReady) => {
@@ -38,7 +36,7 @@ export class TelemetryOverviewService implements base.TelemetryOverviewService {
       this.stAIService.CreateView$(this.ViewTypeName).then((view) => {
         // Once the view is created, get the view
         this.stAIService.GetView$(view.id).then((getViewResponse) => {
-          this.View$.next(getViewResponse);
+          this.View$.next(getViewResponse  as TelemetryOverviewView);
           this.ViewId$.next(this.View$.value.id);
 
         }).catch((err) => {

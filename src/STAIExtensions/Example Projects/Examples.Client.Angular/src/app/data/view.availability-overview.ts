@@ -22,16 +22,16 @@ export interface AvailabilityAggregateGroup {
 }
 
 export interface AvailabilityOverviewView extends View {
-    cloudNames?: Record<string, string[]>;
+    cloudNames: Record<string, string[]>;
     totalItemsCount: number;
     filteredItemsCount: number;
-    minTelemetryDate?: Date;
-    maxTelemetryDate?: Date;
-    aggregateGroup?: AvailabilityAggregateGroup;
+    minTelemetryDate: Date;
+    maxTelemetryDate: Date;
+    aggregateGroup: AvailabilityAggregateGroup;
 }
 
 
-export abstract class AvailabilityOverviewService {
+export abstract class BaseAvailabilityOverviewService  {
    
     abstract View$: BehaviorSubject<AvailabilityOverviewView>;
     abstract ViewId$ : BehaviorSubject<string>;

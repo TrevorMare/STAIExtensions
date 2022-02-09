@@ -1,4 +1,36 @@
 <ngx-table [configuration]="configuration"
-              [data]="data"
-              [columns]="columns">
-            </ngx-table>
+           [data]="data"
+           [columns]="columns">
+  <ng-template let-row let-index="index">
+    <td>
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <st-icon title="View Json Content" iconClass="far fa-eye" iconSet="font-awesome" addClass="view-json-icon" (click)="onViewJsonItemClick($event, index)"></st-icon>
+      </div>
+    </td>
+    <td>
+      <span>{{ row.url }}</span>
+    </td>
+    <td>
+      <span>{{ row.name }}</span>
+    </td>
+    <td>
+      <span>{{ row.timeStamp }}</span>
+    </td>
+    <td>
+      <span>{{ row.clientBrowser }}</span>
+    </td>
+    <td>
+      <span>{{ row.clientCity }}</span>
+    </td>
+    <td>
+      <span>{{ row.totalDuration }} (ms)</span>
+    </td>
+    <td>
+      <span>{{ row.performanceBucket }}</span>
+    </td>
+  </ng-template>           
+</ngx-table>
+
+
+
+
