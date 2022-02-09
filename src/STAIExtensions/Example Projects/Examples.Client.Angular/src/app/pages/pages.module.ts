@@ -22,6 +22,9 @@ import { TracesTableComponent } from './telemetry-overview/traces-table/traces-t
 import { TracesOverviewComponent } from './traces-overview/traces-overview.component';
 import { AvailabilityOverviewComponent } from './availability-overview/availability-overview.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { AvailabilityListComponent } from './availability-overview/availability-list/availability-list.component';
+import { AvailabilityChartComponent } from './availability-overview/availability-chart/availability-chart.component';
+import { DetailsPanelComponent } from './availability-overview/details-panel/details-panel.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     TracesTableComponent,
     TracesOverviewComponent,
     AvailabilityOverviewComponent,
+    AvailabilityListComponent,
+    AvailabilityChartComponent,
+    DetailsPanelComponent,
    
   ],
   imports: [

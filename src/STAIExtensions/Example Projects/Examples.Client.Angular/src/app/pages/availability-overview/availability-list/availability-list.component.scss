@@ -1,0 +1,29 @@
+.availability-list {
+    display: grid;
+    grid-template-columns: 2rem auto 14rem 14rem 14rem 14rem;
+    border-bottom: solid 1px var(--line-color);
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    cursor: pointer;
+
+    &.selected {
+        background-color: var(--hover-background);
+    }
+
+    &:hover {
+        background-color: var(--hover-background);
+    }
+    &.root {
+        padding-left: 0px;
+    }
+    &.name-group {
+        padding-left: 1rem;
+    }
+    &.location-group {
+        padding-left: 2rem;
+    }
+
+}
+
+
+

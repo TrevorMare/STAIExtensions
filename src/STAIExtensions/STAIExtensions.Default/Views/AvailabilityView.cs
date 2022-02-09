@@ -179,7 +179,7 @@ public class AvailabilityView : DataSetView
     private ViewAggregateGroup BuildOverallGrouping()
     {
         
-        var viewAggregateGroup = new ViewAggregateGroup("Overall");
+        var viewAggregateGroup = new ViewAggregateGroup("Overall", "Overall");
         var overallEntries = _availabilityFiltered?
             .ToArray();
 
@@ -205,7 +205,7 @@ public class AvailabilityView : DataSetView
 
     private ViewAggregateGroup BuildTestNamesGroup(string? testName, IEnumerable<Availability>? overallEntries)
     {
-        var viewAggregateGroup = new ViewAggregateGroup(testName ?? "");
+        var viewAggregateGroup = new ViewAggregateGroup(testName ?? "", $"Overall-{testName}");
         var testNameEntries = overallEntries?
             .Where(e => string.Equals(e.Name, testName, StringComparison.OrdinalIgnoreCase))
             .ToArray();
@@ -224,15 +224,15 @@ public class AvailabilityView : DataSetView
         if (distinctRunLocations == null) return viewAggregateGroup;
         foreach (var runLocation in distinctRunLocations)
         {
-            var runLocationAggregate = BuildRunLocationsGroup(runLocation, testNameEntries);
+            var runLocationAggregate = BuildRunLocationsGroup(testName, runLocation, testNameEntries);
             viewAggregateGroup.PushChildAggregate(runLocationAggregate);
         }
         return viewAggregateGroup;
     }
 
-    private ViewAggregateGroup BuildRunLocationsGroup(string? runLocation, IEnumerable<Availability>? testNameEntries)
+    private ViewAggregateGroup BuildRunLocationsGroup(string? testName, string? runLocation, IEnumerable<Availability>? testNameEntries)
     {
-        var viewAggregateGroup = new ViewAggregateGroup(runLocation ?? "");
+        var viewAggregateGroup = new ViewAggregateGroup(runLocation ?? "", $"Overall-{testName}-{runLocation}");
         var locationEntries = testNameEntries?
                 .Where(e => string.Equals(e.Location, runLocation, StringComparison.OrdinalIgnoreCase))
                 .ToArray();
@@ -284,6 +284,8 @@ public class AvailabilityView : DataSetView
 
         #region Properties
         public string GroupName { get; private set; }
+        
+        public string FullGroupName { get; private set; }
 
         public List<ViewAggregate> Items { get; private set; } = new();
 
@@ -293,9 +295,10 @@ public class AvailabilityView : DataSetView
 
         #region ctor
 
-        public ViewAggregateGroup(string groupName)
+        public ViewAggregateGroup(string groupName, string fullGroupName)
         {
             this.GroupName = groupName;
+            this.FullGroupName = fullGroupName;
         }
 
         #endregion

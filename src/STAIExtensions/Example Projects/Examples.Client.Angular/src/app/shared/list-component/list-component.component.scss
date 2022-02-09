@@ -5,6 +5,7 @@
 
     .list-component-header {
         color: var(--white-color);
+        border-bottom: solid 2px var(--white-color);
     }
 
     .list-component-item {
@@ -12,16 +13,23 @@
         margin: 0px;
         width: 100%;
         padding: 0px;
-        padding-top: 0.4rem;
-        padding-bottom: 0.4rem;
-        border-bottom: solid 1px var(--line-color);
 
-        &:nth-child(1) {
-            border-top: solid 1px var(--line-color);
+        &.itemPadding {
+            padding-top: 0.4rem;
+            padding-bottom: 0.4rem;
         }
 
-        &:hover {
-            background-color: var(--hover-background);
+        &.isNotNestedList {
+            border-bottom: solid 1px var(--line-color);
+            &:nth-child(1) {
+                border-top: solid 1px var(--line-color);
+            }
+        }
+
+        &.hoverEnabled {
+            &:hover {
+                background-color: var(--hover-background);
+            }
         }
 
     }
