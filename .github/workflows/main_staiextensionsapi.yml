@@ -5,10 +5,12 @@ name: Build and deploy ASP.Net Core app to Azure Web App - STAIExtensionsApi
 
 on:
   push:
-    branches:
-      - main
+    #branches:
+    #  - main
   workflow_dispatch:
-
+    inputs:
+      tags:
+        description: 'Manual Run'
 jobs:
   build:
     runs-on: windows-latest
