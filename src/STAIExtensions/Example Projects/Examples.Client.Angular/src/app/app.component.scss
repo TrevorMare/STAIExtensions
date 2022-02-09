@@ -64,7 +64,8 @@
     background-color: var(--hover-background);
 }
 :host ::ng-deep #table > tbody > tr > td {
-    color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 0.75rem;
     border-bottom-color: var(--line-color);
 }
 :host ::ng-deep #pagination-controls > pagination-template > ul > li.current > span {

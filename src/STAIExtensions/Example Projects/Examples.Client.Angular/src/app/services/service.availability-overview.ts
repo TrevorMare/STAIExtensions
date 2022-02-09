@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import * as base from '../data/availability-overview'
-import { View } from '../data/view';
+import { AvailabilityOverviewView, BaseAvailabilityOverviewService } from '../data/view.availability-overview';
 import { STAIExtensionsService } from './staiextensions-data-service';
 
 
 @Injectable({
     providedIn: 'root'
   })
-  export class AvailabilityOverviewService implements base.AvailabilityOverviewService {
-    public View$ = new BehaviorSubject<base.AvailabilityOverviewView>(null!);
+  export class AvailabilityOverviewService implements BaseAvailabilityOverviewService {
+    public View$ = new BehaviorSubject<AvailabilityOverviewView>(null!);
     public ViewId$ = new BehaviorSubject<string>(null!);
     public SelectedCloudFilters: string[]  = [ '-1' ];
   
@@ -38,7 +37,7 @@ import { STAIExtensionsService } from './staiextensions-data-service';
         this.stAIService.CreateView$(this.ViewTypeName).then((view) => {
           // Once the view is created, get the view
           this.stAIService.GetView$(view.id).then((getViewResponse) => {
-            this.View$.next(getViewResponse as base.AvailabilityOverviewView);
+            this.View$.next(getViewResponse as AvailabilityOverviewView);
             this.ViewId$.next(this.View$.value.id);
   
           }).catch((err) => {

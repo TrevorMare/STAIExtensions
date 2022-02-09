@@ -2,8 +2,8 @@ import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core
 import { CommonModule } from '@angular/common';
 import { STAIExtensionsService } from './staiextensions-data-service';
 import { throwIfAlreadyLoaded } from './module-import-guard';
-import { TelemetryOverviewService } from './service-telemetry-overview';
-import { AvailabilityOverviewService } from './service-availability-overview';
+import { TelemetryOverviewService } from './service.telemetry-overview';
+import { AvailabilityOverviewService } from './service.availability-overview';
 
 
 @NgModule({

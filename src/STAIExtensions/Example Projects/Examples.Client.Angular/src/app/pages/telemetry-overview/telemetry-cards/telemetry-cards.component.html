@@ -13,7 +13,7 @@
         <div aug-card-header>Browser Timings</div>
         <div aug-card-body>
             <div class="info-panel ">
-                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-glitch-text class="counter-text" text="{{ ((telemetryOverviewView$ | async)?.browserTimingsCount ?? 0).toString() }}"></st-glitch-text>
                 <st-icon iconSet="font-awesome" iconClass="far fa-clock" addClass="info-panel-icon"></st-icon>
             </div>
         </div>
@@ -23,7 +23,7 @@
         <div aug-card-header>Custom Events</div>
         <div aug-card-body>
             <div class="info-panel ">
-                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-glitch-text class="counter-text" text="{{ ((telemetryOverviewView$ | async)?.customEventsCount ?? 0).toString() }}"></st-glitch-text>
                 <st-icon iconSet="material-icons" iconClass="playlist_add" addClass="info-panel-icon"></st-icon>
             </div>
         </div>
@@ -33,7 +33,7 @@
         <div aug-card-header>Custom Metrics</div>
         <div aug-card-body>
             <div class="info-panel ">
-                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-glitch-text class="counter-text" text="{{ ((telemetryOverviewView$ | async)?.customMetricsCount ?? 0).toString() }}"></st-glitch-text>
                 <st-icon iconSet="material-icons" iconClass="assessment" addClass="info-panel-icon"></st-icon>
             </div>
         </div>
@@ -43,7 +43,7 @@
         <div aug-card-header>Dependencies</div>
         <div aug-card-body>
             <div class="info-panel ">
-                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-glitch-text class="counter-text" text="{{ ((telemetryOverviewView$ | async)?.dependenciesCount ?? 0).toString() }}"></st-glitch-text>
                 <st-icon iconSet="material-icons" iconClass="merge_type" addClass="info-panel-icon"></st-icon>
             </div>
         </div>
@@ -53,7 +53,7 @@
         <div aug-card-header>Exceptions</div>
         <div aug-card-body>
             <div class="info-panel ">
-                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-glitch-text class="counter-text" text="{{ ((telemetryOverviewView$ | async)?.exceptionsCount ?? 0).toString() }}"></st-glitch-text>
                 <st-icon iconSet="material-icons" iconClass="error_outline" addClass="info-panel-icon"></st-icon>
             </div>
         </div>
@@ -63,7 +63,7 @@
         <div aug-card-header>Page Views</div>
         <div aug-card-body>
             <div class="info-panel ">
-                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-glitch-text class="counter-text" text="{{ ((telemetryOverviewView$ | async)?.pageViewsCount ?? 0).toString() }}"></st-glitch-text>
                 <st-icon iconSet="font-awesome" iconClass="far fa-eye" addClass="info-panel-icon"></st-icon>
             </div>
         </div>
@@ -73,7 +73,7 @@
         <div aug-card-header>Performance Counters</div>
         <div aug-card-body>
             <div class="info-panel ">
-                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-glitch-text class="counter-text" text="{{ ((telemetryOverviewView$ | async)?.performanceCountersCount ?? 0).toString() }}"></st-glitch-text>
                 <st-icon iconSet="font-awesome" iconClass="fas fa-chart-bar" addClass="info-panel-icon"></st-icon>
             </div>
         </div>
@@ -83,7 +83,7 @@
         <div aug-card-header>Requests</div>
         <div aug-card-body>
             <div class="info-panel ">
-                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-glitch-text class="counter-text" text="{{ ((telemetryOverviewView$ | async)?.requestsCount ?? 0).toString() }}"></st-glitch-text>
                 <st-icon iconSet="material-icons" iconClass="devices" addClass="info-panel-icon"></st-icon>
             </div>
         </div>
@@ -93,7 +93,7 @@
         <div aug-card-header>Traces</div>
         <div aug-card-body>
             <div class="info-panel ">
-                <st-glitch-text class="counter-text" [text]="(this.counter$ | async)?.toString()"></st-glitch-text>
+                <st-glitch-text class="counter-text" text="{{ ((telemetryOverviewView$ | async)?.tracesCount ?? 0).toString() }}"></st-glitch-text>
                 <st-icon iconSet="material-icons" iconClass="text_fields" addClass="info-panel-icon"></st-icon>
             </div>
         </div>
