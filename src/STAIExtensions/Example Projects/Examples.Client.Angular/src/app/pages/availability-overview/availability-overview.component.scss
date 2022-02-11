@@ -1,24 +1,14 @@
-.charts-container {
-    display: grid;
-    grid-template-columns: 50% 50%;
-
-    .list-availabilty-totals {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        width: 100%;
-        align-items: center;
-        font-size: 0.8rem;
-
-        &.header {
-            text-transform: uppercase;
-        }
-        progress {
-            justify-self: center;
-        }
-        span {
-            color: var(--white-color);
-        }
-
+.details-container {
+    display: flex;
+    flex-flow: wrap;
+    width: 100%;
+    .chart-container {
+        min-width: 600px;
+        width: 50%;
+    }
+    .list-container {
+        min-width: 600px;
+        width: 50%;
     }
 }
 

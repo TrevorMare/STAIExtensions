@@ -1,113 +1,22 @@
 <st-animated-header text="Availability Overview"></st-animated-header>
 
-<div class="charts-container">
+<div class="details-container">
 
-    <apx-chart
-    [series]="chartOptions.series"
-    [chart]="chartOptions.chart"
-    [xaxis]="chartOptions.xaxis"
-    [title]="chartOptions.title"></apx-chart>
-
-
-    <div>
-
+   <div class="chart-container">
+        <st-availability-chart [data]="selectedAvailabilityGroup"></st-availability-chart>
+   </div>
+    <div class="list-container">
         <st-tab-component>
             <st-tab-item title="Totals">
-            <apx-chart
-                [series]="gaugeChartOptions.series"
-                [chart]="gaugeChartOptions.chart"
-                [xaxis]="gaugeChartOptions.xaxis"
-                [title]="gaugeChartOptions.title"></apx-chart>
+                <st-availability-gauge [data]="selectedAvailabilityGroup"></st-availability-gauge>
             </st-tab-item>
-            <st-tab-item title="Other">
-                <st-list-component [items]="listItems">
-                    <ng-template #headerTemplate >
-                        <div class="list-availabilty-totals header">
-        
-                            <span>Type</span>
-                            <span></span>
-                            <span>Total</span>
-        
-                        </div>
-                        
-                    </ng-template>
-        
-                    <ng-template #itemTemplate let-item="item">
-                        <div class="list-availabilty-totals">
-                            <span>{{ item.label }}</span>
-                            <progress class="glow-progress" style="width: 50%; height: 0.5rem;" max="100" [value]="item.xx"></progress>
-                            <span> {{ item.xx }}</span>
-                        </div>
-                        
-                        
-                    </ng-template>
-                </st-list-component>
+            <st-tab-item title="Details">
+                <st-details-panel [data]="selectedAvailabilityGroup"></st-details-panel>
             </st-tab-item>
         </st-tab-component>
-
-
-    
-      
-
     </div>
 
 
 </div>
- 
-<div>
-
-  <ngx-table [configuration]="configuration"
-             [data]="data"
-             [columns]="columns">
-    <ng-template let-row let-index="index">
-      <td>
-        <div style="display: flex; justify-content: center; align-items: center;">
-          <progress class="glow-progress accent" max="100" [value]="row.age"></progress> 
-        </div>
-      </td>
-      <td>
-        <span>Age: {{ row.age }}</span>
-        <div class="bar bar-sm">
-          <div
-            class="bar-item"
-            role="progressbar"
-            [style.width]="row.age + '%'"
-            aria-valuenow="row.age"
-            aria-valuemin="0"
-            aria-valuemax="70"
-          ></div>
-        </div>
-      </td>
-      <td>
-        <div>Company: {{ row.company }}</div>
-      </td>
-      <td>
-        <span class="mb-2">Supervisor: </span>
-        <strong>{{ row.name }}</strong>
-      </td>
-      <td>
-        <span>Phone: {{ row.phone }}</span>
-      </td>
-      <td>
-        <!-- <div>{{ row.address.street }}</div> -->
-      </td>
-      <td>
-        <!-- <button
-          class="btn btn-primary"
-          id="expandButton-{{ index }}"
-          (click)="onRowClickEvent($event, index)"
-        >
-          <i class="icon icon-arrow-left" *ngIf="!toggledRows.has(index)"></i>
-          <i class="icon icon-arrow-down" *ngIf="toggledRows.has(index)"></i>
-          Expand
-        </button> -->
-      </td>
-    </ng-template>           
-</ngx-table>
-
-
-
-
-
-
-</div>
+<st-availability-list [data]="availabilityOverviewView$ | async" 
+                      (selectedItemChanged)="selectedAvailabilityGroup = $event"></st-availability-list>

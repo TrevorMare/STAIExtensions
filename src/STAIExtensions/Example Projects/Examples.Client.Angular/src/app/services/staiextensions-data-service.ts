@@ -12,7 +12,7 @@ declare var STAIExtensionsHub: any;
   providedIn: 'root'
 })
 export class STAIExtensionsService implements OnDestroy  {
-  
+  private dateFormat = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.{0,1}\d*Z$/;
   private ownerId: string = uuid.v4();
   private managedClientHub: any;
   private ownedViewIds: string[] = new Array();
@@ -57,6 +57,7 @@ export class STAIExtensionsService implements OnDestroy  {
 
     // Wait for the connection to establish and initialise the service
     setTimeout(() => {
+      
       this.Initializing$.next(true);
     }, 1000);
 
@@ -78,6 +79,7 @@ export class STAIExtensionsService implements OnDestroy  {
           if (success === true) {
 
             this.ownedViewIds.push(view.id);
+            this.reviveObject(view);
             resolve(view);
           } else {
             reject('Could not create view');
@@ -96,6 +98,7 @@ export class STAIExtensionsService implements OnDestroy  {
       if (this.Ready$.value === false) throw `Service not ready`;
       // Create the view
       this.managedClientHub.GetView(viewId, (_: any, view: View) => {
+        this.reviveObject(view);
         resolve(view);
       }, (err: any) => {
         reject(err);
@@ -106,6 +109,7 @@ export class STAIExtensionsService implements OnDestroy  {
   public async LoadView$(viewId: string): Promise<any> {
     return new Promise((resolve, reject) => {
       this.managedClientHub.GetView(viewId, (_: any, view: any) => {
+        this.reviveObject(view);
         resolve(view);
       }, (err: any) => {
           reject(err);
@@ -156,6 +160,7 @@ export class STAIExtensionsService implements OnDestroy  {
         if (!!dataSets && dataSets.length) {
           var dataSet = dataSets.find(x => x.dataSetType.indexOf('DataContractDataSet') >= 0);
           if (!!dataSet) {
+            this.reviveObject(dataSet);
             resolve(dataSet);
           } else {
             reject(`Default data set could not be found!`);
@@ -172,6 +177,7 @@ export class STAIExtensionsService implements OnDestroy  {
 
       this.managedClientHub.GetRegisteredViews((_ : any, views: ViewInformation[]) => {
         if (!!views && views.length) {
+          this.reviveObject(views);
           resolve(views);
         } else {
           reject('No views registered on the server.');
@@ -180,6 +186,29 @@ export class STAIExtensionsService implements OnDestroy  {
         reject(err);
       });
     });
+  }
+
+  
+
+  private reviveObject(obj: any) {
+    if (obj === undefined || obj === null) return;
+    for (var property in obj) {
+        if (obj.hasOwnProperty(property)) {
+            if (typeof obj[property] == "object") {
+                this.reviveObject(obj[property]);
+            }
+            else {
+               obj[property] = this.dateReviver(obj[property]);
+            }
+        }
+    }
+  }
+
+  private dateReviver(value) {
+    if (typeof value === "string" && this.dateFormat.test(value)) {
+      return new Date(value);
+    }
+    return value;
   }
 
 }

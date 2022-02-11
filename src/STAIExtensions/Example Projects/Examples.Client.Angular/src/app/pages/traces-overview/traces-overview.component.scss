@@ -1,8 +1,8 @@
 $console-background: #0a0a0aad;
 $trace-background: var(--white-color);
-$info-background: #155e15;
-$warning-background: #78581c;
-$error-background: #871111;
+$info-background: #26a526;
+$warning-background: #b4852e;
+$error-background: #c51c1c;
 
 .traces-container {
     width: 100%;
@@ -80,6 +80,14 @@ $error-background: #871111;
                 }
 
             } 
+            .critical {
+                &::before {
+                    color: var(--white-color);
+                    content: 'critical';
+                    background-color: $error-background;
+                }
+
+            }
             .trace {
                 &::before {
                     color: black;

@@ -59,5 +59,7 @@ public class DataContractFull : DataContract, IHasCustomDimension
     public string? UserAuthenticatedId { get; set; }
     
     public string? UserId { get; set; }
-    
+
+    public string? ResourceId { get; set; }
+
 }

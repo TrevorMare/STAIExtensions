@@ -6,9 +6,9 @@
         </li>
     </ng-container>
 
-    <li class="list-component-item" *ngFor="let item of items">
+    <li class="list-component-item" [ngClass]="{'hoverEnabled': hoverEnabled, 'isNotNestedList': !isNestedList, 'itemPadding': !noItemPadding}" *ngFor="let item of items; let i = index">
         <ng-container *ngIf="itemTemplate">
-            <ng-container *ngTemplateOutlet="itemTemplate; context: { item: item }"></ng-container>
+            <ng-container *ngTemplateOutlet="itemTemplate; context: { item: item, index: i }"></ng-container>
         </ng-container>
         <ng-container *ngIf="!itemTemplate">
             <span>{{ item }}</span>

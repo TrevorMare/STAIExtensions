@@ -1,4 +1,5 @@
 ﻿using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
 using STAIExtensions.Abstractions.Data;
 using STAIExtensions.Data.AzureDataExplorer;
 using STAIExtensions.Default.DataSets.Options;
@@ -36,11 +37,26 @@ public class ServiceRunner : IHostedService
 
         Task.Run(async () =>
         {
+            int iteration = 0;
             while (cancellationToken.IsCancellationRequested == false)
             {
+                bool isSuccess = (iteration < 10); 
+                
                 _telemetryClient?.TrackAvailability(nameof(ServiceRunner), DateTimeOffset.Now,
-                    TimeSpan.FromMilliseconds(1), "localhost", true);
-                await Task.Delay(5000);
+                    TimeSpan.FromMilliseconds(15), "localhost", isSuccess, 
+                    isSuccess ? "Success" : "Failed");
+                
+                
+                _telemetryClient?.TrackTrace($"This is a trace message tracked at {DateTime.Now}");
+                _telemetryClient?.TrackTrace($"This is a information message tracked at {DateTime.Now}", SeverityLevel.Information);
+                _telemetryClient?.TrackTrace($"This is a warning message tracked at {DateTime.Now}", SeverityLevel.Warning);
+                _telemetryClient?.TrackTrace($"This is an error message tracked at {DateTime.Now}", SeverityLevel.Error);
+                _telemetryClient?.TrackTrace($"This is an critical message tracked at {DateTime.Now}", SeverityLevel.Critical);
+                
+                await Task.Delay(30000, cancellationToken);
+                
+                iteration++;
+                if (iteration >= 12) iteration = 0;
             }
         });
 

@@ -1,0 +1,27 @@
+<ng-container *ngIf="data">
+    
+    <st-list-component [items]="items">
+        <ng-template #headerTemplate >
+            <div class="list-availabilty-details header">
+                <span>Type</span>
+                <span></span>
+                <span>Details</span>
+            </div>
+        </ng-template>
+        <ng-template #itemTemplate let-item="item">
+            <div class="list-availabilty-details">
+                <span>{{ item.label }}</span>
+                <span></span>
+                <span> {{ item.value }}{{ item.unit }}</span>
+            </div>
+        </ng-template>
+    </st-list-component>
+    <div class="list-availabilty-details">
+        <span></span>
+        <div class="navigation-container">
+            <a class="button" type="button"  (click)="navigatePrevious()">Back</a>
+            <a class="button" type="button"  (click)="navigateNext()">Next</a>
+            <span>Item {{ _displayIndex + 1 }} of {{ _numberOfItems }}</span>
+        </div>
+    </div>
+</ng-container>

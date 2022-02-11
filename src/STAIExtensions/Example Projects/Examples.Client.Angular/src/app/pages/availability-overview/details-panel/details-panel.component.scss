@@ -1,0 +1,22 @@
+.list-availabilty-details {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    width: 100%;
+    align-items: center;
+    font-size: 0.8rem; 
+
+    &.header {
+        text-transform: uppercase;
+    }
+    progress {
+        justify-self: center;
+    }
+    span {
+        color: var(--white-color);
+    }
+}
+.navigation-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

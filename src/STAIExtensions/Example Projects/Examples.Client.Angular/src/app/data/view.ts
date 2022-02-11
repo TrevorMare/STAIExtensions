@@ -6,3 +6,4 @@ export interface View {
     lastUpdate: Date;
     slidingExpiration: number;
 }
+
