@@ -1,15 +1,14 @@
+
 .availability-list {
     display: grid;
-    grid-template-columns: 2rem auto 14rem 14rem 14rem 14rem;
+    grid-template-columns: 2rem calc(50% - 3rem) 12.5% 12.5% 12.5% 12.5%;
     border-bottom: solid 1px var(--line-color);
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
     cursor: pointer;
-
     &.selected {
         background-color: var(--hover-background);
     }
-
     &:hover {
         background-color: var(--hover-background);
     }
@@ -24,6 +23,28 @@
     }
 
 }
-
-
-
+    
+@media screen and (max-width: 1200px) {
+    .availability-list {
+        grid-template-columns: 2rem calc(55% - 3rem) 15% 15% 15%;
+        span:nth-child(3) {
+            display: none;
+        }
+    }
+}
+@media screen and (max-width: 960px) {
+    .availability-list {
+        grid-template-columns: 2rem calc(50% - 3rem) 25% 25%;
+        span:nth-child(3), span:nth-child(4) {
+            display: none;
+        }
+    }
+}
+@media screen and (max-width: 700px) {
+    .availability-list {
+        grid-template-columns: 2rem calc(75% - 3rem) 25.0%;
+        span:nth-child(3), span:nth-child(4), span:nth-child(5) {
+            display: none;
+        }
+    }
+}

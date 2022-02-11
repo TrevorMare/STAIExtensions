@@ -60,10 +60,11 @@ export class AvailabilityListComponent implements OnInit {
     this.nameIndexOpen.set(index, value);
   }
 
-  public setSelectedItem(item: AvailabilityAggregateGroup | null) {
+  public setSelectedItem(item: AvailabilityAggregateGroup | null): boolean {
     this.selectedItem = item;
     this.selectedItemChanged.emit(item);
     this.selectedFullGroupName = item?.fullGroupName ?? "";
+    return false;
   }
 
 

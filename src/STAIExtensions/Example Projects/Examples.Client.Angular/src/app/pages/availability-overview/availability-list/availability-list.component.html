@@ -14,8 +14,8 @@
     <ng-template #itemTemplate let-item="item">
         <div class="availability-list root" (click)="setSelectedItem(item)" [ngClass]="{'selected': selectedFullGroupName == item?.fullGroupName}">
             <div style="display: flex; align-items: center; justify-content: center;">
-                <st-icon *ngIf="!rootOpen" title="Expand" iconClass="fas fa-caret-left" iconSet="font-awesome" addClass="view-json-icon" (click)="rootOpen = !rootOpen"></st-icon>
-                <st-icon *ngIf="rootOpen" title="Collapse" iconClass="fas fa-caret-down" iconSet="font-awesome" addClass="view-json-icon" (click)="rootOpen = !rootOpen"></st-icon>
+                <st-icon *ngIf="!rootOpen" title="Expand" iconClass="fas fa-caret-left" iconSet="font-awesome" addClass="view-json-icon" (click)="rootOpen = !rootOpen;$event.stopPropagation()"></st-icon>
+                <st-icon *ngIf="rootOpen" title="Collapse" iconClass="fas fa-caret-down" iconSet="font-awesome" addClass="view-json-icon" (click)="rootOpen = !rootOpen;$event.stopPropagation()"></st-icon>
             </div>
             <span>{{ item?.groupName }}</span>
             <span>{{ item?.lastItem?.successfulCount }}</span>
@@ -23,7 +23,7 @@
             <span>{{ item?.lastItem?.averageDuration.toFixed(2) }} ms</span>
             <div>
                 <progress class="glow-progress success-percent" style="width: 40%; height: 0.5rem;" max="100" [value]="item?.lastItem?.successPercentage"></progress>
-                <span>  {{ item?.lastItem?.successPercentage }}%</span>
+                <span>  {{ item?.lastItem?.successPercentage.round(0) }}%</span>
             </div>
         </div>
         
@@ -31,8 +31,8 @@
             <ng-template #itemTemplate let-nameGroupItem="item" let-nameGroupIndex="index" >
                 <div class="availability-list name-group" (click)="setSelectedItem(nameGroupItem)" [ngClass]="{'selected': selectedFullGroupName == nameGroupItem?.fullGroupName}">
                     <div style="display: flex; align-items: center; justify-content: center;">
-                        <st-icon *ngIf="!getNameGroupOpen(nameGroupIndex)" title="Expand" iconClass="fas fa-caret-left" iconSet="font-awesome" addClass="view-json-icon" (click)="toggleNameGroupOpen(nameGroupIndex)"></st-icon>
-                        <st-icon *ngIf="getNameGroupOpen(nameGroupIndex)" title="Collapse" iconClass="fas fa-caret-down" iconSet="font-awesome" addClass="view-json-icon" (click)="toggleNameGroupOpen(nameGroupIndex)"></st-icon>
+                        <st-icon *ngIf="!getNameGroupOpen(nameGroupIndex)" title="Expand" iconClass="fas fa-caret-left" iconSet="font-awesome" addClass="view-json-icon" (click)="toggleNameGroupOpen(nameGroupIndex);$event.stopPropagation()"></st-icon>
+                        <st-icon *ngIf="getNameGroupOpen(nameGroupIndex)" title="Collapse" iconClass="fas fa-caret-down" iconSet="font-awesome" addClass="view-json-icon" (click)="toggleNameGroupOpen(nameGroupIndex); $event.stopPropagation()"></st-icon>
                     </div>
                     <span>{{ nameGroupItem?.groupName }}</span>
                     <span>{{ nameGroupItem?.lastItem?.successfulCount }}</span>
@@ -40,7 +40,7 @@
                     <span>{{ nameGroupItem?.lastItem?.averageDuration.toFixed(2) }} ms</span>
                     <div>
                         <progress class="glow-progress success-percent" style="width: 40%; height: 0.5rem;" max="100" [value]="nameGroupItem?.lastItem?.successPercentage"></progress>
-                        <span>  {{ nameGroupItem?.lastItem?.successPercentage }}%</span>
+                        <span>  {{ nameGroupItem?.lastItem?.successPercentage.round(0) }}%</span>
                     </div>
                 </div>
 
@@ -54,7 +54,7 @@
                             <span>{{ locationGroupItem?.lastItem?.averageDuration.toFixed(2) }} ms</span>
                             <div>
                                 <progress class="glow-progress success-percent" style="width: 40%; height: 0.5rem;" max="100" [value]="locationGroupItem?.lastItem?.successPercentage"></progress>
-                                <span>  {{ locationGroupItem?.lastItem?.successPercentage }}%</span>
+                                <span>  {{ locationGroupItem?.lastItem?.successPercentage.round(0) }}%</span>
                             </div>
                         </div>
                     </ng-template>

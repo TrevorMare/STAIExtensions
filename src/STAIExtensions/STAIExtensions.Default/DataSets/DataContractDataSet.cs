@@ -391,11 +391,10 @@ public class DataContractDataSet : DataSet
     
     private void SetRecordState<T>(SizedList<T> items) where T : DataContractFull
     {
-        items.Any(s =>
+        foreach (var item in items)
         {
-            s.RecordState = RecordState.Existing;
-            return true;
-        });
+            item.RecordState = RecordState.Existing;
+        }
     }
 
     #endregion

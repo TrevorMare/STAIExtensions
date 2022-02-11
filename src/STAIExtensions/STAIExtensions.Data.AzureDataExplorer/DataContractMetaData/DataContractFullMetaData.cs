@@ -41,6 +41,7 @@ namespace STAIExtensions.Data.AzureDataExplorer.DataContractMetaData
                 { "user_AccountId", new DataContractFieldAttribute("UserAccountId" ) },
                 { "user_AuthenticatedId", new DataContractFieldAttribute("UserAuthenticatedId" ) },
                 { "user_Id", new DataContractFieldAttribute("UserId" ) },
+                { "_ResourceID", new DataContractFieldAttribute("ResourceId" ) },
             };
         #endregion
 

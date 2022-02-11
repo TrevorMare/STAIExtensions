@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ApexAxisChartSeries, ApexChart, ApexTitleSubtitle, ApexXAxis, ChartComponent } from 'ng-apexcharts';
 import { AvailabilityAggregateGroup } from 'src/app/data/view.availability-overview';
+import '../../../shared/shared.extensions';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -60,7 +61,7 @@ export class AvailabilityChartComponent implements OnInit {
           backgroundColor: '#00ebff'
         },
         x: {
-          format: 'dd MMM yyyy'
+          format: 'yyyy MM dd hh:mm:ss'
         }
       },
       xaxis: { 
@@ -99,12 +100,12 @@ export class AvailabilityChartComponent implements OnInit {
       var availabilityPercentageSeriesData: number[] = [];
       var successfulCountSeriesData: number[] = [];
       var failureCountSeriesData: number[] = [];
-      var categories : Date[] = [];
+      var categories : number[] = [];
       for (let item of this._data.items) {
-        categories.push(item.endDate);
-        availabilityPercentageSeriesData.push(item.successPercentage);
-        successfulCountSeriesData.push(item.successfulCount);
-        failureCountSeriesData.push(item.failureCount);
+        categories.push(item.endDate.getTime());
+        availabilityPercentageSeriesData.push(item.successPercentage.round(0));
+        successfulCountSeriesData.push(item.successfulCount.round(0));
+        failureCountSeriesData.push(item.failureCount.round(0));
       }
 
       this.chart.updateOptions({
@@ -137,6 +138,7 @@ export class AvailabilityChartComponent implements OnInit {
       });
     }
   }
+  
   ngOnInit(): void {
   }
 

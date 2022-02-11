@@ -39,6 +39,7 @@ export class AvailabilityTableComponent implements OnInit {
       { key: 'itemId', title: 'Actions', searchEnabled: false, orderEnabled: false },
       { key: 'duration', title: 'Duration (ms)' },
       { key: 'name', title: 'Name' },
+      { key: 'timeStamp', title: 'Timestamp' },
       { key: 'location', title: 'Location' },
       { key: 'cloudRoleInstance', title: 'Role Instance' },
       { key: 'cloudRoleName', title: 'Role Name' },

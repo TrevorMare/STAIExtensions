@@ -25,6 +25,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { AvailabilityListComponent } from './availability-overview/availability-list/availability-list.component';
 import { AvailabilityChartComponent } from './availability-overview/availability-chart/availability-chart.component';
 import { DetailsPanelComponent } from './availability-overview/details-panel/details-panel.component';
+import { AvailabilityGaugeComponent } from './availability-overview/availability-gauge/availability-gauge.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { DetailsPanelComponent } from './availability-overview/details-panel/det
     AvailabilityListComponent,
     AvailabilityChartComponent,
     DetailsPanelComponent,
+    AvailabilityGaugeComponent,
    
   ],
   imports: [

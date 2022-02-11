@@ -1,18 +1,14 @@
 <st-animated-header text="Availability Overview"></st-animated-header>
 
-<div class="charts-container">
+<div class="details-container">
 
-   <div>
+   <div class="chart-container">
         <st-availability-chart [data]="selectedAvailabilityGroup"></st-availability-chart>
    </div>
-    <div>
+    <div class="list-container">
         <st-tab-component>
             <st-tab-item title="Totals">
-            <apx-chart
-                [series]="gaugeChartOptions.series"
-                [chart]="gaugeChartOptions.chart"
-                [xaxis]="gaugeChartOptions.xaxis"
-                [title]="gaugeChartOptions.title"></apx-chart>
+                <st-availability-gauge [data]="selectedAvailabilityGroup"></st-availability-gauge>
             </st-tab-item>
             <st-tab-item title="Details">
                 <st-details-panel [data]="selectedAvailabilityGroup"></st-details-panel>
