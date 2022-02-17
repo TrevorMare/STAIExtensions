@@ -7,7 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TelemetryOverviewService } from 'src/app/services/service.telemetry-overview';
 import { JsonObjectViewerModalComponent } from 'src/app/shared/json-object-viewer/json-object-viewer-modal/json-object-viewer-modal.component';
 @Component({
-  selector: 'st-exceptions-table',
+  selector: 'telemetryoverviewpage-exceptions-table',
   templateUrl: './exceptions-table.component.html',
   styleUrls: ['./exceptions-table.component.scss']
 })

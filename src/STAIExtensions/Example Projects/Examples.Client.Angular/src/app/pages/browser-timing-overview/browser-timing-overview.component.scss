@@ -1,0 +1,13 @@
+.top-layout {
+
+
+    display: flex;
+    flex-direction: column;
+    .map-layout {
+        width: 50%;
+    }
+    .other-layout {
+        width: 50%;
+    }
+
+}

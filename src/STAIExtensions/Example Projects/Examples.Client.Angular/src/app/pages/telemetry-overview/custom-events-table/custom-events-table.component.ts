@@ -8,7 +8,7 @@ import { TelemetryOverviewService } from 'src/app/services/service.telemetry-ove
 import { JsonObjectViewerModalComponent } from 'src/app/shared/json-object-viewer/json-object-viewer-modal/json-object-viewer-modal.component';
 
 @Component({
-  selector: 'st-custom-events-table',
+  selector: 'telemetryoverviewpage-custom-events-table',
   templateUrl: './custom-events-table.component.html',
   styleUrls: ['./custom-events-table.component.scss']
 })

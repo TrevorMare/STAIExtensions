@@ -12,7 +12,7 @@ export type ChartOptions = {
 };
 
 @Component({
-  selector: 'st-availability-gauge',
+  selector: 'availabilitypage-availability-gauge',
   templateUrl: './availability-gauge.component.html',
   styleUrls: ['./availability-gauge.component.scss']
 })

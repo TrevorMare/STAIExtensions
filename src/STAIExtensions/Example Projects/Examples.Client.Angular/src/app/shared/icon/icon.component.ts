@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'st-icon',
+  selector: 'shared-icon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss'],
   encapsulation: ViewEncapsulation.None

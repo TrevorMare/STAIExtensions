@@ -8,7 +8,7 @@ import { TelemetryOverviewService } from 'src/app/services/service.telemetry-ove
 import { JsonObjectViewerModalComponent } from 'src/app/shared/json-object-viewer/json-object-viewer-modal/json-object-viewer-modal.component';
 
 @Component({
-  selector: 'st-dependencies-table',
+  selector: 'telemetryoverviewpage-dependencies-table',
   templateUrl: './dependencies-table.component.html',
   styleUrls: ['./dependencies-table.component.scss']
 })

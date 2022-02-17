@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '
 declare const animateHeader: any;
 
 @Component({
-  selector: 'st-animated-header',
+  selector: 'shared-animated-header',
   templateUrl: './animated-header.component.html',
   styleUrls: ['./animated-header.component.scss']
 })

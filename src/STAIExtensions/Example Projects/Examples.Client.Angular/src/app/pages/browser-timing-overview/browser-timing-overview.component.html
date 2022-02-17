@@ -1,0 +1,33 @@
+<shared-animated-header text="Browser Timings Overview"></shared-animated-header>
+
+
+<!-- <h1 class="cyberpunk">Overview Items</h1> -->
+
+    <browsertimingpage-group-value-display 
+        [groupValues]="(browserTimingsOverviewView$ | async)?.clientBrowserStatistics ?? null"
+        groupValueName="Client Browser"></browsertimingpage-group-value-display>
+
+    <browsertimingpage-group-value-display 
+        [groupValues]="(browserTimingsOverviewView$ | async)?.clientCityStatistics ?? null"
+        groupValueName="Client City"></browsertimingpage-group-value-display>
+
+    <browsertimingpage-group-value-display 
+        [groupValues]="(browserTimingsOverviewView$ | async)?.countryOrRegionStatistics ?? null"
+        groupValueName="Country or Region"></browsertimingpage-group-value-display>
+<!-- <div class="top-layout">
+
+    <div class="map-layout">
+
+        <shared-leaflet-global-positions></shared-leaflet-global-positions>
+    </div>
+
+
+    <div class="other-layout">
+        {{ (browserTimingsOverviewView$ | async)?.totalNumberOfItems }}
+    </div>
+
+    
+    
+
+</div> -->
+

@@ -9,7 +9,7 @@ export type ListItem = {
 }
 
 @Component({
-  selector: 'st-details-panel',
+  selector: 'availabilitypage-details-panel',
   templateUrl: './details-panel.component.html',
   styleUrls: ['./details-panel.component.scss']
 })

@@ -7,20 +7,14 @@ using STAIExtensions.Default.Helpers;
 
 namespace STAIExtensions.Default.Views;
 
-public class TelemetryOverview : DataSetView
+public class TelemetryOverview : BaseView
 {
 
     #region Constants
-
-    private const string PARAM_CLOUDROLENAME = "CloudRoleName";
-    private const string PARAM_CLOUDROLEINSTANCE = "CloudRoleInstance";
     private const string PARAM_LASTRECORDCOUNT = "LastRecordCount";
     #endregion
 
     #region Members
-
-    private List<string>? _filterCloudRoleName = null;
-    private List<string>? _filterCloudInstanceName = null;
     private int _lastRecordCount = 10; 
 
     private List<Availability> _availabilityFiltered;
@@ -36,9 +30,6 @@ public class TelemetryOverview : DataSetView
     #endregion
     
     #region Properties
-
-    public Dictionary<string, List<string>> CloudNames { get; private set; } = new();
-
     public int? AvailabilityCount { get; private set; }
     
     public int? BrowserTimingsCount { get; private set; }
@@ -79,6 +70,18 @@ public class TelemetryOverview : DataSetView
     
     public IEnumerable<Trace>? LastTraces { get; private set; }
     #endregion
+
+    #region ctor
+
+    public TelemetryOverview()
+    {
+        RegisterDataSetTypeForUpdates<DataContractDataSet>(set =>
+        {
+            BuildViewDataFromDataSet(set);
+        });
+    }
+
+    #endregion
     
     #region Overrides
 
@@ -89,23 +92,27 @@ public class TelemetryOverview : DataSetView
             new DataSetViewParameterDescriptor(PARAM_CLOUDROLENAME, "string[]", false, "Filter values for the cloud role name"),
             new DataSetViewParameterDescriptor(PARAM_LASTRECORDCOUNT, "int", false, "Number of records to load for the last entities")
         };
+    #endregion
 
-    protected override Task BuildViewData(IDataSet dataSet)
+    #region Build View Methods
+    protected virtual Task BuildViewDataFromDataSet(DataContractDataSet dataSet)
     {
         try
         {
-            if (dataSet is DataContractDataSet dataContractDataSet)
+            this.SetupParameters();
+
+            this.SetupDistinctCloudInstanceAndRoleNames(new List<IEnumerable<DataContractFull>>()
             {
-                this.SetupParameters();
-
-                this.LoadDistinctCloudNames(dataContractDataSet);
+                dataSet.Availability, dataSet.BrowserTiming, dataSet.BrowserTiming, dataSet.CustomEvents,
+                dataSet.CustomMetrics, dataSet.Dependencies, dataSet.Exceptions, dataSet.PageViews,
+                dataSet.PerformanceCounters, dataSet.Requests
+            });
                 
-                this.BuildLocalListItems(dataContractDataSet);
+            this.BuildLocalListItems(dataSet);
             
-                this.LoadTotals();
+            this.LoadTotals();
 
-                this.LoadLastEntries();
-            }
+            this.LoadLastEntries();
         }
         catch (Exception e)
         {
@@ -115,6 +122,9 @@ public class TelemetryOverview : DataSetView
         
         return Task.CompletedTask;
     }
+
+    
+
     #endregion
 
     #region Private Medhods
@@ -126,10 +136,7 @@ public class TelemetryOverview : DataSetView
     {
         try
         {
-            this._filterCloudRoleName =
-                Helpers.ViewParameterHelper.ExtractParameter<List<string>>(this.ViewParameters, PARAM_CLOUDROLENAME);
-            this._filterCloudInstanceName =
-                Helpers.ViewParameterHelper.ExtractParameter<List<string>>(this.ViewParameters, PARAM_CLOUDROLEINSTANCE);
+            this.SetupCloudRoleAndInstanceNamesFromParameters();
 
             var lastRecordCount =
                 Helpers.ViewParameterHelper.ExtractParameter<int?>(this.ViewParameters, PARAM_LASTRECORDCOUNT);
@@ -145,41 +152,6 @@ public class TelemetryOverview : DataSetView
                 "An error occured deserializing the view parameters: {ErrorMessage}", ex.Message);
         }
     }
-    
-    /// <summary>
-    /// Loads a list of distinct Cloud Role Instance and Cloud Role Name values
-    /// </summary>
-    /// <param name="dataContractDataSet">The data set containing the original items</param>
-    private void LoadDistinctCloudNames(DataContractDataSet dataContractDataSet)
-    {
-        var result = new List<string?>();
-        
-        result.AddRange(dataContractDataSet.Availability.Select(r => $"{r.CloudRoleInstance}*{r.CloudRoleName}" ).Distinct());
-        result.AddRange(dataContractDataSet.BrowserTiming.Select(r => $"{r.CloudRoleInstance}*{r.CloudRoleName}").Distinct());
-        result.AddRange(dataContractDataSet.CustomEvents.Select(r => $"{r.CloudRoleInstance}*{r.CloudRoleName}").Distinct());
-        result.AddRange(dataContractDataSet.CustomMetrics.Select(r => $"{r.CloudRoleInstance}*{r.CloudRoleName}").Distinct());
-        result.AddRange(dataContractDataSet.Dependencies.Select(r => $"{r.CloudRoleInstance}*{r.CloudRoleName}").Distinct());
-        result.AddRange(dataContractDataSet.Exceptions.Select(r => $"{r.CloudRoleInstance}*{r.CloudRoleName}").Distinct());
-        result.AddRange(dataContractDataSet.PageViews.Select(r => $"{r.CloudRoleInstance}*{r.CloudRoleName}").Distinct());
-        result.AddRange(dataContractDataSet.PerformanceCounters.Select(r => $"{r.CloudRoleInstance}*{r.CloudRoleName}").Distinct());
-        result.AddRange(dataContractDataSet.Requests.Select(r => $"{r.CloudRoleInstance}*{r.CloudRoleName}").Distinct());
-        result.AddRange(dataContractDataSet.Traces.Select(r => $"{r.CloudRoleInstance}*{r.CloudRoleName}").Distinct());
-
-        var distinctNames = result.Select(x => x).Distinct().ToList();
-        var distinctSplitItems = distinctNames.Select(n => n?.Split("*")).Where(x => x != null).Select(n => new
-        {
-            Instance = n[0],
-            Role = n[1]
-        }).ToList();
-
-        this.CloudNames.Clear();
-        distinctSplitItems.ForEach(item =>
-        {
-            if (!this.CloudNames.ContainsKey(item.Instance))
-                this.CloudNames[item.Instance] = new List<string>();
-            this.CloudNames[item.Instance].Add(item.Role);
-        });
-    }
 
     /// <summary>
     /// Filters the records by the view filters
@@ -188,35 +160,35 @@ public class TelemetryOverview : DataSetView
     {
         // Keep a copy of the lists before it's filtered 
         this._availabilityFiltered = dataContractDataSet.Availability
-            .FilterCloudRoleInstance(_filterCloudInstanceName)
-            .FilterCloudRoleName(_filterCloudRoleName).ToList();
+            .FilterCloudRoleInstance(FilterCloudInstanceNames)
+            .FilterCloudRoleName(FilterCloudRoleNames).ToList();
         this._browserTimingsFiltered = dataContractDataSet.BrowserTiming
-            .FilterCloudRoleInstance(_filterCloudInstanceName)
-            .FilterCloudRoleName(_filterCloudRoleName).ToList();
+            .FilterCloudRoleInstance(FilterCloudInstanceNames)
+            .FilterCloudRoleName(FilterCloudRoleNames).ToList();
         this._customEventsFiltered = dataContractDataSet.CustomEvents
-            .FilterCloudRoleInstance(_filterCloudInstanceName)
-            .FilterCloudRoleName(_filterCloudRoleName).ToList();
+            .FilterCloudRoleInstance(FilterCloudInstanceNames)
+            .FilterCloudRoleName(FilterCloudRoleNames).ToList();
         this._customMetricsFiltered = dataContractDataSet.CustomMetrics
-            .FilterCloudRoleInstance(_filterCloudInstanceName)
-            .FilterCloudRoleName(_filterCloudRoleName).ToList();
+            .FilterCloudRoleInstance(FilterCloudInstanceNames)
+            .FilterCloudRoleName(FilterCloudRoleNames).ToList();
         this._dependenciesFiltered = dataContractDataSet.Dependencies
-            .FilterCloudRoleInstance(_filterCloudInstanceName)
-            .FilterCloudRoleName(_filterCloudRoleName).ToList();
+            .FilterCloudRoleInstance(FilterCloudInstanceNames)
+            .FilterCloudRoleName(FilterCloudRoleNames).ToList();
         this._pageViewsFiltered = dataContractDataSet.PageViews
-            .FilterCloudRoleInstance(_filterCloudInstanceName)
-            .FilterCloudRoleName(_filterCloudRoleName).ToList();
+            .FilterCloudRoleInstance(FilterCloudInstanceNames)
+            .FilterCloudRoleName(FilterCloudRoleNames).ToList();
         this._performanceCountersFiltered = dataContractDataSet.PerformanceCounters
-            .FilterCloudRoleInstance(_filterCloudInstanceName)
-            .FilterCloudRoleName(_filterCloudRoleName).ToList();
+            .FilterCloudRoleInstance(FilterCloudInstanceNames)
+            .FilterCloudRoleName(FilterCloudRoleNames).ToList();
         this._requestsFiltered = dataContractDataSet.Requests
-            .FilterCloudRoleInstance(_filterCloudInstanceName)
-            .FilterCloudRoleName(_filterCloudRoleName).ToList();
+            .FilterCloudRoleInstance(FilterCloudInstanceNames)
+            .FilterCloudRoleName(FilterCloudRoleNames).ToList();
         this._tracesFiltered = dataContractDataSet.Traces
-            .FilterCloudRoleInstance(_filterCloudInstanceName)
-            .FilterCloudRoleName(_filterCloudRoleName).ToList();
+            .FilterCloudRoleInstance(FilterCloudInstanceNames)
+            .FilterCloudRoleName(FilterCloudRoleNames).ToList();
         this._exceptionsFiltered = dataContractDataSet.Exceptions
-            .FilterCloudRoleInstance(_filterCloudInstanceName)
-            .FilterCloudRoleName(_filterCloudRoleName).ToList();
+            .FilterCloudRoleInstance(FilterCloudInstanceNames)
+            .FilterCloudRoleName(FilterCloudRoleNames).ToList();
     }
 
     /// <summary>

@@ -8,7 +8,7 @@ import { TelemetryOverviewService } from 'src/app/services/service.telemetry-ove
 import { JsonObjectViewerModalComponent } from 'src/app/shared/json-object-viewer/json-object-viewer-modal/json-object-viewer-modal.component';
 
 @Component({
-  selector: 'st-browser-timings-table',
+  selector: 'telemetryoverviewpage-browser-timings-table',
   templateUrl: './browser-timings-table.component.html',
   styleUrls: ['./browser-timings-table.component.scss']
 })

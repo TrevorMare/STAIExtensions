@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 declare const animateCircle: any;
 
 @Component({
-  selector: 'st-loading-panel',
+  selector: 'shared-loading-panel',
   templateUrl: './loading-panel.component.html',
   styleUrls: ['./loading-panel.component.scss']
 })

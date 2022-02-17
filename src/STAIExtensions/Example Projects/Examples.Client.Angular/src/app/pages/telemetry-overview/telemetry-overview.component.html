@@ -1,18 +1,18 @@
-<st-animated-header text="Telemetry Overview"></st-animated-header>
+<shared-animated-header text="Telemetry Overview"></shared-animated-header>
 
-<st-telemetry-cards [selectedCard]="selectedCard" (selectedCardChanged)="selectedCard = $event"></st-telemetry-cards> 
+<telemetryoverviewpage-telemetry-cards [selectedCard]="selectedCard" (selectedCardChanged)="selectedCard = $event"></telemetryoverviewpage-telemetry-cards> 
 
 <h1 class="cyberpunk">Overview Items</h1>
 
 <div class="telemetry-overview-items-container">
-    <st-availability-table *ngIf="selectedCard === 'Availability'"></st-availability-table>
-    <st-browser-timings-table *ngIf="selectedCard === 'BrowserTimings'"></st-browser-timings-table>
-    <st-custom-events-table *ngIf="selectedCard === 'CustomEvents'"></st-custom-events-table>
-    <st-custom-metrics-table *ngIf="selectedCard === 'CustomMetrics'"></st-custom-metrics-table>
-    <st-dependencies-table *ngIf="selectedCard === 'Dependencies'"></st-dependencies-table>
-    <st-exceptions-table *ngIf="selectedCard === 'Exceptions'"></st-exceptions-table>
-    <st-page-views-table *ngIf="selectedCard === 'PageViews'"></st-page-views-table>
-    <st-performance-counters-table *ngIf="selectedCard === 'PerformanceCounters'"></st-performance-counters-table>
-    <st-requests-table *ngIf="selectedCard === 'Requests'"></st-requests-table>
+    <telemetryoverviewpage-availability-table *ngIf="selectedCard === 'Availability'"></telemetryoverviewpage-availability-table>
+    <telemetryoverviewpage-browser-timings-table *ngIf="selectedCard === 'BrowserTimings'"></telemetryoverviewpage-browser-timings-table>
+    <telemetryoverviewpage-custom-events-table *ngIf="selectedCard === 'CustomEvents'"></telemetryoverviewpage-custom-events-table>
+    <telemetryoverviewpage-custom-metrics-table *ngIf="selectedCard === 'CustomMetrics'"></telemetryoverviewpage-custom-metrics-table>
+    <telemetryoverviewpage-dependencies-table *ngIf="selectedCard === 'Dependencies'"></telemetryoverviewpage-dependencies-table>
+    <telemetryoverviewpage-exceptions-table *ngIf="selectedCard === 'Exceptions'"></telemetryoverviewpage-exceptions-table>
+    <telemetryoverviewpage-page-views-table *ngIf="selectedCard === 'PageViews'"></telemetryoverviewpage-page-views-table>
+    <telemetryoverviewpage-performance-counters-table *ngIf="selectedCard === 'PerformanceCounters'"></telemetryoverviewpage-performance-counters-table>
+    <telemetryoverviewpage-requests-table *ngIf="selectedCard === 'Requests'"></telemetryoverviewpage-requests-table>
     <st-traces-table *ngIf="selectedCard === 'Traces'"></st-traces-table>
 </div>

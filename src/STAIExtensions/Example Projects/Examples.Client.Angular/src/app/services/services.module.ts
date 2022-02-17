@@ -5,6 +5,7 @@ import { throwIfAlreadyLoaded } from './module-import-guard';
 import { TelemetryOverviewService } from './service.telemetry-overview';
 import { AvailabilityOverviewService } from './service.availability-overview';
 import { TracesOverviewService } from './service.traces-overview';
+import { BrowserTimingsOverviewService } from './service.browsertimings-overview';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ export class ServicesModule {
         STAIExtensionsService,
         TelemetryOverviewService,
         AvailabilityOverviewService,
-        TracesOverviewService
+        TracesOverviewService,
+        BrowserTimingsOverviewService
       ],
     };
   }

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'st-tab-item',
+  selector: 'shared-tab-item',
   templateUrl: './tab-item.component.html',
   styleUrls: ['./tab-item.component.scss']
 })

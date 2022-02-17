@@ -1,7 +1,7 @@
 import { Component, ContentChild, Input, OnInit, TemplateRef } from '@angular/core';
 
 @Component({
-  selector: 'st-list-component',
+  selector: 'shared-list-component',
   templateUrl: './list-component.component.html',
   styleUrls: ['./list-component.component.scss']
 })

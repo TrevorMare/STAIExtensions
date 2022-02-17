@@ -2,7 +2,7 @@ import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { interval, timer } from 'rxjs';
 
 @Component({
-  selector: 'st-glitch-text',
+  selector: 'shared-glitch-text',
   templateUrl: './glitch-text.component.html',
   styleUrls: ['./glitch-text.component.scss']
 })

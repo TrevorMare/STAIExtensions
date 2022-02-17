@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'st-popup-modal',
+  selector: 'shared-popup-modal',
   templateUrl: './popup-modal.component.html',
   styleUrls: ['./popup-modal.component.scss']
 })

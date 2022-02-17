@@ -8,7 +8,7 @@ import { TelemetryOverviewService } from 'src/app/services/service.telemetry-ove
 import { JsonObjectViewerModalComponent } from 'src/app/shared/json-object-viewer/json-object-viewer-modal/json-object-viewer-modal.component';
 
 @Component({
-  selector: 'st-page-views-table',
+  selector: 'telemetryoverviewpage-page-views-table',
   templateUrl: './page-views-table.component.html',
   styleUrls: ['./page-views-table.component.scss']
 })

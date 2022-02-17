@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AvailabilityAggregateGroup, AvailabilityOverviewView } from 'src/app/data/view.availability-overview';
 
 @Component({
-  selector: 'st-availability-list',
+  selector: 'availabilitypage-availability-list',
   templateUrl: './availability-list.component.html',
   styleUrls: ['./availability-list.component.scss']
 })

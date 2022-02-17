@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
 import { TableModule } from 'ngx-easy-table';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ServicesModule } from './services/services.module';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { ServicesModule } from './services/services.module';
     RouterModule,
     TableModule,
     NgbModule,
+    LeafletModule,
+    LeafletMarkerClusterModule,
     ServicesModule.forRoot(),
   ],
   providers: [],

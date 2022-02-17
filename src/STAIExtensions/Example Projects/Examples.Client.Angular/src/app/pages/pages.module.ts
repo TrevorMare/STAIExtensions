@@ -26,6 +26,8 @@ import { AvailabilityListComponent } from './availability-overview/availability-
 import { AvailabilityChartComponent } from './availability-overview/availability-chart/availability-chart.component';
 import { DetailsPanelComponent } from './availability-overview/details-panel/details-panel.component';
 import { AvailabilityGaugeComponent } from './availability-overview/availability-gauge/availability-gauge.component';
+import { BrowserTimingOverviewComponent } from './browser-timing-overview/browser-timing-overview.component';
+import { GroupValueDisplayComponent } from './browser-timing-overview/group-value-display/group-value-display.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { AvailabilityGaugeComponent } from './availability-overview/availability
     AvailabilityChartComponent,
     DetailsPanelComponent,
     AvailabilityGaugeComponent,
+    BrowserTimingOverviewComponent,
+    GroupValueDisplayComponent,
    
   ],
   imports: [
@@ -58,6 +62,7 @@ import { AvailabilityGaugeComponent } from './availability-overview/availability
     SharedModule,
     TableModule,
     NgApexchartsModule,
+    
   ]
 })
 export class PagesModule { }

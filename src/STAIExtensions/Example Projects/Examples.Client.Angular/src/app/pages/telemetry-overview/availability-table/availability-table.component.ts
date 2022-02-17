@@ -8,7 +8,7 @@ import { TelemetryOverviewView } from 'src/app/data/view.telemetry-overview';
 import { Availability } from 'src/app/data/data-contracts';
 
 @Component({
-  selector: 'st-availability-table',
+  selector: 'telemetryoverviewpage-availability-table',
   templateUrl: './availability-table.component.html',
   styleUrls: ['./availability-table.component.scss']
 })
