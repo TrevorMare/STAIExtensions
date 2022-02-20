@@ -17,6 +17,7 @@ import { TabItemComponent } from './tab-component/tab-item/tab-item.component';
 import { LeafletGlobalPositionsComponent } from './leaflet-global-positions/leaflet-global-positions.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluste
     CommonModule,
     RouterModule,
     LeafletModule,
-    LeafletMarkerClusterModule
+    LeafletMarkerClusterModule,
+    NgxPaginationModule,
   ],
   entryComponents: [
     PopupModalComponent

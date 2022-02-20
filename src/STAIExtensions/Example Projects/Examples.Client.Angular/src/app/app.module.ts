@@ -10,6 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ServicesModule } from './services/services.module';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
+import {NgxPaginationModule} from 'ngx-pagination'
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluste
     NgbModule,
     LeafletModule,
     LeafletMarkerClusterModule,
+    NgxPaginationModule,
     ServicesModule.forRoot(),
   ],
   providers: [],

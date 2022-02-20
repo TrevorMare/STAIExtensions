@@ -1,4 +1,4 @@
-<shared-augmented-card [colorStyle]="1" [borderStyle]="2" [showOver]="false" class="popup-container">
+<shared-augmented-card [colorStyle]="1" [borderStyle]="2" [showOver]="false" class="popup-container" cardClass="popup-container-class">
     <div aug-card-header>
         <div #refHeader><ng-content select="[popup-header]"></ng-content></div>
         <ng-container *ngIf="!refHeader.hasChildNodes()">

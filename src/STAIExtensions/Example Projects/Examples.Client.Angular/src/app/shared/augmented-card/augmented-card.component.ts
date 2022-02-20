@@ -17,6 +17,7 @@ export class AugmentedCardComponent implements OnInit {
   @Input() borderStyle: number = 1;
   @Input() colorStyle: number = 1;
   @Input() showOver: boolean = true;
+  @Input() cardClass: string = '';
 
   ngOnInit(): void {
   }

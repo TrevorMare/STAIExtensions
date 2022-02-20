@@ -3,7 +3,7 @@
 <h1 class="cyberpunk glitched">Traces</h1>
 
 <div class="traces-container" >
-    <shared-augmented-card [showOver]="false" [colorStyle]="1"  >
+    <shared-augmented-card [showOver]="false" [colorStyle]="1" cardClass="trace-card" >
         <div aug-card-body>
             <div class="console" #console (scroll)="scrolled($event)">
                 <div *ngFor="let item of items" class="console-item" #item>

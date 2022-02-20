@@ -6,7 +6,9 @@
         </li>
     </ng-container>
 
-    <li class="list-component-item" [ngClass]="{'hoverEnabled': hoverEnabled, 'isNotNestedList': !isNestedList, 'itemPadding': !noItemPadding}" *ngFor="let item of items; let i = index">
+    <li class="list-component-item {{ itemClass }}" 
+        [ngClass]="{'hoverEnabled': hoverEnabled, 'isNotNestedList': !isNestedList, 'itemPadding': !noItemPadding}" 
+        *ngFor="let item of (paginationEnabled ? (items | paginate: { id: pagerId, itemsPerPage: pageSize, currentPage: pageIndex }) : items); let i = index">
         <ng-container *ngIf="itemTemplate">
             <ng-container *ngTemplateOutlet="itemTemplate; context: { item: item, index: i }"></ng-container>
         </ng-container>
@@ -15,3 +17,13 @@
         </ng-container>
     </li>
 </ul>
+
+<div *ngIf="paginationEnabled && items.length > pageSize">
+    <pagination-controls id="{{ pagerId }}" 
+    (pageChange)="onPageChanged($event)"
+    [autoHide]="true"
+    [responsive]="true"
+    previousLabel=""
+    nextLabel=""
+    [maxSize]="5"></pagination-controls>
+</div>

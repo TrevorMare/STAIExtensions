@@ -74,8 +74,11 @@
 :host ::ng-deep #pagination-controls > pagination-template > ul > li > a > span {
     color: var(--primary-color);
 }
-:host ::ng-deep .ngx-pagination .current {
-    background: var(--line-color);
+:host ::ng-deep .ngx-pagination {
+    font-family: var(--font-family);
+    .current {
+        background: var(--secondary-color);
+    }
 }
 
 ::ng-deep {
@@ -291,3 +294,4 @@
     }
       
 }
+

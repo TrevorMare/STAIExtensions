@@ -1,33 +1,40 @@
 <shared-animated-header text="Browser Timings Overview"></shared-animated-header>
 
+<shared-tab-component>
+    <shared-tab-item title="Overall">
+        <browsertimingpage-group-value-display  
+            [groupValues]="(browserTimingsOverviewView$ | async)?.operationNameStatistics ?? null"
+            groupValueName="Overall"></browsertimingpage-group-value-display>   
+    </shared-tab-item>
+    <shared-tab-item title="Client Browser">
+        <browsertimingpage-group-value-display  
+            [groupValues]="(browserTimingsOverviewView$ | async)?.clientBrowserStatistics ?? null"
+            groupValueName="Client Browser"></browsertimingpage-group-value-display>
+    </shared-tab-item>
+    <shared-tab-item title="Client City">
+        <browsertimingpage-group-value-display  
+            [groupValues]="(browserTimingsOverviewView$ | async)?.clientCityStatistics ?? null"
+            groupValueName="Client City"></browsertimingpage-group-value-display>    
+    </shared-tab-item>
+    <shared-tab-item title="Client Country">
+        <browsertimingpage-group-value-display  
+            [groupValues]="(browserTimingsOverviewView$ | async)?.countryOrRegionStatistics ?? null"
+            groupValueName="Client Country"></browsertimingpage-group-value-display>    
+    </shared-tab-item>
+    <shared-tab-item title="User Session">
+        <browsertimingpage-group-value-display  
+            [groupValues]="(browserTimingsOverviewView$ | async)?.userSessionStatistics ?? null"
+            groupValueName="User Session"></browsertimingpage-group-value-display>    
+    </shared-tab-item>
+    <shared-tab-item title="User Id">
+        <browsertimingpage-group-value-display  
+            [groupValues]="(browserTimingsOverviewView$ | async)?.userIdStatistics ?? null"
+            groupValueName="User Id"></browsertimingpage-group-value-display>    
+    </shared-tab-item>
+</shared-tab-component>
 
-<!-- <h1 class="cyberpunk">Overview Items</h1> -->
-
-    <browsertimingpage-group-value-display 
-        [groupValues]="(browserTimingsOverviewView$ | async)?.clientBrowserStatistics ?? null"
-        groupValueName="Client Browser"></browsertimingpage-group-value-display>
-
-    <browsertimingpage-group-value-display 
-        [groupValues]="(browserTimingsOverviewView$ | async)?.clientCityStatistics ?? null"
-        groupValueName="Client City"></browsertimingpage-group-value-display>
-
-    <browsertimingpage-group-value-display 
-        [groupValues]="(browserTimingsOverviewView$ | async)?.countryOrRegionStatistics ?? null"
-        groupValueName="Country or Region"></browsertimingpage-group-value-display>
-<!-- <div class="top-layout">
-
-    <div class="map-layout">
-
-        <shared-leaflet-global-positions></shared-leaflet-global-positions>
-    </div>
 
 
-    <div class="other-layout">
-        {{ (browserTimingsOverviewView$ | async)?.totalNumberOfItems }}
-    </div>
 
-    
-    
 
-</div> -->
 
