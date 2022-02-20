@@ -2,7 +2,7 @@ import { AfterContentInit, Component, ContentChildren, OnInit, QueryList } from 
 import { TabItemComponent } from './tab-item/tab-item.component';
 
 @Component({
-  selector: 'st-tab-component',
+  selector: 'shared-tab-component',
   templateUrl: './tab-component.component.html',
   styleUrls: ['./tab-component.component.scss']
 })

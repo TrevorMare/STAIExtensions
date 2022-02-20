@@ -1,12 +1,12 @@
 <div class="side-menu" [ngClass]="{'collapsed-menu': !isOpen}">
     <div class="side-menu-header" >
-        <st-icon iconClass="bx bx-layer" iconSet="boxicons" addClass="app-icon"></st-icon>
+        <shared-icon iconClass="bx bx-layer" iconSet="boxicons" addClass="app-icon"></shared-icon>
         <span class="header-text">STAIExtensions</span>
     </div>
     <div class="side-menu-content" >
         <div class="nav_list">
             <ng-container *ngFor="let menuItem of menuItems">
-                <st-navigation-menu-item [menuItem]="menuItem"></st-navigation-menu-item>
+                <shared-navigation-menu-item [menuItem]="menuItem"></shared-navigation-menu-item>
             </ng-container>
         </div>
     </div>

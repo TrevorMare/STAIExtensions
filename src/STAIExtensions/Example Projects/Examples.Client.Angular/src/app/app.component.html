@@ -1,9 +1,9 @@
 <div class="app-content-container">
-    <st-navigation-menu [isOpen]="isMenuOpen"></st-navigation-menu>
+    <shared-navigation-menu [isOpen]="isMenuOpen"></shared-navigation-menu>
     <div class="content-right-container">
         <div class="top-bar">
-            <st-icon *ngIf="!isMenuOpen" (click)="toggleMenuOpen()" iconSet="boxicons" iconClass="bx bx-menu" addClass="toggle-icon"></st-icon>
-            <st-icon *ngIf="isMenuOpen" (click)="toggleMenuOpen()" iconSet="boxicons" iconClass="bx bx-x" addClass="toggle-icon"></st-icon>
+            <shared-icon *ngIf="!isMenuOpen" (click)="toggleMenuOpen()" iconSet="boxicons" iconClass="bx bx-menu" addClass="toggle-icon"></shared-icon>
+            <shared-icon *ngIf="isMenuOpen" (click)="toggleMenuOpen()" iconSet="boxicons" iconClass="bx bx-x" addClass="toggle-icon"></shared-icon>
         </div>
         <div class="page-router-outlet">
             <router-outlet></router-outlet>
@@ -11,6 +11,6 @@
     </div>
 </div>
 <div class="loading-overlay" *ngIf="isBusyNavigating">
-    <st-loading-panel></st-loading-panel>
+    <shared-loading-panel></shared-loading-panel>
 </div>
 

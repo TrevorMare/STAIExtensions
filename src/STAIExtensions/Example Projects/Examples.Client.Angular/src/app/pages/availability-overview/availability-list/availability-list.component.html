@@ -1,5 +1,5 @@
 
- <st-list-component [items]="[ data?.aggregateGroup ]" [hoverEnabled]="false" [isNestedList]="true" [noItemPadding]="true">
+ <shared-list-component [items]="[ data?.aggregateGroup ]" [hoverEnabled]="false" [isNestedList]="true" [noItemPadding]="true">
     <ng-template #headerTemplate >
         <div class="availability-list root">
             <span></span>
@@ -14,8 +14,8 @@
     <ng-template #itemTemplate let-item="item">
         <div class="availability-list root" (click)="setSelectedItem(item)" [ngClass]="{'selected': selectedFullGroupName == item?.fullGroupName}">
             <div style="display: flex; align-items: center; justify-content: center;">
-                <st-icon *ngIf="!rootOpen" title="Expand" iconClass="fas fa-caret-left" iconSet="font-awesome" addClass="view-json-icon" (click)="rootOpen = !rootOpen;$event.stopPropagation()"></st-icon>
-                <st-icon *ngIf="rootOpen" title="Collapse" iconClass="fas fa-caret-down" iconSet="font-awesome" addClass="view-json-icon" (click)="rootOpen = !rootOpen;$event.stopPropagation()"></st-icon>
+                <shared-icon *ngIf="!rootOpen" title="Expand" iconClass="fas fa-caret-left" iconSet="font-awesome" addClass="view-json-icon" (click)="rootOpen = !rootOpen;$event.stopPropagation()"></shared-icon>
+                <shared-icon *ngIf="rootOpen" title="Collapse" iconClass="fas fa-caret-down" iconSet="font-awesome" addClass="view-json-icon" (click)="rootOpen = !rootOpen;$event.stopPropagation()"></shared-icon>
             </div>
             <span>{{ item?.groupName }}</span>
             <span>{{ item?.lastItem?.successfulCount }}</span>
@@ -27,12 +27,12 @@
             </div>
         </div>
         
-        <st-list-component *ngIf="rootOpen" [items]="item?.children" [hoverEnabled]="false" [isNestedList]="true" [noItemPadding]="true">
+        <shared-list-component *ngIf="rootOpen" [items]="item?.children" [hoverEnabled]="false" [isNestedList]="true" [noItemPadding]="true">
             <ng-template #itemTemplate let-nameGroupItem="item" let-nameGroupIndex="index" >
                 <div class="availability-list name-group" (click)="setSelectedItem(nameGroupItem)" [ngClass]="{'selected': selectedFullGroupName == nameGroupItem?.fullGroupName}">
                     <div style="display: flex; align-items: center; justify-content: center;">
-                        <st-icon *ngIf="!getNameGroupOpen(nameGroupIndex)" title="Expand" iconClass="fas fa-caret-left" iconSet="font-awesome" addClass="view-json-icon" (click)="toggleNameGroupOpen(nameGroupIndex);$event.stopPropagation()"></st-icon>
-                        <st-icon *ngIf="getNameGroupOpen(nameGroupIndex)" title="Collapse" iconClass="fas fa-caret-down" iconSet="font-awesome" addClass="view-json-icon" (click)="toggleNameGroupOpen(nameGroupIndex); $event.stopPropagation()"></st-icon>
+                        <shared-icon *ngIf="!getNameGroupOpen(nameGroupIndex)" title="Expand" iconClass="fas fa-caret-left" iconSet="font-awesome" addClass="view-json-icon" (click)="toggleNameGroupOpen(nameGroupIndex);$event.stopPropagation()"></shared-icon>
+                        <shared-icon *ngIf="getNameGroupOpen(nameGroupIndex)" title="Collapse" iconClass="fas fa-caret-down" iconSet="font-awesome" addClass="view-json-icon" (click)="toggleNameGroupOpen(nameGroupIndex); $event.stopPropagation()"></shared-icon>
                     </div>
                     <span>{{ nameGroupItem?.groupName }}</span>
                     <span>{{ nameGroupItem?.lastItem?.successfulCount }}</span>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-                <st-list-component *ngIf="getNameGroupOpen(nameGroupIndex)" [items]="nameGroupItem?.children" [hoverEnabled]="false" [isNestedList]="true" [noItemPadding]="true">
+                <shared-list-component *ngIf="getNameGroupOpen(nameGroupIndex)" [items]="nameGroupItem?.children" [hoverEnabled]="false" [isNestedList]="true" [noItemPadding]="true">
                     <ng-template #itemTemplate let-locationGroupItem="item">
                         <div class="availability-list location-group" (click)="setSelectedItem(locationGroupItem)" [ngClass]="{'selected': selectedFullGroupName == locationGroupItem?.fullGroupName}">
                             <span></span>
@@ -58,11 +58,11 @@
                             </div>
                         </div>
                     </ng-template>
-                </st-list-component>
+                </shared-list-component>
        
             </ng-template>
-        </st-list-component>
+        </shared-list-component>
 
 
     </ng-template>
-</st-list-component>
+</shared-list-component>

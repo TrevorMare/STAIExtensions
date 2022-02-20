@@ -8,7 +8,7 @@ import { TelemetryOverviewService } from 'src/app/services/service.telemetry-ove
 import { JsonObjectViewerModalComponent } from 'src/app/shared/json-object-viewer/json-object-viewer-modal/json-object-viewer-modal.component';
 
 @Component({
-  selector: 'st-custom-metrics-table',
+  selector: 'telemetryoverviewpage-custom-metrics-table',
   templateUrl: './custom-metrics-table.component.html',
   styleUrls: ['./custom-metrics-table.component.scss'] 
 })

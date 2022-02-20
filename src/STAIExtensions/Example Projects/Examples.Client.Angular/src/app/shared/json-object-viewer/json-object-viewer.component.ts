@@ -3,7 +3,7 @@ import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '
 import jsonview from '@pgrabovets/json-view';
 
 @Component({
-  selector: 'st-json-object-viewer',
+  selector: 'shared-json-object-viewer',
   templateUrl: './json-object-viewer.component.html',
   styleUrls: ['./json-object-viewer.component.scss']
 })

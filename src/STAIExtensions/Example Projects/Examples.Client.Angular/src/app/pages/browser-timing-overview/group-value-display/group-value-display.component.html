@@ -1,0 +1,91 @@
+<ng-container *ngIf="groupValues">
+
+    <shared-augmented-card [showOver]="false" >
+
+        <div aug-card-body>
+
+            <div class="layout-container">
+                <div class="left-pane">
+                    <shared-list-component [items]="groupValues.statistics" 
+                        [paginationEnabled]="true" 
+                        [pageSize]="_pagingSize"
+                        (currentPage)="_selectedPage = $event"
+                        itemClass="stats-item-list">
+                        <ng-template #headerTemplate >
+                            <div class="list-availabilty-details header">
+                                <span>Group</span>
+                            </div>
+                        </ng-template>
+                        <ng-template #itemTemplate let-item="item" let-index="index">
+                            <div class="list-availabilty-details" 
+                                 [ngClass]="{'selected': item.groupName == _selectedItem?.groupName}"
+                                 (click)="setSelectedIndex(index, _selectedPage)">
+                                <span>{{ item.groupName }}</span>
+                            </div>
+                        </ng-template>
+                    </shared-list-component>
+                </div>
+        
+                <div class="right-pane">
+                    <div *ngIf="_selectedItem">
+                        <div style="width: 100%; overflow: hidden; color: var(--secondary-color)">
+                            <h1 class="cyberpunk glitched">{{ _selectedItem.groupName }} ({{ _selectedItem.numberOfItems }} items)</h1>
+                        </div>
+                        
+                        <apx-chart
+                            [series]="chartOptions.series"
+                            [chart]="chartOptions.chart"
+                            [xaxis]="chartOptions.xaxis"
+                            [title]="chartOptions.title"
+                            #chart></apx-chart>
+                
+                        <div class="operation-details">
+
+                            <div class="slowest-operations-container">
+                                <h4>Slowest Operations</h4>
+                                <ul>
+                                    <li *ngFor="let slowOperation of _selectedItem.slowestOperations">
+                                        <span>{{ slowOperation }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="fastest-operations-container">
+                                <h4>Fastest Operations</h4>
+                                <ul>
+                                    <li *ngFor="let fastOperation of _selectedItem.fastestOperations">
+                                        <span>{{ fastOperation }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+
+                      
+                
+                       
+                      
+                
+                        
+                    </div>
+        
+                </div>
+        
+            </div>
+
+
+        </div>
+
+
+    </shared-augmented-card>
+
+    
+
+
+
+
+    
+
+    
+
+</ng-container>

@@ -8,7 +8,7 @@ import { TelemetryOverviewService } from 'src/app/services/service.telemetry-ove
 import { JsonObjectViewerModalComponent } from 'src/app/shared/json-object-viewer/json-object-viewer-modal/json-object-viewer-modal.component';
 
 @Component({
-  selector: 'st-performance-counters-table',
+  selector: 'telemetryoverviewpage-performance-counters-table',
   templateUrl: './performance-counters-table.component.html',
   styleUrls: ['./performance-counters-table.component.scss']
 })

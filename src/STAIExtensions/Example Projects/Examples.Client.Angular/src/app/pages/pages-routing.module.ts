@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AvailabilityOverviewComponent } from './availability-overview/availability-overview.component';
+import { BrowserTimingOverviewComponent } from './browser-timing-overview/browser-timing-overview.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PagesComponent } from './pages.component';
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: 'availability-overview',
         component: AvailabilityOverviewComponent,
+      },
+      {
+        path: 'browser-timing-overview',
+        component: BrowserTimingOverviewComponent,
       },
       {
         path: '**',

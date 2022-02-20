@@ -28,7 +28,7 @@ export const MENU_ITEMS : IMenuItem[] = [
         title: 'Browser Timings',
         icon: 'far fa-clock',
         iconSet: 'font-awesome',
-        link: '/pages/home-page2'
+        link: '/pages/browser-timing-overview'
     },
     {
         title: 'Custom Events',

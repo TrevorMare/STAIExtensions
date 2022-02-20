@@ -14,8 +14,10 @@ import { JsonObjectViewerModalComponent } from './json-object-viewer/json-object
 import { ListComponentComponent } from './list-component/list-component.component';
 import { TabComponentComponent } from './tab-component/tab-component.component';
 import { TabItemComponent } from './tab-component/tab-item/tab-item.component';
-
-
+import { LeafletGlobalPositionsComponent } from './leaflet-global-positions/leaflet-global-positions.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -32,10 +34,15 @@ import { TabItemComponent } from './tab-component/tab-item/tab-item.component';
     ListComponentComponent,
     TabComponentComponent,
     TabItemComponent,
+    LeafletGlobalPositionsComponent,
+    
   ],
   imports: [
     CommonModule,
     RouterModule,
+    LeafletModule,
+    LeafletMarkerClusterModule,
+    NgxPaginationModule,
   ],
   entryComponents: [
     PopupModalComponent
@@ -50,7 +57,8 @@ import { TabItemComponent } from './tab-component/tab-item/tab-item.component';
     JsonObjectViewerComponent,
     ListComponentComponent,
     TabComponentComponent,
-    TabItemComponent
+    TabItemComponent,
+    LeafletGlobalPositionsComponent
   ]
 })
 export class SharedModule { }

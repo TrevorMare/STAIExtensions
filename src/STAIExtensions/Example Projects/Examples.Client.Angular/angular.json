@@ -37,7 +37,9 @@
               "node_modules/boxicons/css/boxicons.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/augmented-ui/augmented-ui.min.css",
-              "node_modules/ngx-easy-table/style.css"
+              "node_modules/ngx-easy-table/style.css",
+              "node_modules/leaflet/dist/leaflet.css",
+              "node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { IMenuItem } from '../../../pages/pages-menu';
 
 @Component({
-  selector: 'st-navigation-menu-item',
+  selector: 'shared-navigation-menu-item',
   templateUrl: './navigation-menu-item.component.html',
   styleUrls: ['./navigation-menu-item.component.scss']
 })

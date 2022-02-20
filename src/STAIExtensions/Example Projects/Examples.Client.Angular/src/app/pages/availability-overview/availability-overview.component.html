@@ -1,22 +1,22 @@
-<st-animated-header text="Availability Overview"></st-animated-header>
+<shared-animated-header text="Availability Overview"></shared-animated-header>
 
 <div class="details-container">
 
    <div class="chart-container">
-        <st-availability-chart [data]="selectedAvailabilityGroup"></st-availability-chart>
+        <availabilitypage-availability-chart [data]="selectedAvailabilityGroup"></availabilitypage-availability-chart>
    </div>
     <div class="list-container">
-        <st-tab-component>
-            <st-tab-item title="Totals">
-                <st-availability-gauge [data]="selectedAvailabilityGroup"></st-availability-gauge>
-            </st-tab-item>
-            <st-tab-item title="Details">
-                <st-details-panel [data]="selectedAvailabilityGroup"></st-details-panel>
-            </st-tab-item>
-        </st-tab-component>
+        <shared-tab-component>
+            <shared-tab-item title="Totals">
+                <availabilitypage-availability-gauge [data]="selectedAvailabilityGroup"></availabilitypage-availability-gauge>
+            </shared-tab-item>
+            <shared-tab-item title="Details">
+                <availabilitypage-details-panel [data]="selectedAvailabilityGroup"></availabilitypage-details-panel>
+            </shared-tab-item>
+        </shared-tab-component>
     </div>
 
 
 </div>
-<st-availability-list [data]="availabilityOverviewView$ | async" 
-                      (selectedItemChanged)="selectedAvailabilityGroup = $event"></st-availability-list>
+<availabilitypage-availability-list [data]="availabilityOverviewView$ | async" 
+                      (selectedItemChanged)="selectedAvailabilityGroup = $event"></availabilitypage-availability-list>

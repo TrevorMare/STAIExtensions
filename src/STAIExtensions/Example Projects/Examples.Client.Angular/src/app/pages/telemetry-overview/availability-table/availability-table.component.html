@@ -4,7 +4,7 @@
   <ng-template let-row let-index="index">
     <td>
       <div style="display: flex; justify-content: center; align-items: center;">
-        <st-icon title="View Json Content" iconClass="far fa-eye" iconSet="font-awesome" addClass="view-json-icon" (click)="onViewJsonItemClick($event, index)"></st-icon>
+        <shared-icon title="View Json Content" iconClass="far fa-eye" iconSet="font-awesome" addClass="view-json-icon" (click)="onViewJsonItemClick($event, index)"></shared-icon>
       </div>
     </td>
     <td>
@@ -27,8 +27,8 @@
     </td>
     <td>
       <div style="display: flex; justify-content: center; align-items: center;">
-        <st-icon *ngIf="row.success === '1'" iconClass="fas fa-check" iconSet="font-awesome" addClass="success-icon"></st-icon>
-        <st-icon *ngIf="row.success !== '1'" iconClass="fas fa-times" iconSet="font-awesome" addClass="fail-icon"></st-icon>
+        <shared-icon *ngIf="row.success === '1'" iconClass="fas fa-check" iconSet="font-awesome" addClass="success-icon"></shared-icon>
+        <shared-icon *ngIf="row.success !== '1'" iconClass="fas fa-times" iconSet="font-awesome" addClass="fail-icon"></shared-icon>
       </div>
     </td>
   </ng-template>           

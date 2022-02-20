@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'st-augmented-card',
+  selector: 'shared-augmented-card',
   templateUrl: './augmented-card.component.html',
   styleUrls: ['./augmented-card.component.scss']
 })
@@ -17,6 +17,7 @@ export class AugmentedCardComponent implements OnInit {
   @Input() borderStyle: number = 1;
   @Input() colorStyle: number = 1;
   @Input() showOver: boolean = true;
+  @Input() cardClass: string = '';
 
   ngOnInit(): void {
   }

@@ -6,7 +6,7 @@ import { TelemetryOverviewService } from 'src/app/services/service.telemetry-ove
 
 
 @Component({
-  selector: 'st-telemetry-cards',
+  selector: 'telemetryoverviewpage-telemetry-cards',
   templateUrl: './telemetry-cards.component.html',
   styleUrls: ['./telemetry-cards.component.scss']
 })

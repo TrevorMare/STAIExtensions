@@ -8,29 +8,26 @@ using STAIExtensions.Default.Helpers;
 
 namespace STAIExtensions.Default.Views;
 
-public class TracesView: DataSetView
+public class TracesView: BaseView
 {
     
-    #region Constants
-
-    private const string PARAM_CLOUDROLENAME = "CloudRoleName";
-    private const string PARAM_CLOUDROLEINSTANCE = "CloudRoleInstance";
-
-    #endregion
-    
     #region Members
-
-    private List<string>? _filterCloudRoleName;
-    private List<string>? _filterCloudInstanceName;
-
-    private List<Trace> _tracesFiltered;
+    private List<Trace> _tracesFiltered = new();
     #endregion
 
     #region Properties
-
-    public Dictionary<string, List<string>> CloudNames { get; private set; } = new();
-
     public List<Trace> TraceItems { get; private set; } = new();
+    #endregion
+
+    #region ctor
+
+    public TracesView()
+    {
+        RegisterDataSetTypeForUpdates<DataContractDataSet>(set =>
+        {
+            BuildViewDataFromDataSet(set);
+        });
+    }
 
     #endregion
     
@@ -45,21 +42,33 @@ public class TracesView: DataSetView
                 "Filter values for the cloud role name"),
         };
 
-    protected override Task BuildViewData(IDataSet dataSet)
+    #endregion
+
+    #region Build Methods
+
+    protected virtual Task BuildViewDataFromDataSet(DataContractDataSet dataSet)
     {
-        if (dataSet is DataContractDataSet dataContractDataSet)
+        try
         {
-            this.SetupParameters();
+            this.SetupDistinctCloudInstanceAndRoleNames(new List<IEnumerable<DataContractFull>>()
+            {
+                dataSet.Traces
+            });
 
-            this.LoadDistinctCloudNames(dataContractDataSet);
+            this.BuildLocalListItems(dataSet);
 
-            this.BuildLocalListItems(dataContractDataSet);
+            this.BuildViewItems(dataSet);
 
-            this.BuildViewItems(dataContractDataSet);
         }
+        catch (Exception e)
+        {
+            Abstractions.Common.ErrorLoggingFactory.LogError(this.TelemetryClient, this.Logger, e,
+                "An error occured updating the view: {ErrorMessage}", e.Message);
+        }        this.SetupParameters();
 
         return Task.CompletedTask;
     }
+
     #endregion
     
     #region Private Methods
@@ -70,11 +79,7 @@ public class TracesView: DataSetView
     {
         try
         {
-            this._filterCloudRoleName =
-                Helpers.ViewParameterHelper.ExtractParameter<List<string>>(this.ViewParameters, PARAM_CLOUDROLENAME);
-            this._filterCloudInstanceName =
-                Helpers.ViewParameterHelper.ExtractParameter<List<string>>(this.ViewParameters,
-                    PARAM_CLOUDROLEINSTANCE);
+            this.SetupCloudRoleAndInstanceNamesFromParameters();
         }
         catch (Exception ex)
         {
@@ -84,41 +89,14 @@ public class TracesView: DataSetView
     }
 
     /// <summary>
-    /// Loads a list of distinct Cloud Role Instance and Cloud Role Name values
-    /// </summary>
-    /// <param name="dataContractDataSet">The data set containing the original items</param>
-    private void LoadDistinctCloudNames(DataContractDataSet dataContractDataSet)
-    {
-        var result = new List<string?>();
-
-        result.AddRange(dataContractDataSet.Traces.Select(r => $"{r.CloudRoleInstance}*{r.CloudRoleName}")
-            .Distinct());
-
-        var distinctNames = result.Select(x => x).Distinct().ToList();
-        var distinctSplitItems = distinctNames.Select(n => n?.Split("*")).Where(x => x != null).Select(n => new
-        {
-            Instance = n[0],
-            Role = n[1]
-        }).ToList();
-
-        this.CloudNames.Clear();
-        distinctSplitItems.ForEach(item =>
-        {
-            if (!this.CloudNames.ContainsKey(item.Instance))
-                this.CloudNames[item.Instance] = new List<string>();
-            this.CloudNames[item.Instance].Add(item.Role);
-        });
-    }
-
-    /// <summary>
     /// Filters the records by the view filters
     /// </summary>
     private void BuildLocalListItems(DataContractDataSet dataContractDataSet)
     {
         // Keep a copy of the lists before after it is filtered 
         this._tracesFiltered = dataContractDataSet.Traces
-            .FilterCloudRoleInstance(_filterCloudInstanceName)
-            .FilterCloudRoleName(_filterCloudRoleName)
+            .FilterCloudRoleInstance(FilterCloudInstanceNames)
+            .FilterCloudRoleName(FilterCloudRoleNames)
             .ToList();
     }
 

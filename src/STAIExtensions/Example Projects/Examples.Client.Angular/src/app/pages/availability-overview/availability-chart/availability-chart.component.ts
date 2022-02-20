@@ -11,7 +11,7 @@ export type ChartOptions = {
 };
 
 @Component({
-  selector: 'st-availability-chart',
+  selector: 'availabilitypage-availability-chart',
   templateUrl: './availability-chart.component.html',
   styleUrls: ['./availability-chart.component.scss']
 })
