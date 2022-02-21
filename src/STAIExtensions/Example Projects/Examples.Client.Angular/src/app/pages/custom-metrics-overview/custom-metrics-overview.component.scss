@@ -1,0 +1,17 @@
+::ng-deep {
+    .view-json-icon {
+        color: var(--secondary-color);
+        cursor: pointer;
+        font-size: 1.4rem;
+    }
+    .success-icon {
+        color: var(--success-color);
+        cursor: pointer;
+        font-size: 1.4rem;
+    }
+    .fail-icon {
+        color: var(--fail-color);
+        cursor: pointer;
+        font-size: 1.4rem;
+    }
+}
