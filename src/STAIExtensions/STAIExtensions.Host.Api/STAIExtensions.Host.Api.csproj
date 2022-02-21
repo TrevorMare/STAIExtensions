@@ -40,7 +40,7 @@ v0.0.1 - Initial Release</PackageReleaseNotes>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
-        <PackageReference Include="STAIExtensions.Core" Version="1.0.9" />
+        <PackageReference Include="STAIExtensions.Core" Version="1.0.11" />
     </ItemGroup>
 
     <ItemGroup>

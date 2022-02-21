@@ -51,7 +51,7 @@ v0.0.1 - Initial Release</PackageReleaseNotes>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Grpc.AspNetCore" Version="2.32.0" />
-        <PackageReference Include="STAIExtensions.Core" Version="1.0.9" />
+        <PackageReference Include="STAIExtensions.Core" Version="1.0.11" />
     </ItemGroup>
 
     <ItemGroup>

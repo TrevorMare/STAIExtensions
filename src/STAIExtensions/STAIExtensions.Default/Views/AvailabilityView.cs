@@ -83,7 +83,8 @@ public class AvailabilityView : BaseView
             new DataSetViewParameterDescriptor(PARAM_CLOUDROLENAME, "string[]", false,
                 "Filter values for the cloud role name"),
             new DataSetViewParameterDescriptor(PARAM_STARTDATETIME, "long", false, "Start UTC date time ticks"),
-            new DataSetViewParameterDescriptor(PARAM_ENDDATETIME, "long", false, "End UTC date time ticks")
+            new DataSetViewParameterDescriptor(PARAM_ENDDATETIME, "long", false, "End UTC date time ticks"),
+            new DataSetViewParameterDescriptor(PARAM_GROUPINGMINUTES, "int", false, "Number of minutes to group by")
         };
      #endregion
 

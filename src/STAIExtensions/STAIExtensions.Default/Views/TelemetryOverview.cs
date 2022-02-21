@@ -11,7 +11,7 @@ public class TelemetryOverview : BaseView
 {
 
     #region Constants
-    private const string PARAM_LASTRECORDCOUNT = "LastRecordCount";
+    private const string PARAM_LASTRECORDCOUNT = "LastRecordCount"; 
     #endregion
 
     #region Members

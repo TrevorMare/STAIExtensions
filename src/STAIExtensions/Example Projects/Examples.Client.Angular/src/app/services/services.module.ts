@@ -6,6 +6,7 @@ import { TelemetryOverviewService } from './service.telemetry-overview';
 import { AvailabilityOverviewService } from './service.availability-overview';
 import { TracesOverviewService } from './service.traces-overview';
 import { BrowserTimingsOverviewService } from './service.browsertimings-overview';
+import { CustomEventsOverviewService } from './service.customevents-overview';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ export class ServicesModule {
         TelemetryOverviewService,
         AvailabilityOverviewService,
         TracesOverviewService,
-        BrowserTimingsOverviewService
+        BrowserTimingsOverviewService,
+        CustomEventsOverviewService,
       ],
     };
   }
