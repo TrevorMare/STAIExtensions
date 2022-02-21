@@ -45,7 +45,7 @@ v0.0.1 - Initial Release
         </PackageReference>
       <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.8" />
       <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="6.0.1" />
-      <PackageReference Include="STAIExtensions.Abstractions" Version="1.0.9" />
+      <PackageReference Include="STAIExtensions.Abstractions" Version="1.0.11" />
     </ItemGroup>
 
     <ItemGroup>

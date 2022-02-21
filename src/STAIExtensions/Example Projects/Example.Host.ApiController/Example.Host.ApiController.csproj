@@ -9,7 +9,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.20.0" />
-        <PackageReference Include="STAIExtensions.Core" Version="1.0.9" />
+        <PackageReference Include="STAIExtensions.Core" Version="1.0.11" />
         <PackageReference Include="STAIExtensions.Data.AzureDataExplorer" Version="1.0.4" />
         <PackageReference Include="STAIExtensions.Default" Version="0.0.5" />
         <PackageReference Include="STAIExtensions.Host.Api" Version="1.0.3" />

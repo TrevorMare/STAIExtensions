@@ -34,7 +34,7 @@ export const MENU_ITEMS : IMenuItem[] = [
         title: 'Custom Events',
         icon: 'playlist_add',
         iconSet: 'material-icons',
-        link: '/pages/home-page3'
+        link: '/pages/custom-events-overview'
     },
     {
         title: 'Custom Metrics',

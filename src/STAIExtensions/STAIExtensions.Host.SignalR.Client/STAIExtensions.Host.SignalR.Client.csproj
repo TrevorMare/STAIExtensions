@@ -39,7 +39,7 @@ v1.0.0 - Initial Release
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="6.0.1" />
-        <PackageReference Include="STAIExtensions.Abstractions" Version="1.0.9" />
+        <PackageReference Include="STAIExtensions.Abstractions" Version="1.0.11" />
     </ItemGroup>
 
     <ItemGroup>
