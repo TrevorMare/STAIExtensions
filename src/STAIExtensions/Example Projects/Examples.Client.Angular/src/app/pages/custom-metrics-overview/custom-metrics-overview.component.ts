@@ -37,6 +37,9 @@ export class CustomMetricsOverviewComponent implements OnInit {
     public customMetricsOverviewService: CustomMetricsOverviewService,
     private modalService: NgbModal,
   ) { 
+
+    this.intitialiseChartOptions();
+
     customMetricsOverviewService.View$.subscribe(value => { 
       this.customMetricsOverviewView$.next(value);
       if (!!value?.lastCustomMetricItems) {
@@ -44,7 +47,65 @@ export class CustomMetricsOverviewComponent implements OnInit {
       }
       this.buildChartData();
     });
+  }
 
+  ngOnInit(): void {
+    this.configuration = { ...DefaultConfig };
+    this.configuration.searchEnabled = true;
+    
+    this.columns = [
+      { key: 'itemId', title: 'Actions', searchEnabled: false, orderEnabled: false },
+      { key: 'name', title: 'Name' },
+      { key: 'timeStamp', title: 'Timestamp' },
+      { key: 'itemCount', title: 'Item Count' },
+      { key: 'operationName', title: 'Operation Name' },
+      { key: 'cloudRoleInstance', title: 'Role Instance' },
+      { key: 'cloudRoleName', title: 'Role Name' },
+    ];
+
+  }
+
+  private buildChartData(): void {
+    setTimeout(() => {
+      this.buildChartDataDelayed();
+    }, 500);
+  }
+  
+  private buildChartDataDelayed() {
+    if (this.chart === undefined || this.chart === null) return;
+    var chartData = this.customMetricsOverviewView$.value?.aggregateGroups;
+
+    var seriesData: ApexAxisChartSeries = [];
+
+    if (chartData === null || chartData.length === 0) {
+      this.chart.updateOptions({ series: seriesData });
+      return;
+    } 
+
+    for (let chartDataItem of chartData) {
+      var data: any[] = [];
+      for (let item of chartDataItem.items) {
+        data.push([item.endDate, item.numberOfCalls]);
+      }
+
+      var chartSeriesData = {
+        name: chartDataItem.groupName,
+        data: data
+      }
+      seriesData.push(chartSeriesData);
+    }
+    
+    this.chart.updateOptions({ series: seriesData });
+  }
+
+  public onViewJsonItemClick($event: any, index: number): void {
+    var item = this.data[index];
+    this.jsonViewerData = item;
+    const modalRef = this.modalService.open(JsonObjectViewerModalComponent, { size: 'xl', centered: true });
+    modalRef.componentInstance.data = item;
+  }
+
+  private intitialiseChartOptions(): void {
     this.chartOptions = {
       chart: {
         height: 350,
@@ -87,57 +148,6 @@ export class CustomMetricsOverviewComponent implements OnInit {
           max: 70
         }
     };
-
-  }
-
-  ngOnInit(): void {
-    this.configuration = { ...DefaultConfig };
-    this.configuration.searchEnabled = true;
-    
-    this.columns = [
-      { key: 'itemId', title: 'Actions', searchEnabled: false, orderEnabled: false },
-      { key: 'name', title: 'Name' },
-      { key: 'timeStamp', title: 'Timestamp' },
-      { key: 'itemCount', title: 'Item Count' },
-      { key: 'operationName', title: 'Operation Name' },
-      { key: 'cloudRoleInstance', title: 'Role Instance' },
-      { key: 'cloudRoleName', title: 'Role Name' },
-    ];
-
-  }
-
-  private buildChartData() {
-    if (this.chart === undefined || this.chart === null) return;
-    var chartData = this.customMetricsOverviewView$.value?.aggregateGroups;
-
-    var seriesData: ApexAxisChartSeries = [];
-
-    if (chartData === null || chartData.length === 0) {
-      this.chart.updateOptions({ series: seriesData });
-      return;
-    } 
-
-    for (let chartDataItem of chartData) {
-      var data: any[] = [];
-      for (let item of chartDataItem.items) {
-        data.push([item.endDate, item.numberOfCalls]);
-      }
-
-      var chartSeriesData = {
-        name: chartDataItem.groupName,
-        data: data
-      }
-      seriesData.push(chartSeriesData);
-    }
-    
-    this.chart.updateOptions({ series: seriesData });
-  }
-
-  public onViewJsonItemClick($event: any, index: number): void {
-    var item = this.data[index];
-    this.jsonViewerData = item;
-    const modalRef = this.modalService.open(JsonObjectViewerModalComponent, { size: 'xl', centered: true });
-    modalRef.componentInstance.data = item;
   }
 
 }

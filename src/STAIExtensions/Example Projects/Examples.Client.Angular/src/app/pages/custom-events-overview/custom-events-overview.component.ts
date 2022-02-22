@@ -37,6 +37,8 @@ export class CustomEventsOverviewComponent implements OnInit {
     public customEventsOverviewService: CustomEventsOverviewService,
     private modalService: NgbModal,
   ) { 
+    
+    this.initialiseChartOptions();
 
     customEventsOverviewService.View$.subscribe(value => { 
       this.customEventsOverviewView$.next(value);
@@ -45,7 +47,63 @@ export class CustomEventsOverviewComponent implements OnInit {
       }
       this.buildChartData();
     });
+  }
 
+  ngOnInit(): void {
+    this.configuration = { ...DefaultConfig };
+    this.configuration.searchEnabled = true;
+    
+    this.columns = [
+      { key: 'itemId', title: 'Actions', searchEnabled: false, orderEnabled: false },
+      { key: 'name', title: 'Name' },
+      { key: 'timeStamp', title: 'Timestamp' },
+      { key: 'itemCount', title: 'Item Count' },
+      { key: 'operationName', title: 'Operation Name' },
+      { key: 'cloudRoleInstance', title: 'Role Instance' },
+      { key: 'cloudRoleName', title: 'Role Name' },
+    ];
+  }
+
+  private buildChartData(): void {
+    setTimeout(() => {
+      this.buildChartDataDelayed();
+    }, 500);
+  }
+
+  private buildChartDataDelayed() {
+    if (this.chart === undefined || this.chart === null) return;
+    var chartData = this.customEventsOverviewView$.value?.aggregateGroups;
+
+    var seriesData: ApexAxisChartSeries = [];
+
+    if (chartData === null || chartData.length === 0) {
+      this.chart.updateOptions({ series: seriesData });
+      return;
+    } 
+
+    for (let chartDataItem of chartData) {
+      var data: any[] = [];
+      for (let item of chartDataItem.items) {
+        data.push([item.endDate, item.numberOfCalls]);
+      }
+
+      var chartSeriesData = {
+        name: chartDataItem.groupName,
+        data: data
+      }
+      seriesData.push(chartSeriesData);
+    }
+    this.chart.updateOptions({ series: seriesData });
+  }
+
+  public onViewJsonItemClick($event: any, index: number): void {
+    var item = this.data[index];
+    this.jsonViewerData = item;
+    const modalRef = this.modalService.open(JsonObjectViewerModalComponent, { size: 'xl', centered: true });
+    modalRef.componentInstance.data = item;
+  }
+
+  private initialiseChartOptions(): void {
     this.chartOptions = {
       chart: {
         height: 350,
@@ -88,55 +146,6 @@ export class CustomEventsOverviewComponent implements OnInit {
           max: 70
         }
     };
-  }
-
-  ngOnInit(): void {
-    this.configuration = { ...DefaultConfig };
-    this.configuration.searchEnabled = true;
-    
-    this.columns = [
-      { key: 'itemId', title: 'Actions', searchEnabled: false, orderEnabled: false },
-      { key: 'name', title: 'Name' },
-      { key: 'timeStamp', title: 'Timestamp' },
-      { key: 'itemCount', title: 'Item Count' },
-      { key: 'operationName', title: 'Operation Name' },
-      { key: 'cloudRoleInstance', title: 'Role Instance' },
-      { key: 'cloudRoleName', title: 'Role Name' },
-    ];
-  }
-
-  private buildChartData() {
-    if (this.chart === undefined || this.chart === null) return;
-    var chartData = this.customEventsOverviewView$.value?.aggregateGroups;
-
-    var seriesData: ApexAxisChartSeries = [];
-
-    if (chartData === null || chartData.length === 0) {
-      this.chart.updateOptions({ series: seriesData });
-      return;
-    } 
-
-    for (let chartDataItem of chartData) {
-      var data: any[] = [];
-      for (let item of chartDataItem.items) {
-        data.push([item.endDate, item.numberOfCalls]);
-      }
-
-      var chartSeriesData = {
-        name: chartDataItem.groupName,
-        data: data
-      }
-      seriesData.push(chartSeriesData);
-    }
-    
-    this.chart.updateOptions({ series: seriesData });
-  }
-
-  public onViewJsonItemClick($event: any, index: number): void {
-    var item = this.data[index];
-    this.jsonViewerData = item;
-    const modalRef = this.modalService.open(JsonObjectViewerModalComponent, { size: 'xl', centered: true });
-    modalRef.componentInstance.data = item;
   }
 
 }

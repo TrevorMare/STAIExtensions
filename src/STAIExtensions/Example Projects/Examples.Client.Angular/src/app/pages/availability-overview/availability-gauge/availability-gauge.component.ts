@@ -1,5 +1,5 @@
-import { AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular/core';
-import { ApexAxisChartSeries, ApexChart, ApexFill, ApexPlotOptions, ApexTitleSubtitle, ApexXAxis, ChartComponent } from 'ng-apexcharts';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { ApexAxisChartSeries, ApexChart, ApexFill, ApexPlotOptions, ChartComponent } from 'ng-apexcharts';
 import { delay } from 'rxjs';
 import { AvailabilityAggregateGroup } from 'src/app/data/view.availability-overview';
 
@@ -15,7 +15,7 @@ export type ChartOptions = {
 @Component({
   selector: 'availabilitypage-availability-gauge',
   templateUrl: './availability-gauge.component.html',
-  styleUrls: ['./availability-gauge.component.scss']
+  styleUrls: ['./availability-gauge.component.scss'] 
 })
 export class AvailabilityGaugeComponent implements OnInit, AfterViewInit {
   @ViewChild("chart", { static: true }) chart: ChartComponent;
@@ -44,7 +44,6 @@ export class AvailabilityGaugeComponent implements OnInit, AfterViewInit {
   }
 
   private setChartData() {
-  
     if (this._initialized === false) return;
     if (this.chart === undefined || this.chart === null || typeof this.chart.updateSeries === "undefined") return;
     setTimeout(() => {

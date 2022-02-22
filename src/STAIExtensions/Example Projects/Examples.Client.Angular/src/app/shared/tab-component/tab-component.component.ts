@@ -26,6 +26,10 @@ export class TabComponentComponent implements OnInit, AfterContentInit {
   selectTab(tabItem: TabItemComponent){
     this.tabs.toArray().forEach(tab => tab.active = false);
     tabItem.active = true;
+    // Workaround to get the charts to redraw on tab change
+    setInterval(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 1000)
   }
 
 }
