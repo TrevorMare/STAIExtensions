@@ -17,34 +17,130 @@ export type ChartOptions = {
   styleUrls: ['./group-value-display.component.scss']
 })
 export class GroupValueDisplayComponent implements OnInit, AfterViewInit {
+ 
+  _performingReset: boolean = false;
 
   @ViewChild("chart") chart: ChartComponent;
-  
-  _groupValues: GroupValues | null;
-  _selectedGroupValueIndex = new BehaviorSubject<number>(-1);
-  _selectedItem: GroupedStatistics | null = null;
-  _selectedPage: number = -1;
-  _pagingSize: number = 10; 
-
-
-  get groupValues(): GroupValues | null { return this._groupValues;}
-  @Input() set groupValues(value : GroupValues | null) {
-    this._groupValues = value;
-    this.setupSelectedIndex();
-  }
-  @Input() groupValueName: string = "";
-
   public chartOptions!: Partial<ChartOptions> | any;
+
+  groupName$ = new BehaviorSubject<string>("");
+  groupValues$ = new BehaviorSubject<GroupValues | null>(null);
+  
+  selectedPage$ = new BehaviorSubject<number>(-1);
+  selectedGroupValueIndex$ = new BehaviorSubject<number>(-1);
+  selectedItem$ = new BehaviorSubject<GroupedStatistics | null>(null);
+  
+  pagingSize$ = new BehaviorSubject<number>(10);
+  initialized$ = new BehaviorSubject<boolean>(false);
+
+  get groupValues(): GroupValues | null { return this.groupValues$.value; }
+  @Input() set groupValues(value : GroupValues | null) { this.groupValues$.next(value); }
+  
+  get groupValueName(): string { return this.groupName$.value; }
+  @Input() set groupValueName(value: string) { this.groupName$.next(value); }
+
 
   constructor() { 
 
-    this._selectedGroupValueIndex.subscribe((index) => {
-      if (this.groupValues != null) {
-        this._selectedItem = this.groupValues.statistics[index];
-        this.buildChartData();
+    this.groupName$.subscribe((groupName) => {
+      if (groupName !== '') {
+        this.initialiseDisplayVariables();
       }
     });
 
+    this.selectedGroupValueIndex$.subscribe(index => {
+      this.bindWindowData();
+    });
+
+    this.selectedItem$.subscribe(item => {
+      this.bindChartData();
+    });
+  }
+
+  private initialiseDisplayVariables() {
+    this._performingReset = true;
+    // Setup the default chart options
+    this.setupDefaultChartOptions();
+    // Clear the indexes
+    this.selectedItem$.next(null);
+    this.selectedPage$.next(1);
+    this._performingReset = false;
+    // Set the selected item index
+    this.selectedGroupValueIndex$.next(0);
+  }
+
+
+  ngAfterViewInit(): void {
+    this.initialized$.next(true);
+  }
+
+  ngOnInit(): void {
+   
+  }
+
+  private bindWindowData() {
+    if (this._performingReset === true) return;
+
+    var bindItemGroup = this.groupValues$.value;
+    if (bindItemGroup === null || bindItemGroup.statistics.length === 0) return;
+
+    var pageNumber = this.selectedPage$.value;
+    var pageOffsetIndex = ((pageNumber - 1) * this.pagingSize$.value) + this.selectedGroupValueIndex$.value;
+
+    this.selectedItem$.next(bindItemGroup.statistics[pageOffsetIndex]);
+  }
+  
+  private bindChartData() {
+    setTimeout(() => {
+      this.bindChartDataDelayed();
+    }, 500);
+  }
+
+  private bindChartDataDelayed() {
+    if (this.chart === undefined || this.chart === null || typeof this.chart.updateSeries === "undefined") return;
+
+    var selectedItem = this.selectedItem$.value;
+
+    if (selectedItem === null) {
+      this.chart.updateSeries([]);
+    } else {
+      
+      
+      var seriesData: ApexAxisChartSeries = [
+        {
+          name: "Network Duration",
+          data: [ selectedItem?.networkValues?.minimum?.round(0) ?? 0, selectedItem?.networkValues?.maximum.round(0) ?? 0, selectedItem?.networkValues?.average.round(0) ?? 0  ]
+        },
+        {
+          name: "Total Duration",
+          data: [ selectedItem?.totalValues?.minimum.round(0) ?? 0, selectedItem?.totalValues?.maximum.round(0) ?? 0, selectedItem?.totalValues?.average.round(0) ?? 0  ]
+        },
+        {
+          name: "Processing Duration",
+          data: [ selectedItem?.processingValues?.minimum.round(0) ?? 0, selectedItem?.processingValues?.maximum.round(0) ?? 0, selectedItem?.processingValues?.average.round(0) ?? 0  ]
+        },
+        {
+          name: "Receiving Duration",
+          data: [ selectedItem?.receiveValues?.minimum.round(0) ?? 0, selectedItem?.receiveValues?.maximum.round(0) ?? 0, selectedItem?.receiveValues?.average.round(0) ?? 0  ]
+        },
+        {
+          name: "Sending Duration",
+          data: [ selectedItem?.sendValues?.minimum.round(0) ?? 0, selectedItem?.sendValues?.maximum.round(0) ?? 0, selectedItem?.sendValues?.average.round(0) ?? 0  ]
+        }
+      ];
+      this.chart.updateOptions({ series: seriesData });
+    }
+  }
+
+  public setSelectedItemIndex(index: number) {
+    this.selectedGroupValueIndex$.next(index);
+  }
+
+  public onListPageIndexChanged(pageIndex: number) {
+    this.selectedPage$.next(pageIndex);
+  }
+
+  private setupDefaultChartOptions() {
     this.chartOptions = {
       chart: {
         height: 350,
@@ -55,23 +151,23 @@ export class GroupValueDisplayComponent implements OnInit, AfterViewInit {
       series: [
         {
           name: "Network Duration",
-          data: []
+          data: [0]
         },
         {
           name: "Total Duration",
-          data: []
+          data: [0]
         },
         {
           name: "Processing Duration",
-          data: []
+          data: [0]
         },
         {
           name: "Receiving Duration",
-          data: []
+          data: [0]
         },
         {
           name: "Sending Duration",
-          data: []
+          data: [0]
         }
       ],
       title: {
@@ -94,58 +190,10 @@ export class GroupValueDisplayComponent implements OnInit, AfterViewInit {
       }
     };
 
-  }
-  ngAfterViewInit(): void {
-    this.buildChartData();
-  }
-
-  ngOnInit(): void {
-   
-  }
-
-  private setupSelectedIndex() {
-    if (this._selectedGroupValueIndex.value === -1) {
-      if (!!this.groupValues && this.groupValues.statistics.length > 0) {
-        this._selectedGroupValueIndex.next(0);
-        this._selectedPage = 1;
-      }
+    if (this.chart !== undefined && this.chart !== null) {
+      this.chart.updateOptions(this.chartOptions)
     }
-  }
 
-  public setSelectedIndex(index: number, pageNumber: number) {
-    if (pageNumber >= 1) {
-      var pageOffsetIndex = ((pageNumber - 1) * this._pagingSize) + index;
-      this._selectedGroupValueIndex.next(pageOffsetIndex);
-    }
-  }
-
-  private buildChartData() {
-    if (this.chart === undefined || this.chart === null) return;
-
-    var seriesData: ApexAxisChartSeries = [
-      {
-        name: "Network Duration",
-        data: [ this._selectedItem?.networkValues?.minimum?.round(0) ?? 0, this._selectedItem?.networkValues?.maximum.round(0) ?? 0, this._selectedItem?.networkValues?.average.round(0) ?? 0  ]
-      },
-      {
-        name: "Total Duration",
-        data: [ this._selectedItem?.totalValues?.minimum.round(0) ?? 0, this._selectedItem?.totalValues?.maximum.round(0) ?? 0, this._selectedItem?.totalValues?.average.round(0) ?? 0  ]
-      },
-      {
-        name: "Processing Duration",
-        data: [ this._selectedItem?.processingValues?.minimum.round(0) ?? 0, this._selectedItem?.processingValues?.maximum.round(0) ?? 0, this._selectedItem?.processingValues?.average.round(0) ?? 0  ]
-      },
-      {
-        name: "Receiving Duration",
-        data: [ this._selectedItem?.receiveValues?.minimum.round(0) ?? 0, this._selectedItem?.receiveValues?.maximum.round(0) ?? 0, this._selectedItem?.receiveValues?.average.round(0) ?? 0  ]
-      },
-      {
-        name: "Sending Duration",
-        data: [ this._selectedItem?.sendValues?.minimum.round(0) ?? 0, this._selectedItem?.sendValues?.maximum.round(0) ?? 0, this._selectedItem?.sendValues?.average.round(0) ?? 0  ]
-      }
-    ];
-
-    this.chart.updateOptions({ series: seriesData });
   }
 
 }

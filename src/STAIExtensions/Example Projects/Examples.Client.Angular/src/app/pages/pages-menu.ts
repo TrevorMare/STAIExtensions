@@ -40,7 +40,7 @@ export const MENU_ITEMS : IMenuItem[] = [
         title: 'Custom Metrics',
         icon: 'assessment',
         iconSet: 'material-icons',
-        link: '/pages/home-page4'
+        link: '/pages/custom-metrics-overview'
     },
     {
         title: 'Dependencies',

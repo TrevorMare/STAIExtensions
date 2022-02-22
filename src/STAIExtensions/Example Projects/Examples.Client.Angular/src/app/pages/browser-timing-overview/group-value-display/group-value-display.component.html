@@ -1,15 +1,12 @@
 <ng-container *ngIf="groupValues">
-
     <shared-augmented-card [showOver]="false" >
-
         <div aug-card-body>
-
             <div class="layout-container">
                 <div class="left-pane">
                     <shared-list-component [items]="groupValues.statistics" 
                         [paginationEnabled]="true" 
-                        [pageSize]="_pagingSize"
-                        (currentPage)="_selectedPage = $event"
+                        [pageSize]="(pagingSize$ | async) ?? 10"
+                        (currentPage)="onListPageIndexChanged($event)"
                         itemClass="stats-item-list">
                         <ng-template #headerTemplate >
                             <div class="list-availabilty-details header">
@@ -18,8 +15,8 @@
                         </ng-template>
                         <ng-template #itemTemplate let-item="item" let-index="index">
                             <div class="list-availabilty-details" 
-                                 [ngClass]="{'selected': item.groupName == _selectedItem?.groupName}"
-                                 (click)="setSelectedIndex(index, _selectedPage)">
+                                 [ngClass]="{'selected': item.groupName == (selectedItem$ | async)?.groupName}"
+                                 (click)="setSelectedItemIndex(index)">
                                 <span>{{ item.groupName }}</span>
                             </div>
                         </ng-template>
@@ -27,9 +24,9 @@
                 </div>
         
                 <div class="right-pane">
-                    <div *ngIf="_selectedItem">
+                    <div *ngIf="(selectedItem$ | async)">
                         <div style="width: 100%; overflow: hidden; color: var(--secondary-color)">
-                            <h1 class="cyberpunk glitched">{{ _selectedItem.groupName }} ({{ _selectedItem.numberOfItems }} items)</h1>
+                            <h1 class="cyberpunk glitched">{{ (selectedItem$ | async)?.groupName }} ({{ (selectedItem$ | async)?.numberOfItems }} items)</h1>
                         </div>
                         
                         <apx-chart
@@ -44,7 +41,7 @@
                             <div class="slowest-operations-container">
                                 <h4>Slowest Operations</h4>
                                 <ul>
-                                    <li *ngFor="let slowOperation of _selectedItem.slowestOperations">
+                                    <li *ngFor="let slowOperation of (selectedItem$ | async)?.slowestOperations">
                                         <span>{{ slowOperation }}</span>
                                     </li>
                                 </ul>
@@ -52,40 +49,15 @@
                             <div class="fastest-operations-container">
                                 <h4>Fastest Operations</h4>
                                 <ul>
-                                    <li *ngFor="let fastOperation of _selectedItem.fastestOperations">
+                                    <li *ngFor="let fastOperation of (selectedItem$ | async)?.fastestOperations">
                                         <span>{{ fastOperation }}</span>
                                     </li>
                                 </ul>
                             </div>
-
                         </div>
-
-
-                      
-                
-                       
-                      
-                
-                        
                     </div>
-        
                 </div>
-        
             </div>
-
-
         </div>
-
-
     </shared-augmented-card>
-
-    
-
-
-
-
-    
-
-    
-
 </ng-container>

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AvailabilityOverviewComponent } from './availability-overview/availability-overview.component';
 import { BrowserTimingOverviewComponent } from './browser-timing-overview/browser-timing-overview.component';
 import { CustomEventsOverviewComponent } from './custom-events-overview/custom-events-overview.component';
+import { CustomMetricsOverviewComponent } from './custom-metrics-overview/custom-metrics-overview.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PagesComponent } from './pages.component';
@@ -37,6 +38,10 @@ const routes: Routes = [
       {
         path: 'custom-events-overview',
         component: CustomEventsOverviewComponent,
+      },
+      {
+        path: 'custom-metrics-overview',
+        component: CustomMetricsOverviewComponent,
       },
       {
         path: '**',

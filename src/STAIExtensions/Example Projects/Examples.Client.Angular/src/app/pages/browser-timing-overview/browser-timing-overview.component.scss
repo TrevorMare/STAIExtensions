@@ -1,0 +1,35 @@
+.menu-items {
+    list-style: none;
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    padding-bottom: 0.2rem;
+    margin-bottom: 1.2rem;
+    border-bottom: solid 2px var(--line-color);
+    .menu-item {
+        box-sizing: border-box;
+        background-color: var(--hover-background);
+        padding-left: 0.4rem;
+        padding-right: 0.4rem;
+        margin-left: 0.2rem;
+        margin-right: 0.2rem;
+        cursor: pointer;
+        border-bottom: solid 3px transparent;
+        transition-duration: 300ms;
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        &:hover {
+            border-bottom: solid 3px var(--primary-color);
+        }
+        &.active {
+            
+            border-bottom: solid 3px var(--primary-color);
+            a {
+                color: var(--white-color);
+            }
+        }
+       
+    }
+}

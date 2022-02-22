@@ -3,9 +3,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApexAxisChartSeries, ApexChart, ApexGrid, ApexTitleSubtitle, ApexXAxis, ChartComponent } from 'ng-apexcharts';
 import { Columns, Config, DefaultConfig } from 'ngx-easy-table';
 import { BehaviorSubject } from 'rxjs';
-import { CustomEventsOverviewView } from 'src/app/data/view.customevents-overview';
-import { CustomEventsOverviewService } from 'src/app/services/service.customevents-overview';
-import { CustomEvent } from 'src/app/data/data-contracts';
+import { CustomMetric } from 'src/app/data/data-contracts';
+import { CustomMetricsOverviewView } from 'src/app/data/view.custommetrics-overview';
+import { CustomMetricsOverviewService } from 'src/app/services/service.custommetrics-overview';
 import { JsonObjectViewerModalComponent } from 'src/app/shared/json-object-viewer/json-object-viewer-modal/json-object-viewer-modal.component';
 
 
@@ -18,32 +18,32 @@ export type ChartOptions = {
 };
 
 @Component({
-  selector: 'app-custom-events-overview',
-  templateUrl: './custom-events-overview.component.html',
-  styleUrls: ['./custom-events-overview.component.scss']
+  selector: 'app-custom-metrics-overview',
+  templateUrl: './custom-metrics-overview.component.html',
+  styleUrls: ['./custom-metrics-overview.component.scss']
 })
-export class CustomEventsOverviewComponent implements OnInit {
+export class CustomMetricsOverviewComponent implements OnInit {
   @ViewChild("chart") chart: ChartComponent;
-  customEventsOverviewView$ = new BehaviorSubject<CustomEventsOverviewView>(null!); 
+  customMetricsOverviewView$ = new BehaviorSubject<CustomMetricsOverviewView>(null!); 
   jsonViewerData: any = null;
 
   public configuration: Config;
   public columns: Columns[];
-  public data: CustomEvent[] = [];
+  public data: CustomMetric[] = [];
   
   public chartOptions!: Partial<ChartOptions> | any;
 
   constructor(
-    public customEventsOverviewService: CustomEventsOverviewService,
+    public customMetricsOverviewService: CustomMetricsOverviewService,
     private modalService: NgbModal,
   ) { 
-    
-    this.initialiseChartOptions();
 
-    customEventsOverviewService.View$.subscribe(value => { 
-      this.customEventsOverviewView$.next(value);
-      if (!!value?.lastCustomEventItems) {
-        this.data = value.lastCustomEventItems;
+    this.intitialiseChartOptions();
+
+    customMetricsOverviewService.View$.subscribe(value => { 
+      this.customMetricsOverviewView$.next(value);
+      if (!!value?.lastCustomMetricItems) {
+        this.data = value.lastCustomMetricItems;
       }
       this.buildChartData();
     });
@@ -62,6 +62,7 @@ export class CustomEventsOverviewComponent implements OnInit {
       { key: 'cloudRoleInstance', title: 'Role Instance' },
       { key: 'cloudRoleName', title: 'Role Name' },
     ];
+
   }
 
   private buildChartData(): void {
@@ -69,10 +70,10 @@ export class CustomEventsOverviewComponent implements OnInit {
       this.buildChartDataDelayed();
     }, 500);
   }
-
+  
   private buildChartDataDelayed() {
     if (this.chart === undefined || this.chart === null) return;
-    var chartData = this.customEventsOverviewView$.value?.aggregateGroups;
+    var chartData = this.customMetricsOverviewView$.value?.aggregateGroups;
 
     var seriesData: ApexAxisChartSeries = [];
 
@@ -93,6 +94,7 @@ export class CustomEventsOverviewComponent implements OnInit {
       }
       seriesData.push(chartSeriesData);
     }
+    
     this.chart.updateOptions({ series: seriesData });
   }
 
@@ -103,7 +105,7 @@ export class CustomEventsOverviewComponent implements OnInit {
     modalRef.componentInstance.data = item;
   }
 
-  private initialiseChartOptions(): void {
+  private intitialiseChartOptions(): void {
     this.chartOptions = {
       chart: {
         height: 350,

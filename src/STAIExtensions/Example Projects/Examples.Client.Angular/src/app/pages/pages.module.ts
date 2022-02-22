@@ -29,6 +29,7 @@ import { AvailabilityGaugeComponent } from './availability-overview/availability
 import { BrowserTimingOverviewComponent } from './browser-timing-overview/browser-timing-overview.component';
 import { GroupValueDisplayComponent } from './browser-timing-overview/group-value-display/group-value-display.component';
 import { CustomEventsOverviewComponent } from './custom-events-overview/custom-events-overview.component';
+import { CustomMetricsOverviewComponent } from './custom-metrics-overview/custom-metrics-overview.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { CustomEventsOverviewComponent } from './custom-events-overview/custom-e
     BrowserTimingOverviewComponent,
     GroupValueDisplayComponent,
     CustomEventsOverviewComponent,
+    CustomMetricsOverviewComponent,
    
   ],
   imports: [

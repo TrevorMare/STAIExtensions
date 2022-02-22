@@ -1,37 +1,29 @@
 <shared-animated-header text="Browser Timings Overview"></shared-animated-header>
 
-<shared-tab-component>
-    <shared-tab-item title="Overall">
-        <browsertimingpage-group-value-display  
-            [groupValues]="(browserTimingsOverviewView$ | async)?.operationNameStatistics ?? null"
-            groupValueName="Overall"></browsertimingpage-group-value-display>   
-    </shared-tab-item>
-    <shared-tab-item title="Client Browser">
-        <browsertimingpage-group-value-display  
-            [groupValues]="(browserTimingsOverviewView$ | async)?.clientBrowserStatistics ?? null"
-            groupValueName="Client Browser"></browsertimingpage-group-value-display>
-    </shared-tab-item>
-    <shared-tab-item title="Client City">
-        <browsertimingpage-group-value-display  
-            [groupValues]="(browserTimingsOverviewView$ | async)?.clientCityStatistics ?? null"
-            groupValueName="Client City"></browsertimingpage-group-value-display>    
-    </shared-tab-item>
-    <shared-tab-item title="Client Country">
-        <browsertimingpage-group-value-display  
-            [groupValues]="(browserTimingsOverviewView$ | async)?.countryOrRegionStatistics ?? null"
-            groupValueName="Client Country"></browsertimingpage-group-value-display>    
-    </shared-tab-item>
-    <shared-tab-item title="User Session">
-        <browsertimingpage-group-value-display  
-            [groupValues]="(browserTimingsOverviewView$ | async)?.userSessionStatistics ?? null"
-            groupValueName="User Session"></browsertimingpage-group-value-display>    
-    </shared-tab-item>
-    <shared-tab-item title="User Id">
-        <browsertimingpage-group-value-display  
-            [groupValues]="(browserTimingsOverviewView$ | async)?.userIdStatistics ?? null"
-            groupValueName="User Id"></browsertimingpage-group-value-display>    
-    </shared-tab-item>
-</shared-tab-component>
+<ul class="menu-items">
+    <li (click)="setViewName('overall')" class="menu-item" [class.active]="selectedViewLabel == 'Overall'">
+        <a class="tab-item-button" type="button">Overall</a>
+    </li>
+    <li (click)="setViewName('clientBrowser')" class="menu-item" [class.active]="selectedViewLabel == 'Client Browser'">
+        <a class="tab-item-button" type="button">Client Browser</a>
+    </li>
+    <li (click)="setViewName('clientCity')" class="menu-item" [class.active]="selectedViewLabel == 'Client City'">
+        <a class="tab-item-button" type="button">Client City</a>
+    </li>
+    <li (click)="setViewName('countryOrRegion')" class="menu-item" [class.active]="selectedViewLabel == 'Client Country'">
+        <a class="tab-item-button" type="button">Client Country</a>
+    </li>
+    <li (click)="setViewName('userSession')" class="menu-item" [class.active]="selectedViewLabel == 'User Session'">
+        <a class="tab-item-button" type="button">User Session</a>
+    </li>
+    <li (click)="setViewName('userId')" class="menu-item" [class.active]="selectedViewLabel == 'User Id'">
+        <a class="tab-item-button" type="button">User Id</a>
+    </li>
+</ul>
+
+<browsertimingpage-group-value-display  
+[groupValues]="(selectedGroup$ | async) ?? null"
+[groupValueName]="selectedViewLabel"></browsertimingpage-group-value-display>   
 
 
 

@@ -1,5 +1,6 @@
-import { AfterViewChecked, AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
-import { ApexAxisChartSeries, ApexChart, ApexFill, ApexPlotOptions, ApexTitleSubtitle, ApexXAxis, ChartComponent } from 'ng-apexcharts';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { ApexAxisChartSeries, ApexChart, ApexFill, ApexPlotOptions, ChartComponent } from 'ng-apexcharts';
+import { delay } from 'rxjs';
 import { AvailabilityAggregateGroup } from 'src/app/data/view.availability-overview';
 
 export type ChartOptions = {
@@ -14,24 +15,53 @@ export type ChartOptions = {
 @Component({
   selector: 'availabilitypage-availability-gauge',
   templateUrl: './availability-gauge.component.html',
-  styleUrls: ['./availability-gauge.component.scss']
+  styleUrls: ['./availability-gauge.component.scss'] 
 })
-export class AvailabilityGaugeComponent implements OnInit, AfterViewInit, AfterViewChecked {
+export class AvailabilityGaugeComponent implements OnInit, AfterViewInit {
+  @ViewChild("chart", { static: true }) chart: ChartComponent;
+  public chartOptions!: Partial<ChartOptions> | any;
+
   _data: AvailabilityAggregateGroup | null = null;
   _initialized: boolean = false;
 
-  @ViewChild("chart") chart: ChartComponent;
-  public chartOptions!: Partial<ChartOptions> | any;
- 
   get data(): AvailabilityAggregateGroup | null { return this._data; }
- 
   @Input() set data(value: AvailabilityAggregateGroup | null) {
     this._data = value;
     this.setChartData();
   }
   
   constructor() { 
+    this.buildDefaultChartOptions();
+  }
+ 
+  ngOnInit(): void {
+    
+  }
 
+  ngAfterViewInit(): void {
+    this._initialized = true;
+    this.setChartData();
+  }
+
+  private setChartData() {
+    if (this._initialized === false) return;
+    if (this.chart === undefined || this.chart === null || typeof this.chart.updateSeries === "undefined") return;
+    setTimeout(() => {
+      this.setChartDataDelayed();
+    }, 200);
+  }
+
+  private setChartDataDelayed() {
+    if (this._data?.lastItem == null) {
+      this.chart.updateSeries([]);
+    } else {
+      this.chart.updateOptions({ 
+        series: [ this._data.lastItem.successPercentage.round(0) ],
+      });
+    }
+  }
+
+  private buildDefaultChartOptions() {
     this.chartOptions = {
       series: [],
       chart: {
@@ -111,31 +141,6 @@ export class AvailabilityGaugeComponent implements OnInit, AfterViewInit, AfterV
       },
       labels: ['Success Percent'],
     };
-  }
-  ngAfterViewChecked(): void {
-   
-  }
-  
-  ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
-    this._initialized = true;
-    this.setChartData();
-  }
-
-  private setChartData() {
-    if (this._initialized === false) return;
-    if (this.chart === undefined || this.chart === null) return;
-    if (this._data?.lastItem == null) {
-      this.chart.updateOptions({ 
-        series: []
-      });
-    } else {
-      this.chart.updateOptions({ 
-        series: [ this._data.lastItem.successPercentage.round(0) ],
-      });
-    }
   }
 
 }
