@@ -2,30 +2,26 @@
 using STAIExtensions.Abstractions.Views;
 using STAIExtensions.Default.DataSets;
 using STAIExtensions.Default.Helpers;
-using STAIExtensions.Default.Views.CustomMetricModels;
 
 namespace STAIExtensions.Default.Views;
 
-public class CustomMetricsView : BaseView
+public class DependenciesView : BaseView
 {
-    
     #region Constants
 
     private const string PARAM_LASTRECORDCOUNT = "LastRecordCount"; 
     private const string PARAM_STARTDATETIME = "StartDateTime";
     private const string PARAM_ENDDATETIME = "StartEndTime";
-    private const string PARAM_GROUPINGMINUTES = "GroupingMinutes";
 
     #endregion
     
     #region Members
-    private List<CustomMetric> _customMetricsFiltered = new();
-    private List<PeriodBoundary<CustomMetric>> _periodBoundaries = new();
+    private List<Dependency> _dependenciesFiltered = new();
+    private List<PeriodBoundary<Dependency>> _periodBoundaries = new();
     
     private int _lastRecordCount = 10;
     private DateTime? _startDateTime;
     private DateTime? _endDateTime;
-    private int _periodGroupMinutes = 600;
     #endregion
 
     #region Properties
@@ -49,18 +45,12 @@ public class CustomMetricsView : BaseView
     /// </summary>
     public int? FilteredNumberOfItems { get; private set; }
     
-    /// <summary>
-    /// Gets the latest number of entries
-    /// </summary>
-    public List<CustomMetric> LastCustomMetricItems { get; private set; } = new();
-
-    public List<ViewAggregateGroup> AggregateGroups { get; private set; } = new();
 
     #endregion
 
     #region ctor
 
-    public CustomMetricsView()
+    public DependenciesView()
     {
         RegisterDataSetTypeForUpdates<DataContractDataSet>(set =>
         {
@@ -84,9 +74,7 @@ public class CustomMetricsView : BaseView
             new DataSetViewParameterDescriptor(PARAM_STARTDATETIME, "long", false, 
                 "Start UTC date time ticks"),
             new DataSetViewParameterDescriptor(PARAM_ENDDATETIME, "long", false, 
-                "End UTC date time ticks"),
-            new DataSetViewParameterDescriptor(PARAM_GROUPINGMINUTES, "int", false,
-                "Number of minutes to group by")
+                "End UTC date time ticks")
         };
 
     #endregion
@@ -99,7 +87,7 @@ public class CustomMetricsView : BaseView
         {
             this.SetupDistinctCloudInstanceAndRoleNames(new List<IEnumerable<DataContractFull>>()
             {
-                dataSet.CustomMetrics
+                dataSet.Dependencies
             });
 
             this.BuildLocalListItems(dataSet);
@@ -149,12 +137,6 @@ public class CustomMetricsView : BaseView
 
             if (endDateTimeTicks is >= 0)
                 this._endDateTime = new DateTime(endDateTimeTicks.Value);
-            
-            var groupingMinutes =  
-                Helpers.ViewParameterHelper.ExtractParameter<int?>(this.ViewParameters, PARAM_GROUPINGMINUTES);
-
-            if (groupingMinutes is >= 5)
-                this._periodGroupMinutes = groupingMinutes.Value;
         }
         catch (Exception ex)
         {
@@ -169,7 +151,7 @@ public class CustomMetricsView : BaseView
     private void BuildLocalListItems(DataContractDataSet dataContractDataSet)
     {
         // Keep a copy of the lists before after it is filtered 
-        this._customMetricsFiltered = dataContractDataSet.CustomMetrics
+        this._dependenciesFiltered = dataContractDataSet.Dependencies
             .FilterCloudRoleInstance(FilterCloudInstanceNames)
             .FilterCloudRoleName(FilterCloudRoleNames)
             .FilterTimeStamp(this._startDateTime, this._endDateTime)
@@ -181,79 +163,13 @@ public class CustomMetricsView : BaseView
     /// </summary>
     private void BuildViewItems(DataContractDataSet dataContractDataSet)
     {
-        this.LastCustomMetricItems = this._customMetricsFiltered
-            .OrderByDescending(x => x.TimeStamp)
-            .Take(_lastRecordCount)
-            .OrderBy(x => x.TimeStamp)
-            .ToList();
         this.TotalNumberOfItems = dataContractDataSet.CustomMetrics.Count;
-        this.FilteredNumberOfItems = this._customMetricsFiltered.Count;
+        this.FilteredNumberOfItems = this._dependenciesFiltered.Count;
 
-        this.SetupEntryPeriods();
-        this.SetupGroupingPeriodBoundaries();
-
-        this.BuildGroupValues();
     }
 
-    private void BuildGroupValues()
-    {
-        var operationNameGroupValues = _customMetricsFiltered
-            .Select(x => x.Name)
-            .OrderBy(x => x)
-            .Distinct();
-
-        AggregateGroups.Clear();
-        
-        foreach (var operationNameGroupValue in operationNameGroupValues)
-        {
-            
-            var operationGroupItems = _customMetricsFiltered
-                .Where(x => x.Name == operationNameGroupValue)
-                .ToList();
-
-            var operationAggregateGroup = new ViewAggregateGroup()
-            {
-                GroupName = operationNameGroupValue
-            };
-            
-            foreach (var period in _periodBoundaries)
-            {
-                var periodRecords = period.GetItems(operationGroupItems);
-                operationAggregateGroup.AddPeriodBoundaryData(period, periodRecords);
-            }
-
-            AggregateGroups.Add(operationAggregateGroup);
-        }
-    }
-    
-    private void SetupEntryPeriods()
-    {
-        this.MinTelemetryDate = null;
-        this.MaxTelemetryDate = null;
-        
-        if (this._customMetricsFiltered.Count > 0)
-        {
-            this.MinTelemetryDate = this._customMetricsFiltered.Min(x => x.TimeStamp);
-            this.MaxTelemetryDate = this._customMetricsFiltered.Max(x => x.TimeStamp);
-        }
-    }
-    
-    private void SetupGroupingPeriodBoundaries()
-    {
-        if (this.MinTelemetryDate.HasValue == false || this.MaxTelemetryDate.HasValue == false) return;
-        
-        this._periodBoundaries.Clear();
-
-        var workingDate = DateTime.UtcNow;
-        
-        while (workingDate > this.MinTelemetryDate.Value)
-        {
-            this._periodBoundaries.Add(new PeriodBoundary<CustomMetric>(
-                workingDate.AddMinutes(-this._periodGroupMinutes), 
-                workingDate
-            ));
-            workingDate = workingDate.AddMinutes(-this._periodGroupMinutes);
-        }
-    }
+   
     #endregion
+    
+    
 }

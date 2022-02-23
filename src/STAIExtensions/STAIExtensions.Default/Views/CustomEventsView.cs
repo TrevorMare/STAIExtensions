@@ -100,7 +100,7 @@ public class CustomEventsView : BaseView
         {
             this.SetupDistinctCloudInstanceAndRoleNames(new List<IEnumerable<DataContractFull>>()
             {
-                dataSet.Traces
+                dataSet.CustomEvents
             });
 
             this.BuildLocalListItems(dataSet);
