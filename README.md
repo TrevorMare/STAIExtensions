@@ -8,6 +8,10 @@
 
 <a href="https://trevormare.github.io/STAIExtensions/api/STAIExtensions.Core.html"><img src="https://img.shields.io/badge/Documentation-Help-informational?style=for-the-badge" /></a>
 
+## NOTE
+
+It is with great sadness that I write this, but as of now I am no longer actively maintaining this project as some personal changes are forcing me to change direction. Hopefully one day I will be able to pick this up again.
+
 ## Concepts
 
 ### Telemetry Loader
